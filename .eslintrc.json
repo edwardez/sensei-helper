@@ -1,3 +1,15 @@
 {
-  "extends": ["eslint:recommended","google","next/core-web-vitals"]
+  "rules": {
+    "max-len": [
+      "error",
+      {
+        "code": 100
+      }
+    ]
+  },
+  "extends": [
+    "eslint:recommended",
+    "google",
+    "next/core-web-vitals"
+  ]
 }
