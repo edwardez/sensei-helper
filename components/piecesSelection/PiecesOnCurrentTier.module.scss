@@ -1,0 +1,22 @@
+.currentTierPiecesRow{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.pieceWithCountInput{
+  display: inline-flex;
+  flex-direction: column;
+}
+
+.pieceImageWrapper{
+  flex: 1 1 auto;
+}
+
+.pieceInputWrapper{
+  display: flex;
+
+  *{
+    flex: 1;
+display: inline-block;
+  }
+}
