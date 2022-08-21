@@ -1,4 +1,4 @@
-import {Instance, SnapshotIn, SnapshotOut, types,} from 'mobx-state-tree';
+import {Instance, SnapshotIn, SnapshotOut, types} from 'mobx-state-tree';
 
 let equipmentsRequirementStore: IEquipmentsRequirementStore | undefined;
 

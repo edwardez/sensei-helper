@@ -1,5 +1,5 @@
 import {createContext, useContext} from 'react';
-import {applySnapshot, Instance, SnapshotIn, SnapshotOut, types,} from 'mobx-state-tree';
+import {applySnapshot, Instance, SnapshotIn, SnapshotOut, types} from 'mobx-state-tree';
 import {EquipmentsRequirementStore} from 'stores/EquipmentsRequirementStore';
 import {enableStaticRendering} from 'mobx-react-lite';
 
