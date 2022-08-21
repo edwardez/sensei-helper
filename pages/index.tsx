@@ -1,6 +1,13 @@
 import Home from 'components/Home';
+import React from 'react';
+import BasAppBar from 'components/appBar/BasAppBar';
 
 export default function IndexPage() {
-  return <Home/>;
+  return (
+    <React.Fragment>
+      <BasAppBar />
+      <Home/>
+    </React.Fragment>
+  );
 }
 
