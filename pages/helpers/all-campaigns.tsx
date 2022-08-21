@@ -4,13 +4,15 @@ import {Campaign} from 'model/Campaign';
 import {Equipment} from 'model/Equipment';
 import Image from 'next/image';
 import styles from './all-campaigns.module.scss';
+import {serverSideTranslations} from 'next-i18next/serverSideTranslations';
+import {useTranslation} from 'next-i18next';
 
-const jsonDirectory = path.join(process.cwd(), 'public', 'data');
-console.log(styles);
 const AllCampaigns = ({
   campaigns,
   equipmentsById,
 }: { campaigns: Campaign[], equipmentsById: { [k: string]: Equipment } }) => {
+  const {t} = useTranslation('common');
+
   return (
     <ul>
       {campaigns.map((campaign) => {
@@ -40,7 +42,8 @@ const AllCampaigns = ({
 };
 
 
-export async function getStaticProps() {
+export async function getStaticProps({locale} : {locale: string}) {
+  const jsonDirectory = path.join(process.cwd(), 'public', 'data');
   const rawCampaignsData = fs.readFileSync(path.join(jsonDirectory, 'campaigns.json'));
   const campaigns = JSON.parse(rawCampaignsData.toString()) as Campaign[];
 
@@ -48,7 +51,11 @@ export async function getStaticProps() {
   const equipments = JSON.parse(rawEquipmentsData.toString()) as Equipment[];
   const equipmentsById = Object.fromEntries(equipments.map((equipment) => [equipment.id, equipment]));
   return {
-    props: {campaigns, equipmentsById}, // will be passed to the page component as props
+    props: {
+      campaigns,
+      equipmentsById,
+      ...await serverSideTranslations(locale, ['common']),
+    }, // will be passed to the page component as props
   };
 }
 

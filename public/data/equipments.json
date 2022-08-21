@@ -1,6 +1,6 @@
 [
   {
-    "id": 2001000,
+    "id": "2001000",
     "category": "Hat",
     "tier": 1,
     "icon": "Equipment_Icon_Hat_Tier1",
@@ -12,7 +12,7 @@
     ]
   },
   {
-    "id": 2001001,
+    "id": "2001001",
     "category": "Hat",
     "tier": 2,
     "icon": "Equipment_Icon_Hat_Tier2",
@@ -24,13 +24,13 @@
     ],
     "recipe": [
       {
-        "id": 101001,
+        "id": "101001",
         "count": 15
       }
     ]
   },
   {
-    "id": 2001002,
+    "id": "2001002",
     "category": "Hat",
     "tier": 3,
     "icon": "Equipment_Icon_Hat_Tier3",
@@ -42,13 +42,13 @@
     ],
     "recipe": [
       {
-        "id": 101002,
+        "id": "101002",
         "count": 20
       }
     ]
   },
   {
-    "id": 2001003,
+    "id": "2001003",
     "category": "Hat",
     "tier": 4,
     "icon": "Equipment_Icon_Hat_Tier4",
@@ -60,17 +60,17 @@
     ],
     "recipe": [
       {
-        "id": 101003,
+        "id": "101003",
         "count": 30
       },
       {
-        "id": 101001,
+        "id": "101001",
         "count": 10
       }
     ]
   },
   {
-    "id": 2001004,
+    "id": "2001004",
     "category": "Hat",
     "tier": 5,
     "icon": "Equipment_Icon_Hat_Tier5",
@@ -82,21 +82,21 @@
     ],
     "recipe": [
       {
-        "id": 101004,
+        "id": "101004",
         "count": 35
       },
       {
-        "id": 101002,
+        "id": "101002",
         "count": 20
       },
       {
-        "id": 101001,
+        "id": "101001",
         "count": 15
       }
     ]
   },
   {
-    "id": 2001005,
+    "id": "2001005",
     "category": "Hat",
     "tier": 6,
     "icon": "Equipment_Icon_Hat_Tier6",
@@ -108,21 +108,21 @@
     ],
     "recipe": [
       {
-        "id": 101005,
+        "id": "101005",
         "count": 40
       },
       {
-        "id": 101003,
+        "id": "101003",
         "count": 15
       },
       {
-        "id": 101002,
+        "id": "101002",
         "count": 5
       }
     ]
   },
   {
-    "id": 2001006,
+    "id": "2001006",
     "category": "Hat",
     "tier": 7,
     "icon": "Equipment_Icon_Hat_Tier7",
@@ -133,21 +133,21 @@
     ],
     "recipe": [
       {
-        "id": 101006,
+        "id": "101006",
         "count": 40
       },
       {
-        "id": 101004,
+        "id": "101004",
         "count": 15
       },
       {
-        "id": 101003,
+        "id": "101003",
         "count": 5
       }
     ]
   },
   {
-    "id": 2002000,
+    "id": "2002000",
     "category": "Gloves",
     "tier": 1,
     "icon": "Equipment_Icon_Gloves_Tier1",
@@ -159,7 +159,7 @@
     ]
   },
   {
-    "id": 2002001,
+    "id": "2002001",
     "category": "Gloves",
     "tier": 2,
     "icon": "Equipment_Icon_Gloves_Tier2",
@@ -171,13 +171,13 @@
     ],
     "recipe": [
       {
-        "id": 102001,
+        "id": "102001",
         "count": 15
       }
     ]
   },
   {
-    "id": 2002002,
+    "id": "2002002",
     "category": "Gloves",
     "tier": 3,
     "icon": "Equipment_Icon_Gloves_Tier3",
@@ -189,13 +189,13 @@
     ],
     "recipe": [
       {
-        "id": 102002,
+        "id": "102002",
         "count": 20
       }
     ]
   },
   {
-    "id": 2002003,
+    "id": "2002003",
     "category": "Gloves",
     "tier": 4,
     "icon": "Equipment_Icon_Gloves_Tier4",
@@ -207,17 +207,17 @@
     ],
     "recipe": [
       {
-        "id": 102003,
+        "id": "102003",
         "count": 30
       },
       {
-        "id": 102001,
+        "id": "102001",
         "count": 10
       }
     ]
   },
   {
-    "id": 2002004,
+    "id": "2002004",
     "category": "Gloves",
     "tier": 5,
     "icon": "Equipment_Icon_Gloves_Tier5",
@@ -229,21 +229,21 @@
     ],
     "recipe": [
       {
-        "id": 102004,
+        "id": "102004",
         "count": 35
       },
       {
-        "id": 102002,
+        "id": "102002",
         "count": 20
       },
       {
-        "id": 102001,
+        "id": "102001",
         "count": 15
       }
     ]
   },
   {
-    "id": 2002005,
+    "id": "2002005",
     "category": "Gloves",
     "tier": 6,
     "icon": "Equipment_Icon_Gloves_Tier6",
@@ -255,21 +255,21 @@
     ],
     "recipe": [
       {
-        "id": 102005,
+        "id": "102005",
         "count": 40
       },
       {
-        "id": 102003,
+        "id": "102003",
         "count": 15
       },
       {
-        "id": 102002,
+        "id": "102002",
         "count": 5
       }
     ]
   },
   {
-    "id": 2002006,
+    "id": "2002006",
     "category": "Gloves",
     "tier": 7,
     "icon": "Equipment_Icon_Gloves_Tier7",
@@ -280,21 +280,21 @@
     ],
     "recipe": [
       {
-        "id": 102006,
+        "id": "102006",
         "count": 40
       },
       {
-        "id": 102004,
+        "id": "102004",
         "count": 15
       },
       {
-        "id": 102003,
+        "id": "102003",
         "count": 5
       }
     ]
   },
   {
-    "id": 2003000,
+    "id": "2003000",
     "category": "Shoes",
     "tier": 1,
     "icon": "Equipment_Icon_Shoes_Tier1",
@@ -306,7 +306,7 @@
     ]
   },
   {
-    "id": 2003001,
+    "id": "2003001",
     "category": "Shoes",
     "tier": 2,
     "icon": "Equipment_Icon_Shoes_Tier2",
@@ -318,13 +318,13 @@
     ],
     "recipe": [
       {
-        "id": 103001,
+        "id": "103001",
         "count": 15
       }
     ]
   },
   {
-    "id": 2003002,
+    "id": "2003002",
     "category": "Shoes",
     "tier": 3,
     "icon": "Equipment_Icon_Shoes_Tier3",
@@ -336,13 +336,13 @@
     ],
     "recipe": [
       {
-        "id": 103002,
+        "id": "103002",
         "count": 20
       }
     ]
   },
   {
-    "id": 2003003,
+    "id": "2003003",
     "category": "Shoes",
     "tier": 4,
     "icon": "Equipment_Icon_Shoes_Tier4",
@@ -354,17 +354,17 @@
     ],
     "recipe": [
       {
-        "id": 103003,
+        "id": "103003",
         "count": 30
       },
       {
-        "id": 103001,
+        "id": "103001",
         "count": 10
       }
     ]
   },
   {
-    "id": 2003004,
+    "id": "2003004",
     "category": "Shoes",
     "tier": 5,
     "icon": "Equipment_Icon_Shoes_Tier5",
@@ -376,21 +376,21 @@
     ],
     "recipe": [
       {
-        "id": 103004,
+        "id": "103004",
         "count": 35
       },
       {
-        "id": 103002,
+        "id": "103002",
         "count": 20
       },
       {
-        "id": 103001,
+        "id": "103001",
         "count": 15
       }
     ]
   },
   {
-    "id": 2003005,
+    "id": "2003005",
     "category": "Shoes",
     "tier": 6,
     "icon": "Equipment_Icon_Shoes_Tier6",
@@ -402,21 +402,21 @@
     ],
     "recipe": [
       {
-        "id": 103005,
+        "id": "103005",
         "count": 40
       },
       {
-        "id": 103003,
+        "id": "103003",
         "count": 15
       },
       {
-        "id": 103002,
+        "id": "103002",
         "count": 5
       }
     ]
   },
   {
-    "id": 2003006,
+    "id": "2003006",
     "category": "Shoes",
     "tier": 7,
     "icon": "Equipment_Icon_Shoes_Tier7",
@@ -427,21 +427,21 @@
     ],
     "recipe": [
       {
-        "id": 103006,
+        "id": "103006",
         "count": 40
       },
       {
-        "id": 103004,
+        "id": "103004",
         "count": 15
       },
       {
-        "id": 103003,
+        "id": "103003",
         "count": 5
       }
     ]
   },
   {
-    "id": 2004000,
+    "id": "2004000",
     "category": "Bag",
     "tier": 1,
     "icon": "Equipment_Icon_Bag_Tier1",
@@ -453,7 +453,7 @@
     ]
   },
   {
-    "id": 2004001,
+    "id": "2004001",
     "category": "Bag",
     "tier": 2,
     "icon": "Equipment_Icon_Bag_Tier2",
@@ -465,13 +465,13 @@
     ],
     "recipe": [
       {
-        "id": 104001,
+        "id": "104001",
         "count": 15
       }
     ]
   },
   {
-    "id": 2004002,
+    "id": "2004002",
     "category": "Bag",
     "tier": 3,
     "icon": "Equipment_Icon_Bag_Tier3",
@@ -483,13 +483,13 @@
     ],
     "recipe": [
       {
-        "id": 104002,
+        "id": "104002",
         "count": 20
       }
     ]
   },
   {
-    "id": 2004003,
+    "id": "2004003",
     "category": "Bag",
     "tier": 4,
     "icon": "Equipment_Icon_Bag_Tier4",
@@ -501,17 +501,17 @@
     ],
     "recipe": [
       {
-        "id": 104003,
+        "id": "104003",
         "count": 30
       },
       {
-        "id": 104001,
+        "id": "104001",
         "count": 10
       }
     ]
   },
   {
-    "id": 2004004,
+    "id": "2004004",
     "category": "Bag",
     "tier": 5,
     "icon": "Equipment_Icon_Bag_Tier5",
@@ -523,21 +523,21 @@
     ],
     "recipe": [
       {
-        "id": 104004,
+        "id": "104004",
         "count": 35
       },
       {
-        "id": 104002,
+        "id": "104002",
         "count": 20
       },
       {
-        "id": 104001,
+        "id": "104001",
         "count": 15
       }
     ]
   },
   {
-    "id": 2004005,
+    "id": "2004005",
     "category": "Bag",
     "tier": 6,
     "icon": "Equipment_Icon_Bag_Tier6",
@@ -549,21 +549,21 @@
     ],
     "recipe": [
       {
-        "id": 104005,
+        "id": "104005",
         "count": 40
       },
       {
-        "id": 104003,
+        "id": "104003",
         "count": 15
       },
       {
-        "id": 104002,
+        "id": "104002",
         "count": 5
       }
     ]
   },
   {
-    "id": 2004006,
+    "id": "2004006",
     "category": "Bag",
     "tier": 7,
     "icon": "Equipment_Icon_Bag_Tier7",
@@ -574,21 +574,21 @@
     ],
     "recipe": [
       {
-        "id": 104006,
+        "id": "104006",
         "count": 40
       },
       {
-        "id": 104004,
+        "id": "104004",
         "count": 15
       },
       {
-        "id": 104003,
+        "id": "104003",
         "count": 5
       }
     ]
   },
   {
-    "id": 2005000,
+    "id": "2005000",
     "category": "Badge",
     "tier": 1,
     "icon": "Equipment_Icon_Badge_Tier1",
@@ -600,7 +600,7 @@
     ]
   },
   {
-    "id": 2005001,
+    "id": "2005001",
     "category": "Badge",
     "tier": 2,
     "icon": "Equipment_Icon_Badge_Tier2",
@@ -612,13 +612,13 @@
     ],
     "recipe": [
       {
-        "id": 105001,
+        "id": "105001",
         "count": 15
       }
     ]
   },
   {
-    "id": 2005002,
+    "id": "2005002",
     "category": "Badge",
     "tier": 3,
     "icon": "Equipment_Icon_Badge_Tier3",
@@ -630,13 +630,13 @@
     ],
     "recipe": [
       {
-        "id": 105002,
+        "id": "105002",
         "count": 20
       }
     ]
   },
   {
-    "id": 2005003,
+    "id": "2005003",
     "category": "Badge",
     "tier": 4,
     "icon": "Equipment_Icon_Badge_Tier4",
@@ -648,17 +648,17 @@
     ],
     "recipe": [
       {
-        "id": 105003,
+        "id": "105003",
         "count": 30
       },
       {
-        "id": 105001,
+        "id": "105001",
         "count": 10
       }
     ]
   },
   {
-    "id": 2005004,
+    "id": "2005004",
     "category": "Badge",
     "tier": 5,
     "icon": "Equipment_Icon_Badge_Tier5",
@@ -670,21 +670,21 @@
     ],
     "recipe": [
       {
-        "id": 105004,
+        "id": "105004",
         "count": 35
       },
       {
-        "id": 105002,
+        "id": "105002",
         "count": 20
       },
       {
-        "id": 105001,
+        "id": "105001",
         "count": 15
       }
     ]
   },
   {
-    "id": 2005005,
+    "id": "2005005",
     "category": "Badge",
     "tier": 6,
     "icon": "Equipment_Icon_Badge_Tier6",
@@ -696,21 +696,21 @@
     ],
     "recipe": [
       {
-        "id": 105005,
+        "id": "105005",
         "count": 40
       },
       {
-        "id": 105003,
+        "id": "105003",
         "count": 15
       },
       {
-        "id": 105002,
+        "id": "105002",
         "count": 5
       }
     ]
   },
   {
-    "id": 2005006,
+    "id": "2005006",
     "category": "Badge",
     "tier": 7,
     "icon": "Equipment_Icon_Badge_Tier7",
@@ -721,21 +721,21 @@
     ],
     "recipe": [
       {
-        "id": 105006,
+        "id": "105006",
         "count": 40
       },
       {
-        "id": 105004,
+        "id": "105004",
         "count": 15
       },
       {
-        "id": 105003,
+        "id": "105003",
         "count": 5
       }
     ]
   },
   {
-    "id": 2006000,
+    "id": "2006000",
     "category": "Hairpin",
     "tier": 1,
     "icon": "Equipment_Icon_Hairpin_Tier1",
@@ -747,7 +747,7 @@
     ]
   },
   {
-    "id": 2006001,
+    "id": "2006001",
     "category": "Hairpin",
     "tier": 2,
     "icon": "Equipment_Icon_Hairpin_Tier2",
@@ -759,13 +759,13 @@
     ],
     "recipe": [
       {
-        "id": 106001,
+        "id": "106001",
         "count": 15
       }
     ]
   },
   {
-    "id": 2006002,
+    "id": "2006002",
     "category": "Hairpin",
     "tier": 3,
     "icon": "Equipment_Icon_Hairpin_Tier3",
@@ -777,13 +777,13 @@
     ],
     "recipe": [
       {
-        "id": 106002,
+        "id": "106002",
         "count": 20
       }
     ]
   },
   {
-    "id": 2006003,
+    "id": "2006003",
     "category": "Hairpin",
     "tier": 4,
     "icon": "Equipment_Icon_Hairpin_Tier4",
@@ -795,17 +795,17 @@
     ],
     "recipe": [
       {
-        "id": 106003,
+        "id": "106003",
         "count": 30
       },
       {
-        "id": 106001,
+        "id": "106001",
         "count": 10
       }
     ]
   },
   {
-    "id": 2006004,
+    "id": "2006004",
     "category": "Hairpin",
     "tier": 5,
     "icon": "Equipment_Icon_Hairpin_Tier5",
@@ -817,21 +817,21 @@
     ],
     "recipe": [
       {
-        "id": 106004,
+        "id": "106004",
         "count": 35
       },
       {
-        "id": 106002,
+        "id": "106002",
         "count": 20
       },
       {
-        "id": 106001,
+        "id": "106001",
         "count": 15
       }
     ]
   },
   {
-    "id": 2006005,
+    "id": "2006005",
     "category": "Hairpin",
     "tier": 6,
     "icon": "Equipment_Icon_Hairpin_Tier6",
@@ -843,21 +843,21 @@
     ],
     "recipe": [
       {
-        "id": 106005,
+        "id": "106005",
         "count": 40
       },
       {
-        "id": 106003,
+        "id": "106003",
         "count": 15
       },
       {
-        "id": 106002,
+        "id": "106002",
         "count": 5
       }
     ]
   },
   {
-    "id": 2006006,
+    "id": "2006006",
     "category": "Hairpin",
     "tier": 7,
     "icon": "Equipment_Icon_Hairpin_Tier7",
@@ -868,21 +868,21 @@
     ],
     "recipe": [
       {
-        "id": 106006,
+        "id": "106006",
         "count": 40
       },
       {
-        "id": 106004,
+        "id": "106004",
         "count": 15
       },
       {
-        "id": 106003,
+        "id": "106003",
         "count": 5
       }
     ]
   },
   {
-    "id": 2007000,
+    "id": "2007000",
     "category": "Charm",
     "tier": 1,
     "icon": "Equipment_Icon_Charm_Tier1",
@@ -894,7 +894,7 @@
     ]
   },
   {
-    "id": 2007001,
+    "id": "2007001",
     "category": "Charm",
     "tier": 2,
     "icon": "Equipment_Icon_Charm_Tier2",
@@ -906,13 +906,13 @@
     ],
     "recipe": [
       {
-        "id": 107001,
+        "id": "107001",
         "count": 15
       }
     ]
   },
   {
-    "id": 2007002,
+    "id": "2007002",
     "category": "Charm",
     "tier": 3,
     "icon": "Equipment_Icon_Charm_Tier3",
@@ -924,13 +924,13 @@
     ],
     "recipe": [
       {
-        "id": 107002,
+        "id": "107002",
         "count": 20
       }
     ]
   },
   {
-    "id": 2007003,
+    "id": "2007003",
     "category": "Charm",
     "tier": 4,
     "icon": "Equipment_Icon_Charm_Tier4",
@@ -942,17 +942,17 @@
     ],
     "recipe": [
       {
-        "id": 107003,
+        "id": "107003",
         "count": 30
       },
       {
-        "id": 107001,
+        "id": "107001",
         "count": 10
       }
     ]
   },
   {
-    "id": 2007004,
+    "id": "2007004",
     "category": "Charm",
     "tier": 5,
     "icon": "Equipment_Icon_Charm_Tier5",
@@ -964,21 +964,21 @@
     ],
     "recipe": [
       {
-        "id": 107004,
+        "id": "107004",
         "count": 35
       },
       {
-        "id": 107002,
+        "id": "107002",
         "count": 20
       },
       {
-        "id": 107001,
+        "id": "107001",
         "count": 15
       }
     ]
   },
   {
-    "id": 2007005,
+    "id": "2007005",
     "category": "Charm",
     "tier": 6,
     "icon": "Equipment_Icon_Charm_Tier6",
@@ -989,21 +989,21 @@
     ],
     "recipe": [
       {
-        "id": 107005,
+        "id": "107005",
         "count": 40
       },
       {
-        "id": 107003,
+        "id": "107003",
         "count": 15
       },
       {
-        "id": 107002,
+        "id": "107002",
         "count": 5
       }
     ]
   },
   {
-    "id": 2008000,
+    "id": "2008000",
     "category": "Watch",
     "tier": 1,
     "icon": "Equipment_Icon_Watch_Tier1",
@@ -1015,7 +1015,7 @@
     ]
   },
   {
-    "id": 2008001,
+    "id": "2008001",
     "category": "Watch",
     "tier": 2,
     "icon": "Equipment_Icon_Watch_Tier2",
@@ -1027,13 +1027,13 @@
     ],
     "recipe": [
       {
-        "id": 108001,
+        "id": "108001",
         "count": 15
       }
     ]
   },
   {
-    "id": 2008002,
+    "id": "2008002",
     "category": "Watch",
     "tier": 3,
     "icon": "Equipment_Icon_Watch_Tier3",
@@ -1045,13 +1045,13 @@
     ],
     "recipe": [
       {
-        "id": 108002,
+        "id": "108002",
         "count": 20
       }
     ]
   },
   {
-    "id": 2008003,
+    "id": "2008003",
     "category": "Watch",
     "tier": 4,
     "icon": "Equipment_Icon_Watch_Tier4",
@@ -1063,17 +1063,17 @@
     ],
     "recipe": [
       {
-        "id": 108003,
+        "id": "108003",
         "count": 30
       },
       {
-        "id": 108001,
+        "id": "108001",
         "count": 10
       }
     ]
   },
   {
-    "id": 2008004,
+    "id": "2008004",
     "category": "Watch",
     "tier": 5,
     "icon": "Equipment_Icon_Watch_Tier5",
@@ -1085,21 +1085,21 @@
     ],
     "recipe": [
       {
-        "id": 108004,
+        "id": "108004",
         "count": 35
       },
       {
-        "id": 108002,
+        "id": "108002",
         "count": 20
       },
       {
-        "id": 108001,
+        "id": "108001",
         "count": 15
       }
     ]
   },
   {
-    "id": 2008005,
+    "id": "2008005",
     "category": "Watch",
     "tier": 6,
     "icon": "Equipment_Icon_Watch_Tier6",
@@ -1110,21 +1110,21 @@
     ],
     "recipe": [
       {
-        "id": 108005,
+        "id": "108005",
         "count": 40
       },
       {
-        "id": 108003,
+        "id": "108003",
         "count": 15
       },
       {
-        "id": 108002,
+        "id": "108002",
         "count": 5
       }
     ]
   },
   {
-    "id": 2009000,
+    "id": "2009000",
     "category": "Necklace",
     "tier": 1,
     "icon": "Equipment_Icon_Necklace_Tier1",
@@ -1136,7 +1136,7 @@
     ]
   },
   {
-    "id": 2009001,
+    "id": "2009001",
     "category": "Necklace",
     "tier": 2,
     "icon": "Equipment_Icon_Necklace_Tier2",
@@ -1148,13 +1148,13 @@
     ],
     "recipe": [
       {
-        "id": 109001,
+        "id": "109001",
         "count": 15
       }
     ]
   },
   {
-    "id": 2009002,
+    "id": "2009002",
     "category": "Necklace",
     "tier": 3,
     "icon": "Equipment_Icon_Necklace_Tier3",
@@ -1166,13 +1166,13 @@
     ],
     "recipe": [
       {
-        "id": 109002,
+        "id": "109002",
         "count": 20
       }
     ]
   },
   {
-    "id": 2009003,
+    "id": "2009003",
     "category": "Necklace",
     "tier": 4,
     "icon": "Equipment_Icon_Necklace_Tier4",
@@ -1184,17 +1184,17 @@
     ],
     "recipe": [
       {
-        "id": 109003,
+        "id": "109003",
         "count": 30
       },
       {
-        "id": 109001,
+        "id": "109001",
         "count": 10
       }
     ]
   },
   {
-    "id": 2009004,
+    "id": "2009004",
     "category": "Necklace",
     "tier": 5,
     "icon": "Equipment_Icon_Necklace_Tier5",
@@ -1206,21 +1206,21 @@
     ],
     "recipe": [
       {
-        "id": 109004,
+        "id": "109004",
         "count": 35
       },
       {
-        "id": 109002,
+        "id": "109002",
         "count": 20
       },
       {
-        "id": 109001,
+        "id": "109001",
         "count": 15
       }
     ]
   },
   {
-    "id": 2009005,
+    "id": "2009005",
     "category": "Necklace",
     "tier": 6,
     "icon": "Equipment_Icon_Necklace_Tier6",
@@ -1231,21 +1231,21 @@
     ],
     "recipe": [
       {
-        "id": 109005,
+        "id": "109005",
         "count": 40
       },
       {
-        "id": 109003,
+        "id": "109003",
         "count": 15
       },
       {
-        "id": 109002,
+        "id": "109002",
         "count": 5
       }
     ]
   },
   {
-    "id": 2101001,
+    "id": "2101001",
     "category": "Hat",
     "tier": 2,
     "icon": "Equipment_Icon_Hat_Tier2_Piece",
@@ -1257,7 +1257,7 @@
     ]
   },
   {
-    "id": 2101002,
+    "id": "2101002",
     "category": "Hat",
     "tier": 3,
     "icon": "Equipment_Icon_Hat_Tier3_Piece",
@@ -1269,7 +1269,7 @@
     ]
   },
   {
-    "id": 2101003,
+    "id": "2101003",
     "category": "Hat",
     "tier": 4,
     "icon": "Equipment_Icon_Hat_Tier4_Piece",
@@ -1281,7 +1281,7 @@
     ]
   },
   {
-    "id": 2101004,
+    "id": "2101004",
     "category": "Hat",
     "tier": 5,
     "icon": "Equipment_Icon_Hat_Tier5_Piece",
@@ -1293,7 +1293,7 @@
     ]
   },
   {
-    "id": 2101005,
+    "id": "2101005",
     "category": "Hat",
     "tier": 6,
     "icon": "Equipment_Icon_Hat_Tier6_Piece",
@@ -1305,7 +1305,7 @@
     ]
   },
   {
-    "id": 2101006,
+    "id": "2101006",
     "category": "Hat",
     "tier": 7,
     "icon": "Equipment_Icon_Hat_Tier7_Piece",
@@ -1316,7 +1316,7 @@
     ]
   },
   {
-    "id": 2102001,
+    "id": "2102001",
     "category": "Gloves",
     "tier": 2,
     "icon": "Equipment_Icon_Gloves_Tier2_Piece",
@@ -1328,7 +1328,7 @@
     ]
   },
   {
-    "id": 2102002,
+    "id": "2102002",
     "category": "Gloves",
     "tier": 3,
     "icon": "Equipment_Icon_Gloves_Tier3_Piece",
@@ -1340,7 +1340,7 @@
     ]
   },
   {
-    "id": 2102003,
+    "id": "2102003",
     "category": "Gloves",
     "tier": 4,
     "icon": "Equipment_Icon_Gloves_Tier4_Piece",
@@ -1352,7 +1352,7 @@
     ]
   },
   {
-    "id": 2102004,
+    "id": "2102004",
     "category": "Gloves",
     "tier": 5,
     "icon": "Equipment_Icon_Gloves_Tier5_Piece",
@@ -1364,7 +1364,7 @@
     ]
   },
   {
-    "id": 2102005,
+    "id": "2102005",
     "category": "Gloves",
     "tier": 6,
     "icon": "Equipment_Icon_Gloves_Tier6_Piece",
@@ -1376,7 +1376,7 @@
     ]
   },
   {
-    "id": 2102006,
+    "id": "2102006",
     "category": "Gloves",
     "tier": 7,
     "icon": "Equipment_Icon_Gloves_Tier7_Piece",
@@ -1387,7 +1387,7 @@
     ]
   },
   {
-    "id": 2103001,
+    "id": "2103001",
     "category": "Shoes",
     "tier": 2,
     "icon": "Equipment_Icon_Shoes_Tier2_Piece",
@@ -1399,7 +1399,7 @@
     ]
   },
   {
-    "id": 2103002,
+    "id": "2103002",
     "category": "Shoes",
     "tier": 3,
     "icon": "Equipment_Icon_Shoes_Tier3_Piece",
@@ -1411,7 +1411,7 @@
     ]
   },
   {
-    "id": 2103003,
+    "id": "2103003",
     "category": "Shoes",
     "tier": 4,
     "icon": "Equipment_Icon_Shoes_Tier4_Piece",
@@ -1423,7 +1423,7 @@
     ]
   },
   {
-    "id": 2103004,
+    "id": "2103004",
     "category": "Shoes",
     "tier": 5,
     "icon": "Equipment_Icon_Shoes_Tier5_Piece",
@@ -1435,7 +1435,7 @@
     ]
   },
   {
-    "id": 2103005,
+    "id": "2103005",
     "category": "Shoes",
     "tier": 6,
     "icon": "Equipment_Icon_Shoes_Tier6_Piece",
@@ -1447,7 +1447,7 @@
     ]
   },
   {
-    "id": 2103006,
+    "id": "2103006",
     "category": "Shoes",
     "tier": 7,
     "icon": "Equipment_Icon_Shoes_Tier7_Piece",
@@ -1458,7 +1458,7 @@
     ]
   },
   {
-    "id": 2104001,
+    "id": "2104001",
     "category": "Bag",
     "tier": 2,
     "icon": "Equipment_Icon_Bag_Tier2_Piece",
@@ -1470,7 +1470,7 @@
     ]
   },
   {
-    "id": 2104002,
+    "id": "2104002",
     "category": "Bag",
     "tier": 3,
     "icon": "Equipment_Icon_Bag_Tier3_Piece",
@@ -1482,7 +1482,7 @@
     ]
   },
   {
-    "id": 2104003,
+    "id": "2104003",
     "category": "Bag",
     "tier": 4,
     "icon": "Equipment_Icon_Bag_Tier4_Piece",
@@ -1494,7 +1494,7 @@
     ]
   },
   {
-    "id": 2104004,
+    "id": "2104004",
     "category": "Bag",
     "tier": 5,
     "icon": "Equipment_Icon_Bag_Tier5_Piece",
@@ -1506,7 +1506,7 @@
     ]
   },
   {
-    "id": 2104005,
+    "id": "2104005",
     "category": "Bag",
     "tier": 6,
     "icon": "Equipment_Icon_Bag_Tier6_Piece",
@@ -1518,7 +1518,7 @@
     ]
   },
   {
-    "id": 2104006,
+    "id": "2104006",
     "category": "Bag",
     "tier": 7,
     "icon": "Equipment_Icon_Bag_Tier7_Piece",
@@ -1529,7 +1529,7 @@
     ]
   },
   {
-    "id": 2105001,
+    "id": "2105001",
     "category": "Badge",
     "tier": 2,
     "icon": "Equipment_Icon_Badge_Tier2_Piece",
@@ -1541,7 +1541,7 @@
     ]
   },
   {
-    "id": 2105002,
+    "id": "2105002",
     "category": "Badge",
     "tier": 3,
     "icon": "Equipment_Icon_Badge_Tier3_Piece",
@@ -1553,7 +1553,7 @@
     ]
   },
   {
-    "id": 2105003,
+    "id": "2105003",
     "category": "Badge",
     "tier": 4,
     "icon": "Equipment_Icon_Badge_Tier4_Piece",
@@ -1565,7 +1565,7 @@
     ]
   },
   {
-    "id": 2105004,
+    "id": "2105004",
     "category": "Badge",
     "tier": 5,
     "icon": "Equipment_Icon_Badge_Tier5_Piece",
@@ -1577,7 +1577,7 @@
     ]
   },
   {
-    "id": 2105005,
+    "id": "2105005",
     "category": "Badge",
     "tier": 6,
     "icon": "Equipment_Icon_Badge_Tier6_Piece",
@@ -1589,7 +1589,7 @@
     ]
   },
   {
-    "id": 2105006,
+    "id": "2105006",
     "category": "Badge",
     "tier": 7,
     "icon": "Equipment_Icon_Badge_Tier7_Piece",
@@ -1600,7 +1600,7 @@
     ]
   },
   {
-    "id": 2106001,
+    "id": "2106001",
     "category": "Hairpin",
     "tier": 2,
     "icon": "Equipment_Icon_Hairpin_Tier2_Piece",
@@ -1612,7 +1612,7 @@
     ]
   },
   {
-    "id": 2106002,
+    "id": "2106002",
     "category": "Hairpin",
     "tier": 3,
     "icon": "Equipment_Icon_Hairpin_Tier3_Piece",
@@ -1624,7 +1624,7 @@
     ]
   },
   {
-    "id": 2106003,
+    "id": "2106003",
     "category": "Hairpin",
     "tier": 4,
     "icon": "Equipment_Icon_Hairpin_Tier4_Piece",
@@ -1636,7 +1636,7 @@
     ]
   },
   {
-    "id": 2106004,
+    "id": "2106004",
     "category": "Hairpin",
     "tier": 5,
     "icon": "Equipment_Icon_Hairpin_Tier5_Piece",
@@ -1648,7 +1648,7 @@
     ]
   },
   {
-    "id": 2106005,
+    "id": "2106005",
     "category": "Hairpin",
     "tier": 6,
     "icon": "Equipment_Icon_Hairpin_Tier6_Piece",
@@ -1660,7 +1660,7 @@
     ]
   },
   {
-    "id": 2106006,
+    "id": "2106006",
     "category": "Hairpin",
     "tier": 7,
     "icon": "Equipment_Icon_Hairpin_Tier7_Piece",
@@ -1671,7 +1671,7 @@
     ]
   },
   {
-    "id": 2107001,
+    "id": "2107001",
     "category": "Charm",
     "tier": 2,
     "icon": "Equipment_Icon_Charm_Tier2_Piece",
@@ -1683,7 +1683,7 @@
     ]
   },
   {
-    "id": 2107002,
+    "id": "2107002",
     "category": "Charm",
     "tier": 3,
     "icon": "Equipment_Icon_Charm_Tier3_Piece",
@@ -1695,7 +1695,7 @@
     ]
   },
   {
-    "id": 2107003,
+    "id": "2107003",
     "category": "Charm",
     "tier": 4,
     "icon": "Equipment_Icon_Charm_Tier4_Piece",
@@ -1707,7 +1707,7 @@
     ]
   },
   {
-    "id": 2107004,
+    "id": "2107004",
     "category": "Charm",
     "tier": 5,
     "icon": "Equipment_Icon_Charm_Tier5_Piece",
@@ -1719,7 +1719,7 @@
     ]
   },
   {
-    "id": 2107005,
+    "id": "2107005",
     "category": "Charm",
     "tier": 6,
     "icon": "Equipment_Icon_Charm_Tier6_Piece",
@@ -1730,7 +1730,7 @@
     ]
   },
   {
-    "id": 2108001,
+    "id": "2108001",
     "category": "Watch",
     "tier": 2,
     "icon": "Equipment_Icon_Watch_Tier2_Piece",
@@ -1742,7 +1742,7 @@
     ]
   },
   {
-    "id": 2108002,
+    "id": "2108002",
     "category": "Watch",
     "tier": 3,
     "icon": "Equipment_Icon_Watch_Tier3_Piece",
@@ -1754,7 +1754,7 @@
     ]
   },
   {
-    "id": 2108003,
+    "id": "2108003",
     "category": "Watch",
     "tier": 4,
     "icon": "Equipment_Icon_Watch_Tier4_Piece",
@@ -1766,7 +1766,7 @@
     ]
   },
   {
-    "id": 2108004,
+    "id": "2108004",
     "category": "Watch",
     "tier": 5,
     "icon": "Equipment_Icon_Watch_Tier5_Piece",
@@ -1778,7 +1778,7 @@
     ]
   },
   {
-    "id": 2108005,
+    "id": "2108005",
     "category": "Watch",
     "tier": 6,
     "icon": "Equipment_Icon_Watch_Tier6_Piece",
@@ -1789,7 +1789,7 @@
     ]
   },
   {
-    "id": 2109001,
+    "id": "2109001",
     "category": "Necklace",
     "tier": 2,
     "icon": "Equipment_Icon_Necklace_Tier2_Piece",
@@ -1801,7 +1801,7 @@
     ]
   },
   {
-    "id": 2109002,
+    "id": "2109002",
     "category": "Necklace",
     "tier": 3,
     "icon": "Equipment_Icon_Necklace_Tier3_Piece",
@@ -1813,7 +1813,7 @@
     ]
   },
   {
-    "id": 2109003,
+    "id": "2109003",
     "category": "Necklace",
     "tier": 4,
     "icon": "Equipment_Icon_Necklace_Tier4_Piece",
@@ -1825,7 +1825,7 @@
     ]
   },
   {
-    "id": 2109004,
+    "id": "2109004",
     "category": "Necklace",
     "tier": 5,
     "icon": "Equipment_Icon_Necklace_Tier5_Piece",
@@ -1837,7 +1837,7 @@
     ]
   },
   {
-    "id": 2109005,
+    "id": "2109005",
     "category": "Necklace",
     "tier": 6,
     "icon": "Equipment_Icon_Necklace_Tier6_Piece",

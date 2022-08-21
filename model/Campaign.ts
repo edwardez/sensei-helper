@@ -1,5 +1,5 @@
 export interface Campaign {
-    id: number
+    id: string
     area: number
     stage: number
     jpName: string
@@ -7,6 +7,6 @@ export interface Campaign {
 }
 
 export interface Reward {
-    id: number
+    id: string
     probability: number
 }

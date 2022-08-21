@@ -1,11 +1,13 @@
 {
   "rules": {
     "max-len": [
-      "error",
+      "warn",
       {
         "code": 100
       }
-    ]
+    ],
+    "no-unused-vars": "warn",
+    "require-jsdoc": "warn"
   },
   "extends": [
     "eslint:recommended",

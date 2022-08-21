@@ -1,16 +1,16 @@
 export enum GameServer {
-    Japan = 0,
-    Global = 1,
+    Japan = 'Japan',
+    Global = 'Global',
 }
-
 
 export enum EquipmentCompositionType {
-    Piece = 0,
-    Composite = 1,
+    Piece = 'Piece',
+    Composite = 'Composite',
 }
 
+
 export interface Equipment {
-    id: number
+    id: string
     category: string
     tier: number
     icon: string
@@ -21,6 +21,6 @@ export interface Equipment {
 }
 
 export interface Recipe {
-    id: number
+    id: string
     count: number
 }
