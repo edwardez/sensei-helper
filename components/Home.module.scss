@@ -1,0 +1,26 @@
+@use 'scss/flexbox.module';
+@use 'scss/variables.module';
+
+.selectedPiecesWrapper{
+  display: flex;
+  margin: 5px;
+}
+
+.selectedPiecesCard{
+  margin: 5px;
+}
+
+.selectedPiecePaper{
+  padding: 8px 15px 8px 15px;
+  @include flexbox.flex-center('column');
+}
+
+.countOnCard{
+  margin-top: 5px;
+  width: 120%;
+  @include flexbox.flex-center();
+  background-color: variables.$baTextOnCardBackgroundColor;
+  color: variables.$baTextOnCardTextColor;
+  font-weight: 600;
+  font-size: 1.08em;
+}

@@ -18,7 +18,7 @@ export default function BasAppBar() {
   return (
     <React.Fragment>
       <CssBaseline />
-      <AppBar color={'transparent'}
+      <AppBar color={'transparent'} elevation={0}
         sx={{
           backdropFilter: 'blur(20px)',
           backgroundColor: 'rgba(255,255,255,0)',

@@ -5,15 +5,16 @@ import {IModelVariableConstraint, Solution} from 'javascript-lp-solver';
 
 import React, {useMemo, useState} from 'react';
 import {observer} from 'mobx-react-lite';
-import {Button, Divider} from '@mui/material';
+import {Button, Card, CardActionArea, Divider} from '@mui/material';
 import {IBasStore, useStore} from 'stores/AppStore';
 import PiecesSelectionDialog from 'components/piecesSelection/PiecesSelectionDialog';
 import {IRequirementByPiece} from 'stores/EquipmentsRequirementStore';
 import {Equipment, EquipmentCompositionType} from 'model/Equipment';
 import Image from 'next/image';
 import {useQuery} from '@tanstack/react-query';
-import {Simulate} from 'react-dom/test-utils';
+
 import {Campaign} from 'model/Campaign';
+import BasPaper from 'components/bui/BasPaper';
 
 // import {Equipment, EquipmentCompositionType} from 'stores/GameDataStore';
 
@@ -105,8 +106,8 @@ const Home: NextPage = observer((props) => {
 
   const campaignsById : Map<string, Campaign>= useMemo(() => campaigns?.reduce((map,
       campaign) => map.set(campaign.id, campaign), new Map()), [campaigns]);
-  if (campaignsQuery.error || equipmentsQuery.error) return <div>failed to load</div>;
-  if (campaignsQuery.isFetching || equipmentsQuery.isFetching) return <div>loading...</div>;
+  // if (campaignsQuery.error || equipmentsQuery.error) return <div>failed to load</div>;
+  // if (campaignsQuery.isFetching || equipmentsQuery.isFetching) return <div>loading...</div>;
 
 
   const handleCalculate = () => {
@@ -115,22 +116,34 @@ const Home: NextPage = observer((props) => {
 
   return (
     <div className={styles.container}>
-
-      <div></div>
       <Button variant="outlined" onClick={handleClickOpen}>
         Add
       </Button>
-      <div>
+      <div className={styles.selectedPiecesWrapper}>
         {store.equipmentsRequirementStore.requirementByPieces.map(({pieceId: id, count}) => {
           const piece = equipmentsById.get(id);
 
           if (!piece) return null;
 
-          return <div key={id}>
-            <Image src={`/images/equipments/${piece.icon}.png`}
-              width={63} height={50}
-            ></Image> x {count}
-          </div>;
+          return <Card key={id} elevation={1} className={styles.selectedPiecesCard}>
+            <CardActionArea>
+              <div className={styles.selectedPiecePaper}>
+                <BasPaper>
+                  <div className={`revert-bas-transform`}>
+                    <Image src={`/images/equipments/${piece.icon}.png`}
+                      width={63} height={50}
+                    ></Image>
+                  </div>
+                </BasPaper>
+                <BasPaper variant={'outlined'} className={styles.countOnCard}>
+                  <div>
+                    {count}
+                  </div>
+                </BasPaper>
+              </div>
+            </CardActionArea>
+
+          </Card>;
         })}
       </div>
 

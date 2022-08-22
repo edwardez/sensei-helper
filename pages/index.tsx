@@ -1,6 +1,6 @@
 import Home from 'components/Home';
 import React from 'react';
-import BasAppBar from 'components/appBar/BasAppBar';
+import BasAppBar from 'components/bui/appBar/BasAppBar';
 
 export default function IndexPage() {
   return (

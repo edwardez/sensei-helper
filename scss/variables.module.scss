@@ -1,0 +1,13 @@
+$baTextOnCardBackgroundColor: rgb(75,86,102);
+$baTextOnCardTextColor: white;
+$baHighlightCardBorderColor: #f8e651;
+
+$baStandardSkewX: -10deg;
+$baStandardReverseSkewX: -$baStandardSkewX;
+
+
+:export {
+  baStandardSkewX: $baStandardSkewX;
+  baStandardReverseSkewX: $baStandardReverseSkewX;
+  baHighlightCardBorderColor: $baHighlightCardBorderColor;
+}

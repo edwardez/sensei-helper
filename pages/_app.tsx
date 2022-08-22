@@ -5,6 +5,8 @@ import Head from 'next/head';
 import {appWithTranslation} from 'next-i18next';
 import {initializeBasStore, StoreContext} from 'stores/AppStore';
 import {QueryClient, QueryClientProvider} from '@tanstack/react-query';
+import {ThemeProvider} from '@mui/material/styles';
+import basDefaultTheme from 'components/bui/theme';
 
 function MyApp({Component, pageProps}: AppProps) {
   const store = initializeBasStore(pageProps.initialState);
@@ -12,12 +14,15 @@ function MyApp({Component, pageProps}: AppProps) {
 
   return (
     <StoreContext.Provider value={store}>
-      <Head>
-        <meta name="viewport" content="initial-scale=1, width=device-width"/>
-      </Head>
-      <QueryClientProvider client={queryClient}>
-        <Component {...pageProps} />
-      </QueryClientProvider>
+      <ThemeProvider theme={basDefaultTheme}>
+        <Head>
+          <meta name="viewport" content="initial-scale=1, width=device-width"/>
+        </Head>
+        <QueryClientProvider client={queryClient}>
+          <Component {...pageProps} />
+        </QueryClientProvider>
+      </ThemeProvider>
+
     </StoreContext.Provider>
 
   );

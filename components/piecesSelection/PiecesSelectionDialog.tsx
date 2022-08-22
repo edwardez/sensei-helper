@@ -39,11 +39,11 @@ const PiecesSelectionDialog = ({
     control,
     formState: {isValid: isCountValid, errors: countErrors},
     getValues,
-  } = useForm<IFormInputs>({mode: 'onChange', defaultValues: {neededPieceCount: ''}});
+  } = useForm<IFormInputs>({mode: 'onChange', defaultValues: {neededPieceCount: '1'}});
   const isFullScreen = useMediaQuery(theme.breakpoints.down('md'));
-  const [selectedPieceId, setSelectedPieceId] = useState<number | null>(null);
+  const [selectedPieceId, setSelectedPieceId] = useState<string | null>(null);
 
-  const handleSelectPiece = (piece: number) => {
+  const handleSelectPiece = (piece: string) => {
     setSelectedPieceId(piece);
   };
 
@@ -66,7 +66,7 @@ const PiecesSelectionDialog = ({
           (tier) => {
             const equipmentsOnTier = piecesByTier.get(tier);
             if (!equipmentsOnTier) return null;
-            return <PiecesOnCurrentTier key={tier} tier={tier} pieces={equipmentsOnTier}
+            return <PiecesOnCurrentTier key={tier} tier={tier} pieces={equipmentsOnTier} selectedPieceId={selectedPieceId}
               handleSelectPiece={handleSelectPiece}/>;
           }
       )}

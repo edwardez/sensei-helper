@@ -1,3 +1,5 @@
+@use 'scss/variables.module';
+
 html,
 body {
   padding: 0;
@@ -23,4 +25,8 @@ a {
     color: white;
     background: black;
   }
+}
+
+.revert-bas-transform{
+  transform: skewX(variables.$baStandardReverseSkewX);
 }
