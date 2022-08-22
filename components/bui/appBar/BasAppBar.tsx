@@ -6,7 +6,8 @@ import CssBaseline from '@mui/material/CssBaseline';
 import useScrollTrigger from '@mui/material/useScrollTrigger';
 import Box from '@mui/material/Box';
 import SettingsIcon from '@mui/icons-material/Settings';
-
+import {Typography} from '@mui/material';
+import styles from './BasAppBar.module.scss';
 
 export default function BasAppBar() {
   const trigger = useScrollTrigger({
@@ -26,6 +27,9 @@ export default function BasAppBar() {
           borderStyle: trigger ? `none none solid none` : 'none none none none'}}
         variant={'outlined'}>
         <Toolbar>
+          <Typography variant="h6" className={styles.title}>
+              BA Solver
+          </Typography>
 
           <Box sx={{flexGrow: 1}}>
           </Box>
