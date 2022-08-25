@@ -1,5 +1,5 @@
 {
-  "name": "bas",
+  "name": "sensei-helper",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -13,7 +13,6 @@
     "@emotion/styled": "^11.10.0",
     "@mui/icons-material": "^5.8.4",
     "@mui/material": "^5.10.1",
-    "@tanstack/react-query": "^4.2.1",
     "javascript-lp-solver": "github:edwardez/jsLPSolver",
     "mobx": "^6.6.1",
     "mobx-react-lite": "^3.4.0",
@@ -23,7 +22,8 @@
     "normalize.css": "^8.0.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-hook-form": "^7.34.2"
+    "react-hook-form": "^7.34.2",
+    "swr": "^1.3.0"
   },
   "devDependencies": {
     "@types/node": "18.7.5",

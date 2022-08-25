@@ -1,0 +1,43 @@
+import {IRequirementByPiece} from '../../stores/EquipmentsRequirementStore';
+import {Campaign} from '../../model/Campaign';
+import * as solver from 'javascript-lp-solver';
+import {IModelVariableConstraint} from 'javascript-lp-solver';
+
+export type PieceDropProb = {[key:string]: number};
+
+export const calculateSolution = (
+    requirements: IRequirementByPiece[],
+    normalMissionItemDropRatio: number,
+    piecesDropByCampaignId: Map<string, Campaign>) => {
+  const constraints: { [key: string]: IModelVariableConstraint } = requirements.reduce<{[key: string]: IModelVariableConstraint}>(
+      (partialConstraints, requirement) => {
+        partialConstraints[requirement.pieceId] = {'min': requirement.count};
+        return partialConstraints;
+      }
+      , {});
+
+  const requiredPieceIds = new Set(Object.keys(constraints));
+  const variables : { [key:string] : PieceDropProb} = {};
+  piecesDropByCampaignId.forEach(( campaign, campaignId) =>{
+    const filteredProbs = campaign.rewards
+        .filter((reward) => requiredPieceIds.has(reward.id))
+        .reduce<PieceDropProb>((prev, reward) => {
+          prev[reward.id] = reward.probability * normalMissionItemDropRatio;
+          return prev;
+        }, {});
+    if (Object.keys(filteredProbs).length) {
+      filteredProbs['ap'] = 10;
+      variables[campaignId] = filteredProbs;
+    }
+  });
+
+  constraints['ap'] = {'min': 0};
+  const model = {
+    'optimize': 'ap',
+    'opType': 'min' as const,
+    constraints,
+    variables};
+
+  // eslint-disable-next-line new-cap
+  return solver.Solve(model);
+};

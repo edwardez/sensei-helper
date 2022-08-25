@@ -1,12 +1,12 @@
 import Home from 'components/Home';
 import React from 'react';
-import BasAppBar from 'components/bui/appBar/BasAppBar';
+import WizAppBar from 'components/appBar/WizAppBar';
 import Grid from '@mui/material/Unstable_Grid2';
 
 export default function IndexPage() {
   return (
     <React.Fragment>
-      <BasAppBar />
+      <WizAppBar />
       <Grid container display="flex" justifyContent="center" >
         <Grid xs={11} md={8} xl={6}>
           <Home/>

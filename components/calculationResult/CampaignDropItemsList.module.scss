@@ -1,0 +1,33 @@
+@use 'scss/flexbox.module';
+@use 'scss/variables.module';
+
+.cardWrapper{
+  padding: 10px;
+  user-select: none;
+}
+
+.countOnCard{
+  position: absolute;
+  text-shadow: #fff 1px 0 0, #fff 0 1px 0, #fff -1px 0 0, #fff 0 -1px 0;
+  font-style: italic;
+  color: black;
+  bottom: 3px;
+  right: 10px;
+}
+
+.allDropsWrapper{
+  display: flex;
+}
+
+.selectedPiecesCard{
+  margin: 5px;
+}
+
+.campaignName{
+  margin-right: 0.2em;
+  color: #2d4665;
+}
+
+.campaignNameAndTimes{
+  align-items: center;
+}

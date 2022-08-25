@@ -35,7 +35,15 @@ export const EquipmentsRequirementStore = types
       const addPiecesRequirement = (requirement : IRequirementByPiece) => {
         self.requirementByPieces.push(requirement);
       };
-      return {addPiecesRequirement};
+
+      const getAllRequiredPieceIds = () => {
+        return self.requirementByPieces.reduce<Set<string>>(
+            (set, curr) => {
+              return set.add(curr.pieceId);
+            }, new Set()
+        );
+      };
+      return {addPiecesRequirement, getAllRequiredPieceIds};
     });
 
 export type IEquipmentsRequirementStore = Instance<typeof EquipmentsRequirementStore>
@@ -43,23 +51,3 @@ export type IRequirementByPiece = Instance<typeof byPiece>
 
 export type IStoreSnapshotIn = SnapshotIn<typeof EquipmentsRequirementStore>
 export type IStoreSnapshotOut = SnapshotOut<typeof EquipmentsRequirementStore>
-
-// export function initializeStore(snapshot = null) {
-//   const _store = equipmentsRequirementStore ?? EquipmentsRequirementStore.create({requirementByPieces: []});
-//
-//   // If your page has Next.js data fetching methods that use a Mobx equipmentsRequirementStore, it will
-//   // get hydrated here, check `pages/ssg.tsx` and `pages/ssr.tsx` for more details
-//   if (snapshot) {
-//     applySnapshot(_store, snapshot);
-//   }
-//   // For SSG and SSR always create a new equipmentsRequirementStore
-//   if (typeof window === 'undefined') return _store;
-//   // Create the equipmentsRequirementStore once in the client
-//   if (!equipmentsRequirementStore) equipmentsRequirementStore = _store;
-//
-//   return equipmentsRequirementStore;
-// }
-//
-// export function useStore(initialState: any) {
-//   return useMemo(() => initializeStore(initialState), [initialState]);
-// }

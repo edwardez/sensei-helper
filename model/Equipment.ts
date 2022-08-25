@@ -1,13 +1,9 @@
-export enum GameServer {
-    Japan = 'Japan',
-    Global = 'Global',
-}
+import {GameServer} from 'stores/GameInfoStore';
 
 export enum EquipmentCompositionType {
     Piece = 'Piece',
     Composite = 'Composite',
 }
-
 
 export interface Equipment {
     id: string

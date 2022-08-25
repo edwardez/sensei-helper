@@ -8,12 +8,12 @@ import {
   useMediaQuery,
   useTheme,
 } from '@mui/material';
-import PiecesOnCurrentTier from 'components/piecesSelection/PiecesOnCurrentTier';
+import PiecesOnCurrentTier from 'components/calculationInput/piecesSelection/PiecesOnCurrentTier';
 import React, {useState} from 'react';
 import {Equipment} from 'model/Equipment';
 
 
-import styles from './PiecesSelectionDialog.module.scss';
+import styles from 'components/calculationInput/piecesSelection/PiecesSelectionDialog.module.scss';
 import {Controller, useForm} from 'react-hook-form';
 import {IRequirementByPiece} from 'stores/EquipmentsRequirementStore';
 
@@ -86,9 +86,12 @@ const PiecesSelectionDialog = ({
           },
           min: {
             value: 1,
-            message: 'min is 1',
+            message: 'minimum is 1',
           },
-
+          max: {
+            value: 999,
+            message: 'maximum is 999',
+          },
         }}
         render={({field}) => (
           <TextField

@@ -9,13 +9,23 @@ export const baStyleTransformCss = {
   '> *:not(.exclude-revert-transform)': {
     'transform': `skewX(${variables.baStandardReverseSkewX})`,
   },
-  '&.bas-selected': {
+  '&.wiz-selected': {
     'outline': `3px solid ${variables.baHighlightCardBorderColor}`,
   },
+  // '&::before': {
+  //   content: `''`,
+  //   position: 'absolute',
+  //   background: '#58a',
+  //   transform: 'skew(-45deg)',
+  //   inset: 0,
+  // },
+  // '&': {
+  //   position: 'relative',
+  // },
 };
 
-const BasCustomizedCard = styled(Card)<CardProps>(({theme}) => (baStyleTransformCss));
+const BuiCustomizedCard = styled(Card)<CardProps>(({theme}) => (baStyleTransformCss));
 
-export default function BasCard(props: CardProps) {
-  return <BasCustomizedCard {...props}/>;
+export default function BuiCard(props: CardProps) {
+  return <BuiCustomizedCard {...props}/>;
 }

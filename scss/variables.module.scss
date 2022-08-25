@@ -1,4 +1,12 @@
 $baTextOnCardBackgroundColor: rgb(75,86,102);
+$baSettingsLabelTextColor: rgb(76,110,141);
+$baSettingsLabelDividerColor: rgb(91,211,255);;
+$baPrimaryBannerBackgroundColor: rgb(48, 78, 115);
+$baSecondaryBannerBackgroundColor: rgb(79, 90, 110);
+$baPrimaryButtonColor: rgb(118, 223, 254);
+$baPrimaryButtonTextColor: rgb(43, 68, 100);
+$baSecondaryButtonColor: rgb(243, 232, 75);
+$baSecondaryButtonTextColor: rgb(74, 33, 22);
 $baTextOnCardTextColor: white;
 $baHighlightCardBorderColor: #f8e651;
 $baTitleColor: rgb(0, 215, 252);
@@ -6,9 +14,15 @@ $baTitleColor: rgb(0, 215, 252);
 $baStandardSkewX: -10deg;
 $baStandardReverseSkewX: -$baStandardSkewX;
 
-
 :export {
   baStandardSkewX: $baStandardSkewX;
   baStandardReverseSkewX: $baStandardReverseSkewX;
   baHighlightCardBorderColor: $baHighlightCardBorderColor;
+  baPrimaryBannerBackgroundColor: $baPrimaryBannerBackgroundColor;
+  baSecondaryBannerBackgroundColor: $baSecondaryBannerBackgroundColor;
+  baPrimaryButtonColor: $baPrimaryButtonColor;
+  baPrimaryButtonTextColor: $baPrimaryButtonTextColor;
+  baSecondaryButtonColor: $baSecondaryButtonColor;
+  baSecondaryButtonTextColor: $baSecondaryButtonTextColor;
+
 }

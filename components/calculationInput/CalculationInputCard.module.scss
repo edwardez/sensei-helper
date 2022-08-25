@@ -1,9 +1,9 @@
 @use 'scss/flexbox.module';
-@use 'scss/variables.module';
 
 .selectedPiecesWrapper{
   display: flex;
-  margin: 5px;
+  flex-wrap: wrap;
+  margin: 0.3em 0.3em 1em 0.3em;
 }
 
 .selectedPiecesCard{
@@ -17,5 +17,9 @@
 
 .countOnCard{
   margin-top: 0.35em;
+}
 
+.addButton{
+  margin-left: 1em;
+  align-self: center;
 }

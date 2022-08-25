@@ -1,28 +1,39 @@
 import {createTheme} from '@mui/material/styles';
+import variables from 'scss/variables.module.scss';
 
-declare module '@mui/material/Paper' {
-  interface PaperPropsVariantOverrides {
-    bas: true;
+declare module '@mui/material/styles' {
+  interface Palette {
+    baButtonPrimary: Palette['primary'];
+    baButtonSecondary: Palette['secondary'];
+  }
+  interface PaletteOptions {
+    baButtonPrimary: PaletteOptions['primary'];
+    baButtonSecondary: PaletteOptions['secondary'];
   }
 }
 
-const muibasDefaultTheme = createTheme();
+declare module '@mui/material/Button' {
+  export interface ButtonPropsColorOverrides {
+    baButtonPrimary: true;
+    baButtonSecondary: true;
+  }
+}
 
 
-const basDefaultTheme = createTheme({
+const wizDefaultTheme = createTheme({
   components: {
-    MuiPaper: {
-      variants: [
-        {
-          props: {variant: 'bas'},
-          style: {
-            transform: 'skewX(-10deg);',
-          },
-        },
-      ],
+  },
+  palette: {
+    baButtonPrimary: {
+      main: variables.baPrimaryButtonColor,
+      contrastText: variables.baPrimaryButtonTextColor,
+    },
+    baButtonSecondary: {
+      main: variables.baSecondaryButtonColor,
+      contrastText: variables.baSecondaryButtonTextColor,
     },
   },
 });
 
 
-export default basDefaultTheme;
+export default wizDefaultTheme;

@@ -1,0 +1,21 @@
+@use 'scss/flexbox.module';
+@use 'scss/variables.module';
+
+.bannerStyle{
+  @include flexbox.flex-center();
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  color: variables.$baTextOnCardTextColor;
+  font-weight: 600;
+  font-size: 1.08em;
+  user-select: none;
+}
+
+.primary{
+  background-color: variables.$baPrimaryBannerBackgroundColor;
+}
+
+.secondary{
+  background-color: variables.$baSecondaryBannerBackgroundColor;
+}
+

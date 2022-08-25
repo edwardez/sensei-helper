@@ -7,9 +7,9 @@ import useScrollTrigger from '@mui/material/useScrollTrigger';
 import Box from '@mui/material/Box';
 import SettingsIcon from '@mui/icons-material/Settings';
 import {Typography} from '@mui/material';
-import styles from './BasAppBar.module.scss';
+import styles from './WizAppBar.module.scss';
 
-export default function BasAppBar() {
+export default function WizAppBar() {
   const trigger = useScrollTrigger({
     disableHysteresis: true,
     threshold: 0,
@@ -28,7 +28,7 @@ export default function BasAppBar() {
         variant={'outlined'}>
         <Toolbar>
           <Typography variant="h6" className={styles.title}>
-              BA Solver
+             Sensei Helper
           </Typography>
 
           <Box sx={{flexGrow: 1}}>

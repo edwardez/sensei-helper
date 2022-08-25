@@ -1,170 +1,60 @@
 import type {NextPage} from 'next';
-import styles from './Home.module.scss';
-import * as solver from 'javascript-lp-solver';
-import {IModelVariableConstraint, Solution} from 'javascript-lp-solver';
+import {Solution} from 'javascript-lp-solver';
 
 import React, {useMemo, useState} from 'react';
 import {observer} from 'mobx-react-lite';
-import {Button, Card, CardActionArea, Divider} from '@mui/material';
-import {IBasStore, useStore} from 'stores/AppStore';
-import PiecesSelectionDialog from 'components/piecesSelection/PiecesSelectionDialog';
-import {IRequirementByPiece} from 'stores/EquipmentsRequirementStore';
-import {Equipment, EquipmentCompositionType} from 'model/Equipment';
-import Image from 'next/image';
-import {useQuery} from '@tanstack/react-query';
+import {useStore} from 'stores/WizStore';
+import {Equipment} from 'model/Equipment';
 
 import {Campaign} from 'model/Campaign';
-import BasPaper from 'components/bui/BasPaper';
-
-// import {Equipment, EquipmentCompositionType} from 'stores/GameDataStore';
-
-interface IOwnProps {
-  store?: IBasStore
-  title: string
-  linkTo: string
-}
-
-type PieceDropProb = {[key:string]: number};
-type PiecesDropProbByCampaignId = Map<string, PieceDropProb[]>;
-
-const calc = (requirements: IRequirementByPiece[], piecesDropByCampaignId: Map<string, Campaign>) => {
-  const constraints = requirements.reduce<{[key: string]: IModelVariableConstraint}>(
-      (partialConstraints, requirement) => {
-        partialConstraints[requirement.pieceId] = {'min': requirement.count};
-        return partialConstraints;
-      }
-      , {});
-
-  const requiredPieceIds = new Set(Object.keys(constraints));
-  const variables : { [key:string] : PieceDropProb} = {};
-  piecesDropByCampaignId.forEach(( campaign, campaignId) =>{
-    const filteredProbs = campaign.rewards
-        .filter((reward) => requiredPieceIds.has(reward.id))
-        .reduce<PieceDropProb>((prev, reward) => {
-          prev[reward.id] = reward.probability;
-          return prev;
-        }, {});
-    if (Object.keys(filteredProbs).length) {
-      filteredProbs['ap'] = 10;
-      variables[campaignId] = filteredProbs;
-    }
-  });
-
-  constraints['ap'] = {'min': 0};
-  const model = {
-    'optimize': 'ap',
-    'opType': 'min' as const,
-    constraints,
-    variables};
-
-  // eslint-disable-next-line new-cap
-  return solver.Solve(model);
-};
+import RecommendedCampaigns from 'components/calculationResult/RecommendedCampaigns';
+import CalculationInputCard from 'components/calculationInput/CalculationInputCard';
+import {CampaignsById, EquipmentsById} from 'components/calculationInput/PiecesCalculationCommonTypes';
+import useSWR from 'swr';
 
 const Home: NextPage = observer((props) => {
   const store = useStore();
+  const [solution, setSolution] = useState<Solution<string> | null>(null);
 
-  const [isOpened, setIsOpened] = useState(false);
-  const [solution, setSolution] = useState<Solution<string>|null>(null);
-
-  const handleClickOpen = () => {
-    setIsOpened(true);
+  const onSetSolution = (solution: Solution<string> | null) => {
+    setSolution(solution);
   };
 
-  const handleAddPieceRequirement = (requirementByPiece: IRequirementByPiece) => {
-    store.equipmentsRequirementStore.addPiecesRequirement(requirementByPiece);
-    setIsOpened(false);
-    setSolution(null);
+
+  const fetcher = (...urls: string[]) => {
+    const fetchOne = async <ReturnedDataType, >(url: string) => {
+      const res = await fetch(url);
+      return (await res.json()) as ReturnedDataType;
+    };
+    return Promise.all(urls.map(fetchOne));
   };
 
-  const handleCancel = () => {
-    setIsOpened(false);
-  };
+  const {data, error} = useSWR(['data/equipments.json', 'data/campaigns.json'], fetcher);
+  const equipments = data?.[0] as Equipment[];
+  const campaigns = data?.[1] as Campaign[];
 
-  const fetchOne = async <ReturnedDataType, >(url: string) => {
-    const res = await fetch(url);
-    return (await res.json()) as ReturnedDataType;
-  };
-  const campaignsQuery = useQuery(['campaigns'], () => fetchOne<Campaign[]>('data/campaigns.json'),
-      {placeholderData: []});
-  const equipmentsQuery = useQuery(['equipments'], () => fetchOne<Equipment[]>('data/equipments.json'),
-      {placeholderData: []});
-  const campaigns = campaignsQuery.data ?? [];
-  const equipments = equipmentsQuery.data ?? [];
-
-  const equipmentsById : Map<string, Equipment> = useMemo(() => equipments?.reduce((prev,
+  const equipmentsById = useMemo(() => equipments?.reduce<EquipmentsById>((prev,
       current) => prev.set(current.id, current), new Map()), [equipments]);
-
-  const piecesByTier : Map<number, Equipment[]>= useMemo(() => equipments?.reduce((map, equipment) => {
-    if (equipment.equipmentCompositionType !== EquipmentCompositionType.Piece) return map;
-    if (!map.has(equipment.tier)) {
-      map.set(equipment.tier, []);
-    }
-    map.get(equipment.tier).push(equipment);
-    return map;
-  }, new Map()), [equipments]);
-
-  const campaignsById : Map<string, Campaign>= useMemo(() => campaigns?.reduce((map,
+  const campaignsById = useMemo(() => campaigns?.reduce<CampaignsById>((map,
       campaign) => map.set(campaign.id, campaign), new Map()), [campaigns]);
-  // if (campaignsQuery.error || equipmentsQuery.error) return <div>failed to load</div>;
-  // if (campaignsQuery.isFetching || equipmentsQuery.isFetching) return <div>loading...</div>;
 
+  if (error) return <div>failed to load</div>;
+  if (!data) return <div>loading...</div>;
 
-  const handleCalculate = () => {
-    setSolution(calc(store.equipmentsRequirementStore.requirementByPieces, campaignsById));
-  };
-
-  return (
-    <div className={styles.container}>
-      <Button variant="outlined" onClick={handleClickOpen}>
-        Add
-      </Button>
-      <div className={styles.selectedPiecesWrapper}>
-        {store.equipmentsRequirementStore.requirementByPieces.map(({pieceId: id, count}) => {
-          const piece = equipmentsById.get(id);
-
-          if (!piece) return null;
-
-          return <Card key={id} elevation={1} className={styles.selectedPiecesCard}>
-            <CardActionArea>
-              <div className={styles.selectedPiecePaper}>
-                <BasPaper>
-                  <div className={`revert-bas-transform`}>
-                    <Image src={`/images/equipments/${piece.icon}.png`}
-                      width={63} height={50}
-                    ></Image>
-                  </div>
-                </BasPaper>
-                <BasPaper variant={'outlined'} className={styles.countOnCard}>
-                  <div>
-                    {count}
-                  </div>
-                </BasPaper>
-              </div>
-            </CardActionArea>
-
-          </Card>;
-        })}
-      </div>
-
-      {
-        isOpened ? <PiecesSelectionDialog
-          isOpened={isOpened}
-
-          piecesByTier={piecesByTier}
-          handleAddPieceRequirement={handleAddPieceRequirement}
-          handleCancel={handleCancel}
-        /> : <></>
-      }
-
-      <Divider />
-      <Button variant="outlined" onClick={handleCalculate}>
-        Calculate
-      </Button>
-
-      <div>{solution ? JSON.stringify(solution) : null}</div>
-    </div>
-  );
+  return <React.Fragment>
+    <CalculationInputCard store={store} equipments={equipments}
+      campaignsById={campaignsById}
+      equipmentsById={equipmentsById}
+      onSetSolution={onSetSolution}/>
+    {
+            solution && solution.result ? <RecommendedCampaigns
+              solution={solution}
+              campaignsById={campaignsById}
+              equipmentsById={equipmentsById}
+              equipmentsRequirementStore={store.equipmentsRequirementStore}
+              normalMissionItemDropRatio={store.gameInfoStore.normalMissionItemDropRatio}/> : null
+    }
+  </React.Fragment>;
 });
 
 export default Home;
