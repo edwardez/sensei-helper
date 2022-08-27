@@ -1,5 +1,5 @@
 import styles from './RecommendedCampaigns.module.scss';
-import {isNumber, isString} from 'common/checkVariableTypeUtil';
+import {isString} from 'common/checkVariableTypeUtil';
 import React from 'react';
 import {
     CampaignsById,
@@ -10,6 +10,7 @@ import {
 import {Solution} from 'javascript-lp-solver';
 import {IEquipmentsRequirementStore} from 'stores/EquipmentsRequirementStore';
 import CampaignDropItemsList from 'components/calculationResult/CampaignDropItemsList';
+import {sortTwoUnknownValues} from 'common/sortUtils';
 
 
 const RecommendedCampaigns = ({
@@ -29,11 +30,8 @@ const RecommendedCampaigns = ({
   return <React.Fragment>
     {
       Object.entries(solution)
-          .sort(([keyA, valueA], [keyB, valueB]) => {
-            if (!valueA || !valueB || !isNumber(valueA) || !isNumber(valueB)) return 1;
-
-            return valueA < valueB ? 1: -1;
-          })
+          .sort(([keyA, valueA], [keyB, valueB]) =>
+            sortTwoUnknownValues(valueA, valueB))
           .map(([key, value]) => {
             if (!isString(key) || !value) return null;
             const sweepingTimes = Math.ceil(value);
@@ -62,7 +60,7 @@ const RecommendedCampaigns = ({
 
             return <div key={key} className={styles.selectedPiecesCard}>
               <CampaignDropItemsList
-                campaignInfo={campaignInfo} sweepingTimes={sweepingTimes}
+                campaignInfo={campaignInfo} stageExplanationLabel={`${sweepingTimes} times`}
                 allDrops={allDrops} equipmentsById={equipmentsById} />
             </div>;
           })

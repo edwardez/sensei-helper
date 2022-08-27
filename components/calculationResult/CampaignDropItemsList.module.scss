@@ -2,8 +2,6 @@
 @use 'scss/variables.module';
 
 .cardWrapper{
-
-  user-select: none;
 }
 
 .countOnCard{
@@ -30,4 +28,8 @@
 
 .campaignNameAndTimes{
   align-items: center;
+}
+
+.noSelection{
+  user-select: none;
 }

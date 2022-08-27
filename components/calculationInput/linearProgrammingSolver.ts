@@ -1,5 +1,5 @@
-import {IRequirementByPiece} from '../../stores/EquipmentsRequirementStore';
-import {Campaign} from '../../model/Campaign';
+import {IRequirementByPiece} from 'stores/EquipmentsRequirementStore';
+import {Campaign} from 'model/Campaign';
 import * as solver from 'javascript-lp-solver';
 import {IModelVariableConstraint} from 'javascript-lp-solver';
 

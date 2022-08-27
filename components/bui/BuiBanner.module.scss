@@ -19,3 +19,6 @@
   background-color: variables.$baSecondaryBannerBackgroundColor;
 }
 
+.allowSelection{
+  user-select: unset;
+}

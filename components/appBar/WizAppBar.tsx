@@ -48,8 +48,7 @@ export default function WizAppBar() {
         variant={'outlined'}>
         <Toolbar>
           <Typography variant="h6" className={styles.title}>
-            {/* Sensei Helper*/}
-            jm2559
+             Sensei Helper
           </Typography>
 
           <Box sx={{flexGrow: 1}}>

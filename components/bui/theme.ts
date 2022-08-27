@@ -22,6 +22,15 @@ declare module '@mui/material/Button' {
 
 const wizDefaultTheme = createTheme({
   components: {
+    MuiAccordion: {
+      styleOverrides: {
+        root: {
+          '&.MuiAccordion-root:before': {
+            display: 'none',
+          },
+        },
+      },
+    },
   },
   palette: {
     baButtonPrimary: {

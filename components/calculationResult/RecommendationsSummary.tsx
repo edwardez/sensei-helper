@@ -21,7 +21,7 @@ const RecommendationsSummary = () => {
         </BuiLinedText>
 
         <BuiLinedText showVerticalDividerPrefix={false}>
-          <div>1. This is an estimation and your mileage may vary.</div>
+          <div>1. Recommended sweeping times is an estimation and your mileage may vary.</div>
         </BuiLinedText>
       </CardContent>
     </Card>

@@ -8,20 +8,27 @@ import {DropPieceIdWithCount, EquipmentsById} from 'components/calculationInput/
 import Grid from '@mui/material/Unstable_Grid2';
 import BuiBanner from '../bui/BuiBanner';
 
-type CampaignDropItemsListProps = { campaignInfo: Campaign,
-  sweepingTimes: number,
-  allDrops: DropPieceIdWithCount[],
-  equipmentsById: EquipmentsById,}
+type CampaignDropItemsListProps = {
+    campaignInfo: Campaign,
+    stageExplanationLabel: string,
+    allDrops: DropPieceIdWithCount[],
+    equipmentsById: EquipmentsById,
+    hidePieceDropCount?: boolean,
+    containerCardVariation: 'elevation' | 'outlined',
+}
 
 const CampaignDropItemsList :
     FunctionComponent<CampaignDropItemsListProps& React.HTMLAttributes<HTMLDivElement>> = ({
       campaignInfo,
-      sweepingTimes,
+      stageExplanationLabel,
       allDrops,
       equipmentsById,
+      hidePieceDropCount= false,
+      containerCardVariation = 'elevation',
     }
     ) => {
-      return <Card className={styles.cardWrapper} elevation={2}>
+      return <Card variant={containerCardVariation} className={styles.cardWrapper}
+        elevation={containerCardVariation == 'elevation' ? 2 : undefined}>
         <CardContent>
           <Grid container>
             <Grid xs={12} container className={styles.campaignNameAndTimes}>
@@ -29,16 +36,16 @@ const CampaignDropItemsList :
                 {`${campaignInfo.area}-${campaignInfo.stage}`}
               </Typography>
 
-              <BuiBanner label={`${sweepingTimes} times`}
+              <BuiBanner label={stageExplanationLabel} allowSelection
                 backgroundColor={'secondary'}
                 width={'unset'}/>
             </Grid>
 
-            <Grid xs={12} >
+            <Grid xs={12} className={styles.noSelection}>
               <BuiBanner label={`Possible rewards`}/>
             </Grid>
 
-            <Grid xs={12} className={styles.allDropsWrapper} sx={{flexWrap: 'wrap'}}>
+            <Grid xs={12} className={`${styles.allDropsWrapper} ${styles.noSelection}`} sx={{flexWrap: 'wrap'}}>
 
               {allDrops.map(({id, dropCount}) => {
                 const piece = equipmentsById.get(id);
@@ -49,9 +56,12 @@ const CampaignDropItemsList :
                   <Image src={`/images/equipments/@0.5/${piece.icon}.png`}
                     width={63} height={50}
                   ></Image>
-                  <div className={styles.countOnCard}>
-                                x{dropCount}
-                  </div>
+                  {
+                        hidePieceDropCount ? null : <div className={styles.countOnCard}>
+                            x{dropCount}
+                        </div>
+                  }
+
                 </BuiCard>;
               })}
             </Grid>

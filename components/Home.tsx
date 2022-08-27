@@ -12,6 +12,7 @@ import CalculationInputCard from 'components/calculationInput/CalculationInputCa
 import {CampaignsById, EquipmentsById} from 'components/calculationInput/PiecesCalculationCommonTypes';
 import useSWR from 'swr';
 import RecommendationsSummary from 'components/calculationResult/RecommendationsSummary';
+import IgnoredCampaigns from 'components/calculationResult/IgnoredCampaigns';
 
 const Home: NextPage = observer((props) => {
   const store = useStore();
@@ -57,6 +58,12 @@ const Home: NextPage = observer((props) => {
                     equipmentsById={equipmentsById}
                     equipmentsRequirementStore={store.equipmentsRequirementStore}
                     normalMissionItemDropRatio={store.gameInfoStore.normalMissionItemDropRatio}/>
+                  <IgnoredCampaigns
+                    solution={solution}
+                    allCampaigns={campaigns}
+                    allRequiredPieceIds={store.equipmentsRequirementStore.getAllRequiredPieceIds()}
+                    equipmentsById={equipmentsById}
+                  />
                 </React.Fragment> :
                 null
     }
