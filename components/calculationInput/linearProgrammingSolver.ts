@@ -11,7 +11,10 @@ export const calculateSolution = (
     piecesDropByCampaignId: Map<string, Campaign>) => {
   const constraints: { [key: string]: IModelVariableConstraint } = requirements.reduce<{[key: string]: IModelVariableConstraint}>(
       (partialConstraints, requirement) => {
-        partialConstraints[requirement.pieceId] = {'min': requirement.count};
+        partialConstraints[requirement.pieceId] = {
+          //  User can select a same piece multiple times so merges the count here.
+          'min': requirement.count + (partialConstraints[requirement.pieceId]?.min ?? 0),
+        };
         return partialConstraints;
       }
       , {});

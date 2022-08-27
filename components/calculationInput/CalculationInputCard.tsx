@@ -66,12 +66,12 @@ const CalculationInputCard = ({store, equipments, campaignsById, equipmentsById,
         <BuiLinedText>Add pieces</BuiLinedText>
 
         <div className={styles.selectedPiecesWrapper}>
-          {store.equipmentsRequirementStore.requirementByPieces.map(({pieceId: id, count}) => {
+          {store.equipmentsRequirementStore.requirementByPieces.map(({pieceId: id, count}, index) => {
             const piece = equipmentsById.get(id);
 
             if (!piece) return null;
 
-            return <Card key={id} elevation={1} className={styles.selectedPiecesCard}>
+            return <Card key={`${id}-${index}`} elevation={1} className={styles.selectedPiecesCard}>
               <CardActionArea>
                 <div className={styles.selectedPiecePaper}>
                   <BuiPaper>
