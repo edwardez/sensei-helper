@@ -7,7 +7,7 @@ export default function IndexPage() {
   return (
     <React.Fragment>
       <WizAppBar />
-      <Grid container display="flex" justifyContent="center" >
+      <Grid container display="flex" justifyContent="center" sx={{paddingTop: '1em', paddingBottom: '2em'}}>
         <Grid xs={11} md={8} xl={6}>
           <Home/>
         </Grid>

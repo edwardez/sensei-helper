@@ -4,7 +4,7 @@ import styles from 'components/calculationInput/piecesSelection/PiecesOnCurrentT
 import {CardActionArea} from '@mui/material';
 import React from 'react';
 import BuiCard from 'components/bui/BuiCard';
-import BuiOptionLabelWithDividerPrefix from 'components/bui/settings/BuiOptionLabelWithDividerPrefix';
+import BuiLinedText from 'components/bui/text/BuiLinedText';
 
 
 const PiecesOnCurrentTier = ({tier, selectedPieceId, pieces, handleSelectPiece}:
@@ -16,14 +16,14 @@ const PiecesOnCurrentTier = ({tier, selectedPieceId, pieces, handleSelectPiece}:
                                  }) => {
   return (
     <>
-      <BuiOptionLabelWithDividerPrefix label={`T${tier}`}/>
+      <BuiLinedText>{`T${tier}`}</BuiLinedText>
       <div className={styles.currentTierPiecesRow}>
         {pieces.map(function(piece) {
           return (<div key={piece.id} className={styles.paperOuterMargin}>
             <BuiCard elevation={1} className={selectedPieceId === piece.id ? 'wiz-selected' : ''}>
               <CardActionArea onClick={() => handleSelectPiece(piece.id)} className={'exclude-revert-transform'}>
                 <Image className={'revert-wiz-transform'}
-                  src={`/images/equipments/${piece.icon}.png`}
+                  src={`/images/equipments/@0.5/${piece.icon}.png`}
                   width={63} height={50}></Image>
               </CardActionArea>
             </BuiCard></div>);

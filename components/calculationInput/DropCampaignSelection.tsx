@@ -1,4 +1,4 @@
-import BuiOptionLabelWithDividerPrefix from 'components/bui/settings/BuiOptionLabelWithDividerPrefix';
+import BuiLinedText from 'components/bui/text/BuiLinedText';
 import {FormControlLabel, Radio, RadioGroup} from '@mui/material';
 import React, {ChangeEvent} from 'react';
 import {IWizStore} from 'stores/WizStore';
@@ -14,7 +14,7 @@ const DropCampaignSelection = ({store, onDropRateChanged} : {store: IWizStore, o
   };
 
   return <React.Fragment>
-    <BuiOptionLabelWithDividerPrefix label={'In a drop campaign?(Mission Normal)'}/>
+    <BuiLinedText>In a drop campaign?(Mission Normal)</BuiLinedText>
 
     <RadioGroup row value={`${store.gameInfoStore.normalMissionItemDropRatio}`} onChange={handleDropRateChange}>
       <FormControlLabel value="1" control={<Radio />} label="1x(No Campaign)" />

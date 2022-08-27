@@ -1,0 +1,17 @@
+.punchedHoleContainer{
+  display: flex;
+  justify-content: space-around;
+  pointer-events: none;
+}
+
+.punchedHole{
+  width: 1.5em;
+  height: 1.5em;
+  border-radius: 5em;
+  box-shadow: inset 0 1px 2px 0 rgba(0,0,0,0.4);
+}
+
+.thinsToNoteCard{
+  margin-top: 1em;
+  margin-bottom: 1em;
+}

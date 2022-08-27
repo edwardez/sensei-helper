@@ -1,7 +1,7 @@
 import styles from './CampaignDropItemsList.module.scss';
 import BuiCard from 'components/bui/BuiCard';
 import Image from 'next/image';
-import {Card, Typography} from '@mui/material';
+import {Card, CardContent, Typography} from '@mui/material';
 import React, {FunctionComponent} from 'react';
 import {Campaign} from 'model/Campaign';
 import {DropPieceIdWithCount, EquipmentsById} from 'components/calculationInput/PiecesCalculationCommonTypes';
@@ -22,39 +22,41 @@ const CampaignDropItemsList :
     }
     ) => {
       return <Card className={styles.cardWrapper} elevation={2}>
-        <Grid container>
-          <Grid xs={12} container className={styles.campaignNameAndTimes}>
-            <Typography variant={'h4'} className={styles.campaignName}>
-              {`${campaignInfo.area}-${campaignInfo.stage}`}
-            </Typography>
+        <CardContent>
+          <Grid container>
+            <Grid xs={12} container className={styles.campaignNameAndTimes}>
+              <Typography variant={'h4'} className={styles.campaignName}>
+                {`${campaignInfo.area}-${campaignInfo.stage}`}
+              </Typography>
 
-            <BuiBanner label={`${sweepingTimes} times`}
-              backgroundColor={'secondary'}
-              width={'unset'}/>
+              <BuiBanner label={`${sweepingTimes} times`}
+                backgroundColor={'secondary'}
+                width={'unset'}/>
+            </Grid>
+
+            <Grid xs={12} >
+              <BuiBanner label={`Possible rewards`}/>
+            </Grid>
+
+            <Grid xs={12} className={styles.allDropsWrapper} sx={{flexWrap: 'wrap'}}>
+
+              {allDrops.map(({id, dropCount}) => {
+                const piece = equipmentsById.get(id);
+
+                if (!piece) return null;
+
+                return <BuiCard key={id} elevation={1} className={styles.selectedPiecesCard}>
+                  <Image src={`/images/equipments/@0.5/${piece.icon}.png`}
+                    width={63} height={50}
+                  ></Image>
+                  <div className={styles.countOnCard}>
+                                x{dropCount}
+                  </div>
+                </BuiCard>;
+              })}
+            </Grid>
           </Grid>
-
-          <Grid xs={12} >
-            <BuiBanner label={`Possible rewards`}/>
-          </Grid>
-
-          <Grid xs={12} className={styles.allDropsWrapper} sx={{flexWrap: 'wrap'}}>
-
-            {allDrops.map(({id, dropCount}) => {
-              const piece = equipmentsById.get(id);
-
-              if (!piece) return null;
-
-              return <BuiCard key={id} elevation={1} className={styles.selectedPiecesCard}>
-                <Image src={`/images/equipments/${piece.icon}.png`}
-                  width={63} height={50}
-                ></Image>
-                <div className={styles.countOnCard}>
-                        x{dropCount}
-                </div>
-              </BuiCard>;
-            })}
-          </Grid>
-        </Grid>
+        </CardContent>
       </Card>;
     };
 

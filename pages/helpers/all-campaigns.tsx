@@ -26,7 +26,7 @@ const AllCampaigns = ({
                   const equipment = equipmentsById[reward.id.toString()];
                   return (<div className={styles.imageContainer} key={reward.id}>
                     <Image
-                      src={`/images/equipments/${equipment?.icon}.png`}
+                      src={`/images/equipments/@0.5/${equipment?.icon}.png`}
                       width={63} height={50}></Image>
                     <div>{reward.probability * 100}%</div>
                   </div>);

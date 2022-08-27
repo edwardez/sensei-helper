@@ -11,6 +11,7 @@ import RecommendedCampaigns from 'components/calculationResult/RecommendedCampai
 import CalculationInputCard from 'components/calculationInput/CalculationInputCard';
 import {CampaignsById, EquipmentsById} from 'components/calculationInput/PiecesCalculationCommonTypes';
 import useSWR from 'swr';
+import RecommendationsSummary from 'components/calculationResult/RecommendationsSummary';
 
 const Home: NextPage = observer((props) => {
   const store = useStore();
@@ -47,12 +48,17 @@ const Home: NextPage = observer((props) => {
       equipmentsById={equipmentsById}
       onSetSolution={onSetSolution}/>
     {
-            solution && solution.result ? <RecommendedCampaigns
-              solution={solution}
-              campaignsById={campaignsById}
-              equipmentsById={equipmentsById}
-              equipmentsRequirementStore={store.equipmentsRequirementStore}
-              normalMissionItemDropRatio={store.gameInfoStore.normalMissionItemDropRatio}/> : null
+            solution && solution.result ?
+                <React.Fragment>
+                  <RecommendationsSummary />
+                  <RecommendedCampaigns
+                    solution={solution}
+                    campaignsById={campaignsById}
+                    equipmentsById={equipmentsById}
+                    equipmentsRequirementStore={store.equipmentsRequirementStore}
+                    normalMissionItemDropRatio={store.gameInfoStore.normalMissionItemDropRatio}/>
+                </React.Fragment> :
+                null
     }
   </React.Fragment>;
 });

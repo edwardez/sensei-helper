@@ -39,6 +39,7 @@ const PiecesSelectionDialog = ({
     control,
     formState: {isValid: isCountValid, errors: countErrors},
     getValues,
+    reset,
   } = useForm<IFormInputs>({mode: 'onChange', defaultValues: {neededPieceCount: '1'}});
   const isFullScreen = useMediaQuery(theme.breakpoints.down('md'));
   const [selectedPieceId, setSelectedPieceId] = useState<string | null>(null);
@@ -53,10 +54,24 @@ const PiecesSelectionDialog = ({
         pieceId: selectedPieceId,
         count: parseInt(getValues().neededPieceCount) ?? 1,
       });
+      resetFormValues();
     }
   };
 
-  return (<Dialog open={isOpened} fullScreen={isFullScreen}>
+  const handleDialogCancel = () => {
+    resetFormValues();
+    handleCancel();
+  };
+
+
+  const resetFormValues = () => {
+    setSelectedPieceId(null);
+    reset();
+  };
+
+
+  return (<Dialog open={isOpened} fullScreen={isFullScreen}
+    keepMounted>
     <DialogTitle>
             Select a piece
     </DialogTitle>
@@ -105,7 +120,7 @@ const PiecesSelectionDialog = ({
         )}
       />
       <div className={styles.filler}></div>
-      <Button onClick={handleCancel}>Cancel</Button>
+      <Button onClick={handleDialogCancel}>Cancel</Button>
       <Button onClick={handleAddPieceRequirementOnClose} disabled={!selectedPieceId || !isCountValid}>Add</Button>
     </DialogActions>
   </Dialog>);

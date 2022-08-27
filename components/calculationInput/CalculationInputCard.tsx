@@ -1,6 +1,6 @@
 import styles from './CalculationInputCard.module.scss';
 import {Card, CardActionArea, CardContent} from '@mui/material';
-import BuiOptionLabelWithDividerPrefix from '../bui/settings/BuiOptionLabelWithDividerPrefix';
+import BuiLinedText from 'components/bui/text/BuiLinedText';
 import BuiPaper from 'components/bui/BuiPaper';
 import Image from 'next/image';
 import BuiBanner from 'components/bui/BuiBanner';
@@ -60,10 +60,10 @@ const CalculationInputCard = ({store, equipments, campaignsById, equipmentsById,
 
 
   return <div className={styles.container}>
-    <Card variant={'outlined'}>
+    <Card variant={'outlined'} className={styles.card}>
       <CardContent>
 
-        <BuiOptionLabelWithDividerPrefix label={'Add pieces'}/>
+        <BuiLinedText>Add pieces</BuiLinedText>
 
         <div className={styles.selectedPiecesWrapper}>
           {store.equipmentsRequirementStore.requirementByPieces.map(({pieceId: id, count}) => {
@@ -76,7 +76,7 @@ const CalculationInputCard = ({store, equipments, campaignsById, equipmentsById,
                 <div className={styles.selectedPiecePaper}>
                   <BuiPaper>
                     <div className={`revert-wiz-transform`}>
-                      <Image src={`/images/equipments/${piece.icon}.png`}
+                      <Image src={`/images/equipments/@0.5/${piece.icon}.png`}
                         width={63} height={50}
                       ></Image>
                     </div>
@@ -107,15 +107,12 @@ const CalculationInputCard = ({store, equipments, campaignsById, equipmentsById,
 
     </Card>
 
-    {
-            isOpened ? <PiecesSelectionDialog
-              isOpened={isOpened}
-
-              piecesByTier={piecesByTier}
-              handleAddPieceRequirement={handleAddPieceRequirement}
-              handleCancel={handleCancel}
-            /> : <></>
-    }
+    <PiecesSelectionDialog
+      isOpened={isOpened}
+      piecesByTier={piecesByTier}
+      handleAddPieceRequirement={handleAddPieceRequirement}
+      handleCancel={handleCancel}
+    />
   </div>;
 };
 

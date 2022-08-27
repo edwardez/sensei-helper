@@ -5,12 +5,11 @@ import {
     CampaignsById,
     DropPieceIdsWithCount,
     DropPieceIdWithCount,
-    EquipmentsById
+    EquipmentsById,
 } from 'components/calculationInput/PiecesCalculationCommonTypes';
 import {Solution} from 'javascript-lp-solver';
 import {IEquipmentsRequirementStore} from 'stores/EquipmentsRequirementStore';
 import CampaignDropItemsList from 'components/calculationResult/CampaignDropItemsList';
-import BuiBanner from '../bui/BuiBanner';
 
 
 const RecommendedCampaigns = ({
@@ -28,11 +27,10 @@ const RecommendedCampaigns = ({
 }) => {
   const requiredPieceIds = equipmentsRequirementStore.getAllRequiredPieceIds();
   return <React.Fragment>
-    <BuiBanner label={'Recommendations'} />
     {
       Object.entries(solution)
           .sort(([keyA, valueA], [keyB, valueB]) => {
-            if (!valueA || !valueB || isNumber(valueA) || !isNumber(valueB)) return 1;
+            if (!valueA || !valueB || !isNumber(valueA) || !isNumber(valueB)) return 1;
 
             return valueA < valueB ? 1: -1;
           })
