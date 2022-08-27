@@ -36,6 +36,22 @@ export const EquipmentsRequirementStore = types
         self.requirementByPieces.push(requirement);
       };
 
+      const updatePiecesRequirement = (pieceInfoToEdit : PieceInfoToEdit) => {
+        const requirement = self.requirementByPieces[pieceInfoToEdit.indexInStoreArray];
+        if (!requirement) return;
+        self.requirementByPieces[pieceInfoToEdit.indexInStoreArray] = {
+          pieceId: pieceInfoToEdit.pieceId,
+          count: pieceInfoToEdit.count,
+        };
+      };
+
+      const deletePiecesRequirement = (pieceInfoToEdit : PieceInfoToEdit) => {
+        const requirement = self.requirementByPieces[pieceInfoToEdit.indexInStoreArray];
+        if (!requirement) return;
+
+        self.requirementByPieces.splice(pieceInfoToEdit.indexInStoreArray, 1);
+      };
+
       const getAllRequiredPieceIds = () => {
         return self.requirementByPieces.reduce<Set<string>>(
             (set, curr) => {
@@ -43,11 +59,14 @@ export const EquipmentsRequirementStore = types
             }, new Set()
         );
       };
-      return {addPiecesRequirement, getAllRequiredPieceIds};
+      return {addPiecesRequirement, updatePiecesRequirement, deletePiecesRequirement, getAllRequiredPieceIds};
     });
 
 export type IEquipmentsRequirementStore = Instance<typeof EquipmentsRequirementStore>
 export type IRequirementByPiece = Instance<typeof byPiece>
+export type PieceInfoToEdit = IRequirementByPiece & {
+    indexInStoreArray : number
+};
 
 export type IStoreSnapshotIn = SnapshotIn<typeof EquipmentsRequirementStore>
 export type IStoreSnapshotOut = SnapshotOut<typeof EquipmentsRequirementStore>

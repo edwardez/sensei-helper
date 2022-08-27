@@ -1,5 +1,17 @@
+@use 'scss/variables.module';
+
 .campaignsWrapper{
   > * {
     margin-top: 1em;
   }
 }
+
+.accordionSummaryGrid{
+  color: variables.$baSettingsLabelTextColor;
+
+}
+
+.accordionSubTitle{
+  margin-left: 2em;
+}
+

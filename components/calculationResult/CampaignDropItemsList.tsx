@@ -14,7 +14,7 @@ type CampaignDropItemsListProps = {
     allDrops: DropPieceIdWithCount[],
     equipmentsById: EquipmentsById,
     hidePieceDropCount?: boolean,
-    containerCardVariation: 'elevation' | 'outlined',
+    containerCardVariation?: 'elevation' | 'outlined',
 }
 
 const CampaignDropItemsList :

@@ -9,13 +9,14 @@ import {
   useTheme,
 } from '@mui/material';
 import PiecesOnCurrentTier from 'components/calculationInput/piecesSelection/PiecesOnCurrentTier';
-import React, {useState} from 'react';
+import React, {useEffect, useLayoutEffect, useState} from 'react';
 import {Equipment} from 'model/Equipment';
 
 
 import styles from 'components/calculationInput/piecesSelection/PiecesSelectionDialog.module.scss';
 import {Controller, useForm} from 'react-hook-form';
-import {IRequirementByPiece} from 'stores/EquipmentsRequirementStore';
+import {IRequirementByPiece, PieceInfoToEdit} from 'stores/EquipmentsRequirementStore';
+import Box from '@mui/material/Box';
 
 interface IFormInputs {
     neededPieceCount: string
@@ -23,46 +24,87 @@ interface IFormInputs {
 
 const neededPieceCountField = 'neededPieceCount';
 
+
+type PiecesSelectionDialogPros = {
+  piecesByTier: Map<number, Equipment[]>,
+  isOpened: boolean,
+  handleAddPieceRequirement: (requirementByPiece: IRequirementByPiece) => void,
+  handleUpdatePieceRequirement: (pieceInfoToEdit: PieceInfoToEdit) => void,
+  handleDeletePieceRequirement: (pieceInfoToEdit: PieceInfoToEdit) => void,
+  handleCancel: () => void,
+  // An entity denotes a pre-selected piece.
+  // Setting this means dialog will be used for editing existing selection.
+  pieceInfoToEdit: PieceInfoToEdit|null,
+}
+
 const PiecesSelectionDialog = ({
   piecesByTier,
   isOpened,
   handleAddPieceRequirement,
+  handleUpdatePieceRequirement,
+  handleDeletePieceRequirement,
   handleCancel,
-}: {
-    piecesByTier: Map<number, Equipment[]>,
-    isOpened: boolean,
-    handleAddPieceRequirement: (requirementByPiece: IRequirementByPiece) => void,
-  handleCancel: () => void,
-}) => {
+  pieceInfoToEdit,
+}:PiecesSelectionDialogPros) => {
   const theme = useTheme();
   const {
     control,
     formState: {isValid: isCountValid, errors: countErrors},
     getValues,
+    setValue,
     reset,
-  } = useForm<IFormInputs>({mode: 'onChange', defaultValues: {neededPieceCount: '1'}});
+  } = useForm<IFormInputs>({
+    mode: 'onChange',
+    defaultValues: {neededPieceCount: pieceInfoToEdit?.count?.toString() ?? '1'},
+  });
   const isFullScreen = useMediaQuery(theme.breakpoints.down('md'));
-  const [selectedPieceId, setSelectedPieceId] = useState<string | null>(null);
+  const [selectedPieceId, setSelectedPieceId] = useState<string | null>( null);
+  useLayoutEffect(() => {
+    if (!pieceInfoToEdit) return;
+    setSelectedPieceId(pieceInfoToEdit.pieceId);
+    setValue(neededPieceCountField, pieceInfoToEdit.count.toString());
+  }, [pieceInfoToEdit] );
+
+  useEffect(() => {
+    if (!isOpened) {
+      resetFormValues();
+    }
+  }, [isOpened]);
 
   const handleSelectPiece = (piece: string) => {
     setSelectedPieceId(piece);
   };
 
-  const handleAddPieceRequirementOnClose = () => {
+  const handleAddOrUpdatePieceRequirementOnClose = () => {
     if (selectedPieceId) {
-      handleAddPieceRequirement({
+      if (pieceInfoToEdit) {
+        handleUpdatePieceRequirement({
+          pieceId: selectedPieceId,
+          count: parseInt(getValues().neededPieceCount) ?? 1,
+          indexInStoreArray: pieceInfoToEdit.indexInStoreArray,
+        });
+      } else {
+        handleAddPieceRequirement({
+          pieceId: selectedPieceId,
+          count: parseInt(getValues().neededPieceCount) ?? 1,
+        });
+      }
+    }
+  };
+
+  const handleDeletePieceRequirementOnClose = () => {
+    if (selectedPieceId && pieceInfoToEdit) {
+      handleDeletePieceRequirement({
         pieceId: selectedPieceId,
         count: parseInt(getValues().neededPieceCount) ?? 1,
+        indexInStoreArray: pieceInfoToEdit.indexInStoreArray,
       });
-      resetFormValues();
     }
   };
 
   const handleDialogCancel = () => {
-    resetFormValues();
     handleCancel();
   };
-
 
   const resetFormValues = () => {
     setSelectedPieceId(null);
@@ -73,7 +115,14 @@ const PiecesSelectionDialog = ({
   return (<Dialog open={isOpened} fullScreen={isFullScreen}
     keepMounted>
     <DialogTitle>
-            Select a piece
+      <Box display={'flex'}>
+        <Box>Select a piece</Box>
+        <Box flexGrow={'1'}></Box>
+        {pieceInfoToEdit ? <Box><Button color={'error'} onClick={handleDeletePieceRequirementOnClose}>
+              Delete</Button></Box> :
+        null}
+
+      </Box>
     </DialogTitle>
     <DialogContent>
 
@@ -121,7 +170,9 @@ const PiecesSelectionDialog = ({
       />
       <div className={styles.filler}></div>
       <Button onClick={handleDialogCancel}>Cancel</Button>
-      <Button onClick={handleAddPieceRequirementOnClose} disabled={!selectedPieceId || !isCountValid}>Add</Button>
+      <Button onClick={handleAddOrUpdatePieceRequirementOnClose} disabled={!selectedPieceId || !isCountValid}>
+        {pieceInfoToEdit ? 'Update' : 'Add'}
+      </Button>
     </DialogActions>
   </Dialog>);
 };

@@ -10,6 +10,7 @@ import {Campaign} from 'model/Campaign';
 import {sortTwoUnknownValues} from 'common/sortUtils';
 import React, {useMemo} from 'react';
 import CampaignDropItemsList from 'components/calculationResult/CampaignDropItemsList';
+import Grid from '@mui/material/Unstable_Grid2';
 
 type CampaignByRequiredPieceCount = {
     [key: number]: Campaign[],
@@ -89,7 +90,14 @@ const IgnoredCampaigns = ({
   >
     <AccordionSummary
       expandIcon={<ExpandMoreIcon/>}>
-      <Typography variant={'h6'}>Skipped stages</Typography>
+      <Grid container alignItems={'center'} className={styles.accordionSummaryGrid}>
+        <Typography variant={'h6'}>
+              Other stages
+        </Typography>
+        <Typography variant={'body2'} className={styles.accordionSubTitle}>
+              Skipped becasue of inefficiency
+        </Typography>
+      </Grid>
     </AccordionSummary>
     <AccordionDetails>
       {

@@ -9,11 +9,10 @@ import PiecesSelectionDialog from './piecesSelection/PiecesSelectionDialog';
 import React, {useMemo, useState} from 'react';
 import {Equipment, EquipmentCompositionType} from 'model/Equipment';
 import {IWizStore} from 'stores/WizStore';
-import {IRequirementByPiece} from 'stores/EquipmentsRequirementStore';
+import {IRequirementByPiece, PieceInfoToEdit} from 'stores/EquipmentsRequirementStore';
 import {calculateSolution} from 'components/calculationInput/linearProgrammingSolver';
 import {CampaignsById, EquipmentsById} from 'components/calculationInput/PiecesCalculationCommonTypes';
 import Grid from '@mui/material/Unstable_Grid2';
-import {useRadioGroup} from '@mui/material/RadioGroup';
 import {observer} from 'mobx-react-lite';
 import DropCampaignSelection from 'components/calculationInput/DropCampaignSelection';
 
@@ -27,7 +26,7 @@ type CalculationInputCardProps = {
 
 const CalculationInputCard = ({store, equipments, campaignsById, equipmentsById, onSetSolution}: CalculationInputCardProps) => {
   const [isOpened, setIsOpened] = useState(false);
-  const dropRateRadioGroup = useRadioGroup();
+  const [pieceInfoToEdit, setPieceInfoToEdit] = useState<PieceInfoToEdit|null>(null);
 
   const handleClickOpen = () => {
     setIsOpened(true);
@@ -41,11 +40,35 @@ const CalculationInputCard = ({store, equipments, campaignsById, equipmentsById,
 
   const handleCancel = () => {
     setIsOpened(false);
+    setPieceInfoToEdit(null);
+  };
+
+  const handleUpdatePieceRequirement = (pieceInfoToEdit: PieceInfoToEdit) =>{
+    store.equipmentsRequirementStore.updatePiecesRequirement(pieceInfoToEdit);
+    setIsOpened(false);
+  };
+
+
+  const handleDeletePieceRequirement = (pieceInfoToEdit: PieceInfoToEdit) =>{
+    store.equipmentsRequirementStore.deletePiecesRequirement(pieceInfoToEdit);
+    setIsOpened(false);
+    setPieceInfoToEdit(null);
   };
 
   const handleCalculate = () => {
     const requirementByPieces = store.equipmentsRequirementStore.requirementByPieces;
     onSetSolution(calculateSolution(requirementByPieces, store.gameInfoStore.normalMissionItemDropRatio, campaignsById));
+    setPieceInfoToEdit(null);
+  };
+
+  const handleOpenDialogForEditing = (requirementByPiece: IRequirementByPiece, index : number)=>{
+    setPieceInfoToEdit(
+        {
+          ...requirementByPiece,
+          indexInStoreArray: index,
+        }
+    );
+    setIsOpened(true);
   };
 
 
@@ -66,12 +89,13 @@ const CalculationInputCard = ({store, equipments, campaignsById, equipmentsById,
         <BuiLinedText>Add pieces</BuiLinedText>
 
         <div className={styles.selectedPiecesWrapper}>
-          {store.equipmentsRequirementStore.requirementByPieces.map(({pieceId: id, count}, index) => {
-            const piece = equipmentsById.get(id);
+          {store.equipmentsRequirementStore.requirementByPieces.map((requirementByPiece, index) => {
+            const piece = equipmentsById.get(requirementByPiece.pieceId);
 
             if (!piece) return null;
 
-            return <Card key={`${id}-${index}`} elevation={1} className={styles.selectedPiecesCard}>
+            return <Card key={`${requirementByPiece.pieceId}-${index}`} elevation={1} className={styles.selectedPiecesCard}
+              onClick={() => handleOpenDialogForEditing(requirementByPiece, index)}>
               <CardActionArea>
                 <div className={styles.selectedPiecePaper}>
                   <BuiPaper>
@@ -81,7 +105,7 @@ const CalculationInputCard = ({store, equipments, campaignsById, equipmentsById,
                       ></Image>
                     </div>
                   </BuiPaper>
-                  <BuiBanner label={count.toString()} width={'120%'} className={styles.countOnCard}/>
+                  <BuiBanner label={requirementByPiece.count.toString()} width={'120%'} className={styles.countOnCard}/>
                 </div>
               </CardActionArea>
 
@@ -111,7 +135,10 @@ const CalculationInputCard = ({store, equipments, campaignsById, equipmentsById,
       isOpened={isOpened}
       piecesByTier={piecesByTier}
       handleAddPieceRequirement={handleAddPieceRequirement}
+      handleUpdatePieceRequirement={handleUpdatePieceRequirement}
+      handleDeletePieceRequirement={handleDeletePieceRequirement}
       handleCancel={handleCancel}
+      pieceInfoToEdit={pieceInfoToEdit}
     />
   </div>;
 };
