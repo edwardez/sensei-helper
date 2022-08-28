@@ -3,7 +3,7 @@ import {applySnapshot, Instance, SnapshotIn, SnapshotOut, types} from 'mobx-stat
 import {EquipmentsRequirementStore} from 'stores/EquipmentsRequirementStore';
 import {enableStaticRendering} from 'mobx-react-lite';
 import {GameInfoStore} from 'stores/GameInfoStore';
-import {WizSettingsStore} from 'stores/WizSettingsStore';
+import {GameServer} from 'model/Equipment';
 
 enableStaticRendering(typeof window === 'undefined');
 
@@ -15,13 +15,16 @@ const WizStore = types
         requirementByPieces: [],
       }),
       gameInfoStore: types.optional(GameInfoStore, {
-        gameServer: 'Japan',
+        gameServer: GameServer.Japan,
         normalMissionItemDropRatio: 1,
         isPlayerLeverMax: false,
       }),
-      wizSettingsStore: types.optional(WizSettingsStore, {
-        appLanguage: 'en',
-      }),
+    }).actions((self) => {
+      const changeGameServer = (server: GameServer) => {
+        self.gameInfoStore.gameServer = server;
+        self.equipmentsRequirementStore.requirementByPieces.clear();
+      };
+      return {changeGameServer};
     });
 
 export type IWizStore = Instance<typeof WizStore>

@@ -11,6 +11,7 @@ import {useRouter} from 'next/router';
 import Cookies from 'js-cookie';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import Link from 'next/link';
+import SettingsDialog from 'components/settings/SettingsDialog';
 
 export default function WizAppBar() {
   const trigger = useScrollTrigger({
@@ -19,16 +20,26 @@ export default function WizAppBar() {
   });
 
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+  const [isSettingsOpened, setIsSettingsOpened] = React.useState<boolean>(false);
+
   const open = Boolean(anchorEl);
-  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+  const handleOpenMenu = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
   };
-  const handleClose = () => {
+  const handleCloseMenu = () => {
     setAnchorEl(null);
   };
+  const handleOpenSettingsDialog = () => {
+    setIsSettingsOpened(true);
+    handleCloseMenu();
+  };
+  const handleCloseSettingsDialog = () => {
+    setIsSettingsOpened(false);
+  };
+
   const navigateToThenCloseMenu = (url:string) => {
     router.push(url);
-    handleClose();
+    handleCloseMenu();
   };
   const router = useRouter();
   const currentLang = router.locale;
@@ -76,20 +87,22 @@ export default function WizAppBar() {
 
             <IconButton size="large"
               aria-label="more options"
-              onClick={handleClick}>
+              onClick={handleOpenMenu}>
               <MoreVertIcon/>
             </IconButton>
 
             <Menu anchorEl={anchorEl}
               open={open}
-              onClose={handleClose}>
+              onClose={handleCloseMenu}>
               <MenuItem onClick={() => navigateToThenCloseMenu('privacy')}>Privacy</MenuItem>
+              <MenuItem onClick={handleOpenSettingsDialog}>Settings</MenuItem>
               <MenuItem onClick={() => navigateToThenCloseMenu('about')}>About</MenuItem>
             </Menu>
           </Box>
         </Toolbar>
       </AppBar>
       <Toolbar />
+      <SettingsDialog open={isSettingsOpened} onCloseDialog={handleCloseSettingsDialog}/>
     </React.Fragment>
   );
 }

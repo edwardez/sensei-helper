@@ -4,7 +4,7 @@ import Image from 'next/image';
 import {Card, CardContent, Typography} from '@mui/material';
 import React, {FunctionComponent} from 'react';
 import {Campaign} from 'model/Campaign';
-import {DropPieceIdWithProbAndCount, EquipmentsById,} from 'components/calculationInput/PiecesCalculationCommonTypes';
+import {DropPieceIdWithProbAndCount, EquipmentsById} from 'components/calculationInput/PiecesCalculationCommonTypes';
 import Grid from '@mui/material/Unstable_Grid2';
 import BuiBanner from '../bui/BuiBanner';
 

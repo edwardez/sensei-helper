@@ -1,5 +1,6 @@
 import {
   Button,
+  CircularProgress,
   Dialog,
   DialogActions,
   DialogContent,
@@ -9,7 +10,7 @@ import {
   useTheme,
 } from '@mui/material';
 import PiecesOnCurrentTier from 'components/calculationInput/piecesSelection/PiecesOnCurrentTier';
-import React, {useEffect, useLayoutEffect, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Equipment} from 'model/Equipment';
 
 
@@ -59,15 +60,15 @@ const PiecesSelectionDialog = ({
   });
   const isFullScreen = useMediaQuery(theme.breakpoints.down('md'));
   const [selectedPieceId, setSelectedPieceId] = useState<string | null>( null);
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (!pieceInfoToEdit) return;
     setSelectedPieceId(pieceInfoToEdit.pieceId);
     setValue(neededPieceCountField, pieceInfoToEdit.count.toString());
-  }, [pieceInfoToEdit] );
+  }, [pieceInfoToEdit, setValue] );
 
   useEffect(() => {
     if (!isOpened) {
-      resetFormValues();
+      return resetFormValues();
     }
   }, [isOpened]);
 
@@ -111,7 +112,6 @@ const PiecesSelectionDialog = ({
     reset();
   };
 
-
   return (<Dialog open={isOpened} fullScreen={isFullScreen}
     keepMounted>
     <DialogTitle>
@@ -125,15 +125,15 @@ const PiecesSelectionDialog = ({
       </Box>
     </DialogTitle>
     <DialogContent>
-
-      {Array.from(piecesByTier.keys()).reverse().map(
+      {piecesByTier ?
+      Array.from(piecesByTier.keys()).reverse().map(
           (tier) => {
             const equipmentsOnTier = piecesByTier.get(tier);
             if (!equipmentsOnTier) return null;
             return <PiecesOnCurrentTier key={tier} tier={tier} pieces={equipmentsOnTier} selectedPieceId={selectedPieceId}
               handleSelectPiece={handleSelectPiece}/>;
           }
-      )}
+      ) : <CircularProgress />}
     </DialogContent>
     <DialogActions>
       <Controller

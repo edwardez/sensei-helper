@@ -32,19 +32,24 @@ const Home: NextPage = observer((props) => {
   };
 
   const {data, error} = useSWR(['data/equipments.json', 'data/campaigns.json'], fetcher);
-  const equipments = data?.[0] as Equipment[];
+  const allEquipments = data?.[0] as Equipment[];
+  const filteredEquipments = useMemo(() => {
+    if (!allEquipments) return allEquipments;
+    setSolution(null);
+    const gameServer = store.gameInfoStore.gameServer;
+    return allEquipments.filter((equipment) => equipment.releasedIn.includes(gameServer));
+  }, [store.gameInfoStore.gameServer, allEquipments]);
   const campaigns = data?.[1] as Campaign[];
 
-  const equipmentsById = useMemo(() => equipments?.reduce<EquipmentsById>((prev,
-      current) => prev.set(current.id, current), new Map()), [equipments]);
+  const equipmentsById = useMemo(() => filteredEquipments?.reduce<EquipmentsById>((prev,
+      current) => prev.set(current.id, current), new Map()), [filteredEquipments]);
   const campaignsById = useMemo(() => campaigns?.reduce<CampaignsById>((map,
       campaign) => map.set(campaign.id, campaign), new Map()), [campaigns]);
 
   if (error) return <div>failed to load</div>;
-  if (!data) return <div>loading...</div>;
 
   return <React.Fragment>
-    <CalculationInputCard store={store} equipments={equipments}
+    <CalculationInputCard store={store} equipments={filteredEquipments}
       campaignsById={campaignsById}
       equipmentsById={equipmentsById}
       onSetSolution={onSetSolution}/>
