@@ -1,0 +1,7 @@
+@use 'scss/variables.module';
+
+.titleText{
+  text-decoration-line: underline;
+  text-decoration-color: rgb(253,238,93);
+  color: variables.$baTextOnCardBackgroundColor;
+}

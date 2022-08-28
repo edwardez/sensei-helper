@@ -4,14 +4,14 @@ import Image from 'next/image';
 import {Card, CardContent, Typography} from '@mui/material';
 import React, {FunctionComponent} from 'react';
 import {Campaign} from 'model/Campaign';
-import {DropPieceIdWithCount, EquipmentsById} from 'components/calculationInput/PiecesCalculationCommonTypes';
+import {DropPieceIdWithProbAndCount, EquipmentsById,} from 'components/calculationInput/PiecesCalculationCommonTypes';
 import Grid from '@mui/material/Unstable_Grid2';
 import BuiBanner from '../bui/BuiBanner';
 
 type CampaignDropItemsListProps = {
     campaignInfo: Campaign,
     stageExplanationLabel: string,
-    allDrops: DropPieceIdWithCount[],
+    allDrops: DropPieceIdWithProbAndCount[],
     equipmentsById: EquipmentsById,
     hidePieceDropCount?: boolean,
     containerCardVariation?: 'elevation' | 'outlined',
@@ -47,7 +47,7 @@ const CampaignDropItemsList :
 
             <Grid xs={12} className={`${styles.allDropsWrapper} ${styles.noSelection}`} sx={{flexWrap: 'wrap'}}>
 
-              {allDrops.map(({id, dropCount}) => {
+              {allDrops.map(({id, dropCount, dropProb}) => {
                 const piece = equipmentsById.get(id);
 
                 if (!piece) return null;
@@ -56,11 +56,9 @@ const CampaignDropItemsList :
                   <Image src={`/images/equipments/@0.5/${piece.icon}.png`}
                     width={63} height={50}
                   ></Image>
-                  {
-                        hidePieceDropCount ? null : <div className={styles.countOnCard}>
-                            x{dropCount}
-                        </div>
-                  }
+                  <div className={styles.countOnCard}>
+                    {dropCount ? `x${dropCount}` : `${dropProb*100}%`}
+                  </div>
 
                 </BuiCard>;
               })}

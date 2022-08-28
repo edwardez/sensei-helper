@@ -10,14 +10,10 @@
   background-size: 5px 100%,100% 2em;
   line-height: 2em;
 
-  color: variables.$baSettingsLabelTextColor;
+  color: variables.$baPrimaryTextColor;
   font-size: 1.1em;
   font-weight: 450;
 }
-
-//.displayInline{
-//  display: inline;
-//}
 
 .divider{
   display: inline-block;
@@ -27,7 +23,7 @@
 }
 
 .label{
-  color: variables.$baSettingsLabelTextColor;
+  color: variables.$baPrimaryTextColor;
   font-size: 1.1em;
   font-weight: 450;
 }

@@ -10,7 +10,7 @@ import {Campaign} from 'model/Campaign';
 import {sortTwoUnknownValues} from 'common/sortUtils';
 import React, {useMemo} from 'react';
 import CampaignDropItemsList from 'components/calculationResult/CampaignDropItemsList';
-import Grid from '@mui/material/Unstable_Grid2';
+import Box from '@mui/material/Box';
 
 type CampaignByRequiredPieceCount = {
     [key: number]: Campaign[],
@@ -90,19 +90,26 @@ const IgnoredCampaigns = ({
   >
     <AccordionSummary
       expandIcon={<ExpandMoreIcon/>}>
-      <Grid container alignItems={'center'} className={styles.accordionSummaryGrid}>
-        <Typography variant={'h6'}>
-              Other stages
-        </Typography>
-        <Typography variant={'body2'} className={styles.accordionSubTitle}>
-              Skipped becasue of inefficiency
-        </Typography>
-      </Grid>
+      <Box display={'flex'} alignItems={'center'} flexGrow={1} className={styles.accordionSummaryGrid}>
+        <Box>
+          <Typography variant={'h6'}>
+                  Other stages
+          </Typography>
+        </Box>
+        <Box flexGrow={1}>
+        </Box>
+        <Box>
+          <Typography variant={'body2'} className={styles.accordionSubTitle}>
+                  Skipped becasue of inefficiency
+          </Typography>
+        </Box>
+
+      </Box>
     </AccordionSummary>
     <AccordionDetails>
       {
         skippedValidCampaigns.map((campaign) => {
-          const allDrops = campaign.rewards.map(({id}) => ({id, dropCount: 0}));
+          const allDrops = campaign.rewards.map(({id, probability}) => ({id, dropProb: probability}));
           return <div className={styles.campaignsWrapper} key={campaign.id}>
             <CampaignDropItemsList
               campaignInfo={campaign} stageExplanationLabel={`Skipped`}

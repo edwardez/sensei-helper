@@ -31,6 +31,13 @@ const wizDefaultTheme = createTheme({
         },
       },
     },
+    MuiIconButton: {
+      styleOverrides: {
+        root: {
+          color: variables.baPrimaryTextColor,
+        },
+      },
+    },
   },
   palette: {
     baButtonPrimary: {

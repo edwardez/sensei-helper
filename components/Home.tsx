@@ -48,6 +48,7 @@ const Home: NextPage = observer((props) => {
       campaignsById={campaignsById}
       equipmentsById={equipmentsById}
       onSetSolution={onSetSolution}/>
+
     {
             solution && solution.result ?
                 <React.Fragment>

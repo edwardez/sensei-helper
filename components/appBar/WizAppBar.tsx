@@ -10,6 +10,7 @@ import styles from './WizAppBar.module.scss';
 import {useRouter} from 'next/router';
 import Cookies from 'js-cookie';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
+import Link from 'next/link';
 
 export default function WizAppBar() {
   const trigger = useScrollTrigger({
@@ -25,6 +26,10 @@ export default function WizAppBar() {
   const handleClose = () => {
     setAnchorEl(null);
   };
+  const navigateToThenCloseMenu = (url:string) => {
+    router.push(url);
+    handleClose();
+  };
   const router = useRouter();
   const currentLang = router.locale;
 
@@ -32,7 +37,7 @@ export default function WizAppBar() {
     const desiredLocale = event?.target?.value;
     if (!desiredLocale) return;
 
-    router.push('/', '', {locale: desiredLocale});
+    router.push('/', '/', {locale: desiredLocale});
     Cookies.set('NEXT_LOCALE', desiredLocale);
   };
 
@@ -47,13 +52,17 @@ export default function WizAppBar() {
           borderStyle: trigger ? `none none solid none` : 'none none none none'}}
         variant={'outlined'}>
         <Toolbar>
-          <Typography variant="h6" className={styles.title}>
-             Sensei Helper
-          </Typography>
+          <Link href="/">
+            <a className={styles.title}>
+              <Typography variant="h6" >
+                Sensei Helper
+              </Typography>
+            </a>
+          </Link>
 
           <Box sx={{flexGrow: 1}}>
           </Box>
-          <Box>
+          <Box display={'flex'} alignItems={'center'}>
             <FormControl sx={{m: 1, minWidth: 120}} size="small">
               <Select variant={'outlined'}
                 value={currentLang}
@@ -66,7 +75,7 @@ export default function WizAppBar() {
             </FormControl>
 
             <IconButton size="large"
-              aria-label="show 4 new mails"
+              aria-label="more options"
               onClick={handleClick}>
               <MoreVertIcon/>
             </IconButton>
@@ -74,9 +83,8 @@ export default function WizAppBar() {
             <Menu anchorEl={anchorEl}
               open={open}
               onClose={handleClose}>
-              <MenuItem onClick={handleClose}>Privacy</MenuItem>
-              <MenuItem onClick={handleClose}>Terms of service</MenuItem>
-              <MenuItem onClick={handleClose}>About</MenuItem>
+              <MenuItem onClick={() => navigateToThenCloseMenu('privacy')}>Privacy</MenuItem>
+              <MenuItem onClick={() => navigateToThenCloseMenu('about')}>About</MenuItem>
             </Menu>
           </Box>
         </Toolbar>

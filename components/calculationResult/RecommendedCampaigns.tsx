@@ -4,7 +4,7 @@ import React from 'react';
 import {
     CampaignsById,
     DropPieceIdsWithCount,
-    DropPieceIdWithCount,
+    DropPieceIdWithProbAndCount,
     EquipmentsById,
 } from 'components/calculationInput/PiecesCalculationCommonTypes';
 import {Solution} from 'javascript-lp-solver';
@@ -45,9 +45,10 @@ const RecommendedCampaigns = ({
             } = campaignInfo.rewards.reduce<DropPieceIdsWithCount>((partiaResult, reward) => {
               let expectedDrop = Math.floor(sweepingTimes * reward.probability );
               expectedDrop = expectedDrop === 0 ? 1 : expectedDrop;
-              const dropPieceIdWithCount: DropPieceIdWithCount = {
+              const dropPieceIdWithCount: DropPieceIdWithProbAndCount = {
                 id: reward.id,
                 dropCount: expectedDrop * normalMissionItemDropRatio,
+                dropProb: normalMissionItemDropRatio,
               };
               if (requiredPieceIds.has(reward.id)) {
                 partiaResult.requiredItemDrops.push(dropPieceIdWithCount);

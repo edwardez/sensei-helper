@@ -46,6 +46,8 @@ const CalculationInputCard = ({store, equipments, campaignsById, equipmentsById,
   const handleUpdatePieceRequirement = (pieceInfoToEdit: PieceInfoToEdit) =>{
     store.equipmentsRequirementStore.updatePiecesRequirement(pieceInfoToEdit);
     setIsOpened(false);
+    setPieceInfoToEdit(null);
+    onSetSolution(null);
   };
 
 
@@ -53,6 +55,7 @@ const CalculationInputCard = ({store, equipments, campaignsById, equipmentsById,
     store.equipmentsRequirementStore.deletePiecesRequirement(pieceInfoToEdit);
     setIsOpened(false);
     setPieceInfoToEdit(null);
+    onSetSolution(null);
   };
 
   const handleCalculate = () => {
@@ -111,7 +114,7 @@ const CalculationInputCard = ({store, equipments, campaignsById, equipmentsById,
 
             </Card>;
           })}
-          <BuiButton color="baButtonPrimary" onClick={handleClickOpen} className={styles.addButton}>
+          <BuiButton color={'baButtonSecondary'} onClick={handleClickOpen} className={styles.addButton}>
             <div>Add</div>
           </BuiButton>
         </div>
@@ -120,7 +123,7 @@ const CalculationInputCard = ({store, equipments, campaignsById, equipmentsById,
 
         <Grid container display="flex" justifyContent="center" alignItems="center">
           <BuiButton variant="outlined"
-            color={'baButtonSecondary'}
+            color={'baButtonPrimary'}
             onClick={handleCalculate} disabled={!store.equipmentsRequirementStore.getAllRequiredPieceIds().size}>
             <div>Calculate</div>
           </BuiButton>
