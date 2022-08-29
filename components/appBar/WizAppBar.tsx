@@ -68,7 +68,7 @@ export default function WizAppBar() {
           <Link href="/">
             <a className={styles.title}>
               <Typography variant="h6" >
-                {t('appbarTitle')}
+                {t('appbarTitle', 'Sensei Helper')}
               </Typography>
             </a>
           </Link>

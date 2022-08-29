@@ -5,7 +5,7 @@ import {
     CampaignsById,
     DropPieceIdsWithCount,
     DropPieceIdWithProbAndCount,
-    EquipmentsById
+    EquipmentsById,
 } from 'components/calculationInput/PiecesCalculationCommonTypes';
 import {Solution} from 'javascript-lp-solver';
 import {IEquipmentsRequirementStore} from 'stores/EquipmentsRequirementStore';
