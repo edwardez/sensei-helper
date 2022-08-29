@@ -15,6 +15,7 @@ import {CampaignsById, EquipmentsById} from 'components/calculationInput/PiecesC
 import Grid from '@mui/material/Unstable_Grid2';
 import {observer} from 'mobx-react-lite';
 import DropCampaignSelection from 'components/calculationInput/DropCampaignSelection';
+import {useTranslation} from 'next-i18next';
 
 type CalculationInputCardProps = {
   store: IWizStore,
@@ -27,6 +28,7 @@ type CalculationInputCardProps = {
 const CalculationInputCard = ({store, equipments, campaignsById, equipmentsById, onSetSolution}: CalculationInputCardProps) => {
   const [isOpened, setIsOpened] = useState(false);
   const [pieceInfoToEdit, setPieceInfoToEdit] = useState<PieceInfoToEdit|null>(null);
+  const {t} = useTranslation('home');
 
   const handleClickOpen = () => {
     setIsOpened(true);
@@ -89,7 +91,7 @@ const CalculationInputCard = ({store, equipments, campaignsById, equipmentsById,
     <Card variant={'outlined'} className={styles.card}>
       <CardContent>
 
-        <BuiLinedText>Add pieces</BuiLinedText>
+        <BuiLinedText>{t('addPiecesTitle')}</BuiLinedText>
 
         <div className={styles.selectedPiecesWrapper}>
           {store.equipmentsRequirementStore.requirementByPieces.map((requirementByPiece, index) => {
@@ -115,7 +117,7 @@ const CalculationInputCard = ({store, equipments, campaignsById, equipmentsById,
             </Card>;
           })}
           <BuiButton color={'baButtonSecondary'} onClick={handleClickOpen} className={styles.addButton}>
-            <div>Add</div>
+            <div>{t('addButton')}</div>
           </BuiButton>
         </div>
 
@@ -125,7 +127,7 @@ const CalculationInputCard = ({store, equipments, campaignsById, equipmentsById,
           <BuiButton variant="outlined"
             color={'baButtonPrimary'}
             onClick={handleCalculate} disabled={!store.equipmentsRequirementStore.getAllRequiredPieceIds().size}>
-            <div>Calculate</div>
+            <div>{t('calculateButton')}</div>
           </BuiButton>
         </Grid>
 

@@ -7,6 +7,7 @@ import {Campaign} from 'model/Campaign';
 import {DropPieceIdWithProbAndCount, EquipmentsById} from 'components/calculationInput/PiecesCalculationCommonTypes';
 import Grid from '@mui/material/Unstable_Grid2';
 import BuiBanner from '../bui/BuiBanner';
+import {useTranslation} from 'next-i18next';
 
 type CampaignDropItemsListProps = {
     campaignInfo: Campaign,
@@ -27,6 +28,7 @@ const CampaignDropItemsList :
       containerCardVariation = 'elevation',
     }
     ) => {
+      const {t} = useTranslation('home');
       return <Card variant={containerCardVariation} className={styles.cardWrapper}
         elevation={containerCardVariation == 'elevation' ? 2 : undefined}>
         <CardContent>
@@ -42,7 +44,7 @@ const CampaignDropItemsList :
             </Grid>
 
             <Grid xs={12} className={styles.noSelection}>
-              <BuiBanner label={`Possible rewards`}/>
+              <BuiBanner label={t('possibleRewards')}/>
             </Grid>
 
             <Grid xs={12} className={`${styles.allDropsWrapper} ${styles.noSelection}`} sx={{flexWrap: 'wrap'}}>

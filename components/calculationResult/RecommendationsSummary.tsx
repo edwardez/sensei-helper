@@ -5,10 +5,12 @@ import React, {useState} from 'react';
 import IconButton from '@mui/material/IconButton';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import ResultIsEstimation from 'components/calculationResult/explanation/ResultIsEstimation';
+import {useTranslation} from 'next-i18next';
 
 const punchedHoleWidthPx = 150;
 
 const RecommendationsSummary = () => {
+  const {t} = useTranslation('home');
   const punchedHoleNumbers = Math.ceil( window.innerWidth / punchedHoleWidthPx);
   const [isResultIsEstimationOpened, setResultIsEstimation] = useState(false);
 
@@ -28,11 +30,11 @@ const RecommendationsSummary = () => {
         </div>
 
         <BuiLinedText>
-          <div>Things to note</div>
+          <div>{t('thinsToNote.title')}</div>
         </BuiLinedText>
 
         <BuiLinedText showVerticalDividerPrefix={false}>
-          <div>Recommended sweeping times is an estimation and your mileage may vary.
+          <div>{t('thinsToNote.pointThisIsEstimation')}
             <IconButton onClick={handleResultIsEstimationOpen}><InfoOutlinedIcon /></IconButton></div>
         </BuiLinedText>
       </CardContent>

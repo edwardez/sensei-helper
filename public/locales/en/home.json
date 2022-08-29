@@ -1,0 +1,43 @@
+{
+  "addPiecesTitle": "Add an equipment piece",
+  "addButton": "Add",
+  "updateButton": "Update",
+  "cancelButton": "Cancel",
+  "deleteButton": "Delete",
+  "isInADropCampaign": "In a drop Campaign?(Mission Normal)",
+  "normal1x": "1x(No Campaign)",
+  "normal2x": "Double",
+  "normal3x": "Triple",
+  "calculateButton": "Calculate",
+  "addPieceDialog": {
+    "selectAPiece": "Select an equipment piece",
+    "required": "Required",
+    "mustBeAInteger": "Must be a integer",
+    "minimumIs": "Minimum is {{min}}",
+    "maximumIs": "Maximum is {{max}}",
+    "quantity": "Quantity"
+  },
+  "thinsToNote": {
+    "title": "Things to note",
+    "pointThisIsEstimation": "Recommended sweeping times is an estimation and your mileage may vary.",
+    "dialogTitle": "Note",
+    "dialogThisIsEstimationTitle": "This is an estimation",
+    "dialogThisIsEstimationContent": "Our calculation is based on mathematical expectation, however this game drops items randomly. This means even you sweep for the recommended times, it is likely you will not get the exact number of pieces you need.",
+    "dialogNumberMayNotAddUpTitle": "Drop number may slightly not add up",
+    "dialogNumberMayNotAddUpContent": "It's possible you request 6 shoes but the app only gives you an estimation of 5. This is because the algorithm we use is <1>linear programming</1> and giving you the exact number is <3>hard</3>. So we only give you an estimation."
+  },
+  "stageSweepingTimes": "{{sweepingTimes}} times",
+  "stageIsSkipped": "Skipped",
+  "possibleRewards": "Possible Rewards",
+  "otherStages": "Other stages",
+  "otherStagesSkippedReason": "Skipped because of inefficiency",
+  "privacy": "Privacy",
+  "settings": "Settings",
+  "about": "About",
+  "appbarTitle": "Sensei Helper",
+  "settingsDialogTitle": "Settings",
+  "settingsDialogSelectGameServer": "Select your game server",
+  "japanServer": "Japan",
+  "globalServer": "Global"
+}
+

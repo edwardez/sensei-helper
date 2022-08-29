@@ -18,6 +18,7 @@ import styles from 'components/calculationInput/piecesSelection/PiecesSelectionD
 import {Controller, useForm} from 'react-hook-form';
 import {IRequirementByPiece, PieceInfoToEdit} from 'stores/EquipmentsRequirementStore';
 import Box from '@mui/material/Box';
+import {useTranslation} from 'next-i18next';
 
 interface IFormInputs {
     neededPieceCount: string
@@ -47,6 +48,7 @@ const PiecesSelectionDialog = ({
   handleCancel,
   pieceInfoToEdit,
 }:PiecesSelectionDialogPros) => {
+  const {t} = useTranslation('home');
   const theme = useTheme();
   const {
     control,
@@ -116,10 +118,10 @@ const PiecesSelectionDialog = ({
     keepMounted>
     <DialogTitle>
       <Box display={'flex'}>
-        <Box>Select a piece</Box>
+        <Box>{t('addPieceDialog.selectAPiece')}</Box>
         <Box flexGrow={'1'}></Box>
         {pieceInfoToEdit ? <Box><Button color={'error'} onClick={handleDeletePieceRequirementOnClose}>
-              Delete</Button></Box> :
+          {t('deleteButton')}</Button></Box> :
         null}
 
       </Box>
@@ -142,36 +144,36 @@ const PiecesSelectionDialog = ({
         rules={{
           required: {
             value: true,
-            message: 'Required',
+            message: t('addPieceDialog.required'),
           },
           pattern: {
             value: /^\d+$/,
-            message: 'must be a number',
+            message: t('addPieceDialog.mustBeAInteger'),
           },
           min: {
             value: 1,
-            message: 'minimum is 1',
+            message: t('addPieceDialog.minimumIs', {min: 1}),
           },
           max: {
             value: 999,
-            message: 'maximum is 999',
+            message: t('addPieceDialog.maximumIs', {max: 999}),
           },
         }}
         render={({field}) => (
           <TextField
             {...field}
-
+            inputProps={{pattern: '\\d*'}}
             variant="outlined"
             error={!!countErrors.neededPieceCount}
             helperText={countErrors.neededPieceCount?.message}
-            label="Quantity"
+            label={t('addPieceDialog.quantity')}
           />
         )}
       />
       <div className={styles.filler}></div>
-      <Button onClick={handleDialogCancel}>Cancel</Button>
+      <Button onClick={handleDialogCancel}>{t('cancelButton')}</Button>
       <Button onClick={handleAddOrUpdatePieceRequirementOnClose} disabled={!selectedPieceId || !isCountValid}>
-        {pieceInfoToEdit ? 'Update' : 'Add'}
+        {pieceInfoToEdit ? t('updateButton') : t('addButton')}
       </Button>
     </DialogActions>
   </Dialog>);

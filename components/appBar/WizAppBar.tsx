@@ -12,8 +12,10 @@ import Cookies from 'js-cookie';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import Link from 'next/link';
 import SettingsDialog from 'components/settings/SettingsDialog';
+import {useTranslation} from 'next-i18next';
 
 export default function WizAppBar() {
+  const {t} = useTranslation('home');
   const trigger = useScrollTrigger({
     disableHysteresis: true,
     threshold: 0,
@@ -66,7 +68,7 @@ export default function WizAppBar() {
           <Link href="/">
             <a className={styles.title}>
               <Typography variant="h6" >
-                Sensei Helper
+                {t('appbarTitle')}
               </Typography>
             </a>
           </Link>
@@ -94,9 +96,9 @@ export default function WizAppBar() {
             <Menu anchorEl={anchorEl}
               open={open}
               onClose={handleCloseMenu}>
-              <MenuItem onClick={() => navigateToThenCloseMenu('privacy')}>Privacy</MenuItem>
-              <MenuItem onClick={handleOpenSettingsDialog}>Settings</MenuItem>
-              <MenuItem onClick={() => navigateToThenCloseMenu('about')}>About</MenuItem>
+              <MenuItem onClick={() => navigateToThenCloseMenu('privacy')}>{t('privacy')}</MenuItem>
+              <MenuItem onClick={handleOpenSettingsDialog}>{t('settings')}</MenuItem>
+              <MenuItem onClick={() => navigateToThenCloseMenu('about')}>{t('about')}</MenuItem>
             </Menu>
           </Box>
         </Toolbar>

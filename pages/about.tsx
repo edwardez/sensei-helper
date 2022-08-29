@@ -1,22 +1,36 @@
 import BuiLinedText from 'components/bui/text/BuiLinedText';
+import {serverSideTranslations} from 'next-i18next/serverSideTranslations';
+import {Trans, useTranslation} from 'next-i18next';
 
-const about = () => {
+const About = () => {
+  const {t} = useTranslation('about');
+
   return <>
-    <BuiLinedText><div>What is Sensei Helper?</div></BuiLinedText>
+    <BuiLinedText><div>{t('whatIsSenseiHelperTitle')}</div></BuiLinedText>
     <BuiLinedText showVerticalDividerPrefix={false}>
-      <div>Sensei helper is a tool that help you optimize farming equipments.</div>
+      <div>{t('whatIsSenseiHelperContent')}</div>
     </BuiLinedText>
-    <BuiLinedText><div>Is it free to use?</div></BuiLinedText>
+    <BuiLinedText><div>{t('freeToUseTitle')}</div></BuiLinedText>
     <BuiLinedText showVerticalDividerPrefix={false}>
-      <div>Yes! This app is free to use and&nbsp;
-        <a href="https://github.com/edwardez/sensei-helper" target="_blank" rel="noopener noreferrer">open-sourced</a></div>
+      <Trans t={t} i18nKey="freeToUseContent">
+        Yes. This app is free to use and <a href="https://github.com/edwardez/sensei-helper" target="_blank" rel="noopener noreferrer">open-sourced</a>
+      </Trans>
     </BuiLinedText>
-    <BuiLinedText><div>How to contact you?</div></BuiLinedText>
+    <BuiLinedText><div>{t('contactTitle')}</div></BuiLinedText>
     <BuiLinedText showVerticalDividerPrefix={false}>
-      <div>Please contact us on&nbsp;<a href="https://twitter.com/sensei_helper" target="_blank" rel="noopener noreferrer">Twitter</a>
-        &nbsp;or&nbsp;<a href="https://github.com/edwardez/sensei-helper/issues" target="_blank" rel="noopener noreferrer">Github</a></div>
+      <Trans t={t} i18nKey="contactContent">
+        Please contact us on&nbsp;<a href="https://twitter.com/sensei_helper" target="_blank" rel="noopener noreferrer">Twitter</a>
+        &nbsp;or&nbsp;<a href="https://github.com/edwardez/sensei-helper/issues" target="_blank" rel="noopener noreferrer">Github</a>.
+      </Trans>
     </BuiLinedText>
   </>;
 };
 
-export default about;
+export default About;
+
+
+export const getServerSideProps = async ({locale}:{locale: string}) => ({
+  props: {
+    ...(await serverSideTranslations(locale, ['home', 'about'])),
+  },
+});

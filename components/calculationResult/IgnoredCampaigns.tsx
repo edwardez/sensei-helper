@@ -11,6 +11,7 @@ import {sortTwoUnknownValues} from 'common/sortUtils';
 import React, {useMemo} from 'react';
 import CampaignDropItemsList from 'components/calculationResult/CampaignDropItemsList';
 import Box from '@mui/material/Box';
+import {useTranslation} from 'next-i18next';
 
 type CampaignByRequiredPieceCount = {
     [key: number]: Campaign[],
@@ -76,6 +77,8 @@ const IgnoredCampaigns = ({
   allRequiredPieceIds,
   equipmentsById,
 }: IgnoredCampaignsProps & {equipmentsById: EquipmentsById}) => {
+  const {t} = useTranslation('home');
+
   const skippedValidCampaigns = useMemo(
       () => findValidCampaigns({
         solution: solution,
@@ -93,14 +96,14 @@ const IgnoredCampaigns = ({
       <Box display={'flex'} alignItems={'center'} flexGrow={1} className={styles.accordionSummaryGrid}>
         <Box>
           <Typography variant={'h6'}>
-                  Other stages
+            {t('otherStages')}
           </Typography>
         </Box>
         <Box flexGrow={1}>
         </Box>
         <Box>
           <Typography variant={'body2'} className={styles.accordionSubTitle}>
-                  Skipped becasue of inefficiency
+            {t('otherStagesSkippedReason')}
           </Typography>
         </Box>
 
@@ -112,7 +115,7 @@ const IgnoredCampaigns = ({
           const allDrops = campaign.rewards.map(({id, probability}) => ({id, dropProb: probability}));
           return <div className={styles.campaignsWrapper} key={campaign.id}>
             <CampaignDropItemsList
-              campaignInfo={campaign} stageExplanationLabel={`Skipped`}
+              campaignInfo={campaign} stageExplanationLabel={t('stageIsSkipped')}
               allDrops={allDrops} equipmentsById={equipmentsById}
               containerCardVariation={'outlined'}
               hidePieceDropCount/>

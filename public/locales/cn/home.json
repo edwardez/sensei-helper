@@ -1,0 +1,42 @@
+{
+  "addPiecesTitle": "添加一个装备设计图",
+  "addButton": "添加",
+  "updateButton": "更新",
+  "cancelButton": "取消",
+  "deleteButton": "删除",
+  "isInADropCampaign": "N图掉落翻倍？",
+  "normal1x": "1倍(N1)",
+  "normal2x": "2倍(N2)",
+  "normal3x": "3倍(N3)",
+  "calculateButton": "计算",
+  "addPieceDialog": {
+    "selectAPiece": "选择一个装备设计图",
+    "required": "必填",
+    "mustBeAInteger": "必须是一个整数",
+    "minimumIs": "不能小于{{min}}",
+    "maximumIs": "不能大于{{max}}",
+    "quantity": "数量"
+  },
+  "thinsToNote": {
+    "title": "注意事项",
+    "pointThisIsEstimation": "推荐扫图次数为估计，与实际可能有出入。",
+    "dialogTitle": "注意",
+    "dialogThisIsEstimationTitle": "推荐扫图次数为估计",
+    "dialogThisIsEstimationContent": "推荐扫图次数是根据数学期望计算的，但游戏里的掉落为完全随机。所以扫荡了app里推荐的次数不代表就能获得完全一样的掉落数。",
+    "dialogNumberMayNotAddUpTitle": "掉落数量与需求数量可能稍有输出",
+    "dialogNumberMayNotAddUpContent": "举个例子，可能需求了6个鞋子设计图但app里估计掉落数量加起来只有5。这是因为刷图算法是<1>线性规划</1>，要计算完全一样的需求数会很<3>复杂</3>。所以app只计算一个估计值。"
+  },
+  "stageSweepingTimes": "{{sweepingTimes}}次",
+  "stageIsSkipped": "跳过",
+  "possibleRewards": "可获得奖励",
+  "otherStages": "其他关卡",
+  "otherStagesSkippedReason": "因刷图效率不高而跳过",
+  "privacy": "隐私",
+  "settings": "设置",
+  "about": "关于",
+  "appbarTitle": "老师助手",
+  "settingsDialogTitle": "设置",
+  "settingsDialogSelectGameServer": "游戏服务器",
+  "japanServer": "日服",
+  "globalServer": "国际服"
+}

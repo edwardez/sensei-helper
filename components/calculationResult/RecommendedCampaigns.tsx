@@ -5,12 +5,13 @@ import {
     CampaignsById,
     DropPieceIdsWithCount,
     DropPieceIdWithProbAndCount,
-    EquipmentsById,
+    EquipmentsById
 } from 'components/calculationInput/PiecesCalculationCommonTypes';
 import {Solution} from 'javascript-lp-solver';
 import {IEquipmentsRequirementStore} from 'stores/EquipmentsRequirementStore';
 import CampaignDropItemsList from 'components/calculationResult/CampaignDropItemsList';
 import {sortTwoUnknownValues} from 'common/sortUtils';
+import {useTranslation} from 'next-i18next';
 
 
 const RecommendedCampaigns = ({
@@ -27,6 +28,8 @@ const RecommendedCampaigns = ({
     normalMissionItemDropRatio: number,
 }) => {
   const requiredPieceIds = equipmentsRequirementStore.getAllRequiredPieceIds();
+  const {t} = useTranslation('home');
+
   return <React.Fragment>
     {
       Object.entries(solution)
@@ -61,7 +64,7 @@ const RecommendedCampaigns = ({
 
             return <div key={key} className={styles.selectedPiecesCard}>
               <CampaignDropItemsList
-                campaignInfo={campaignInfo} stageExplanationLabel={`${sweepingTimes} times`}
+                campaignInfo={campaignInfo} stageExplanationLabel={t('stageSweepingTimes', {sweepingTimes})}
                 allDrops={allDrops} equipmentsById={equipmentsById} />
             </div>;
           })

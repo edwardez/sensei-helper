@@ -1,0 +1,42 @@
+{
+  "addPiecesTitle": "設計図を追加",
+  "addButton": "追加",
+  "updateButton": "更新",
+  "cancelButton": "キャンセル",
+  "deleteButton": "削除",
+  "isInADropCampaign": "Normalドロップ量キャンペーン中？",
+  "normal1x": "キャンペーン無し（1倍）",
+  "normal2x": "2倍",
+  "normal3x": "3倍",
+  "calculateButton": "計算",
+  "addPieceDialog": {
+    "selectAPiece": "設計図選択",
+    "required": "必須です",
+    "mustBeAInteger": "半角数字のみ",
+    "minimumIs": "最小値は{{min}}です",
+    "maximumIs": "最大値は{{max}}です",
+    "quantity": "欲しい数"
+  },
+  "thinsToNote": {
+    "title": "注記",
+    "pointThisIsEstimation": "推奨掃討回数は予測であり、実際の報酬と大きく異なる場合もあります。",
+    "dialogTitle": "注記",
+    "dialogThisIsEstimationTitle": "推奨掃討回数は予測です",
+    "dialogThisIsEstimationContent": "おすすめの掃討回数はあくまでも期待値です。ゲームのドロップは完全ランダムのため、実際の報酬と大きく異なる場合もあります。",
+    "dialogNumberMayNotAddUpTitle": "予測ドロップ数と欲しい数にわずかの誤差が出ることはあります",
+    "dialogNumberMayNotAddUpContent": "例えば、欲しい靴設計図を６とします、予測ドロップ数は５になる場合があります。これは、アプリのアルゴリズムは<1>線形計画法</1>からです。誤差をなくすには整数計画法は必要ですが、整数計画法が<3>難しい</3>ので、あえて少し誤差が出る線形計画法を採用しています。"
+  },
+  "stageSweepingTimes": "{{sweepingTimes}}回",
+  "stageIsSkipped": "Skipped",
+  "possibleRewards": "獲得可能報酬",
+  "otherStages": "他の任務",
+  "otherStagesSkippedReason": "非効率のためスキップしました",
+  "privacy": "プライバシー",
+  "settings": "設定",
+  "about": "本ツールについて",
+  "appbarTitle": "先生ヘルパー",
+  "settingsDialogTitle": "設定",
+  "settingsDialogSelectGameServer": "ゲームサーバー",
+  "japanServer": "日本",
+  "globalServer": "グローバル"
+}

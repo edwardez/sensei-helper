@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import {serverSideTranslations} from 'next-i18next/serverSideTranslations';
 
 
 export default function Privacy() {
@@ -110,3 +111,10 @@ export default function Privacy() {
   </>
   );
 }
+
+
+export const getServerSideProps = async ({locale}:{locale: string}) => ({
+  props: {
+    ...(await serverSideTranslations(locale, ['home'])),
+  },
+});

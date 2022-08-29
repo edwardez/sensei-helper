@@ -2,18 +2,19 @@ import BuiDialog from 'components/bui/dialog/BuiDialog';
 import {observer} from 'mobx-react-lite';
 import {BuiDialogTitle} from 'components/bui/dialog/BuiDialogTitle';
 import React, {ChangeEvent} from 'react';
-import {Button, DialogActions, DialogContent, FormControlLabel, Radio, RadioGroup} from '@mui/material';
+import {DialogContent, FormControlLabel, Radio, RadioGroup} from '@mui/material';
 import BuiLinedText from 'components/bui/text/BuiLinedText';
 import {useStore} from 'stores/WizStore';
 import {GameServer} from 'model/Equipment';
+import {useTranslation} from 'next-i18next';
 
 const SettingsDialog = ({open, onCloseDialog} : {open: boolean,
   onCloseDialog: () => void}) => {
+  const {t} = useTranslation('home');
   const store = useStore();
   const handleClose = () =>{
     onCloseDialog();
   };
-
 
   const handleGameServerChange = (event : ChangeEvent<HTMLElement>, value: string) => {
     store.changeGameServer(GameServer[value as keyof typeof GameServer]);
@@ -21,19 +22,16 @@ const SettingsDialog = ({open, onCloseDialog} : {open: boolean,
 
   return <BuiDialog open={open}>
     <BuiDialogTitle onClose={handleClose}>
-      <div>Settings</div>
+      <div>{t('settingsDialogTitle')}</div>
     </BuiDialogTitle>
     <DialogContent>
-      <BuiLinedText>Select your game server</BuiLinedText>
+      <BuiLinedText>{t('settingsDialogSelectGameServer')}</BuiLinedText>
       <RadioGroup row value={`${store.gameInfoStore.gameServer}`} onChange={handleGameServerChange}>
-        <FormControlLabel value={GameServer.Japan} control={<Radio />} label="Japan" />
-        <FormControlLabel value={GameServer.Global} control={<Radio />} label="Global" />
+        <FormControlLabel value={GameServer.Japan} control={<Radio />} label={t('japanServer')} />
+        <FormControlLabel value={GameServer.Global} control={<Radio />} label={t('globalServer')} />
       </RadioGroup>
 
     </DialogContent>
-    <DialogActions>
-      <Button onClick={handleClose}>Done</Button>
-    </DialogActions>
   </BuiDialog>;
 };
 

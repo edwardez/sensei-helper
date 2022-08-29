@@ -3,8 +3,10 @@ import {FormControlLabel, Radio, RadioGroup} from '@mui/material';
 import React, {ChangeEvent} from 'react';
 import {IWizStore} from 'stores/WizStore';
 import {observer} from 'mobx-react-lite';
+import {useTranslation} from 'next-i18next';
 
 const DropCampaignSelection = ({store, onDropRateChanged} : {store: IWizStore, onDropRateChanged: (value:number)=>void}) => {
+  const {t} = useTranslation('home');
   const handleDropRateChange = (event : ChangeEvent<HTMLElement>, value: string) => {
     const number = Number.parseInt(value);
     if (!number) return;
@@ -14,12 +16,12 @@ const DropCampaignSelection = ({store, onDropRateChanged} : {store: IWizStore, o
   };
 
   return <React.Fragment>
-    <BuiLinedText>In a drop campaign?(Mission Normal)</BuiLinedText>
+    <BuiLinedText>{t('isInADropCampaign')}</BuiLinedText>
 
     <RadioGroup row value={`${store.gameInfoStore.normalMissionItemDropRatio}`} onChange={handleDropRateChange}>
-      <FormControlLabel value="1" control={<Radio />} label="1x(No Campaign)" />
-      <FormControlLabel value="2" control={<Radio />} label="Duoble" />
-      <FormControlLabel value="3" control={<Radio />} label="Triple" />
+      <FormControlLabel value="1" control={<Radio />} label={t('normal1x')} />
+      <FormControlLabel value="2" control={<Radio />} label={t('normal2x')} />
+      <FormControlLabel value="3" control={<Radio />} label={t('normal3x')} />
     </RadioGroup>
   </React.Fragment>;
 };
