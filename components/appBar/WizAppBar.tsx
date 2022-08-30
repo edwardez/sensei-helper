@@ -51,7 +51,7 @@ export default function WizAppBar() {
     if (!desiredLocale) return;
 
     router.push('/', '/', {locale: desiredLocale});
-    Cookies.set('NEXT_LOCALE', desiredLocale);
+    Cookies.set('NEXT_LOCALE', desiredLocale, {expires: 3650});
   };
 
   return (
@@ -68,7 +68,7 @@ export default function WizAppBar() {
           <Link href="/">
             <a className={styles.title}>
               <Typography variant="h6" >
-                {t('appbarTitle', 'Sensei Helper')}
+                {t('SenseiHelper', 'Sensei Helper')}
               </Typography>
             </a>
           </Link>
