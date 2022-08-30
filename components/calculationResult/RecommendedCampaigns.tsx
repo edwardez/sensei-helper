@@ -2,10 +2,10 @@ import styles from './RecommendedCampaigns.module.scss';
 import {isString} from 'common/checkVariableTypeUtil';
 import React from 'react';
 import {
-    CampaignsById,
-    DropPieceIdsWithCount,
-    DropPieceIdWithProbAndCount,
-    EquipmentsById,
+  CampaignsById,
+  DropPieceIdsWithCount,
+  DropPieceIdWithProbAndCount,
+  EquipmentsById,
 } from 'components/calculationInput/PiecesCalculationCommonTypes';
 import {Solution} from 'javascript-lp-solver';
 import {IEquipmentsRequirementStore} from 'stores/EquipmentsRequirementStore';
