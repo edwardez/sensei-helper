@@ -20,7 +20,7 @@ const SettingsDialog = ({open, onCloseDialog} : {open: boolean,
     store.changeGameServer(GameServer[value as keyof typeof GameServer]);
   };
 
-  return <BuiDialog open={open}>
+  return <BuiDialog open={open} onClose={handleClose}>
     <BuiDialogTitle onClose={handleClose}>
       <div>{t('settingsDialogTitle')}</div>
     </BuiDialogTitle>
