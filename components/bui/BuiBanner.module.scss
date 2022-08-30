@@ -1,13 +1,15 @@
 @use 'scss/flexbox.module';
 @use 'scss/variables.module';
 
-.bannerStyle{
+//TODO(edwardez): figure out a proper way
+//to fix https://mui.com/material-ui/guides/interoperability/#css-modules
+.bannerStyle.bannerStyle.bannerStyle{
   @include flexbox.flex-center();
   padding-left: 0.5em;
   padding-right: 0.5em;
   color: variables.$baTextOnCardTextColor;
   font-weight: 600;
-  font-size: 1.08em;
+  font-size: 1.2em;
   user-select: none;
 }
 
