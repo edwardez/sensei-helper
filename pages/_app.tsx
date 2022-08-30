@@ -5,19 +5,19 @@ import 'styles/globals.scss';
 import type {AppProps} from 'next/app';
 import Head from 'next/head';
 import {appWithTranslation} from 'next-i18next';
-import {initializeWizStore, isWizStore, StoreContext} from 'stores/WizStore';
+import {initializeWizStore, isWizStore, StoreContext, wizStorageLocalStorageKey} from 'stores/WizStore';
 import wizDefaultTheme from 'components/bui/theme';
 import WizAppBar from 'components/appBar/WizAppBar';
 import React, {useEffect, useState} from 'react';
 import {applySnapshot, onSnapshot} from 'mobx-state-tree';
-import {getFromLocalStorage, setToLocalStorage} from 'common/LocalStorageUtil';
+import {getFromLocalStorage, removeFromLocalStorage, setToLocalStorage} from 'common/LocalStorageUtil';
 
 
 function MyApp({Component, pageProps}: AppProps) {
   const [isStoreInitialized, setIsStoreInitialized] = useState(false);
   const store = initializeWizStore(pageProps.initialState);
   useEffect(() => {
-    const persistedSnapshot = getFromLocalStorage('wishlistapp');
+    const persistedSnapshot = getFromLocalStorage(wizStorageLocalStorageKey);
 
     if (persistedSnapshot) {
       const json = JSON.parse(persistedSnapshot);
@@ -26,6 +26,7 @@ function MyApp({Component, pageProps}: AppProps) {
           applySnapshot(store, json);
         }
       } catch (e) {
+        removeFromLocalStorage(wizStorageLocalStorageKey);
         console.error(e);
       }
     }
@@ -33,7 +34,7 @@ function MyApp({Component, pageProps}: AppProps) {
   }, [isStoreInitialized]);
   useEffect(() => {
     const dispose = onSnapshot(store, (newSnapshot) => {
-      setToLocalStorage('wishlistapp', JSON.stringify(newSnapshot));
+      setToLocalStorage(wizStorageLocalStorageKey, JSON.stringify(newSnapshot));
     });
 
     return () => dispose();

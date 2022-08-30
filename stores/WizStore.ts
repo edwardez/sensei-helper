@@ -31,6 +31,7 @@ export type IWizStore = Instance<typeof WizStore>
 export type IWizStoreSnapshotIn = SnapshotIn<typeof WizStore>
 export type IWizStoreSnapshotOut = SnapshotOut<typeof WizStore>
 export const isWizStore = (input: any) => WizStore.is(input);
+export const wizStorageLocalStorageKey = 'SenseiHelperStore';
 
 export function initializeWizStore(snapshot = null) {
   const _store = wizStore ?? WizStore.create({equipmentsRequirementStore: {

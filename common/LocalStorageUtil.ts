@@ -11,6 +11,12 @@ export const getFromLocalStorage = (key: string): any =>{
   return localStorage.getItem(key);
 };
 
+export const removeFromLocalStorage = (key: string): any =>{
+  if (!isLocalStorageDefinedAndEnabled() || !key) return null;
+
+  return localStorage.removeItem(key);
+};
+
 export const setToLocalStorage = (key: string, value: string): any =>{
   if (!isLocalStorageDefinedAndEnabled() || !key) return null;
 
