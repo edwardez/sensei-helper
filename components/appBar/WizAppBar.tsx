@@ -82,8 +82,8 @@ export default function WizAppBar() {
                 onChange={handleChange}
                 autoWidth>
                 <MenuItem value={'en'}>English</MenuItem>
-                <MenuItem value={'cn'}>中文</MenuItem>
-                <MenuItem value={'jp'}>日本語</MenuItem>
+                <MenuItem value={'zh'}>中文</MenuItem>
+                <MenuItem value={'ja'}>日本語</MenuItem>
               </Select>
             </FormControl>
 

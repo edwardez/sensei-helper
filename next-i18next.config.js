@@ -3,7 +3,7 @@ module.exports = {
   defaultNS: 'home',
   i18n: {
     defaultLocale: 'en',
-    locales: ['en', 'cn', 'jp'],
+    locales: ['en', 'zh', 'ja'],
   },
   reloadOnPrerender: process.env.NODE_ENV === 'development',
 };
