@@ -1,5 +1,5 @@
 {
-  "addPiecesTitle": "添加一个装备设计图",
+  "addPiecesTitle": "添加装备设计图",
   "addButton": "添加",
   "updateButton": "更新",
   "cancelButton": "取消",
@@ -34,7 +34,7 @@
   "privacy": "隐私",
   "settings": "设置",
   "about": "关于",
-  "appbarTitle": "老师助手",
+  "SenseiHelper": "老师助手",
   "settingsDialogTitle": "设置",
   "settingsDialogSelectGameServer": "游戏服务器",
   "japanServer": "日服",

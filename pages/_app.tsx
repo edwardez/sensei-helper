@@ -1,14 +1,15 @@
-import '../styles/globals.scss';
-import 'normalize.css/normalize.css';
+import {ThemeProvider} from '@mui/material/styles';
+import Grid from '@mui/material/Unstable_Grid2';
+import CssBaseline from '@mui/material/CssBaseline';
+import 'styles/globals.scss';
 import type {AppProps} from 'next/app';
 import Head from 'next/head';
 import {appWithTranslation} from 'next-i18next';
 import {initializeWizStore, StoreContext} from 'stores/WizStore';
-import {ThemeProvider} from '@mui/material/styles';
 import wizDefaultTheme from 'components/bui/theme';
 import WizAppBar from 'components/appBar/WizAppBar';
 import React from 'react';
-import Grid from '@mui/material/Unstable_Grid2';
+
 
 function MyApp({Component, pageProps}: AppProps) {
   const store = initializeWizStore(pageProps.initialState);
@@ -16,8 +17,12 @@ function MyApp({Component, pageProps}: AppProps) {
   return (
     <StoreContext.Provider value={store}>
       <ThemeProvider theme={wizDefaultTheme}>
+        <CssBaseline />
         <Head>
-          <meta name="viewport" content="initial-scale=1, width=device-width"/>
+          <meta
+            name='viewport'
+            content='minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, user-scalable=no, viewport-fit=cover'
+          />
         </Head>
         <WizAppBar />
         <Grid container display="flex" justifyContent="center" sx={{paddingTop: '1em', paddingBottom: '2em'}}>

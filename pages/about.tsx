@@ -1,11 +1,15 @@
 import BuiLinedText from 'components/bui/text/BuiLinedText';
 import {serverSideTranslations} from 'next-i18next/serverSideTranslations';
 import {Trans, useTranslation} from 'next-i18next';
+import Head from 'next/head';
 
 const About = () => {
-  const {t} = useTranslation('about');
+  const {t} = useTranslation(['about', 'home'], );
 
   return <>
+    <Head>
+      <title>{t('about', 'about', {ns: 'home'})}</title>
+    </Head>
     <BuiLinedText><div>{t('whatIsSenseiHelperTitle')}</div></BuiLinedText>
     <BuiLinedText showVerticalDividerPrefix={false}>
       <div>{t('whatIsSenseiHelperContent')}</div>
@@ -31,6 +35,6 @@ export default About;
 
 export const getServerSideProps = async ({locale}:{locale: string}) => ({
   props: {
-    ...(await serverSideTranslations(locale, ['home', 'about'])),
+    ...(await serverSideTranslations(locale, ['about', 'home'])),
   },
 });

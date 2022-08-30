@@ -11,14 +11,6 @@
   user-select: none;
 }
 
-.primary{
-  background-color: variables.$baPrimaryBannerBackgroundColor;
-}
-
-.secondary{
-  background-color: variables.$baSecondaryBannerBackgroundColor;
-}
-
 .allowSelection{
   user-select: unset;
 }
