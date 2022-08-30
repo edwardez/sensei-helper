@@ -12,5 +12,5 @@
 访问[网站](https://sensei.help)
 
 ### 联系作者
-* [Twitter](https://twitter.com/sensei_helper)
 * [Github](https://github.com/edwardez/sensei-helper/issues)
+* [Twitter](https://twitter.com/sensei_helper)

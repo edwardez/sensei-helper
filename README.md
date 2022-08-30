@@ -12,5 +12,5 @@ Sensei Helper is a tool that help you optimize farming equipments for the mobile
 Visit the website [here](https://sensei.help)
 
 ### How to contact you?
-* [Twitter](https://twitter.com/sensei_helper)
 * [Github](https://github.com/edwardez/sensei-helper/issues)
+* [Twitter](https://twitter.com/sensei_helper)
