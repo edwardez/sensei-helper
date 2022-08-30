@@ -34,11 +34,12 @@ const CampaignDropItemsList :
         <CardContent>
           <Grid container>
             <Grid xs={12} container className={styles.campaignNameAndTimes}>
-              <Typography variant={'h4'} className={styles.campaignName}>
+              <Typography variant={'h4'}>
                 {`${campaignInfo.area}-${campaignInfo.stage}`}
               </Typography>
 
               <BuiBanner label={stageExplanationLabel} allowSelection
+                sx={{marginLeft: '0.8em'}}
                 backgroundColor={'secondary'}
                 width={'unset'}/>
             </Grid>

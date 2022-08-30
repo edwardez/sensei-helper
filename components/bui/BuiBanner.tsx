@@ -15,7 +15,7 @@ const BuiBanner = ({label, width= '100%', backgroundColor = 'primary', allowSele
   };
 
   return <BuiPaper {...props} variant={'outlined'}
-    sx={{width, ...sxColor}}
+    sx={{width, ...sxColor, ...(props.sx ?? {})}}
     className={`${styles.bannerStyle} ${backgroundColor === 'primary' ? styles.primary : styles.secondary} ${props?.className}
                 ${allowSelection ? styles.allowSelection : ''}`}>
     <div>
