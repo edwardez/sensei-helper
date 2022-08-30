@@ -1,9 +1,16 @@
 import Link from 'next/link';
 import {serverSideTranslations} from 'next-i18next/serverSideTranslations';
+import Head from 'next/head';
+import {useTranslation} from 'next-i18next';
 
 
 export default function Privacy() {
+  const {t} = useTranslation('home');
+
   return (<>
+    <Head>
+      <title>{t('privacy')}</title>
+    </Head>
     <strong>Privacy Policy</strong>
     <p>
           Sensei Helper Developers built the Sensei Helper app as
@@ -57,8 +64,8 @@ export default function Privacy() {
     <p>
           We want to inform users of this Service
           that we do not knowingly collect personally
-        identifiable information, so these third parties does not have
-        a way we are aware of to identify our users.
+          identifiable information, so these third parties does not have
+          a way we are aware of to identify our users.
     </p>
     <p><strong>Security</strong></p>
     <p>
@@ -106,7 +113,7 @@ export default function Privacy() {
     <p><strong>Contact Us</strong></p>
     <p>
           If you have any questions or suggestions about our
-        Privacy Policy, do not hesitate to contact us at <Link href={'/about'}><a>about page</a></Link>
+          Privacy Policy, do not hesitate to contact us at <Link href={'/about'}><a>about page</a></Link>
     </p>
   </>
   );
