@@ -16,16 +16,20 @@ const About = () => {
     </BuiLinedText>
     <BuiLinedText><div>{t('freeToUseTitle')}</div></BuiLinedText>
     <BuiLinedText showVerticalDividerPrefix={false}>
-      <Trans t={t} i18nKey="freeToUseContent">
-        Yes. This app is free to use and <a href="https://github.com/edwardez/sensei-helper" target="_blank" rel="noopener noreferrer">open-sourced</a>
-      </Trans>
+      <div>
+        <Trans t={t} i18nKey="freeToUseContent">
+          Yes. This app is free to use and <a href="https://github.com/edwardez/sensei-helper" target="_blank" rel="noopener noreferrer">open-sourced</a>
+        </Trans>
+      </div>
     </BuiLinedText>
     <BuiLinedText><div>{t('contactTitle')}</div></BuiLinedText>
     <BuiLinedText showVerticalDividerPrefix={false}>
-      <Trans t={t} i18nKey="contactContent">
-        Please contact us on&nbsp;<a href="https://twitter.com/sensei_helper" target="_blank" rel="noopener noreferrer">Twitter</a>
-        &nbsp;or&nbsp;<a href="https://github.com/edwardez/sensei-helper/issues" target="_blank" rel="noopener noreferrer">Github</a>.
-      </Trans>
+      <div>
+        <Trans t={t} i18nKey="contactContent">
+          Please contact us on&nbsp;<a href="https://twitter.com/sensei_helper" target="_blank" rel="noopener noreferrer">Twitter</a>
+          &nbsp;or&nbsp;<a href="https://github.com/edwardez/sensei-helper/issues" target="_blank" rel="noopener noreferrer">Github</a>.
+        </Trans>
+      </div>
     </BuiLinedText>
   </>;
 };
