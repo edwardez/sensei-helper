@@ -38,6 +38,8 @@
   "settingsDialogTitle": "Settings",
   "settingsDialogSelectGameServer": "Select your game server",
   "japanServer": "Japan",
-  "globalServer": "Global"
+  "globalServer": "Global",
+  "error404": "This page could not be found.",
+  "error500": "Internal Server Error."
 }
 

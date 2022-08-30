@@ -38,5 +38,7 @@
   "settingsDialogTitle": "设置",
   "settingsDialogSelectGameServer": "游戏服务器",
   "japanServer": "日服",
-  "globalServer": "国际服"
+  "globalServer": "国际服",
+  "error404": "此页面无法找到",
+  "error500": "服务器内部错误"
 }

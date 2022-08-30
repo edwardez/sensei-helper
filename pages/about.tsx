@@ -33,7 +33,7 @@ const About = () => {
 export default About;
 
 
-export const getServerSideProps = async ({locale}:{locale: string}) => ({
+export const getStaticProps = async ({locale}:{locale: string}) => ({
   props: {
     ...(await serverSideTranslations(locale, ['about', 'home'])),
   },
