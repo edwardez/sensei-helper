@@ -17,7 +17,6 @@ const WizStore = types
       gameInfoStore: types.optional(GameInfoStore, {
         gameServer: GameServer.Japan,
         normalMissionItemDropRatio: 1,
-        isPlayerLeverMax: false,
       }),
     }).actions((self) => {
       const changeGameServer = (server: GameServer) => {
@@ -27,9 +26,11 @@ const WizStore = types
       return {changeGameServer};
     });
 
+
 export type IWizStore = Instance<typeof WizStore>
 export type IWizStoreSnapshotIn = SnapshotIn<typeof WizStore>
 export type IWizStoreSnapshotOut = SnapshotOut<typeof WizStore>
+export const isWizStore = (input: any) => WizStore.is(input);
 
 export function initializeWizStore(snapshot = null) {
   const _store = wizStore ?? WizStore.create({equipmentsRequirementStore: {

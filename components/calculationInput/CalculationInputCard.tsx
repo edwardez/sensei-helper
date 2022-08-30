@@ -1,5 +1,5 @@
 import styles from './CalculationInputCard.module.scss';
-import {Card, CardActionArea, CardContent} from '@mui/material';
+import {Card, CardActionArea, CardContent, CircularProgress} from '@mui/material';
 import BuiLinedText from 'components/bui/text/BuiLinedText';
 import BuiPaper from 'components/bui/BuiPaper';
 import Image from 'next/image';
@@ -93,33 +93,35 @@ const CalculationInputCard = ({store, equipments, campaignsById, equipmentsById,
 
         <BuiLinedText>{t('addPiecesTitle')}</BuiLinedText>
 
-        <div className={styles.selectedPiecesWrapper}>
-          {store.equipmentsRequirementStore.requirementByPieces.map((requirementByPiece, index) => {
-            const piece = equipmentsById.get(requirementByPiece.pieceId);
+        {
+          equipmentsById ? <div className={styles.selectedPiecesWrapper}>
+            {store.equipmentsRequirementStore.requirementByPieces.map((requirementByPiece, index) => {
+              const piece = equipmentsById.get(requirementByPiece.pieceId);
 
-            if (!piece) return null;
+              if (!piece) return null;
 
-            return <Card key={`${requirementByPiece.pieceId}-${index}`} elevation={1} className={styles.selectedPiecesCard}
-              onClick={() => handleOpenDialogForEditing(requirementByPiece, index)}>
-              <CardActionArea>
-                <div className={styles.selectedPiecePaper}>
-                  <BuiPaper>
-                    <div className={`revert-wiz-transform`}>
-                      <Image src={`/images/equipments/@0.5/${piece.icon}.png`}
-                        width={63} height={50}
-                      ></Image>
-                    </div>
-                  </BuiPaper>
-                  <BuiBanner label={requirementByPiece.count.toString()} width={'120%'} className={styles.countOnCard}/>
-                </div>
-              </CardActionArea>
+              return <Card key={`${requirementByPiece.pieceId}-${index}`} elevation={1} className={styles.selectedPiecesCard}
+                onClick={() => handleOpenDialogForEditing(requirementByPiece, index)}>
+                <CardActionArea>
+                  <div className={styles.selectedPiecePaper}>
+                    <BuiPaper>
+                      <div className={`revert-wiz-transform`}>
+                        <Image src={`/images/equipments/@0.5/${piece.icon}.png`}
+                          width={63} height={50}
+                        ></Image>
+                      </div>
+                    </BuiPaper>
+                    <BuiBanner label={requirementByPiece.count.toString()} width={'120%'} className={styles.countOnCard}/>
+                  </div>
+                </CardActionArea>
 
-            </Card>;
-          })}
-          <BuiButton color={'baButtonSecondary'} onClick={handleClickOpen} className={styles.addButton}>
-            <div>{t('addButton')}</div>
-          </BuiButton>
-        </div>
+              </Card>;
+            })}
+            <BuiButton color={'baButtonSecondary'} onClick={handleClickOpen} className={styles.addButton}>
+              <div>{t('addButton')}</div>
+            </BuiButton>
+          </div> : <CircularProgress />
+        }
 
         <DropCampaignSelection store={store} onDropRateChanged={() => onSetSolution(null)}/>
 
