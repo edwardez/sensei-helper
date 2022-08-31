@@ -27,7 +27,7 @@
     "dialogNumberMayNotAddUpContent": "例えば、欲しい靴設計図を６とします、予測ドロップ数は５になる場合があります。これは、アプリのアルゴリズムは<1>線形計画法</1>からです。誤差をなくすには整数計画法は必要ですが、整数計画法が<3>難しい</3>ので、あえて少し誤差が出る線形計画法を採用しています。"
   },
   "stageSweepingTimes": "{{sweepingTimes}}回",
-  "stageIsSkipped": "Skipped",
+  "stageIsSkipped": "スキップ",
   "possibleRewards": "獲得可能報酬",
   "otherStages": "他の任務",
   "otherStagesSkippedReason": "非効率のためスキップしました",
