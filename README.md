@@ -8,7 +8,7 @@
 Sensei Helper is a tool that help you optimize farming equipments for the mobile game "Blue Archive".
 
 
-### How to use
+### How to use?
 Visit the website [here](https://sensei.help)
 
 ### How to contact you?
