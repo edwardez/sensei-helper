@@ -40,5 +40,8 @@
   "japanServer": "日服",
   "globalServer": "国际服",
   "error404": "此页面无法找到",
-  "error500": "服务器内部错误"
+  "error500": "服务器内部错误",
+  "meta": {
+    "description": "碧蓝档案装备刷图计算工具"
+  }
 }

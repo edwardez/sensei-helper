@@ -40,6 +40,9 @@
   "japanServer": "Japan",
   "globalServer": "Global",
   "error404": "This page could not be found.",
-  "error500": "Internal Server Error."
+  "error500": "Internal Server Error.",
+  "meta": {
+    "description": "Blue Archive equipments farming calculator/optimizer"
+  }
 }
 

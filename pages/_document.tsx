@@ -21,9 +21,6 @@ class MyDocument extends Document {
           <link rel="apple-touch-icon" href="/icons/apple-180x180.png"/>
           <link rel="manifest" href="/manifest.json"/>
           <meta name="apple-mobile-web-app-capable" content="yes"/>
-
-          <meta name="apple-mobile-web-app-capable" content="yes"/>
-
           <link rel="apple-touch-startup-image" href="/icons/apple-splash/apple-splash-2048-2732.jpg" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"/>
           <link rel="apple-touch-startup-image" href="/icons/apple-splash/apple-splash-2732-2048.jpg" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"/>
           <link rel="apple-touch-startup-image" href="/icons/apple-splash/apple-splash-1668-2388.jpg" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"/>
@@ -50,6 +47,8 @@ class MyDocument extends Document {
           <link rel="apple-touch-startup-image" href="/icons/apple-splash/apple-splash-1334-750.jpg" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"/>
           <link rel="apple-touch-startup-image" href="/icons/apple-splash/apple-splash-640-1136.jpg" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"/>
           <link rel="apple-touch-startup-image" href="/icons/apple-splash/apple-splash-1136-640.jpg" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"/>
+          <meta name="description" content="『ブルーアーカイブ』非公式装備ドロップ場所計算・検索ツール" />
+          <meta charSet="utf-8"/>
 
         </Head>
         <body>

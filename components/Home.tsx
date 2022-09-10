@@ -13,9 +13,12 @@ import {CampaignsById, EquipmentsById} from 'components/calculationInput/PiecesC
 import useSWR from 'swr';
 import RecommendationsSummary from 'components/calculationResult/RecommendationsSummary';
 import IgnoredCampaigns from 'components/calculationResult/IgnoredCampaigns';
+import Head from 'next/head';
+import {useTranslation} from 'next-i18next';
 
 const Home: NextPage = observer((props) => {
   const store = useStore();
+  const {t} = useTranslation('home');
   const [solution, setSolution] = useState<Solution<string> | null>(null);
 
   const onSetSolution = (solution: Solution<string> | null) => {
@@ -49,6 +52,9 @@ const Home: NextPage = observer((props) => {
   if (error) return <div>failed to load</div>;
 
   return <React.Fragment>
+    <Head>
+      <meta name="description" content={t('meta.description')} />
+    </Head>
     <CalculationInputCard store={store} equipments={filteredEquipments}
       campaignsById={campaignsById}
       equipmentsById={equipmentsById}
