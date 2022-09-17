@@ -10,7 +10,7 @@ export default function IndexPage() {
   return (
     <>
       <Head>
-        <title>{t('SenseiHelper')}</title>
+        <title>{`${t('SenseiHelper')} | ${t('meta.description')}`}</title>
       </Head>
       <Home/>
     </>

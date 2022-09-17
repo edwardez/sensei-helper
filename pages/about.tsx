@@ -8,7 +8,7 @@ const About = () => {
 
   return <>
     <Head>
-      <title>{t('about', 'about', {ns: 'home'})}</title>
+      <title>{`${t('about', 'about', {ns: 'home'})} | ${t('meta.description', 'meta.description', {ns: 'home'})}`}</title>
     </Head>
     <BuiLinedText><div>{t('whatIsSenseiHelperTitle')}</div></BuiLinedText>
     <BuiLinedText showVerticalDividerPrefix={false}>
