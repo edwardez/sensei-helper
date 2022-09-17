@@ -54,6 +54,13 @@ const Home: NextPage = observer((props) => {
   return <React.Fragment>
     <Head>
       <meta name="description" content={t('meta.description')} />
+      <meta name="title" content={t('SenseiHelper')}/>
+      <meta property="og:type" content="website" />
+      <meta property="og:title" content={t('SenseiHelper')}/>
+      <meta property="og:description" content={t('meta.description')}/>
+
+      <meta property="twitter:title" content={t('SenseiHelper')}/>
+      <meta property="twitter:description" content={t('meta.description')}/>
     </Head>
     <CalculationInputCard store={store} equipments={filteredEquipments}
       campaignsById={campaignsById}
