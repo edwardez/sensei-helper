@@ -115,7 +115,7 @@ const PiecesSelectionDialog = ({
   };
 
   return (<Dialog open={isOpened} fullScreen={isFullScreen}
-    keepMounted>
+    keepMounted onClose={handleDialogCancel}>
     <DialogTitle>
       <Box display={'flex'}>
         <Box>{t('addPieceDialog.selectAPiece')}</Box>
