@@ -1,8 +1,6 @@
 import styles from './CalculationInputCard.module.scss';
 import {Card, CardActionArea, CardContent, CircularProgress} from '@mui/material';
 import BuiLinedText from 'components/bui/text/BuiLinedText';
-import BuiPaper from 'components/bui/BuiPaper';
-import Image from 'next/image';
 import BuiBanner from 'components/bui/BuiBanner';
 import BuiButton from 'components/bui/BuiButton';
 import PiecesSelectionDialog from './piecesSelection/PiecesSelectionDialog';
@@ -16,6 +14,7 @@ import Grid from '@mui/material/Unstable_Grid2';
 import {observer} from 'mobx-react-lite';
 import DropCampaignSelection from 'components/calculationInput/DropCampaignSelection';
 import {useTranslation} from 'next-i18next';
+import EquipmentCard from 'components/bui/card/EquipmentCard';
 
 type CalculationInputCardProps = {
   store: IWizStore,
@@ -104,13 +103,7 @@ const CalculationInputCard = ({store, equipments, campaignsById, equipmentsById,
                 onClick={() => handleOpenDialogForEditing(requirementByPiece, index)}>
                 <CardActionArea>
                   <div className={styles.selectedPiecePaper}>
-                    <BuiPaper>
-                      <div className={`revert-wiz-transform`}>
-                        <Image src={`/images/equipments/@0.5/${piece.icon}.png`}
-                          width={63} height={50}
-                        ></Image>
-                      </div>
-                    </BuiPaper>
+                    <EquipmentCard imageName={piece.icon} />
                     <BuiBanner label={requirementByPiece.count.toString()} width={'120%'} className={styles.countOnCard}/>
                   </div>
                 </CardActionArea>

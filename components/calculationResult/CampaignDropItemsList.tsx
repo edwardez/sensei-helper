@@ -1,6 +1,4 @@
 import styles from './CampaignDropItemsList.module.scss';
-import BuiCard from 'components/bui/BuiCard';
-import Image from 'next/image';
 import {Card, CardContent, Typography} from '@mui/material';
 import React, {FunctionComponent} from 'react';
 import {Campaign} from 'model/Campaign';
@@ -8,6 +6,7 @@ import {DropPieceIdWithProbAndCount, EquipmentsById} from 'components/calculatio
 import Grid from '@mui/material/Unstable_Grid2';
 import BuiBanner from '../bui/BuiBanner';
 import {useTranslation} from 'next-i18next';
+import EquipmentCard from 'components/bui/card/EquipmentCard';
 
 type CampaignDropItemsListProps = {
     campaignInfo: Campaign,
@@ -54,16 +53,10 @@ const CampaignDropItemsList :
                 const piece = equipmentsById.get(id);
 
                 if (!piece) return null;
-
-                return <BuiCard key={id} elevation={1} className={styles.selectedPiecesCard}>
-                  <Image src={`/images/equipments/@0.5/${piece.icon}.png`}
-                    width={63} height={50}
-                  ></Image>
-                  <div className={styles.countOnCard}>
-                    {dropCount ? `x${dropCount}` : `${dropProb*100}%`}
-                  </div>
-
-                </BuiCard>;
+                const bottomText = dropCount ? `x${dropCount}` : `${dropProb*100}%`;
+                return <EquipmentCard key={piece.id} hasOuterMargin
+                  imageName={piece.icon}
+                  bottomText={bottomText}/>;
               })}
             </Grid>
           </Grid>
