@@ -10,9 +10,25 @@ const byPiece = types
         }
     );
 
+const byEquipment = types
+    .model(
+        {
+          currentEquipmentId: types.number,
+          targetEquipmentId: types.number,
+          count: types.number,
+        }
+    );
+
+export enum RequirementMode {
+  ByPiece = 'ByPiece',
+  ByEquipment = 'ByEquipment',
+}
+
 export const EquipmentsRequirementStore = types
     .model({
       requirementByPieces: types.array(byPiece),
+      requirementByEquipments: types.array(byEquipment),
+      requirementMode: types.enumeration<RequirementMode>('RequirementMode', Object.values(RequirementMode)),
     })
     .actions((self) => {
       // let timer: any;
@@ -59,13 +75,23 @@ export const EquipmentsRequirementStore = types
             }, new Set()
         );
       };
-      return {addPiecesRequirement, updatePiecesRequirement, deletePiecesRequirement, getAllRequiredPieceIds};
+
+      const updateRequirementMode = (requirementMode: RequirementMode) => {
+        if (!requirementMode) return;
+        self.requirementMode = requirementMode;
+      };
+      return {addPiecesRequirement, updatePiecesRequirement, deletePiecesRequirement,
+        getAllRequiredPieceIds, updateRequirementMode};
     });
 
 export type IEquipmentsRequirementStore = Instance<typeof EquipmentsRequirementStore>
 export type IRequirementByPiece = Instance<typeof byPiece>
+export type IRequirementByEquipment = Instance<typeof byEquipment>
 export type PieceInfoToEdit = IRequirementByPiece & {
     indexInStoreArray : number
+};
+export type EquipmentInfoToEdit = IRequirementByPiece & {
+  indexInStoreArray : number
 };
 
 export type IStoreSnapshotIn = SnapshotIn<typeof EquipmentsRequirementStore>

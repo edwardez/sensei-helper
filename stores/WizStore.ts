@@ -1,6 +1,6 @@
 import {createContext, useContext} from 'react';
 import {applySnapshot, Instance, SnapshotIn, SnapshotOut, types} from 'mobx-state-tree';
-import {EquipmentsRequirementStore} from 'stores/EquipmentsRequirementStore';
+import {EquipmentsRequirementStore, RequirementMode} from 'stores/EquipmentsRequirementStore';
 import {enableStaticRendering} from 'mobx-react-lite';
 import {GameInfoStore} from 'stores/GameInfoStore';
 import {GameServer} from 'model/Equipment';
@@ -13,6 +13,8 @@ const WizStore = types
     .model({
       equipmentsRequirementStore: types.optional(EquipmentsRequirementStore, {
         requirementByPieces: [],
+        requirementByEquipments: [],
+        requirementMode: RequirementMode.ByEquipment,
       }),
       gameInfoStore: types.optional(GameInfoStore, {
         gameServer: GameServer.Japan,
@@ -35,9 +37,10 @@ export const wizStorageLocalStorageKey = 'SenseiHelperStore';
 
 export function initializeWizStore(snapshot = null) {
   const _store = wizStore ?? WizStore.create({equipmentsRequirementStore: {
-    requirementByPieces: [
+    requirementByPieces: [],
+    requirementByEquipments: [],
+    requirementMode: RequirementMode.ByEquipment,
 
-    ],
   }});
 
   // const _store = wizStore ?? WizStore.create();
