@@ -31,23 +31,6 @@ export const EquipmentsRequirementStore = types
       requirementMode: types.enumeration<RequirementMode>('RequirementMode', Object.values(RequirementMode)),
     })
     .actions((self) => {
-      // let timer: any;
-      // const start = () => {
-      //   timer = setInterval(() => {
-      //     // mobx-state-tree doesn't allow anonymous callbacks changing data.
-      //     // Pass off to another action instead (need to cast self as any
-      //     // because TypeScript doesn't yet know about the actions we're
-      //     // adding to self here)
-      //     (self as any).update();
-      //   }, 1000);
-      // };
-      // const update = () => {
-      //   self.lastUpdate = new Date(Date.now());
-      //   self.light = true;
-      // };
-      // const stop = () => {
-      //   clearInterval(timer);
-      // };
       const addPiecesRequirement = (requirement : IRequirementByPiece) => {
         self.requirementByPieces.push(requirement);
       };
@@ -68,6 +51,28 @@ export const EquipmentsRequirementStore = types
         self.requirementByPieces.splice(pieceInfoToEdit.indexInStoreArray, 1);
       };
 
+
+      const addEquipmentsRequirement = (requirement : IRequirementByEquipment) => {
+        self.requirementByEquipments.push(requirement);
+      };
+
+      const updateEquipmentsRequirement = (equipInfoToEdit : EquipmentInfoToEdit) => {
+        const requirement = self.requirementByEquipments[equipInfoToEdit.indexInStoreArray];
+        if (!requirement) return;
+        self.requirementByEquipments[equipInfoToEdit.indexInStoreArray] = {
+          currentEquipmentId: equipInfoToEdit.currentEquipmentId,
+          targetEquipmentId: equipInfoToEdit.targetEquipmentId,
+          count: equipInfoToEdit.count,
+        };
+      };
+
+      const deleteEquipmentsRequirement = (equipInfoToEdit : EquipmentInfoToEdit) => {
+        const requirement = self.requirementByEquipments[equipInfoToEdit.indexInStoreArray];
+        if (!requirement) return;
+
+        self.requirementByEquipments.splice(equipInfoToEdit.indexInStoreArray, 1);
+      };
+
       const getAllRequiredPieceIds = () => {
         return self.requirementByPieces.reduce<Set<string>>(
             (set, curr) => {
@@ -81,6 +86,7 @@ export const EquipmentsRequirementStore = types
         self.requirementMode = requirementMode;
       };
       return {addPiecesRequirement, updatePiecesRequirement, deletePiecesRequirement,
+        addEquipmentsRequirement, updateEquipmentsRequirement, deleteEquipmentsRequirement,
         getAllRequiredPieceIds, updateRequirementMode};
     });
 

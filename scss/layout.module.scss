@@ -1,0 +1,6 @@
+// A common layout margin used to margin content under a line of BuiText
+@mixin bui-option-child-content-margin{
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0.3em 0.3em 1em 0.3em;
+}

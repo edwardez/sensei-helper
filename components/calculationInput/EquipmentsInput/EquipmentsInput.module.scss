@@ -1,0 +1,12 @@
+@use 'scss/layout.module';
+
+//TODO(edwardez): figure out a proper way
+//to fix https://mui.com/material-ui/guides/interoperability/#css-modules
+.addButton.addButton.addButton{
+  margin-left: 1em;
+  align-self: center;
+}
+
+.selectionWrapper{
+  @include layout.bui-option-child-content-margin;
+}

@@ -1,0 +1,11 @@
+
+
+.selectionWrapper{
+
+   >:not(:last-child){
+      margin-right: 1em;
+   }
+
+   user-select: none;
+
+}
