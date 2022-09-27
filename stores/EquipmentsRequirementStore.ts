@@ -13,8 +13,8 @@ const byPiece = types
 const byEquipment = types
     .model(
         {
-          currentEquipmentId: types.number,
-          targetEquipmentId: types.number,
+          currentEquipmentId: types.string,
+          targetEquipmentId: types.string,
           count: types.number,
         }
     );
@@ -90,7 +90,7 @@ export type IRequirementByEquipment = Instance<typeof byEquipment>
 export type PieceInfoToEdit = IRequirementByPiece & {
     indexInStoreArray : number
 };
-export type EquipmentInfoToEdit = IRequirementByPiece & {
+export type EquipmentInfoToEdit = IRequirementByEquipment & {
   indexInStoreArray : number
 };
 
