@@ -5,20 +5,20 @@ import {
   DialogActions,
   DialogContent,
   DialogTitle,
-  TextField,
   useMediaQuery,
   useTheme,
 } from '@mui/material';
-import PiecesOnCurrentTier from 'components/calculationInput/piecesSelection/PiecesOnCurrentTier';
+import ItemsOnCurrentTier from 'components/calculationInput/PiecesSelection/ItemsOnCurrentTier';
 import React, {useEffect, useState} from 'react';
 import {Equipment} from 'model/Equipment';
 
 
-import styles from 'components/calculationInput/piecesSelection/PiecesSelectionDialog.module.scss';
-import {Controller, useForm} from 'react-hook-form';
+import styles from 'components/calculationInput/PiecesSelection/PiecesSelectionDialog.module.scss';
+import {useForm} from 'react-hook-form';
 import {IRequirementByPiece, PieceInfoToEdit} from 'stores/EquipmentsRequirementStore';
 import Box from '@mui/material/Box';
 import {useTranslation} from 'next-i18next';
+import PositiveIntegerOnlyInput from 'components/calculationInput/common/PositiveIntegerOnlyInput';
 
 interface IFormInputs {
     neededPieceCount: string
@@ -132,44 +132,16 @@ const PiecesSelectionDialog = ({
           (tier) => {
             const equipmentsOnTier = piecesByTier.get(tier);
             if (!equipmentsOnTier) return null;
-            return <PiecesOnCurrentTier key={tier} tier={tier} pieces={equipmentsOnTier} selectedPieceId={selectedPieceId}
-              handleSelectPiece={handleSelectPiece}/>;
+            return <ItemsOnCurrentTier key={tier} tier={tier} items={equipmentsOnTier} selectedItemId={selectedPieceId}
+              handleSelectItem={handleSelectPiece}/>;
           }
       ) : <CircularProgress />}
     </DialogContent>
     <DialogActions>
-      <Controller
-        name={neededPieceCountField}
-        control={control}
-        rules={{
-          required: {
-            value: true,
-            message: t('addPieceDialog.required'),
-          },
-          pattern: {
-            value: /^\d+$/,
-            message: t('addPieceDialog.mustBeAInteger'),
-          },
-          min: {
-            value: 1,
-            message: t('addPieceDialog.minimumIs', {min: 1}),
-          },
-          max: {
-            value: 999,
-            message: t('addPieceDialog.maximumIs', {max: 999}),
-          },
-        }}
-        render={({field}) => (
-          <TextField
-            {...field}
-            inputProps={{pattern: '\\d*'}}
-            variant="outlined"
-            error={!!countErrors.neededPieceCount}
-            helperText={countErrors.neededPieceCount?.message}
-            label={t('addPieceDialog.quantity')}
-          />
-        )}
-      />
+      <PositiveIntegerOnlyInput<IFormInputs> name={neededPieceCountField}
+        control={control} showError={!!countErrors.neededPieceCount}
+        helperText={countErrors.neededPieceCount?.message ?? ''} />
+
       <div className={styles.filler}></div>
       <Button onClick={handleDialogCancel}>{t('cancelButton')}</Button>
       <Button onClick={handleAddOrUpdatePieceRequirementOnClose} disabled={!selectedPieceId || !isCountValid}>
