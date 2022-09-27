@@ -20,7 +20,9 @@ export default function BuiButton({backgroundColor = 'primary', ...props}: {back
     }
     return child;
   });
+
+  const sx = {...props.sx, fontWeight: '600', fontSize: '1.1em'};
   return <WizCustomizedButton {...props}
     className={`${styles[backgroundColor]} ${props.className ?? ''}`}
-    variant={'contained'} sx={{fontWeight: '600', fontSize: '1.1em'}}>{childrenWithProps}</WizCustomizedButton>;
+    variant={props.variant ?? 'contained'} sx={sx}>{childrenWithProps}</WizCustomizedButton>;
 }
