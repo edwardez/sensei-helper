@@ -3,7 +3,7 @@ import {Card, CardActionArea, CardContent, CircularProgress} from '@mui/material
 import BuiLinedText from 'components/bui/text/BuiLinedText';
 import BuiBanner from 'components/bui/BuiBanner';
 import BuiButton from 'components/bui/BuiButton';
-import PiecesSelectionDialog from './PiecesSelection/PiecesSelectionDialog';
+import PiecesSelectionDialog from './pieces/PiecesSelectionDialog';
 import React, {useMemo, useState} from 'react';
 import {Equipment, EquipmentCompositionType} from 'model/Equipment';
 import {IWizStore} from 'stores/WizStore';
@@ -16,7 +16,7 @@ import DropCampaignSelection from 'components/calculationInput/DropCampaignSelec
 import {useTranslation} from 'next-i18next';
 import EquipmentCard from 'components/bui/card/EquipmentCard';
 import RequirementModeSelection from 'components/calculationInput/RequirementMode/RequirementModeSelection';
-import EquipmentsInput from 'components/calculationInput/EquipmentsInput/EquipmentsInput';
+import EquipmentsInput from 'components/calculationInput/equipments/EquipmentsInput';
 
 type CalculationInputCardProps = {
   store: IWizStore,

@@ -10,12 +10,9 @@
 
 .selectionWrapper{
   @include layout.bui-option-child-content-margin;
-  //flex-direction: column;
-  //align-items: center;
 
-  > *{
+  &>*{
     margin: 5px;
-    flex-grow: 0;
   }
 }
 

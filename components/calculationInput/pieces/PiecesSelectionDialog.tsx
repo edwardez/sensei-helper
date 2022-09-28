@@ -8,12 +8,12 @@ import {
   useMediaQuery,
   useTheme,
 } from '@mui/material';
-import ItemsOnCurrentTier from 'components/calculationInput/PiecesSelection/ItemsOnCurrentTier';
+import ItemsOnCurrentTier from 'components/calculationInput/common/ItemsOnCurrentTier';
 import React, {useEffect, useState} from 'react';
 import {Equipment} from 'model/Equipment';
 
 
-import styles from 'components/calculationInput/PiecesSelection/PiecesSelectionDialog.module.scss';
+import styles from 'components/calculationInput/pieces/PiecesSelectionDialog.module.scss';
 import {useForm} from 'react-hook-form';
 import {IRequirementByPiece, PieceInfoToEdit} from 'stores/EquipmentsRequirementStore';
 import Box from '@mui/material/Box';

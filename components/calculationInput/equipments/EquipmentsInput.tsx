@@ -2,7 +2,7 @@ import styles from './EquipmentsInput.module.scss';
 import BuiLinedText from 'components/bui/text/BuiLinedText';
 import BuiButton from 'components/bui/BuiButton';
 import React, {useState} from 'react';
-import EquipmentsSelectionDialog from 'components/calculationInput/EquipmentsInput/EquipmentsSelectionDialog';
+import EquipmentsSelectionDialog from 'components/calculationInput/equipments/EquipmentsSelectionDialog';
 import {Equipment} from 'model/Equipment';
 import {EquipmentsById} from 'components/calculationInput/PiecesCalculationCommonTypes';
 import {observer} from 'mobx-react-lite';
@@ -91,14 +91,11 @@ const EquipmentsInput = (
           onClick={() => handleOpenDialogForEditing(requirementByEquip, index)}>
           <CardActionArea>
             <div className={styles.selectedPiecePaper}>
-              <div className={styles.equipmentRow}>
-                <EquipmentCard imageName={targetEquip.icon} />
-              </div>
+              <EquipmentCard imageName={targetEquip.icon} />
               <BuiBanner label={tierUpgradeText} width={'120%'} />
               <BuiBanner label={requirementByEquip.count.toString()} width={'120%'}/>
             </div>
           </CardActionArea>
-
         </Card>;
       })}
       <BuiButton color={'baButtonSecondary'} onClick={handleClickOpen} className={styles.addButton}>

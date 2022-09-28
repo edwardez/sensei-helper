@@ -5,10 +5,6 @@
   @include layout.bui-option-child-content-margin;
 }
 
-.selectedPiecesCard{
-  margin: 5px;
-}
-
 .selectedPiecePaper{
   padding: 8px 15px 8px 15px;
   @include flexbox.flex-center('column');

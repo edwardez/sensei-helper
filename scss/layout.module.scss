@@ -3,4 +3,8 @@
   display: flex;
   flex-wrap: wrap;
   margin: 0.3em 0.3em 1em 0.3em;
+
+  &>*{
+    margin: 5px;
+  }
 }

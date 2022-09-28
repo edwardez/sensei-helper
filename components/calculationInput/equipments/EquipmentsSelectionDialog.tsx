@@ -1,4 +1,4 @@
-import styles from 'components/calculationInput/EquipmentsInput/EquipmentsSelectionDialog.module.scss';
+import styles from 'components/calculationInput/equipments/EquipmentsSelectionDialog.module.scss';
 import {
   Button,
   CircularProgress,
@@ -19,11 +19,11 @@ import React, {useEffect, useMemo, useState} from 'react';
 import {EquipmentInfoToEdit, IRequirementByEquipment} from 'stores/EquipmentsRequirementStore';
 import BuiButton from 'components/bui/BuiButton';
 import {Equipment, EquipmentCompositionType} from 'model/Equipment';
-import ItemsOnCurrentTier from 'components/calculationInput/PiecesSelection/ItemsOnCurrentTier';
+import ItemsOnCurrentTier from 'components/calculationInput/common/ItemsOnCurrentTier';
 import EquipmentCard from 'components/bui/card/EquipmentCard';
 import {EquipmentsById} from 'components/calculationInput/PiecesCalculationCommonTypes';
 import BuiLinedText from 'components/bui/text/BuiLinedText';
-import TargetEquipmentSelection from 'components/calculationInput/EquipmentsInput/TargetEquipmentSelection';
+import TargetEquipmentSelection from 'components/calculationInput/equipments/TargetEquipmentSelection';
 import {useForm} from 'react-hook-form';
 import PositiveIntegerOnlyInput from 'components/calculationInput/common/PositiveIntegerOnlyInput';
 import {useTranslation} from 'next-i18next';
