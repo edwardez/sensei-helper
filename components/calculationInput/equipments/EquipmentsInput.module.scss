@@ -1,5 +1,6 @@
 @use 'scss/layout.module';
 @use 'scss/flexbox.module';
+@use 'components/calculationInput/common/ItemsList.module';
 
 //TODO(edwardez): figure out a proper way
 //to fix https://mui.com/material-ui/guides/interoperability/#css-modules
@@ -10,19 +11,10 @@
 
 .selectionWrapper{
   @include layout.bui-option-child-content-margin;
-
-  &>*{
-    margin: 5px;
-  }
 }
 
 .selectedPiecePaper{
-  padding: 8px 15px 8px 15px;
-  @include flexbox.flex-center('column');
-
-  >:not(:last-child){
-    margin-bottom: 0.7em;
-  }
+  @include ItemsList.items-list;
 }
 
 .equipmentRow{

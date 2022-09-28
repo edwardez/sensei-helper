@@ -1,0 +1,5 @@
+@use 'scss/layout.module';
+@use 'components/calculationInput/common/ItemsList.module';
+.piecesList{
+  @include ItemsList.items-list;
+}

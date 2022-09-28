@@ -19,6 +19,14 @@ const byEquipment = types
         }
     );
 
+const pieceInventory = types
+    .model(
+        {
+          pieceId: types.identifier,
+          inStockCount: types.number,
+        }
+    );
+
 export enum RequirementMode {
   ByPiece = 'ByPiece',
   ByEquipment = 'ByEquipment',
@@ -28,6 +36,7 @@ export const EquipmentsRequirementStore = types
     .model({
       requirementByPieces: types.array(byPiece),
       requirementByEquipments: types.array(byEquipment),
+      piecesInventory: types.map(pieceInventory),
       requirementMode: types.enumeration<RequirementMode>('RequirementMode', Object.values(RequirementMode)),
     })
     .actions((self) => {
@@ -92,6 +101,7 @@ export const EquipmentsRequirementStore = types
 
 export type IEquipmentsRequirementStore = Instance<typeof EquipmentsRequirementStore>
 export type IRequirementByPiece = Instance<typeof byPiece>
+export type IPieceInventory = Instance<typeof pieceInventory>
 export type IRequirementByEquipment = Instance<typeof byEquipment>
 export type PieceInfoToEdit = IRequirementByPiece & {
     indexInStoreArray : number
