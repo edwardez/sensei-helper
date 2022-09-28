@@ -1,12 +1,26 @@
+$leftBottomBadgeColor: rgb(62, 134, 184);
+
 .outerMargin{
   margin: 5px;
 }
 
-.bottomText{
+.bottomRightText{
   position: absolute;
   text-shadow: #fff 1px 0 0, #fff 0 1px 0, #fff -1px 0 0, #fff 0 -1px 0;
   font-style: italic;
   color: black;
   bottom: 3px;
   right: 10px;
+}
+
+.bottomLeftText{
+  position: absolute;
+  bottom: 3px;
+  left: 5px;
+  padding: 1.5px;
+  border-radius: 8px;
+  border: 1px solid $leftBottomBadgeColor;
+  background-color: white;
+  color: $leftBottomBadgeColor;
+  font-weight: 900;
 }

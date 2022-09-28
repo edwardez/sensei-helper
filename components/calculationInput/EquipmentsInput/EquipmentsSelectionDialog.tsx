@@ -15,8 +15,8 @@ import {
   useTheme,
 } from '@mui/material';
 import Box from '@mui/material/Box';
-import React, {useEffect, useMemo} from 'react';
-import {EquipmentInfoToEdit, IRequirementByEquipment,} from 'stores/EquipmentsRequirementStore';
+import React, {useEffect, useMemo, useState} from 'react';
+import {EquipmentInfoToEdit, IRequirementByEquipment} from 'stores/EquipmentsRequirementStore';
 import BuiButton from 'components/bui/BuiButton';
 import {Equipment, EquipmentCompositionType} from 'model/Equipment';
 import ItemsOnCurrentTier from 'components/calculationInput/PiecesSelection/ItemsOnCurrentTier';
@@ -27,6 +27,7 @@ import TargetEquipmentSelection from 'components/calculationInput/EquipmentsInpu
 import {useForm} from 'react-hook-form';
 import PositiveIntegerOnlyInput from 'components/calculationInput/common/PositiveIntegerOnlyInput';
 import {useTranslation} from 'next-i18next';
+import {usePrevious} from 'common/hook';
 
 
 interface IFormInputs {
@@ -69,9 +70,10 @@ const EquipmentsSelectionDialog = (
     defaultValues: {neededEquipmentsCount: equipmentInfoToEdit?.count?.toString() ?? '1'},
   });
   const isFullScreen = useMediaQuery(theme.breakpoints.down('md'));
-  const [activeStepNum, setActiveStepNum] = React.useState(0);
-  const [currentEquipId, setCurrentEquipId] = React.useState<string|null>(null);
-  const [targetEquipId, setTargetEquipId] = React.useState<string|null>(null);
+  const [activeStepNum, setActiveStepNum] =useState(equipmentInfoToEdit ? 1 : 0);
+  const [baseEquipId, setBaseEquipId] = useState<string|null>(null);
+  const previousBaseEquipId = usePrevious(baseEquipId);
+  const [targetEquipId, setTargetEquipId] = useState<string|null>(null);
 
   useEffect(() => {
     if (!isOpened) {
@@ -79,10 +81,18 @@ const EquipmentsSelectionDialog = (
     }
   }, [isOpened]);
 
+  useEffect(() => {
+    if (!equipmentInfoToEdit) return;
+    // setActiveStepNum(1);
+    setBaseEquipId(equipmentInfoToEdit.currentEquipmentId);
+    setTargetEquipId(equipmentInfoToEdit.targetEquipmentId);
+    setValue(neededEquipmentsCountField, equipmentInfoToEdit.count.toString());
+  }, [equipmentInfoToEdit, setValue] );
+
   const allTiers = useMemo(() => Array.from(equipmentsByTier.keys()).reverse(), [equipmentsByTier]);
   const overallMaxTier = useMemo(() => Math.max(...allTiers), [allTiers]);
   const availableTargetEquipments = useMemo(() => {
-    const baseEquipment = equipmentsById.get(currentEquipId ?? '');
+    const baseEquipment = equipmentsById.get(baseEquipId ?? '');
     if (!baseEquipment) return [];
     const category = baseEquipment.category;
     const equipmentsBuilder = [];
@@ -97,9 +107,35 @@ const EquipmentsSelectionDialog = (
       equipmentsBuilder.push(targetEquip);
     }
 
+    // If equipment is upgradable and we are adding a new euqipment.
+    // Assigns first available as target equipment by default.
+    if (equipmentsBuilder[0]?.id && !equipmentInfoToEdit) {
+      setTargetEquipId(equipmentsBuilder[0].id);
+    }
+
     return equipmentsBuilder;
   }
-  , [overallMaxTier, currentEquipId, equipmentsById, equipmentsByTier]);
+  , [overallMaxTier, baseEquipId, equipmentsById, equipmentsByTier, equipmentInfoToEdit]);
+
+  useEffect(() => {
+    const previousBaseEquip = equipmentsById.get(previousBaseEquipId ?? '');
+    const nextBaseEquip = equipmentsById.get(baseEquipId ?? '');
+    const targetEquip = equipmentsById.get(targetEquipId ?? '');
+
+    if (previousBaseEquip && nextBaseEquip && targetEquip) {
+      if (previousBaseEquip.category === nextBaseEquip.category) {
+        // if target tier is lower than next base tier, reset
+        if (targetEquip.tier <= nextBaseEquip.tier) {
+          setTargetEquipId(null);
+        }
+        // Otherwise, new base equip is in same category as previous base,
+        // and new base tier still < target equip tier, there is no need to reset
+      } else {
+        // If new base equip is in a different category, reset.
+        setTargetEquipId(null);
+      }
+    }
+  }, [baseEquipId, previousBaseEquipId, targetEquipId, equipmentsById]);
 
   const maxTierPerCategory = useMemo(() => {
     const maxTierPerCategoryBuilder: {[key : string]: number} = {};
@@ -119,7 +155,7 @@ const EquipmentsSelectionDialog = (
     return maxTierPerCategoryBuilder;
   }, [allTiers, equipmentsByTier]);
 
-  const isFormValid = () =>isCountValid && !!currentEquipId && !!targetEquipId;
+  const isFormValid = () =>isCountValid && !!baseEquipId && !!targetEquipId;
 
   const steps = [
     {
@@ -138,8 +174,8 @@ const EquipmentsSelectionDialog = (
     handleCancel();
   };
 
-  const handleSelectEquipment = (equipmentId: string) =>{
-    setCurrentEquipId(equipmentId);
+  const onCurrentEquipmentChanged = (equipmentId: string) =>{
+    setBaseEquipId(equipmentId);
     setActiveStepNum(1);
   };
 
@@ -148,18 +184,18 @@ const EquipmentsSelectionDialog = (
   };
 
   const handleAddOrUpdateEquipmentOnClose = () =>{
-    if (!currentEquipId || !targetEquipId) return;
+    if (!baseEquipId || !targetEquipId) return;
 
     if (equipmentInfoToEdit) {
       handleUpdateEquipmentRequirement({
-        currentEquipmentId: currentEquipId,
+        currentEquipmentId: baseEquipId,
         targetEquipmentId: targetEquipId,
         count: parseInt(getValues().neededEquipmentsCount) ?? 1,
         indexInStoreArray: equipmentInfoToEdit.indexInStoreArray,
       });
     } else {
       handleAddEquipmentRequirement({
-        currentEquipmentId: currentEquipId,
+        currentEquipmentId: baseEquipId,
         targetEquipmentId: targetEquipId,
         count: parseInt(getValues().neededEquipmentsCount) ?? 1,
       });
@@ -167,10 +203,10 @@ const EquipmentsSelectionDialog = (
   };
 
   const handleDeletePieceRequirementOnClose = () => {
-    if (!currentEquipId || !targetEquipId || !equipmentInfoToEdit) return;
+    if (!baseEquipId || !targetEquipId || !equipmentInfoToEdit) return;
 
     handleDeleteEquipmentRequirement({
-      currentEquipmentId: currentEquipId,
+      currentEquipmentId: baseEquipId,
       targetEquipmentId: targetEquipId,
       count: parseInt(getValues().neededEquipmentsCount) ?? 1,
       indexInStoreArray: equipmentInfoToEdit.indexInStoreArray,
@@ -178,14 +214,14 @@ const EquipmentsSelectionDialog = (
   };
 
   const resetFormValues = () => {
-    setCurrentEquipId(null);
+    setBaseEquipId(null);
     setTargetEquipId(null);
     setActiveStepNum(0);
     reset();
   };
 
   const onStepClick = (stepIndex: number) => {
-    if (stepIndex !== 0 || !currentEquipId) return;
+    if (stepIndex !== 0 || !baseEquipId) return;
 
     if (activeStepNum == 0) {
       setActiveStepNum(1);
@@ -196,7 +232,8 @@ const EquipmentsSelectionDialog = (
 
 
   const generateStepContent = (stepNumber: number) => {
-    const baseEquipment = equipmentsById.get(currentEquipId ?? '');
+    const baseEquipment = equipmentsById.get(baseEquipId ?? '');
+    const targetEquipment = equipmentsById.get(targetEquipId ?? '') ?? availableTargetEquipments[0];
 
     switch (stepNumber) {
       case 0:
@@ -215,17 +252,19 @@ const EquipmentsSelectionDialog = (
                         <BuiLinedText>T{tier}</BuiLinedText>
                         <Typography sx={{color: 'text.disabled'}} variant={'subtitle1'}>Cannot upgrade further</Typography>
                       </div> :
-                      <ItemsOnCurrentTier key={tier} tier={tier} items={filterEquipmentsOnTier} selectedItemId={currentEquipId}
-                        handleSelectItem={handleSelectEquipment}/>;
+                      <ItemsOnCurrentTier key={tier} tier={tier} items={filterEquipmentsOnTier} selectedItemId={baseEquipId}
+                        handleSelectItem={onCurrentEquipmentChanged}/>;
                 }
             ) : <CircularProgress />;
       case 1:
       default:
         if (!baseEquipment) return <div></div>;
+
+
         return <>
           <TargetEquipmentSelection baseEquipment={baseEquipment}
             availableTargetEquipments={availableTargetEquipments}
-
+            targetEquipment={targetEquipment}
             onEquipmentChanged={onTargetEquipmentChanged}/>
 
           <BuiButton
@@ -239,24 +278,24 @@ const EquipmentsSelectionDialog = (
   };
 
   const buildStepLabel = (stepNumber: number, stepLabel: string) =>{
-    if (currentEquipId === null || stepNumber !== 0) {
+    if (baseEquipId === null || stepNumber !== 0) {
       return <>{stepLabel}</>;
     }
 
-    const imageName = equipmentsById.get(currentEquipId)?.icon ?? '';
+    const imageName = equipmentsById.get(baseEquipId)?.icon ?? '';
     return <Box display='flex' alignContent='center' alignItems='center'>
       <Box sx={{mr: 1}}>{stepLabel}</Box>
       <EquipmentCard imageName={imageName}/>
     </Box>;
   };
 
-  return <Dialog open={isOpened} fullScreen={isFullScreen}
+  return <Dialog fullWidth open={isOpened} fullScreen={isFullScreen}
     keepMounted onClose={handleDialogCancel}>
     <DialogTitle>
       <Box display={'flex'}>
         <Box>Select Equipment</Box>
         <Box flexGrow={'1'}></Box>
-        {equipmentInfoToEdit ? <Box><Button color={'error'} onClick={()=>{}}>
+        {equipmentInfoToEdit ? <Box><Button color={'error'} onClick={handleDeletePieceRequirementOnClose}>
               delete</Button></Box> :
             null}
 

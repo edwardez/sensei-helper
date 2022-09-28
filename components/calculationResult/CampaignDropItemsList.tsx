@@ -56,7 +56,7 @@ const CampaignDropItemsList :
                 const bottomText = dropCount ? `x${dropCount}` : `${dropProb*100}%`;
                 return <EquipmentCard key={piece.id} hasOuterMargin
                   imageName={piece.icon}
-                  bottomText={bottomText}/>;
+                  bottomRightText={bottomText}/>;
               })}
             </Grid>
           </Grid>

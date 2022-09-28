@@ -5,17 +5,20 @@ import BuiCard from 'components/bui/BuiCard';
 import {CardActionArea} from '@mui/material';
 
 
-const EquipmentCard = ({imageName, bottomText, onClick,
+const EquipmentCard = ({imageName, bottomLeftText, bottomRightText, onClick,
   isSelected = false,
   hasOuterMargin = false}:
                            {imageName: string,
                              onClick?: MouseEventHandler,
-                             bottomText?:string,
+                             bottomLeftText?:string,
+                             bottomRightText?:string,
                              isSelected?: boolean,
                              hasOuterMargin?: boolean}) => {
   const equipmentContent = <React.Fragment>
     <EquipmentImage imageName={imageName} />
-    {bottomText ? <div className={styles.bottomText}>{bottomText}</div> :
+    {bottomLeftText ? <div className={styles.bottomLeftText}>{bottomLeftText}</div> :
+        null}
+    {bottomRightText ? <div className={styles.bottomRightText}>{bottomRightText}</div> :
           null}</React.Fragment>;
 
   return <BuiCard className={`${hasOuterMargin ? styles.outerMargin : ''} ${isSelected ? 'wiz-selected' : ''}`}>

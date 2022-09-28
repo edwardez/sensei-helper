@@ -1,4 +1,5 @@
 @use 'scss/layout.module';
+@use 'scss/flexbox.module';
 
 //TODO(edwardez): figure out a proper way
 //to fix https://mui.com/material-ui/guides/interoperability/#css-modules
@@ -9,4 +10,26 @@
 
 .selectionWrapper{
   @include layout.bui-option-child-content-margin;
+  //flex-direction: column;
+  //align-items: center;
+
+  > *{
+    margin: 5px;
+    flex-grow: 0;
+  }
 }
+
+.selectedPiecePaper{
+  padding: 8px 15px 8px 15px;
+  @include flexbox.flex-center('column');
+
+  >:not(:last-child){
+    margin-bottom: 0.7em;
+  }
+}
+
+.equipmentRow{
+  display: flex;
+  align-items: center;
+}
+

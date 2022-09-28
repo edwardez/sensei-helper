@@ -4,16 +4,18 @@ import ArrowBackIosRoundedIcon from '@mui/icons-material/ArrowBackIosRounded';
 import ArrowForwardIosRoundedIcon from '@mui/icons-material/ArrowForwardIosRounded';
 import BuiButton from 'components/bui/BuiButton';
 import {Equipment} from 'model/Equipment';
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import EquipmentCard from 'components/bui/card/EquipmentCard';
 
 const TargetEquipmentSelection = (
     {
       baseEquipment,
+      targetEquipment,
       onEquipmentChanged,
       availableTargetEquipments,
     }: {
       baseEquipment: Equipment,
+      targetEquipment?: Equipment,
       availableTargetEquipments: Equipment[],
       onEquipmentChanged: (equip: Equipment) => void,
     }
@@ -21,6 +23,12 @@ const TargetEquipmentSelection = (
   const minReachableTier = baseEquipment.tier+1;
   const equipments = availableTargetEquipments;
   const [currentEquipment, setCurrentEquipment] = useState<Equipment>(equipments[0]);
+
+  useEffect(() => {
+    if (!targetEquipment) return;
+
+    setCurrentEquipment(targetEquipment);
+  }, [targetEquipment]);
   const maxTierForCurrentCategory = equipments[equipments.length-1].tier;
   const onMinusOneEquipment = () =>{
     const newEquipment = equipments[equipments.indexOf(currentEquipment) - 1];
