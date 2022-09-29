@@ -985,7 +985,8 @@
     "jpName": "呪いの人形",
     "equipmentCompositionType": "Composite",
     "releasedIn": [
-      "Japan"
+      "Japan",
+      "Global"
     ],
     "recipe": [
       {
@@ -998,6 +999,31 @@
       },
       {
         "id": "2107002",
+        "count": 5
+      }
+    ]
+  },
+  {
+    "id": "2007006",
+    "category": "Charm",
+    "tier": 7,
+    "icon": "Equipment_Icon_Charm_Tier7",
+    "jpName": "ポケット消臭剤",
+    "equipmentCompositionType": "Composite",
+    "releasedIn": [
+      "Japan"
+    ],
+    "recipe": [
+      {
+        "id": "2107006",
+        "count": 40
+      },
+      {
+        "id": "2107004",
+        "count": 15
+      },
+      {
+        "id": "2107003",
         "count": 5
       }
     ]
@@ -1106,7 +1132,8 @@
     "jpName": "ゴシック風の腕時計",
     "equipmentCompositionType": "Composite",
     "releasedIn": [
-      "Japan"
+      "Japan",
+      "Global"
     ],
     "recipe": [
       {
@@ -1119,6 +1146,31 @@
       },
       {
         "id": "2108002",
+        "count": 5
+      }
+    ]
+  },
+  {
+    "id": "2008006",
+    "category": "Watch",
+    "tier": 7,
+    "icon": "Equipment_Icon_Watch_Tier7",
+    "jpName": "ストリートファッションウォッチ",
+    "equipmentCompositionType": "Composite",
+    "releasedIn": [
+      "Japan"
+    ],
+    "recipe": [
+      {
+        "id": "2108006",
+        "count": 40
+      },
+      {
+        "id": "2108004",
+        "count": 15
+      },
+      {
+        "id": "2108003",
         "count": 5
       }
     ]
@@ -1227,7 +1279,8 @@
     "jpName": "パンクチョーカー",
     "equipmentCompositionType": "Composite",
     "releasedIn": [
-      "Japan"
+      "Japan",
+      "Global"
     ],
     "recipe": [
       {
@@ -1240,6 +1293,31 @@
       },
       {
         "id": "2109002",
+        "count": 5
+      }
+    ]
+  },
+  {
+    "id": "2009006",
+    "category": "Necklace",
+    "tier": 7,
+    "icon": "Equipment_Icon_Necklace_Tier7",
+    "jpName": "チェーンネックレス",
+    "equipmentCompositionType": "Composite",
+    "releasedIn": [
+      "Japan"
+    ],
+    "recipe": [
+      {
+        "id": "2109006",
+        "count": 40
+      },
+      {
+        "id": "2109004",
+        "count": 15
+      },
+      {
+        "id": "2109003",
         "count": 5
       }
     ]
@@ -1726,6 +1804,18 @@
     "jpName": "呪いの人形の設計図",
     "equipmentCompositionType": "Piece",
     "releasedIn": [
+      "Japan",
+      "Global"
+    ]
+  },
+  {
+    "id": "2107006",
+    "category": "Charm",
+    "tier": 7,
+    "icon": "Equipment_Icon_Charm_Tier7_Piece",
+    "jpName": "ポケット消臭剤の設計図",
+    "equipmentCompositionType": "Piece",
+    "releasedIn": [
       "Japan"
     ]
   },
@@ -1785,6 +1875,18 @@
     "jpName": "ゴシック風の腕時計の設計図",
     "equipmentCompositionType": "Piece",
     "releasedIn": [
+      "Japan",
+      "Global"
+    ]
+  },
+  {
+    "id": "2108006",
+    "category": "Watch",
+    "tier": 7,
+    "icon": "Equipment_Icon_Watch_Tier7_Piece",
+    "jpName": "ストリートファッションウォッチの設計図",
+    "equipmentCompositionType": "Piece",
+    "releasedIn": [
       "Japan"
     ]
   },
@@ -1842,6 +1944,18 @@
     "tier": 6,
     "icon": "Equipment_Icon_Necklace_Tier6_Piece",
     "jpName": "パンクチョーカーの設計図",
+    "equipmentCompositionType": "Piece",
+    "releasedIn": [
+      "Japan",
+      "Global"
+    ]
+  },
+  {
+    "id": "2109006",
+    "category": "Necklace",
+    "tier": 7,
+    "icon": "Equipment_Icon_Necklace_Tier7_Piece",
+    "jpName": "チェーンネックレスの設計図",
     "equipmentCompositionType": "Piece",
     "releasedIn": [
       "Japan"

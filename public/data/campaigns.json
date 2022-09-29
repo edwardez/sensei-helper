@@ -2258,5 +2258,225 @@
         "probability": 0.15
       }
     ]
+  },
+  {
+    "id": "1201101",
+    "area": 20,
+    "stage": 1,
+    "jpName": "シャインタウン3階・廊下",
+    "rewards": [
+      {
+        "id": "2107006",
+        "probability": 0.344
+      },
+      {
+        "id": "2109006",
+        "probability": 0.258
+      },
+      {
+        "id": "2108006",
+        "probability": 0.258
+      },
+      {
+        "id": "2107003",
+        "probability": 0.1
+      },
+      {
+        "id": "2107004",
+        "probability": 0.2
+      },
+      {
+        "id": "2109003",
+        "probability": 0.075
+      },
+      {
+        "id": "2109004",
+        "probability": 0.15
+      },
+      {
+        "id": "2108003",
+        "probability": 0.075
+      },
+      {
+        "id": "2108004",
+        "probability": 0.15
+      }
+    ]
+  },
+  {
+    "id": "1201102",
+    "area": 20,
+    "stage": 2,
+    "jpName": "トリプルブルースポーツセンター",
+    "rewards": [
+      {
+        "id": "2106006",
+        "probability": 0.344
+      },
+      {
+        "id": "2108006",
+        "probability": 0.258
+      },
+      {
+        "id": "2107006",
+        "probability": 0.258
+      },
+      {
+        "id": "2106003",
+        "probability": 0.1
+      },
+      {
+        "id": "2106004",
+        "probability": 0.2
+      },
+      {
+        "id": "2108003",
+        "probability": 0.075
+      },
+      {
+        "id": "2108004",
+        "probability": 0.15
+      },
+      {
+        "id": "2107003",
+        "probability": 0.075
+      },
+      {
+        "id": "2107004",
+        "probability": 0.15
+      }
+    ]
+  },
+  {
+    "id": "1201103",
+    "area": 20,
+    "stage": 3,
+    "jpName": "スクランブルシティ12階・廊下",
+    "rewards": [
+      {
+        "id": "2104006",
+        "probability": 0.344
+      },
+      {
+        "id": "2109006",
+        "probability": 0.258
+      },
+      {
+        "id": "2108006",
+        "probability": 0.258
+      },
+      {
+        "id": "2104003",
+        "probability": 0.1
+      },
+      {
+        "id": "2104004",
+        "probability": 0.2
+      },
+      {
+        "id": "2109003",
+        "probability": 0.075
+      },
+      {
+        "id": "2109004",
+        "probability": 0.15
+      },
+      {
+        "id": "2108003",
+        "probability": 0.075
+      },
+      {
+        "id": "2108004",
+        "probability": 0.15
+      }
+    ]
+  },
+  {
+    "id": "1201104",
+    "area": 20,
+    "stage": 4,
+    "jpName": "微睡みのギムナジウム",
+    "rewards": [
+      {
+        "id": "2108006",
+        "probability": 0.344
+      },
+      {
+        "id": "2107006",
+        "probability": 0.258
+      },
+      {
+        "id": "2105006",
+        "probability": 0.258
+      },
+      {
+        "id": "2108003",
+        "probability": 0.1
+      },
+      {
+        "id": "2108004",
+        "probability": 0.2
+      },
+      {
+        "id": "2107003",
+        "probability": 0.075
+      },
+      {
+        "id": "2107004",
+        "probability": 0.15
+      },
+      {
+        "id": "2105003",
+        "probability": 0.075
+      },
+      {
+        "id": "2105004",
+        "probability": 0.15
+      }
+    ]
+  },
+  {
+    "id": "1201105",
+    "area": 20,
+    "stage": 5,
+    "jpName": "コクーンビル32階・廊下",
+    "rewards": [
+      {
+        "id": "2109006",
+        "probability": 0.344
+      },
+      {
+        "id": "2106006",
+        "probability": 0.258
+      },
+      {
+        "id": "2104006",
+        "probability": 0.258
+      },
+      {
+        "id": "2109003",
+        "probability": 0.1
+      },
+      {
+        "id": "2109004",
+        "probability": 0.2
+      },
+      {
+        "id": "2106003",
+        "probability": 0.075
+      },
+      {
+        "id": "2106004",
+        "probability": 0.15
+      },
+      {
+        "id": "2104003",
+        "probability": 0.075
+      },
+      {
+        "id": "2104004",
+        "probability": 0.15
+      }
+    ]
   }
 ]
