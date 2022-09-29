@@ -5,7 +5,7 @@ import 'styles/globals.scss';
 import type {AppProps} from 'next/app';
 import Head from 'next/head';
 import {appWithTranslation} from 'next-i18next';
-import {initializeWizStore, isWizStore, StoreContext, wizStorageLocalStorageKey} from 'stores/WizStore';
+import {initializeWizStore, StoreContext, wizStorageLocalStorageKey} from 'stores/WizStore';
 import wizDefaultTheme from 'components/bui/theme';
 import WizAppBar from 'components/appBar/WizAppBar';
 import React, {useEffect, useState} from 'react';
@@ -22,7 +22,6 @@ function MyApp({Component, pageProps}: AppProps) {
     if (persistedSnapshot) {
       try {
         const json = JSON.parse(persistedSnapshot);
-        console.log(isWizStore(json));
         applySnapshot(store, json);
       } catch (e) {
         removeFromLocalStorage(wizStorageLocalStorageKey);

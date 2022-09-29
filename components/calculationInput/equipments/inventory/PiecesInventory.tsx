@@ -32,7 +32,7 @@ const PiecesInventory = (
   const pieces = useMemo(() =>
     Array.from(piecesState.values()).sort((a, b) => a.pieceId>b.pieceId ? -1:1 ),
   [piecesState]);
-  console.log(pieces);
+
   const [piecesToUpdate, setPiecesToUpdate] = useState(pieces);
   const [showAllPieces, setShowAllPieces] = useState(pieces.length <= defaultMaxVisiblePiecesCount);
 
