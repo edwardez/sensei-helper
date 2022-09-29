@@ -28,6 +28,10 @@ import {useForm} from 'react-hook-form';
 import PositiveIntegerOnlyInput from 'components/calculationInput/common/PositiveIntegerOnlyInput';
 import {useTranslation} from 'next-i18next';
 import {usePrevious} from 'common/hook';
+import {
+  EquipmentsByTierAndCategory,
+  hashTierAndCategoryKey,
+} from 'components/calculationInput/equipments/EquipmentsInput';
 
 
 interface IFormInputs {
@@ -40,6 +44,7 @@ type EquipmentsSelectionDialogPros = {
   isOpened: boolean,
   equipmentsById: EquipmentsById,
   equipmentsByTier: Map<number, Equipment[]>,
+  equipmentsByTierAndCategory: EquipmentsByTierAndCategory,
   handleAddEquipmentRequirement: (requirementByEquipment: IRequirementByEquipment) => void,
   handleUpdateEquipmentRequirement: (equipmentInfoToEdit: EquipmentInfoToEdit) => void,
   handleDeleteEquipmentRequirement: (equipmentInfoToEdit: EquipmentInfoToEdit) => void,
@@ -51,6 +56,7 @@ type EquipmentsSelectionDialogPros = {
 
 const EquipmentsSelectionDialog = (
     {isOpened, equipmentInfoToEdit, equipmentsByTier, equipmentsById,
+      equipmentsByTierAndCategory,
       handleAddEquipmentRequirement,
       handleUpdateEquipmentRequirement,
       handleDeleteEquipmentRequirement,
@@ -122,18 +128,26 @@ const EquipmentsSelectionDialog = (
     const nextBaseEquip = equipmentsById.get(baseEquipId ?? '');
     const targetEquip = equipmentsById.get(targetEquipId ?? '');
 
-    if (previousBaseEquip && nextBaseEquip && targetEquip) {
-      if (previousBaseEquip.category === nextBaseEquip.category) {
-        // if target tier is lower than next base tier, reset
-        if (targetEquip.tier <= nextBaseEquip.tier) {
-          setTargetEquipId(null);
-        }
-        // Otherwise, new base equip is in same category as previous base,
-        // and new base tier still < target equip tier, there is no need to reset
-      } else {
-        // If new base equip is in a different category, reset.
-        setTargetEquipId(null);
+    if (!previousBaseEquip || !nextBaseEquip || !targetEquip) return;
+    if (previousBaseEquipId === baseEquipId) return;
+
+    // The "tier+1" target equipment from the current base equipment
+    // It's in the minial target equipment tier.
+    // i.e. current base is T1, then nextMinimalTargetEquip will be T2
+    const nextMinimalTargetEquip = equipmentsByTierAndCategory.get(hashTierAndCategoryKey({
+      tier: nextBaseEquip.tier+1,
+      category: nextBaseEquip.category,
+    }));
+    if (previousBaseEquip.category === nextBaseEquip.category) {
+      // if target tier is lower than next base tier, reset
+      if (targetEquip.tier <= nextBaseEquip.tier) {
+        setTargetEquipId(nextMinimalTargetEquip?.id ?? null);
       }
+      // Otherwise, new base equip is in same category as previous base,
+      // and new base tier still < target equip tier, there is no need to reset
+    } else {
+      // If new base equip is in a different category, reset.
+      setTargetEquipId(nextMinimalTargetEquip?.id ?? null);
     }
   }, [baseEquipId, previousBaseEquipId, targetEquipId, equipmentsById]);
 

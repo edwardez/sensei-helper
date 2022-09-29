@@ -7,15 +7,14 @@ import {RequirementMode} from 'stores/EquipmentsRequirementStore';
 
 type RequirementModeSelectionProps = {
   store: IWizStore,
-  // equipments: Equipment[],
-  // campaignsById: CampaignsById,
-  // equipmentsById: EquipmentsById,
-  // onSetSolution: Function,
+  onModeChange: (mode:RequirementMode) => void,
 }
 
-const RequirementModeSelection = ({store}: RequirementModeSelectionProps) => {
+const RequirementModeSelection = ({store, onModeChange}: RequirementModeSelectionProps) => {
   const handleModeChange = (event : ChangeEvent<HTMLElement>, value: string) =>{
-    store.equipmentsRequirementStore.updateRequirementMode(RequirementMode[value as keyof typeof RequirementMode]);
+    const mode = RequirementMode[value as keyof typeof RequirementMode];
+    store.equipmentsRequirementStore.updateRequirementMode(mode);
+    onModeChange(mode);
   };
 
   return <div>

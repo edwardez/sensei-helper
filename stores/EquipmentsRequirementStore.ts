@@ -1,4 +1,5 @@
 import {Instance, SnapshotIn, SnapshotOut, types} from 'mobx-state-tree';
+import {InventoryForm} from 'components/calculationInput/equipments/inventory/InventoryUpdateDialog';
 
 let equipmentsRequirementStore: IEquipmentsRequirementStore | undefined;
 
@@ -94,9 +95,19 @@ export const EquipmentsRequirementStore = types
         if (!requirementMode) return;
         self.requirementMode = requirementMode;
       };
+
+      const updateInventory = (inventoryForm: InventoryForm) => {
+        for (const [pieceId, inStockCountStr] of Object.entries(inventoryForm)) {
+          const inventoryToUpdate = self.piecesInventory.get(pieceId);
+          self.piecesInventory.put( {
+            pieceId,
+            inStockCount: parseInt(inStockCountStr) ?? 0,
+          });
+        }
+      };
       return {addPiecesRequirement, updatePiecesRequirement, deletePiecesRequirement,
         addEquipmentsRequirement, updateEquipmentsRequirement, deleteEquipmentsRequirement,
-        getAllRequiredPieceIds, updateRequirementMode};
+        getAllRequiredPieceIds, updateRequirementMode, updateInventory};
     });
 
 export type IEquipmentsRequirementStore = Instance<typeof EquipmentsRequirementStore>

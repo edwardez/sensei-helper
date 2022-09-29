@@ -9,10 +9,12 @@ interface PositiveIntegerOnlyInputProps<T extends FieldValues> {
   control: Control<T>;
   showError: boolean;
   helperText: string;
+  min?: number;
 }
 
 const PositiveIntegerOnlyInput = function<T>({
   name, control, showError, helperText,
+  min = 1,
 }: PositiveIntegerOnlyInputProps<T>) {
   const {t} = useTranslation('home');
   return <Controller
@@ -28,7 +30,7 @@ const PositiveIntegerOnlyInput = function<T>({
         message: t('addPieceDialog.mustBeAInteger'),
       },
       min: {
-        value: 1,
+        value: min,
         message: t('addPieceDialog.minimumIs', {min: 1}),
       },
       max: {

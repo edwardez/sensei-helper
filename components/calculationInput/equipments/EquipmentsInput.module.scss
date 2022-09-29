@@ -1,12 +1,11 @@
 @use 'scss/layout.module';
 @use 'scss/flexbox.module';
-@use 'components/calculationInput/common/ItemsList.module';
+@use 'components/calculationInput/common/common-calculation-input-layout';
 
 //TODO(edwardez): figure out a proper way
 //to fix https://mui.com/material-ui/guides/interoperability/#css-modules
 .addButton.addButton.addButton{
-  margin-left: 1em;
-  align-self: center;
+ @include common-calculation-input-layout.list-end-button-position;
 }
 
 .selectionWrapper{
@@ -14,7 +13,7 @@
 }
 
 .selectedPiecePaper{
-  @include ItemsList.items-list;
+  @include common-calculation-input-layout.items-list;
 }
 
 .equipmentRow{

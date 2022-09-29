@@ -1,10 +1,15 @@
 @use 'scss/flexbox.module';
 
-@mixin items-list{
+@mixin items-list(){
   padding: 8px 15px 8px 15px;
   @include flexbox.flex-center('column');
 
   >:not(:last-child){
     margin-bottom: 0.7em;
   }
+}
+
+@mixin list-end-button-position(){
+  margin-left: 1em;
+  align-self: center;
 }

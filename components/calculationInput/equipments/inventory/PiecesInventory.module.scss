@@ -1,5 +1,9 @@
 @use 'scss/layout.module';
-@use 'components/calculationInput/common/ItemsList.module';
+@use 'components/calculationInput/common/common-calculation-input-layout';
 .piecesList{
-  @include ItemsList.items-list;
+  @include common-calculation-input-layout.items-list;
+}
+
+.editButton{
+  @include common-calculation-input-layout.list-end-button-position;
 }
