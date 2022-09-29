@@ -16,6 +16,8 @@ export type PieceState = IPieceInventory & {
   needCount: number;
 }
 
+// For performance reason, shows the first 20 pieces only by default.
+const defaultMaxVisiblePiecesCount = 20;
 const PiecesInventory = (
     {
       piecesState,
@@ -29,6 +31,8 @@ const PiecesInventory = (
 
   const pieces = useMemo(() => Array.from(piecesState.values()), [piecesState]);
   const [piecesToUpdate, setPiecesToUpdate] = useState(pieces);
+  const [showAllPieces, setShowAllPieces] = useState(pieces.length < defaultMaxVisiblePiecesCount);
+
   const [isUpdateInventoryDialogOpened, setIsUpdateInventoryDialogOpened] = useState(false);
 
   const openSinglePieceUpdateDialog = (inventory: PieceState) =>{
@@ -48,6 +52,14 @@ const PiecesInventory = (
     store.equipmentsRequirementStore.updateInventory(inventoryForm);
     setIsUpdateInventoryDialogOpened(false);
   };
+  const toggleShowAllPieces = () => {
+    setShowAllPieces(!showAllPieces);
+  };
+
+  const computeMaximumPiecesToShow = () => {
+    if (showAllPieces) return pieces;
+    return pieces.slice(0, defaultMaxVisiblePiecesCount);
+  };
 
   return <>
     {
@@ -58,7 +70,7 @@ const PiecesInventory = (
         isOpened={isUpdateInventoryDialogOpened} /> : null
     }
     {
-      pieces.map((inventory, index) => {
+      computeMaximumPiecesToShow().map((inventory, index) => {
         const piece = equipmentsById.get(inventory.pieceId);
         if (!piece) return null;
 
@@ -72,6 +84,14 @@ const PiecesInventory = (
           </CardActionArea>
         </Card>;
       })
+    }
+    {
+        pieces.length >= defaultMaxVisiblePiecesCount ? <div className={styles.editButton}>
+          <BuiButton variant={'text'} color={'baTextButtonPrimary'} onClick={toggleShowAllPieces}
+            disabled={pieces.length === 0}>
+            <div>{showAllPieces ? 'Show Less' : 'Show All'}</div>
+          </BuiButton>
+        </div>: null
     }
     <div className={styles.editButton}>
       <BuiButton color={'baButtonSecondary'} onClick={openAllInventoryUpdateDialog}
