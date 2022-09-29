@@ -25,14 +25,13 @@ const NickNameInput = ({
       rules={{
         maxLength: {
           value: 5,
-          message: t('addPieceDialog.maximumIs', {max: 5}),
+          message: t('addEquipmentDialog.maxLengthIs', {max: 5}),
         },
       }}
       render={({field}) => (
         <TextField
           {...field}
-
-          label="Enter a nickname(optional)"
+          label={t('addEquipmentDialog.enterNickName')}
           helperText={helperText}
           error={showError}
         />

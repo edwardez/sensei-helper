@@ -11,6 +11,7 @@ import InventoryUpdateDialog, {
 import BuiButton from 'components/bui/BuiButton';
 import {useStore} from 'stores/WizStore';
 import {observer} from 'mobx-react-lite';
+import {useTranslation} from 'next-i18next';
 
 export type PieceState = IPieceInventory & {
   needCount: number;
@@ -27,6 +28,7 @@ const PiecesInventory = (
       equipmentsById: EquipmentsById,
     }
 ) => {
+  const {t} = useTranslation('home');
   const store = useStore();
 
   const pieces = useMemo(() =>
@@ -92,14 +94,14 @@ const PiecesInventory = (
         pieces.length > defaultMaxVisiblePiecesCount ? <div className={styles.editButton}>
           <BuiButton variant={'text'} color={'baTextButtonPrimary'} onClick={toggleShowAllPieces}
             disabled={pieces.length === 0}>
-            <div>{showAllPieces ? 'Show Less' : 'Show All'}</div>
+            <div>{showAllPieces ? t('showFewerButton') : t('showAllButton')}</div>
           </BuiButton>
         </div>: null
     }
     <div className={styles.editButton}>
       <BuiButton color={'baButtonSecondary'} onClick={openAllInventoryUpdateDialog}
         disabled={pieces.length === 0}>
-        <div>Edit</div>
+        <div>{t('editButton')}</div>
       </BuiButton>
     </div>
   </>;

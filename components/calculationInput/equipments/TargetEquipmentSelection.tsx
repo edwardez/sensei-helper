@@ -6,6 +6,7 @@ import BuiButton from 'components/bui/BuiButton';
 import {Equipment} from 'model/Equipment';
 import {useEffect, useState} from 'react';
 import EquipmentCard from 'components/bui/card/EquipmentCard';
+import {useTranslation} from 'next-i18next';
 
 const TargetEquipmentSelection = (
     {
@@ -20,6 +21,8 @@ const TargetEquipmentSelection = (
       onEquipmentChanged: (equip: Equipment) => void,
     }
 ) => {
+  const {t} = useTranslation('home');
+
   const minReachableTier = baseEquipment.tier+1;
   const equipments = availableTargetEquipments;
   const [currentEquipment, setCurrentEquipment] = useState<Equipment>(equipments[0]);
@@ -61,7 +64,7 @@ const TargetEquipmentSelection = (
     </BuiButton>
     <BuiButton sx={{boxShadow: 1}} disabled={currentEquipment.tier >= maxTierForCurrentCategory}
       color={'baButtonSecondary'} onClick={onSetToMaxTierEquipment}>
-      Max
+      {t('addEquipmentDialog.max')}
     </BuiButton>
   </Box>;
 };

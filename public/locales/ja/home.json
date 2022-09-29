@@ -4,6 +4,9 @@
   "updateButton": "更新",
   "cancelButton": "キャンセル",
   "deleteButton": "削除",
+  "editButton": "編集",
+  "showAllButton": "すべてを表示",
+  "showFewerButton": "一部のみ表示",
   "isInADropCampaign": "Normalドロップ量キャンペーン中？",
   "normal1x": "キャンペーン無し（1倍）",
   "normal2x": "2倍",
@@ -15,7 +18,26 @@
     "mustBeAInteger": "半角数字のみ",
     "minimumIs": "最小値は{{min}}です",
     "maximumIs": "最大値は{{max}}です",
-    "quantity": "欲しい数"
+    "quantity": "欲しい数",
+    "inStockCount": "所持数"
+  },
+  "selectInputMode": "入力モード",
+  "inputByEquipment": "装備",
+  "inputByPiece": "装備設計図",
+  "addEquipments": "装備を追加",
+  "updateInventory": "所持設計図を更新（任意）",
+  "updateInventoryDialogTitle": "所持設計図を更新",
+  "updateInventoryTip": "今所持の設計図数を入力すれば、所持数に合わせて計算の精度を上げられます",
+  "addEquipmentDialog": {
+    "selectAEquipment": "装備選択",
+    "cannotUpgradeFurther": "これ以上強化できない",
+    "setBase": "今所持の装備Tierを選択",
+    "setTarget": "目標Tierを選択",
+    "max": "最大",
+    "reselect": "再選択",
+    "maxLengthIs": "{{max}}文字以内",
+    "enterNickName":  "ニックネーム入力（任意）",
+    "enterNickNameNormalHelperText": "生徒の名前をメモとして入力すれば、装備の管理ができます"
   },
   "thinsToNote": {
     "title": "注記",

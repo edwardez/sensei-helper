@@ -15,6 +15,7 @@ import PiecesInventory, {PieceState} from 'components/calculationInput/equipment
 import IconButton from '@mui/material/IconButton';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import variables from 'scss/variables.module.scss';
+import {useTranslation} from 'next-i18next';
 
 export interface TierCategoryKey{
   tier: number;
@@ -41,6 +42,7 @@ const EquipmentsInput = (
           equipmentsByTierAndCategory: EquipmentsByTierAndCategory,
         }
 ) => {
+  const {t} = useTranslation('home');
   const [isAddEquipDialogOpened, setIsAddEquipDialogOpened] = useState(false);
 
   const [equipInfoToEdit, setEquipInfoToEdit] = useState<EquipmentInfoToEdit|null>(null);
@@ -95,7 +97,7 @@ const EquipmentsInput = (
       handleCancel={handleCancelChangeEquipmentRequirement}
       equipmentInfoToEdit={equipInfoToEdit}
       equipmentsById={equipmentsById} equipmentsByTierAndCategory={equipmentsByTierAndCategory}/>
-    <BuiLinedText>Add equipments</BuiLinedText>
+    <BuiLinedText>{t('addEquipments')}</BuiLinedText>
     <div className={styles.selectionWrapper}>
       {store.equipmentsRequirementStore.requirementByEquipments.map((requirementByEquip, index) => {
         const currentEquip = equipmentsById.get(requirementByEquip.currentEquipmentId);
@@ -121,12 +123,12 @@ const EquipmentsInput = (
         </Card>;
       })}
       <BuiButton color={'baButtonSecondary'} onClick={handleClickOpen} className={styles.addButton}>
-        <div>Add</div>
+        <div>{t('addButton')}</div>
       </BuiButton>
     </div>
     <BuiLinedText>
-      <div>Update your inventory(optional)</div>
-      <Tooltip title="If you already own some pieces, calculation can be adjusted based on them">
+      <div>{t('updateInventory')}</div>
+      <Tooltip title={t('updateInventoryTip')}>
         <IconButton sx={{color: variables.baPrimaryTextColor}} size={'small'}><InfoOutlinedIcon /></IconButton>
       </Tooltip>
     </BuiLinedText>

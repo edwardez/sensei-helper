@@ -27,6 +27,7 @@ const InventoryUpdateDialog = (
       onUpdate: (formValues: InventoryForm) => void,
     }
 ) => {
+  const {t} = useTranslation('home');
   const theme = useTheme();
 
   const defaultValues= pieces.reduce<InventoryForm>((defaultValuesBuilder, curr) => {
@@ -45,7 +46,6 @@ const InventoryUpdateDialog = (
   });
 
   const isFullScreen = useMediaQuery(theme.breakpoints.down('md'));
-  const {t} = useTranslation('home');
 
   const handleDialogCancel = () =>{
     onCancel();
@@ -61,7 +61,7 @@ const InventoryUpdateDialog = (
     keepMounted
     maxWidth={hasManyPieces() ? 'xl': undefined}>
     <DialogTitle>
-      Update Inventory
+      {t('updateInventoryDialogTitle')}
     </DialogTitle>
 
     <DialogContent>

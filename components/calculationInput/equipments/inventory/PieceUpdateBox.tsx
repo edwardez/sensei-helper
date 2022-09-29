@@ -9,6 +9,7 @@ import {EquipmentsById} from 'components/calculationInput/PiecesCalculationCommo
 import {PieceState} from 'components/calculationInput/equipments/inventory/PiecesInventory';
 import {Control} from 'react-hook-form/dist/types/form';
 import {InventoryForm} from 'components/calculationInput/equipments/inventory/InventoryUpdateDialog';
+import {useTranslation} from 'next-i18next';
 
 interface PieceUpdateBoxProps {
   equipmentsById:EquipmentsById,
@@ -23,6 +24,8 @@ const PieceUpdateBox = function({
   control,
   allErrors,
 }:PieceUpdateBoxProps) {
+  const {t} = useTranslation('home');
+
   const pieceInfo = equipmentsById.get(piece.pieceId);
   if (!pieceInfo) return null;
   return <div className={styles.equipmentInputContainer}>
@@ -39,7 +42,9 @@ const PieceUpdateBox = function({
     <PositiveIntegerOnlyInput name={piece.pieceId}
       min={0}
       control={control} showError={!!allErrors[piece.pieceId]}
-      helperText={allErrors[piece.pieceId]?.message ?? ''} />
+      helperText={allErrors[piece.pieceId]?.message ?? ''}
+      inputLabel={t('addPieceDialog.inStockCount')}
+    />
   </div>;
 };
 

@@ -4,6 +4,9 @@
   "updateButton": "Update",
   "cancelButton": "Cancel",
   "deleteButton": "Delete",
+  "editButton": "Edit",
+  "showAllButton": "Show All",
+  "showFewerButton": "Show Fewer",
   "isInADropCampaign": "In a drop Campaign?(Mission Normal)",
   "normal1x": "1x(No Campaign)",
   "normal2x": "Double",
@@ -15,7 +18,26 @@
     "mustBeAInteger": "Must be a integer",
     "minimumIs": "Minimum is {{min}}",
     "maximumIs": "Maximum is {{max}}",
-    "quantity": "Quantity"
+    "quantity": "Quantity",
+    "inStockCount": "In Stock Number"
+  },
+  "selectInputMode": "Select input mode",
+  "inputByEquipment": "By Equipment",
+  "inputByPiece": "By Piece",
+  "addEquipments": "Add equipments",
+  "updateInventory": "Update your inventory(optional)",
+  "updateInventoryDialogTitle": "Update inventory",
+  "updateInventoryTip": "If you already own some pieces, calculation can be adjusted based on them",
+  "addEquipmentDialog": {
+    "selectAEquipment": "Select Equipment",
+    "cannotUpgradeFurther": "Cannot upgrade further",
+    "setBase": "Set the current equipment to upgrade",
+    "setTarget": "Set target equipment",
+    "max": "Max",
+    "reselect": "Reselect",
+    "maxLengthIs": "Maximum characters are {{max}}",
+    "enterNickName":  "Enter a nickname(optional)",
+    "enterNickNameNormalHelperText": "Enter a student name to help you memorize equipment ownership"
   },
   "thinsToNote": {
     "title": "Things to note",

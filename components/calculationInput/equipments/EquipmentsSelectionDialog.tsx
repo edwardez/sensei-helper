@@ -185,10 +185,10 @@ const EquipmentsSelectionDialog = (
 
   const steps = [
     {
-      label: 'Set the current equipment to upgrade',
+      label: t('addEquipmentDialog.setBase'),
     },
     {
-      label: 'Set target equipment',
+      label: t('addEquipmentDialog.setTarget'),
     },
   ];
 
@@ -301,10 +301,10 @@ const EquipmentsSelectionDialog = (
             color={'baButtonSecondary'}
             disabled={stepNumber === 0}
             onClick={handleBack}>
-            Reselect
+            {t('addEquipmentDialog.reselect')}
           </BuiButton>
           <NickNameInput control={control}
-            helperText={allErrors[nicknameField]?.message ?? 'Enter a student name to help you memorize equipment ownership'}
+            helperText={allErrors[nicknameField]?.message ?? t('addEquipmentDialog.enterNickNameNormalHelperText')}
             name={nicknameField} showError={!!allErrors[nicknameField]}/>
         </>;
     }
@@ -326,10 +326,10 @@ const EquipmentsSelectionDialog = (
     keepMounted onClose={handleDialogCancel}>
     <DialogTitle>
       <Box display={'flex'}>
-        <Box>Select Equipment</Box>
+        <Box>{t('addEquipmentDialog.selectAEquipment')}</Box>
         <Box flexGrow={'1'}></Box>
         {equipmentInfoToEdit ? <Box><Button color={'error'} onClick={handleDeletePieceRequirementOnClose}>
-              delete</Button></Box> :
+          {t('deleteButton')}</Button></Box> :
             null}
 
       </Box>
