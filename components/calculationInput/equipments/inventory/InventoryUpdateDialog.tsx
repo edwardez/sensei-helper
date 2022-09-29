@@ -1,6 +1,6 @@
 import styles from './InventoryUpdateDialog.module.scss';
 import {PieceState} from 'components/calculationInput/equipments/inventory/PiecesInventory';
-import {Button, Dialog, DialogActions, DialogContent, DialogTitle, useMediaQuery, useTheme,} from '@mui/material';
+import {Button, Dialog, DialogActions, DialogContent, DialogTitle, useMediaQuery, useTheme} from '@mui/material';
 import React from 'react';
 import {useTranslation} from 'next-i18next';
 import {useForm} from 'react-hook-form';
