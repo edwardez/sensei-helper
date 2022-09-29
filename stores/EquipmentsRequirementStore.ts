@@ -17,6 +17,7 @@ const byEquipment = types
           currentEquipmentId: types.string,
           targetEquipmentId: types.string,
           count: types.number,
+          nickname: types.optional(types.string, ''),
         }
     );
 
@@ -38,7 +39,7 @@ export const EquipmentsRequirementStore = types
       requirementByPieces: types.array(byPiece),
       requirementByEquipments: types.array(byEquipment),
       piecesInventory: types.map(pieceInventory),
-      requirementMode: types.enumeration<RequirementMode>('RequirementMode', Object.values(RequirementMode)),
+      requirementMode: types.optional(types.enumeration<RequirementMode>('RequirementMode', Object.values(RequirementMode)), RequirementMode.ByEquipment),
     })
     .actions((self) => {
       const addPiecesRequirement = (requirement : IRequirementByPiece) => {
@@ -73,6 +74,7 @@ export const EquipmentsRequirementStore = types
           currentEquipmentId: equipInfoToEdit.currentEquipmentId,
           targetEquipmentId: equipInfoToEdit.targetEquipmentId,
           count: equipInfoToEdit.count,
+          nickname: equipInfoToEdit.nickname,
         };
       };
 
@@ -105,9 +107,11 @@ export const EquipmentsRequirementStore = types
           });
         }
       };
+
       return {addPiecesRequirement, updatePiecesRequirement, deletePiecesRequirement,
         addEquipmentsRequirement, updateEquipmentsRequirement, deleteEquipmentsRequirement,
-        getAllRequiredPieceIds, updateRequirementMode, updateInventory};
+        getAllRequiredPieceIds, updateRequirementMode, updateInventory,
+      };
     });
 
 export type IEquipmentsRequirementStore = Instance<typeof EquipmentsRequirementStore>

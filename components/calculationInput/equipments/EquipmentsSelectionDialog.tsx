@@ -32,13 +32,19 @@ import {
   EquipmentsByTierAndCategory,
   hashTierAndCategoryKey,
 } from 'components/calculationInput/equipments/EquipmentsInput';
+import NickNameInput from 'components/calculationInput/equipments/EquipmentDialog/NickNameInput';
+import {observer} from 'mobx-react-lite';
+import {useStore} from 'stores/WizStore';
 
 
-interface IFormInputs {
-  neededEquipmentsCount: string
+export interface IEquipmentFormInputs {
+  neededEquipmentsCount: string;
+  nickname: string;
 }
 
 const neededEquipmentsCountField = 'neededEquipmentsCount';
+const nicknameField = 'nickname';
+
 
 type EquipmentsSelectionDialogPros = {
   isOpened: boolean,
@@ -63,18 +69,23 @@ const EquipmentsSelectionDialog = (
       handleCancel,
     } : EquipmentsSelectionDialogPros
 ) => {
+  const store = useStore();
   const {t} = useTranslation('home');
   const theme = useTheme();
   const {
     control,
-    formState: {isValid: isCountValid, errors: countErrors},
+    formState: {isValid: isInputValid, errors: allErrors},
     getValues,
     setValue,
     reset,
-  } = useForm<IFormInputs>({
+  } = useForm<IEquipmentFormInputs>({
     mode: 'onChange',
-    defaultValues: {neededEquipmentsCount: equipmentInfoToEdit?.count?.toString() ?? '1'},
+    defaultValues: {
+      neededEquipmentsCount: equipmentInfoToEdit?.count?.toString() ?? '1',
+      nickname: equipmentInfoToEdit?.nickname,
+    },
   });
+
   const isFullScreen = useMediaQuery(theme.breakpoints.down('md'));
   const [activeStepNum, setActiveStepNum] =useState(equipmentInfoToEdit ? 1 : 0);
   const [baseEquipId, setBaseEquipId] = useState<string|null>(null);
@@ -93,6 +104,7 @@ const EquipmentsSelectionDialog = (
     setBaseEquipId(equipmentInfoToEdit.currentEquipmentId);
     setTargetEquipId(equipmentInfoToEdit.targetEquipmentId);
     setValue(neededEquipmentsCountField, equipmentInfoToEdit.count.toString());
+    setValue(nicknameField, equipmentInfoToEdit.nickname);
   }, [equipmentInfoToEdit, setValue] );
 
   const allTiers = useMemo(() => Array.from(equipmentsByTier.keys()).reverse(), [equipmentsByTier]);
@@ -169,7 +181,7 @@ const EquipmentsSelectionDialog = (
     return maxTierPerCategoryBuilder;
   }, [allTiers, equipmentsByTier]);
 
-  const isFormValid = () =>isCountValid && !!baseEquipId && !!targetEquipId;
+  const isFormValid = () =>isInputValid && !!baseEquipId && !!targetEquipId;
 
   const steps = [
     {
@@ -199,18 +211,20 @@ const EquipmentsSelectionDialog = (
 
   const handleAddOrUpdateEquipmentOnClose = () =>{
     if (!baseEquipId || !targetEquipId) return;
-
+    const formValues =getValues();
     if (equipmentInfoToEdit) {
       handleUpdateEquipmentRequirement({
         currentEquipmentId: baseEquipId,
         targetEquipmentId: targetEquipId,
-        count: parseInt(getValues().neededEquipmentsCount) ?? 1,
+        count: parseInt(formValues.neededEquipmentsCount) ?? 1,
+        nickname: formValues.nickname,
         indexInStoreArray: equipmentInfoToEdit.indexInStoreArray,
       });
     } else {
       handleAddEquipmentRequirement({
         currentEquipmentId: baseEquipId,
         targetEquipmentId: targetEquipId,
+        nickname: formValues.nickname,
         count: parseInt(getValues().neededEquipmentsCount) ?? 1,
       });
     }
@@ -218,11 +232,13 @@ const EquipmentsSelectionDialog = (
 
   const handleDeletePieceRequirementOnClose = () => {
     if (!baseEquipId || !targetEquipId || !equipmentInfoToEdit) return;
+    const formValues =getValues();
 
     handleDeleteEquipmentRequirement({
       currentEquipmentId: baseEquipId,
       targetEquipmentId: targetEquipId,
-      count: parseInt(getValues().neededEquipmentsCount) ?? 1,
+      count: parseInt(formValues.neededEquipmentsCount) ?? 1,
+      nickname: formValues.nickname,
       indexInStoreArray: equipmentInfoToEdit.indexInStoreArray,
     });
   };
@@ -287,6 +303,9 @@ const EquipmentsSelectionDialog = (
             onClick={handleBack}>
             Reselect
           </BuiButton>
+          <NickNameInput control={control}
+            helperText={allErrors[nicknameField]?.message ?? 'Enter a student name to help you memorize equipment ownership'}
+            name={nicknameField} showError={!!allErrors[nicknameField]}/>
         </>;
     }
   };
@@ -334,10 +353,9 @@ const EquipmentsSelectionDialog = (
     </DialogContent>
 
     <DialogActions>
-      <PositiveIntegerOnlyInput<IFormInputs> name={neededEquipmentsCountField}
-        control={control} showError={!!countErrors.neededEquipmentsCount}
-        helperText={countErrors.neededEquipmentsCount?.message ?? ''} />
-
+      <PositiveIntegerOnlyInput<IEquipmentFormInputs> name={neededEquipmentsCountField}
+        control={control} showError={!!allErrors.neededEquipmentsCount}
+        helperText={allErrors.neededEquipmentsCount?.message ?? ''} />
       <div className={styles.filler}></div>
       <Button onClick={handleDialogCancel}>{t('cancelButton')}</Button>
       <Button onClick={handleAddOrUpdateEquipmentOnClose} disabled={!isFormValid()}>
@@ -347,4 +365,4 @@ const EquipmentsSelectionDialog = (
   </Dialog>;
 };
 
-export default EquipmentsSelectionDialog;
+export default observer(EquipmentsSelectionDialog);

@@ -40,7 +40,6 @@ export function initializeWizStore(snapshot = null) {
     requirementByPieces: [],
     requirementByEquipments: [],
     requirementMode: RequirementMode.ByEquipment,
-
   }});
 
   // const _store = wizStore ?? WizStore.create();

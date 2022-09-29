@@ -29,9 +29,12 @@ const PiecesInventory = (
 ) => {
   const store = useStore();
 
-  const pieces = useMemo(() => Array.from(piecesState.values()), [piecesState]);
+  const pieces = useMemo(() =>
+    Array.from(piecesState.values()).sort((a, b) => a.pieceId>b.pieceId ? -1:1 ),
+  [piecesState]);
+  console.log(pieces);
   const [piecesToUpdate, setPiecesToUpdate] = useState(pieces);
-  const [showAllPieces, setShowAllPieces] = useState(pieces.length < defaultMaxVisiblePiecesCount);
+  const [showAllPieces, setShowAllPieces] = useState(pieces.length <= defaultMaxVisiblePiecesCount);
 
   const [isUpdateInventoryDialogOpened, setIsUpdateInventoryDialogOpened] = useState(false);
 
@@ -86,7 +89,7 @@ const PiecesInventory = (
       })
     }
     {
-        pieces.length >= defaultMaxVisiblePiecesCount ? <div className={styles.editButton}>
+        pieces.length > defaultMaxVisiblePiecesCount ? <div className={styles.editButton}>
           <BuiButton variant={'text'} color={'baTextButtonPrimary'} onClick={toggleShowAllPieces}
             disabled={pieces.length === 0}>
             <div>{showAllPieces ? 'Show Less' : 'Show All'}</div>

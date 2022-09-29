@@ -8,10 +8,13 @@ import {EquipmentsById} from 'components/calculationInput/PiecesCalculationCommo
 import {observer} from 'mobx-react-lite';
 import {IWizStore} from 'stores/WizStore';
 import {EquipmentInfoToEdit, IRequirementByEquipment} from 'stores/EquipmentsRequirementStore';
-import {Card, CardActionArea} from '@mui/material';
+import {Card, CardActionArea, Tooltip} from '@mui/material';
 import EquipmentCard from 'components/bui/card/EquipmentCard';
 import BuiBanner from 'components/bui/BuiBanner';
 import PiecesInventory, {PieceState} from 'components/calculationInput/equipments/inventory/PiecesInventory';
+import IconButton from '@mui/material/IconButton';
+import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
+import variables from 'scss/variables.module.scss';
 
 export interface TierCategoryKey{
   tier: number;
@@ -100,6 +103,11 @@ const EquipmentsInput = (
 
         if (!currentEquip || !targetEquip) return null;
         const tierUpgradeText = `T${currentEquip.tier}→T${targetEquip.tier}`;
+        let nicknameAndCount = '';
+        if (requirementByEquip.nickname?.length) {
+          nicknameAndCount += `[${requirementByEquip.nickname}]`;
+        }
+        nicknameAndCount += requirementByEquip.count.toString();
 
         return <Card key={index} elevation={1}
           onClick={() => handleOpenDialogForEditing(requirementByEquip, index)}>
@@ -107,7 +115,7 @@ const EquipmentsInput = (
             <div className={styles.selectedPiecePaper}>
               <EquipmentCard imageName={targetEquip.icon} />
               <BuiBanner label={tierUpgradeText} width={'120%'} />
-              <BuiBanner label={requirementByEquip.count.toString()} width={'120%'}/>
+              <BuiBanner label={nicknameAndCount} width={'120%'}/>
             </div>
           </CardActionArea>
         </Card>;
@@ -116,7 +124,12 @@ const EquipmentsInput = (
         <div>Add</div>
       </BuiButton>
     </div>
-    <BuiLinedText>Update your inventory(optional)</BuiLinedText>
+    <BuiLinedText>
+      <div>Update your inventory(optional)</div>
+      <Tooltip title="If you already own some pieces, calculation can be adjusted based on them">
+        <IconButton sx={{color: variables.baPrimaryTextColor}} size={'small'}><InfoOutlinedIcon /></IconButton>
+      </Tooltip>
+    </BuiLinedText>
     <div className={styles.selectionWrapper}>
       <PiecesInventory piecesState={piecesState} equipmentsById={equipmentsById} />
     </div>

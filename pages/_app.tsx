@@ -20,11 +20,10 @@ function MyApp({Component, pageProps}: AppProps) {
     const persistedSnapshot = getFromLocalStorage(wizStorageLocalStorageKey);
 
     if (persistedSnapshot) {
-      const json = JSON.parse(persistedSnapshot);
       try {
-        if (isWizStore(json)) {
-          applySnapshot(store, json);
-        }
+        const json = JSON.parse(persistedSnapshot);
+        console.log(isWizStore(json));
+        applySnapshot(store, json);
       } catch (e) {
         removeFromLocalStorage(wizStorageLocalStorageKey);
         console.error(e);

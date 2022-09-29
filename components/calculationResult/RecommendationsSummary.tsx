@@ -6,6 +6,7 @@ import IconButton from '@mui/material/IconButton';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import ResultIsEstimation from 'components/calculationResult/explanation/ResultIsEstimation';
 import {useTranslation} from 'next-i18next';
+import variables from 'scss/variables.module.scss';
 
 const punchedHoleWidthPx = 150;
 
@@ -35,7 +36,7 @@ const RecommendationsSummary = () => {
 
         <BuiLinedText showVerticalDividerPrefix={false}>
           <div>{t('thinsToNote.pointThisIsEstimation')}
-            <IconButton onClick={handleResultIsEstimationOpen}><InfoOutlinedIcon /></IconButton></div>
+            <IconButton size={'small'} sx={{color: variables.baPrimaryTextColor}} onClick={handleResultIsEstimationOpen}><InfoOutlinedIcon /></IconButton></div>
         </BuiLinedText>
       </CardContent>
     </Card>
