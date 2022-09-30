@@ -30,8 +30,8 @@
   "updateInventoryTip": "今所持の設計図数を入力すれば、所持数に合わせて計算の精度を上げられます",
   "addEquipmentDialog": {
     "selectAEquipment": "装備選択",
-    "cannotUpgradeFurther": "これ以上強化できない",
-    "setBase": "今所持の装備Tierを選択",
+    "cannotUpgradeFurther": "これ以上強化できません",
+    "setBase": "今所持の装備を選択",
     "setTarget": "目標Tierを選択",
     "max": "最大",
     "reselect": "再選択",

@@ -37,7 +37,7 @@
     "reselect": "重新选择",
     "maxLengthIs": "最多输入{{max}}个字",
     "enterNickName":  "添加昵称（选填）",
-    "enterNickNameNormalHelperText": "可以输入学生姓名来实现装备管理"
+    "enterNickNameNormalHelperText": "可以输入学生姓名方便记和进行装备管理"
   },
   "thinsToNote": {
     "title": "注意事项",
