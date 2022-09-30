@@ -5,27 +5,55 @@ import 'styles/globals.scss';
 import type {AppProps} from 'next/app';
 import Head from 'next/head';
 import {appWithTranslation} from 'next-i18next';
-import {initializeWizStore, StoreContext, wizStorageLocalStorageKey} from 'stores/WizStore';
+import {
+  initializeWizStore,
+  StoreContext,
+  wizExceptionStorageLocalStorageKey,
+  wizStorageLocalStorageKey,
+} from 'stores/WizStore';
 import wizDefaultTheme from 'components/bui/theme';
 import WizAppBar from 'components/appBar/WizAppBar';
 import React, {useEffect, useState} from 'react';
 import {applySnapshot, onSnapshot} from 'mobx-state-tree';
 import {getFromLocalStorage, removeFromLocalStorage, setToLocalStorage} from 'common/LocalStorageUtil';
+import RestoreDataExceptionDialog from 'components/settings/dataManagement/RestoreDataExceptionDialog';
 
 
 function MyApp({Component, pageProps}: AppProps) {
   const [isStoreInitialized, setIsStoreInitialized] = useState(false);
+  const [isExceptionDialogOpened, setIsExceptionDialogOpened] = useState(false);
+  const [corruptedData, setCorruptedData] = useState('');
+
   const store = initializeWizStore(pageProps.initialState);
   useEffect(() => {
     const persistedSnapshot = getFromLocalStorage(wizStorageLocalStorageKey);
 
     if (persistedSnapshot) {
+      let json;
       try {
-        const json = JSON.parse(persistedSnapshot);
+        json = JSON.parse(persistedSnapshot);
         applySnapshot(store, json);
       } catch (e) {
-        removeFromLocalStorage(wizStorageLocalStorageKey);
-        console.error(e);
+        const hasEnteredPlentyInventoryData = Object.values(json?.equipmentsRequirementStore?.piecesInventory).length >= 10;
+        const hasEnteredPlentyEquipmentData = json?.equipmentsRequirementStore?.requirementByEquipments?.length >= 5;
+        const hasEnteredPlentyPiecesData = json?.equipmentsRequirementStore?.requirementByPieces?.length >= 10;
+
+        // Notify reset to back up corrupted data if they have entered a lot.
+        if (hasEnteredPlentyInventoryData || hasEnteredPlentyEquipmentData || hasEnteredPlentyPiecesData) {
+          setIsExceptionDialogOpened(true);
+        } else {
+          handleDataReset();
+        }
+
+        const exceptionStorage = {
+          exception: String(e),
+          [wizStorageLocalStorageKey]: json ?? persistedSnapshot,
+        };
+        setToLocalStorage(wizExceptionStorageLocalStorageKey,
+            JSON.stringify(exceptionStorage)
+        );
+
+        setCorruptedData(persistedSnapshot);
       }
     }
     setIsStoreInitialized(true);
@@ -37,9 +65,24 @@ function MyApp({Component, pageProps}: AppProps) {
 
     return () => dispose();
   }, []);
+
+  const handleDataReset = () => {
+    setIsExceptionDialogOpened(false);
+    removeFromLocalStorage(wizStorageLocalStorageKey);
+  };
+
   return (
     <StoreContext.Provider value={store}>
       <ThemeProvider theme={wizDefaultTheme}>
+        <>
+          {
+            isExceptionDialogOpened? <RestoreDataExceptionDialog isOpened={isExceptionDialogOpened}
+              corruptedData={corruptedData}
+              handleDataReset={handleDataReset} /> :
+                null
+          }
+        </>
+
         <CssBaseline />
         <Head>
           <meta

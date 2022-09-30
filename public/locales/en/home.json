@@ -61,6 +61,13 @@
   "settingsDialogSelectGameServer": "Select your game server",
   "japanServer": "Japan",
   "globalServer": "Global",
+  "notifyDataCorruptionDialog": {
+    "title": "Something went wrong",
+    "explanation": "It seems like your data is corrupted, your settings and equipment data will be reset.",
+    "backupAndContactUs": "Below is your corrupted data, if the error persists, you can take a backup and contact the developer.",
+    "clearDataButton": "Clear Data",
+    "noData": "No Data"
+  },
   "error404": "This page could not be found.",
   "error500": "Internal Server Error.",
   "meta": {

@@ -61,6 +61,13 @@
   "settingsDialogSelectGameServer": "ゲームサーバー",
   "japanServer": "日本",
   "globalServer": "グローバル",
+  "notifyDataCorruptionDialog": {
+    "title": "エラー",
+    "explanation": "データが破損してるため、装備データと設定のリセットは必要です。",
+    "backupAndContactUs": "引き続き問題が発生する場合は、エクスポートしたデータをバックアップして、開発者に連絡してください。",
+    "clearDataButton": "データリセット",
+    "noData": "データがありません"
+  },
   "error404": "お探しのページは見つかりませんでした。",
   "error500": "サーバー内部エラー",
   "meta": {

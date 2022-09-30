@@ -7,7 +7,7 @@ import Box from '@mui/material/Box';
 
 export interface DialogTitleProps {
   children?: React.ReactNode;
-  onClose: () => void;
+  onClose?: () => void;
 }
 
 export const BuiDialogTitle = (props: DialogTitleProps) => {

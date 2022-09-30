@@ -61,6 +61,13 @@
   "settingsDialogSelectGameServer": "游戏服务器",
   "japanServer": "日服",
   "globalServer": "国际服",
+  "notifyDataCorruptionDialog": {
+    "title": "意外错误",
+    "explanation": "你的数据似乎已经损坏，设置和装备数据需要被清空。",
+    "backupAndContactUs": "下面是导出的当前应用数据，如果问题持续出现，可以自行备份并联系开发者。",
+    "clearDataButton": "清空数据",
+    "noData": "无数据"
+  },
   "error404": "此页面无法找到",
   "error500": "服务器内部错误",
   "meta": {
