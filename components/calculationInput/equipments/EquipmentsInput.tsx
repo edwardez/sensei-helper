@@ -128,7 +128,7 @@ const EquipmentsInput = (
     </div>
     <BuiLinedText>
       <div>{t('updateInventory')}</div>
-      <Tooltip title={t('updateInventoryTip')}>
+      <Tooltip title={t('updateInventoryTip')} enterTouchDelay={0} leaveTouchDelay={5000}>
         <IconButton sx={{color: variables.baPrimaryTextColor}} size={'small'}><InfoOutlinedIcon /></IconButton>
       </Tooltip>
     </BuiLinedText>

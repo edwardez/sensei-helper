@@ -52,12 +52,12 @@ const TargetEquipmentSelection = (
     onEquipmentChanged(newEquipment);
   };
 
-  return <Box sx={{display: 'flex', mb: 3}} className={styles.selectionWrapper}>
+  return <Box sx={{display: 'flex', flexWrap: 'wrap', mb: 3}} className={styles.selectionWrapper}>
     <BuiButton sx={{boxShadow: 1}} disabled={currentEquipment.tier <= minReachableTier}
       size="large" color={'baButtonLightBackgroundPrimary'} onClick={onMinusOneEquipment}>
       <ArrowBackIosRoundedIcon />
     </BuiButton>
-    <EquipmentCard imageName={currentEquipment.icon} />
+    <EquipmentCard bottomLeftText={`T${currentEquipment.tier}`} imageName={currentEquipment.icon} />
     <BuiButton sx={{boxShadow: 1}} disabled={currentEquipment.tier >= maxTierForCurrentCategory}
       size="large" color={'baButtonLightBackgroundPrimary'} onClick={onPlusOneEquipment}>
       <ArrowForwardIosRoundedIcon />

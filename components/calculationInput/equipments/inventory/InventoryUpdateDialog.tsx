@@ -46,6 +46,7 @@ const InventoryUpdateDialog = (
   });
 
   const isFullScreen = useMediaQuery(theme.breakpoints.down('md'));
+  const isXsOrSmallerScreen = useMediaQuery(theme.breakpoints.down('sm'));
 
   const handleDialogCancel = () =>{
     onCancel();
@@ -67,7 +68,7 @@ const InventoryUpdateDialog = (
     <DialogContent>
       <div className={styles.dialogContentContainer}>
         <div className={styles.filler}></div>
-        <div className={styles.allInputsContainer}>
+        <div className={`${styles.allInputsContainer} ${isXsOrSmallerScreen? styles.xsInputContainer:''}`}>
           {
             pieces.map((piece, index) => {
               return <PieceUpdateBox key={piece.pieceId} allErrors={allErrors}
