@@ -63,8 +63,19 @@ export const EquipmentsRequirementStore = types
       };
 
 
+      const sortEquipmentStoreByNickName = () => {
+        self.requirementByEquipments.sort(
+            (a, b) => {
+              return a.nickname < b.nickname ? 1:-1;
+            }
+        );
+      };
+
       const addEquipmentsRequirement = (requirement : IRequirementByEquipment) => {
         self.requirementByEquipments.push(requirement);
+        if (requirement.nickname) {
+          sortEquipmentStoreByNickName();
+        }
       };
 
       const updateEquipmentsRequirement = (equipInfoToEdit : EquipmentInfoToEdit) => {
@@ -76,6 +87,9 @@ export const EquipmentsRequirementStore = types
           count: equipInfoToEdit.count,
           nickname: equipInfoToEdit.nickname,
         };
+        if (requirement.nickname) {
+          sortEquipmentStoreByNickName();
+        }
       };
 
       const deleteEquipmentsRequirement = (equipInfoToEdit : EquipmentInfoToEdit) => {
