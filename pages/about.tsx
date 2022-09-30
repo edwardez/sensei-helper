@@ -2,13 +2,15 @@ import BuiLinedText from 'components/bui/text/BuiLinedText';
 import {serverSideTranslations} from 'next-i18next/serverSideTranslations';
 import {Trans, useTranslation} from 'next-i18next';
 import Head from 'next/head';
+import React from 'react';
 
 const About = () => {
   const {t} = useTranslation(['about', 'home'], );
 
   return <>
     <Head>
-      <title>{`${t('about', 'about', {ns: 'home'})} | ${t('meta.description', 'meta.description', {ns: 'home'})}`}</title>
+      <title>{`${t('about', 'about', {ns: 'home'})} | ${t('meta.title', 'meta.title', {ns: 'home'})}`}</title>
+      <meta name="description" content={t('meta.description', {ns: 'home'})} key="meta.description"/>
     </Head>
     <BuiLinedText><div>{t('whatIsSenseiHelperTitle')}</div></BuiLinedText>
     <BuiLinedText showVerticalDividerPrefix={false}>

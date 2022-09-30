@@ -54,7 +54,6 @@ const Home: NextPage = observer((props) => {
   return <React.Fragment>
     <Head>
       <meta name="description" content={t('meta.description')} key="meta.description"/>
-      <meta name="title" content={t('SenseiHelper')}/>
       <meta property="og:type" content="website" />
       <meta property="og:title" content={t('SenseiHelper')}/>
       <meta property="og:description" content={t('meta.description')}/>
