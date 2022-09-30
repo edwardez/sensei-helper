@@ -47,7 +47,7 @@ class MyDocument extends Document {
           <link rel="apple-touch-startup-image" href="/icons/apple-splash/apple-splash-1334-750.jpg" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"/>
           <link rel="apple-touch-startup-image" href="/icons/apple-splash/apple-splash-640-1136.jpg" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"/>
           <link rel="apple-touch-startup-image" href="/icons/apple-splash/apple-splash-1136-640.jpg" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"/>
-          <meta name="description" content="『ブルーアーカイブ』非公式装備ドロップ場所計算・検索ツール" key="meta.description"/>
+          <meta name="description" content="『ブルーアーカイブ』非公式装備ドロップ場所計算・検索ツールです。必要な装備数と所持設計図数を入力すると、Normalクエストのおすすめ周回数を計算できます" key="meta.description"/>
           <meta charSet="utf-8"/>
 
         </Head>
