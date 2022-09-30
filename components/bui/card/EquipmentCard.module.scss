@@ -18,9 +18,10 @@ $leftBottomBadgeColor: rgb(62, 134, 184);
   bottom: 3px;
   left: 5px;
   padding: 1.5px;
-  border-radius: 8px;
+  border-radius: 35%;
+  line-height: 1.1;
   border: 1px solid $leftBottomBadgeColor;
   background-color: white;
   color: $leftBottomBadgeColor;
-  font-weight: 900;
+  font-weight: 800;
 }

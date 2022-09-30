@@ -280,7 +280,9 @@ const EquipmentsSelectionDialog = (
                   return tier === overallMaxTier ?
                       <div key={tier}>
                         <BuiLinedText>T{tier}</BuiLinedText>
-                        <Typography sx={{color: 'text.disabled'}} variant={'subtitle1'}>Cannot upgrade further</Typography>
+                        <Typography sx={{color: 'text.disabled'}} variant={'subtitle1'}>
+                          {t('addEquipmentDialog.cannotUpgradeFurther')}
+                        </Typography>
                       </div> :
                       <ItemsOnCurrentTier key={tier} tier={tier} items={filterEquipmentsOnTier} selectedItemId={baseEquipId}
                         handleSelectItem={onCurrentEquipmentChanged}/>;
@@ -315,10 +317,13 @@ const EquipmentsSelectionDialog = (
       return <>{stepLabel}</>;
     }
 
-    const imageName = equipmentsById.get(baseEquipId)?.icon ?? '';
+    const equipment = equipmentsById.get(baseEquipId);
     return <Box display='flex' alignContent='center' alignItems='center'>
       <Box sx={{mr: 1}}>{stepLabel}</Box>
-      <EquipmentCard imageName={imageName}/>
+      {
+        equipment ? <EquipmentCard bottomLeftText={`T${equipment.tier}`} imageName={equipment.icon}/> :
+            null
+      }
     </Box>;
   };
 
