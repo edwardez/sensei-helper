@@ -71,7 +71,7 @@
   "error404": "This page could not be found.",
   "error500": "Internal Server Error.",
   "meta": {
-    "description": "Sensei helper is a Blue Archive equipment farming calculator, tell it how many equipments/pieces you need and it will suggest how to farm in normal campaign",
+    "description": "Sensei helper is a Blue Archive equipment farming calculator, tell it equipments you need/your pieces inventory and it will suggest how to farm in normal campaign",
     "title": "Blue Archive equipments farming calculator"
   }
 }
