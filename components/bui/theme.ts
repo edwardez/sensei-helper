@@ -37,6 +37,15 @@ const wizDefaultTheme = createTheme({
         },
       },
     },
+    MuiDialogActions: {
+      styleOverrides: {
+        root: {
+          '&.MuiDialogActions-root': {
+            paddingBottom: 'max(8px , env(safe-area-inset-bottom, 0px))',
+          },
+        },
+      },
+    },
   },
   palette: {
     baButtonPrimary: {
