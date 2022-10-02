@@ -35,7 +35,7 @@ function MyApp({Component, pageProps}: AppProps) {
         json = JSON.parse(persistedSnapshot);
         applySnapshot(store, json);
       } catch (e) {
-        const hasEnteredPlentyInventoryData = Object.values(json?.equipmentsRequirementStore?.piecesInventory).length >= 10;
+        const hasEnteredPlentyInventoryData = Object.values(json?.equipmentsRequirementStore?.piecesInventory ?? {}).length >= 10;
         const hasEnteredPlentyEquipmentData = json?.equipmentsRequirementStore?.requirementByEquipments?.length >= 5;
         const hasEnteredPlentyPiecesData = json?.equipmentsRequirementStore?.requirementByPieces?.length >= 10;
 
