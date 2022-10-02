@@ -76,6 +76,7 @@ const PiecesInventory = (
     }
     {
       computeMaximumPiecesToShow().map((inventory, index) => {
+        if (inventory.inStockCount <= 0) return null;
         const piece = equipmentsById.get(inventory.pieceId);
         if (!piece) return null;
 
