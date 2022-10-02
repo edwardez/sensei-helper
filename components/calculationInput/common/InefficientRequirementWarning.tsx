@@ -71,7 +71,7 @@ const InefficientRequirementWarning = ({
           label={t('thinsToNote.excludeInefficientStagesCheckBox')} />
       </div>
       <Box sx={{flex: '1 0 0'}} />
-      <BuiButton color={'baButtonPrimary'} onClick={onCloseDialog}>Close</BuiButton>
+      <BuiButton sx={{flex: '1 0 auto'}} color={'baButtonPrimary'} onClick={onCloseDialog}>{t('closeButton')} </BuiButton>
     </DialogActions>
   </BuiDialog>;
 };
