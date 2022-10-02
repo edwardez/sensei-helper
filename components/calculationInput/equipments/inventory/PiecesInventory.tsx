@@ -34,9 +34,10 @@ const PiecesInventory = (
   const pieces = useMemo(() =>
     Array.from(piecesState.values()).sort((a, b) => a.pieceId>b.pieceId ? -1:1 ),
   [piecesState]);
-
+  // Only pieces that have non 0 stock count are visible.
+  const homePageVisiblePieces = pieces.filter((piece) => piece.inStockCount > 0);
   const [piecesToUpdate, setPiecesToUpdate] = useState(pieces);
-  const [showAllPieces, setShowAllPieces] = useState(pieces.length <= defaultMaxVisiblePiecesCount);
+  const [showAllPieces, setShowAllPieces] = useState(homePageVisiblePieces.length <= defaultMaxVisiblePiecesCount);
 
   const [isUpdateInventoryDialogOpened, setIsUpdateInventoryDialogOpened] = useState(false);
 
@@ -62,8 +63,8 @@ const PiecesInventory = (
   };
 
   const computeMaximumPiecesToShow = () => {
-    if (showAllPieces) return pieces;
-    return pieces.slice(0, defaultMaxVisiblePiecesCount);
+    if (showAllPieces) return homePageVisiblePieces;
+    return homePageVisiblePieces.slice(0, defaultMaxVisiblePiecesCount);
   };
 
   return <>
@@ -92,12 +93,12 @@ const PiecesInventory = (
       })
     }
     {
-        pieces.length > defaultMaxVisiblePiecesCount ? <div className={styles.editButton}>
-          <BuiButton variant={'text'} color={'baTextButtonPrimary'} onClick={toggleShowAllPieces}
-            disabled={pieces.length === 0}>
-            <div>{showAllPieces ? t('showFewerButton') : t('showAllButton')}</div>
-          </BuiButton>
-        </div>: null
+      homePageVisiblePieces.length > defaultMaxVisiblePiecesCount ? <div className={styles.editButton}>
+        <BuiButton variant={'text'} color={'baTextButtonPrimary'} onClick={toggleShowAllPieces}
+          disabled={pieces.length === 0}>
+          <div>{showAllPieces ? t('showFewerButton') : t('showAllButton')}</div>
+        </BuiButton>
+      </div>: null
     }
     <div className={styles.editButton}>
       <BuiButton color={'baButtonSecondary'} onClick={openAllInventoryUpdateDialog}

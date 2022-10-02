@@ -18,7 +18,7 @@ const ResultModeSelection = () => {
   return <div>
     <BuiLinedText>{t('selectResultMode')}</BuiLinedText>
 
-    <RadioGroup row value={`${store.equipmentsRequirementStore.resultMode}`} onChange={handleModeChange}>
+    <RadioGroup row value={store.equipmentsRequirementStore.resultMode} onChange={handleModeChange}>
       <FormControlLabel value={ResultMode.LinearProgrammingCalculation} control={<Radio />} label={t('resultLinearProgramming')} />
       <FormControlLabel value={ResultMode.ListStagesOnly} control={<Radio />} label={t('resultListStagesOnly')} />
     </RadioGroup>
