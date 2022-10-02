@@ -1,6 +1,6 @@
 import {createContext, useContext} from 'react';
 import {applySnapshot, Instance, SnapshotIn, SnapshotOut, types} from 'mobx-state-tree';
-import {EquipmentsRequirementStore, RequirementMode} from 'stores/EquipmentsRequirementStore';
+import {EquipmentsRequirementStore, RequirementMode, ResultMode} from 'stores/EquipmentsRequirementStore';
 import {enableStaticRendering} from 'mobx-react-lite';
 import {GameInfoStore} from 'stores/GameInfoStore';
 import {GameServer} from 'model/Equipment';
@@ -16,6 +16,7 @@ const WizStore = types
         requirementByPieces: [],
         requirementByEquipments: [],
         requirementMode: RequirementMode.ByEquipment,
+        resultMode: ResultMode.LinearProgrammingCalculation,
       }),
       gameInfoStore: types.optional(GameInfoStore, {
         gameServer: GameServer.Japan,
@@ -51,6 +52,7 @@ export function initializeWizStore(snapshot = null) {
       requirementByPieces: [],
       requirementByEquipments: [],
       requirementMode: RequirementMode.ByEquipment,
+      resultMode: ResultMode.LinearProgrammingCalculation,
     },
     stageCalculationStateStore: {
       requirementInefficacy: {

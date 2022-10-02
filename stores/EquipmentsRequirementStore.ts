@@ -45,7 +45,7 @@ export const EquipmentsRequirementStore = types
       requirementByEquipments: types.array(byEquipment),
       piecesInventory: types.map(pieceInventory),
       requirementMode: types.optional(types.enumeration<RequirementMode>('RequirementMode', Object.values(RequirementMode)), RequirementMode.ByEquipment),
-      resultMode: types.optional(types.enumeration<ResultMode>('ResultDisplayMode', Object.values(ResultMode)), ResultMode.LinearProgrammingCalculation),
+      resultMode: types.optional(types.enumeration<ResultMode>('ResultMode', Object.values(ResultMode)), ResultMode.LinearProgrammingCalculation),
     })
     .actions((self) => {
       const addPiecesRequirement = (requirement : IRequirementByPiece) => {
