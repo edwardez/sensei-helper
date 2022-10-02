@@ -16,7 +16,7 @@ import DropCampaignSelection from 'components/calculationInput/DropCampaignSelec
 import {useTranslation} from 'next-i18next';
 import EquipmentCard from 'components/bui/card/EquipmentCard';
 import RequirementModeSelection from 'components/calculationInput/RequirementMode/RequirementModeSelection';
-import EquipmentsInput, {EquipmentsByTierAndCategory,} from 'components/calculationInput/equipments/EquipmentsInput';
+import EquipmentsInput, {EquipmentsByTierAndCategory} from 'components/calculationInput/equipments/EquipmentsInput';
 import {PieceState} from 'components/calculationInput/equipments/inventory/PiecesInventory';
 import ResultModeSelection from 'components/calculationInput/ResultMode/ResultModeSelection';
 

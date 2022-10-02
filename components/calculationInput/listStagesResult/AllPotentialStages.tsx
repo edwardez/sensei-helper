@@ -20,21 +20,21 @@ const AllPotentialStages = ({
 }) => {
   const {t} = useTranslation('home');
   const store = useStore();
-  store.equipmentsRequirementStore.getAllRequiredPieceIds();
-  store.equipmentsRequirementStore.requirementByEquipments;
   const allPotentialCampaigns = useMemo(
-      () => listAndSortPotentialCampaigns(campaigns, piecesState), [campaigns, piecesState]
+      () => listAndSortPotentialCampaigns(store.equipmentsRequirementStore.requirementMode, campaigns, piecesState,
+          store.equipmentsRequirementStore.getAllRequiredPieceIds()
+      ), [campaigns, piecesState, store.equipmentsRequirementStore.requirementMode]
   );
 
   return <Box sx={{mt: 3}} className={styles.allStages}>
     {
       allPotentialCampaigns.map((campaign) => {
-        const allDrops = campaign.rewards.map(({id, probability}) => ({id, dropProb: probability}));
+        const allDrops = campaign.potentialTargetRewards.map(({id, probability}) => ({id, dropProb: probability}));
         return <Box sx={{mt: 3}} key={campaign.id}>
           <CampaignDropItemsList
-            campaignInfo={campaign} stageExplanationLabel={t('resultPiecesCountOnStage', {count: campaign?.targetRewards?.length})}
+            campaignInfo={campaign} stageExplanationLabel={t('resultPiecesCountOnStage', {count: campaign?.targetRewardIds?.size})}
             allDrops={allDrops} equipmentsById={equipmentsById}
-            shouldHighLightPiece={(id) => piecesState.has(id)}
+            shouldHighLightPiece={(id) => campaign.targetRewardIds.has(id)}
             hidePieceDropCount/>
         </Box>;
       })
