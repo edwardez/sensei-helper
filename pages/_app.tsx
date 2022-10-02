@@ -17,6 +17,7 @@ import React, {useEffect, useState} from 'react';
 import {applySnapshot, onSnapshot} from 'mobx-state-tree';
 import {getFromLocalStorage, removeFromLocalStorage, setToLocalStorage} from 'common/LocalStorageUtil';
 import RestoreDataExceptionDialog from 'components/settings/dataManagement/RestoreDataExceptionDialog';
+import {initializeAnalytics} from 'common/gtag';
 
 
 function MyApp({Component, pageProps}: AppProps) {
@@ -59,6 +60,7 @@ function MyApp({Component, pageProps}: AppProps) {
     setIsStoreInitialized(true);
   }, [isStoreInitialized]);
   useEffect(() => {
+    initializeAnalytics();
     const dispose = onSnapshot(store, (newSnapshot) => {
       setToLocalStorage(wizStorageLocalStorageKey, JSON.stringify(newSnapshot));
     });

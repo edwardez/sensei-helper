@@ -19,6 +19,7 @@ import RequirementModeSelection from 'components/calculationInput/RequirementMod
 import EquipmentsInput, {EquipmentsByTierAndCategory} from 'components/calculationInput/equipments/EquipmentsInput';
 import {PieceState} from 'components/calculationInput/equipments/inventory/PiecesInventory';
 import ResultModeSelection from 'components/calculationInput/ResultMode/ResultModeSelection';
+import {CATEGORY_PREFERENCE, INPUT_MODE, RESULT_BUTTON_CLICKED, RESULT_MODE, sendAnalytics} from 'common/gtag';
 
 type CalculationInputCardProps = {
   store: IWizStore,
@@ -66,12 +67,20 @@ const CalculationInputCard = ({store, equipments, campaignsById, equipmentsById,
   };
 
   const handleCalculate = () => {
-    if (store.equipmentsRequirementStore.resultMode === ResultMode.ListStagesOnly) {
+    const requirementMode = store.equipmentsRequirementStore.requirementMode;
+    const resultMode = store.equipmentsRequirementStore.resultMode;
+
+    sendAnalytics({
+      action: RESULT_BUTTON_CLICKED, category: CATEGORY_PREFERENCE, params: {
+        [INPUT_MODE]: requirementMode, [RESULT_MODE]: resultMode,
+      },
+    });
+    if (resultMode === ResultMode.ListStagesOnly) {
       onSetSolution(ResultMode.ListStagesOnly);
       return;
     }
     let requirementByPieces: IRequirementByPiece[] = [];
-    if (store.equipmentsRequirementStore.requirementMode === RequirementMode.ByPiece) {
+    if (requirementMode === RequirementMode.ByPiece) {
       requirementByPieces = store.equipmentsRequirementStore.requirementByPieces;
       setPieceInfoToEdit(null);
     } else {
