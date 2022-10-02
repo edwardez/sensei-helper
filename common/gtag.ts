@@ -12,11 +12,19 @@ export const INPUT_MODE = 'InputMode';
 
 export const RESULT_MODE = 'ResultMode';
 
+export const TOTAL_EQUIPMENT_TYPES = 'TotalEquipTypes';
+export const TOTAL_PIECE_TYPES = 'TotalPieceTypes';
+export const IN_STOCK_TYPES = 'InStockTypes';
+
 export const initializeAnalytics = () => {
   if (typeof window === 'undefined') return;
 
   window.gtag('config', 'GA_MEASUREMENT_ID', {
-    'custom_map': {'dimension1': INPUT_MODE, 'dimension2': RESULT_MODE},
+    'custom_map': {
+      'dimension1': INPUT_MODE, 'dimension2': RESULT_MODE,
+      'dimension3': TOTAL_EQUIPMENT_TYPES, 'dimension4': TOTAL_PIECE_TYPES,
+      'dimension5': IN_STOCK_TYPES,
+    },
   });
 };
 

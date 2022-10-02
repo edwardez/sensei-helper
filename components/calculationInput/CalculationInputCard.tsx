@@ -19,7 +19,16 @@ import RequirementModeSelection from 'components/calculationInput/RequirementMod
 import EquipmentsInput, {EquipmentsByTierAndCategory} from 'components/calculationInput/equipments/EquipmentsInput';
 import {PieceState} from 'components/calculationInput/equipments/inventory/PiecesInventory';
 import ResultModeSelection from 'components/calculationInput/ResultMode/ResultModeSelection';
-import {CATEGORY_PREFERENCE, INPUT_MODE, RESULT_BUTTON_CLICKED, RESULT_MODE, sendAnalytics} from 'common/gtag';
+import {
+  CATEGORY_PREFERENCE,
+  IN_STOCK_TYPES,
+  INPUT_MODE,
+  RESULT_BUTTON_CLICKED,
+  RESULT_MODE,
+  sendAnalytics,
+  TOTAL_EQUIPMENT_TYPES,
+  TOTAL_PIECE_TYPES,
+} from 'common/gtag';
 
 type CalculationInputCardProps = {
   store: IWizStore,
@@ -69,10 +78,14 @@ const CalculationInputCard = ({store, equipments, campaignsById, equipmentsById,
   const handleCalculate = () => {
     const requirementMode = store.equipmentsRequirementStore.requirementMode;
     const resultMode = store.equipmentsRequirementStore.resultMode;
-
+    const totalRequiredEquipTypes = store.equipmentsRequirementStore.requirementByEquipments.length;
+    const totalRequiredPiecesTypes = store.equipmentsRequirementStore.requirementByPieces.length;
     sendAnalytics({
       action: RESULT_BUTTON_CLICKED, category: CATEGORY_PREFERENCE, params: {
         [INPUT_MODE]: requirementMode, [RESULT_MODE]: resultMode,
+        [TOTAL_EQUIPMENT_TYPES]: totalRequiredEquipTypes,
+        [TOTAL_PIECE_TYPES]: totalRequiredPiecesTypes,
+        [IN_STOCK_TYPES]: store.equipmentsRequirementStore.piecesInventory.size,
       },
     });
     if (resultMode === ResultMode.ListStagesOnly) {
