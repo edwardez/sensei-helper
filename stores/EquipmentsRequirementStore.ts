@@ -34,12 +34,18 @@ export enum RequirementMode {
   ByEquipment = 'ByEquipment',
 }
 
+export enum ResultMode {
+  ListStagesOnly = 'ListStagesOnly',
+  LinearProgrammingCalculation = 'LinearProgrammingCalculation'
+}
+
 export const EquipmentsRequirementStore = types
     .model({
       requirementByPieces: types.array(byPiece),
       requirementByEquipments: types.array(byEquipment),
       piecesInventory: types.map(pieceInventory),
       requirementMode: types.optional(types.enumeration<RequirementMode>('RequirementMode', Object.values(RequirementMode)), RequirementMode.ByEquipment),
+      resultMode: types.optional(types.enumeration<ResultMode>('ResultDisplayMode', Object.values(ResultMode)), ResultMode.LinearProgrammingCalculation),
     })
     .actions((self) => {
       const addPiecesRequirement = (requirement : IRequirementByPiece) => {
@@ -112,6 +118,11 @@ export const EquipmentsRequirementStore = types
         self.requirementMode = requirementMode;
       };
 
+      const updateResultMode = (resultMode: ResultMode) => {
+        if (!resultMode) return;
+        self.resultMode = resultMode;
+      };
+
       const updateInventory = (inventoryForm: InventoryForm) => {
         for (const [pieceId, inStockCountStr] of Object.entries(inventoryForm)) {
           const inventoryToUpdate = self.piecesInventory.get(pieceId);
@@ -125,6 +136,7 @@ export const EquipmentsRequirementStore = types
       return {addPiecesRequirement, updatePiecesRequirement, deletePiecesRequirement,
         addEquipmentsRequirement, updateEquipmentsRequirement, deleteEquipmentsRequirement,
         getAllRequiredPieceIds, updateRequirementMode, updateInventory,
+        updateResultMode,
       };
     });
 

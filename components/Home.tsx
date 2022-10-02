@@ -1,10 +1,10 @@
 import type {NextPage} from 'next';
 import {Solution} from 'javascript-lp-solver';
 
-import React, {useMemo, useState} from 'react';
+import React, {useEffect, useMemo, useRef, useState} from 'react';
 import {observer} from 'mobx-react-lite';
 import {useStore} from 'stores/WizStore';
-import {Equipment} from 'model/Equipment';
+import {Equipment, EquipmentCompositionType} from 'model/Equipment';
 
 import {Campaign} from 'model/Campaign';
 import RecommendedCampaigns from 'components/calculationResult/RecommendedCampaigns';
@@ -15,27 +15,29 @@ import RecommendationsSummary from 'components/calculationResult/Recommendations
 import IgnoredCampaigns from 'components/calculationResult/IgnoredCampaigns';
 import Head from 'next/head';
 import {useTranslation} from 'next-i18next';
-
-enum ResultDisplayMode {
-  ListStageOnly = 'ListStageOnly',
-  LinearProgrammingCalculation = 'LinearProgrammingCalculation'
-}
-
-interface CalculationResult {
-  mode: ResultDisplayMode;
-  linearProgrammingSolution: Solution<string> | null;
-}
+import {RequirementMode, ResultMode} from 'stores/EquipmentsRequirementStore';
+import AllPotentialStages from 'components/calculationInput/listStagesResult/AllPotentialStages';
+import {onSnapshot} from 'mobx-state-tree';
+import {
+  EquipmentsByTierAndCategory,
+  hashTierAndCategoryKey,
+} from 'components/calculationInput/equipments/EquipmentsInput';
+import {PieceState} from 'components/calculationInput/equipments/inventory/PiecesInventory';
+import {calculatePiecesState} from 'components/calculationInput/equipments/inventory/piecesStateCalculator';
 
 const Home: NextPage = observer((props) => {
   const store = useStore();
   const {t} = useTranslation('home');
-  const [solution, setSolution] = useState<CalculationResult | null>(null);
+  const [solution, setSolution] = useState<Solution<string> | ResultMode.ListStagesOnly | null >(null);
+
   const onSetSolution = (solution: Solution<string> | null) => {
-    setSolution({
-      mode: ResultDisplayMode.LinearProgrammingCalculation,
-      linearProgrammingSolution: solution,
-    });
+    setSolution(solution);
   };
+  // A "hash state" that generates a unique value each time equip store changes.
+  // This is a hack for that useMemo cannot track changes in store objects
+  // Instead of deep-comparing all store objects we listen to store change using onSnapshot
+  // then tracks its state hash here.
+  const equipStoreStateRef = useRef(1);
 
 
   const fetcher = (...urls: string[]) => {
@@ -50,10 +52,7 @@ const Home: NextPage = observer((props) => {
   const allEquipments = data?.[0] as Equipment[];
   const filteredEquipments = useMemo(() => {
     if (!allEquipments) return allEquipments;
-    setSolution({
-      mode: ResultDisplayMode.LinearProgrammingCalculation,
-      linearProgrammingSolution: null,
-    });
+    setSolution(null);
     const gameServer = store.gameInfoStore.gameServer;
     return allEquipments.filter((equipment) => equipment.releasedIn.includes(gameServer));
   }, [store.gameInfoStore.gameServer, allEquipments]);
@@ -66,19 +65,59 @@ const Home: NextPage = observer((props) => {
 
   if (error) return <div>failed to load</div>;
 
-  const buildLinearProgrammingResult = () => {
-    if (!solution?.linearProgrammingSolution?.result) return null;
+  useEffect(() => {
+    // Updates euipstore "hash" on each time requirement gets updated
+    const dispose = onSnapshot(store.equipmentsRequirementStore, (snapShot) => {
+      onSetSolution(null);
+      if (snapShot.requirementMode !== RequirementMode.ByEquipment) return;
+      equipStoreStateRef.current += 1;
+    });
+
+    return () => dispose();
+  }, []);
+  const equipmentsByTierAndCategory: EquipmentsByTierAndCategory = useMemo(() => {
+    const mapBuilder: EquipmentsByTierAndCategory = new Map();
+    if (!equipmentsById) return mapBuilder;
+    equipmentsById.forEach((equipment, id) => {
+      if (equipment.equipmentCompositionType !== EquipmentCompositionType.Composite) {
+        return;
+      }
+      mapBuilder.set(
+          hashTierAndCategoryKey({
+            tier: equipment.tier,
+            category: equipment.category,
+          }), equipment
+      );
+    });
+
+    return mapBuilder;
+  }, [equipmentsById]);
+
+  const piecesState: Map<string, PieceState> = useMemo(()=>{
+    return calculatePiecesState(store, equipmentsById, equipmentsByTierAndCategory);
+  }, [equipmentsByTierAndCategory, equipmentsById, equipStoreStateRef?.current]);
+
+  const buildListStageOnlyResult = () => {
+    if (solution !== ResultMode.ListStagesOnly) return null;
+
+    return <AllPotentialStages campaigns={campaigns}
+      equipmentsById={equipmentsById}
+      piecesState={piecesState}/>;
+  };
+
+  const buildLinearProgrammingSolution = () =>{
+    if (solution === ResultMode.ListStagesOnly|| !solution?.result) return null;
 
     return <React.Fragment>
       <RecommendationsSummary onCloseInEfficacyDialog={() => onSetSolution(null)}/>
       <RecommendedCampaigns
-        solution={solution.linearProgrammingSolution}
+        solution={solution}
         campaignsById={campaignsById}
         equipmentsById={equipmentsById}
         equipmentsRequirementStore={store.equipmentsRequirementStore}
         normalMissionItemDropRatio={store.gameInfoStore.normalMissionItemDropRatio}/>
       <IgnoredCampaigns
-        solution={solution.linearProgrammingSolution}
+        solution={solution}
         allCampaigns={campaigns}
         allRequiredPieceIds={store.equipmentsRequirementStore.getAllRequiredPieceIds()}
         equipmentsById={equipmentsById}
@@ -86,14 +125,7 @@ const Home: NextPage = observer((props) => {
     </React.Fragment>;
   };
 
-  const onRequestDisplayStageOnly = ()=>{
-    setSolution({
-      mode: ResultDisplayMode.ListStageOnly,
-      linearProgrammingSolution: null,
-    });
-  };
-
-  return <React.Fragment>
+  return <>
     <Head>
       <meta name="description" content={t('meta.description')} key="meta.description"/>
       <meta property="og:type" content="website" />
@@ -106,14 +138,17 @@ const Home: NextPage = observer((props) => {
     <CalculationInputCard store={store} equipments={filteredEquipments}
       campaignsById={campaignsById}
       equipmentsById={equipmentsById}
+      piecesState={piecesState}
+      equipmentsByTierAndCategory={equipmentsByTierAndCategory}
       onSetSolution={onSetSolution}
-      onRequestDisplayStageOnly={onRequestDisplayStageOnly}
     />
 
     {
-      buildLinearProgrammingResult()
+      store.equipmentsRequirementStore.resultMode === ResultMode.LinearProgrammingCalculation ?
+          buildLinearProgrammingSolution() : buildListStageOnlyResult()
     }
-  </React.Fragment>;
+  </>;
 });
 
 export default Home;
+

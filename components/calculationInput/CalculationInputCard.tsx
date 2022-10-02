@@ -4,10 +4,10 @@ import BuiLinedText from 'components/bui/text/BuiLinedText';
 import BuiBanner from 'components/bui/BuiBanner';
 import BuiButton from 'components/bui/BuiButton';
 import PiecesSelectionDialog from './pieces/PiecesSelectionDialog';
-import React, {useEffect, useMemo, useRef, useState} from 'react';
+import React, {useMemo, useState} from 'react';
 import {Equipment, EquipmentCompositionType} from 'model/Equipment';
 import {IWizStore} from 'stores/WizStore';
-import {IRequirementByPiece, PieceInfoToEdit, RequirementMode} from 'stores/EquipmentsRequirementStore';
+import {IRequirementByPiece, PieceInfoToEdit, RequirementMode, ResultMode} from 'stores/EquipmentsRequirementStore';
 import {calculateSolution} from 'components/calculationInput/linearProgrammingSolver';
 import {CampaignsById, EquipmentsById} from 'components/calculationInput/PiecesCalculationCommonTypes';
 import Grid from '@mui/material/Unstable_Grid2';
@@ -16,34 +16,27 @@ import DropCampaignSelection from 'components/calculationInput/DropCampaignSelec
 import {useTranslation} from 'next-i18next';
 import EquipmentCard from 'components/bui/card/EquipmentCard';
 import RequirementModeSelection from 'components/calculationInput/RequirementMode/RequirementModeSelection';
-import EquipmentsInput, {
-  EquipmentsByTierAndCategory,
-  hashTierAndCategoryKey,
-} from 'components/calculationInput/equipments/EquipmentsInput';
+import EquipmentsInput, {EquipmentsByTierAndCategory,} from 'components/calculationInput/equipments/EquipmentsInput';
 import {PieceState} from 'components/calculationInput/equipments/inventory/PiecesInventory';
-import {onSnapshot} from 'mobx-state-tree';
-import {calculatePiecesState} from 'components/calculationInput/equipments/inventory/piecesStateCalculator';
-import Box from '@mui/material/Box';
+import ResultModeSelection from 'components/calculationInput/ResultMode/ResultModeSelection';
 
 type CalculationInputCardProps = {
   store: IWizStore,
   equipments: Equipment[],
   campaignsById: CampaignsById,
   equipmentsById: EquipmentsById,
+  piecesState: Map<string, PieceState>,
+  equipmentsByTierAndCategory: EquipmentsByTierAndCategory,
   onSetSolution: Function,
-  onRequestDisplayStageOnly: () => void,
 }
 
 
-const CalculationInputCard = ({store, equipments, campaignsById, equipmentsById, onSetSolution, onRequestDisplayStageOnly}
+const CalculationInputCard = ({store, equipments, campaignsById, equipmentsById, piecesState,
+  equipmentsByTierAndCategory, onSetSolution}
                                   : CalculationInputCardProps) => {
   const [isOpened, setIsOpened] = useState(false);
   const [pieceInfoToEdit, setPieceInfoToEdit] = useState<PieceInfoToEdit|null>(null);
-  // A "hash state" that generates a unique value each time equip store changes.
-  // This is a hack for that useMemo cannot track changes in store objects
-  // Instead of deep-comparing all store objects we listen to store change using onSnapshot
-  // then tracks its state hash here.
-  const equipStoreStateRef = useRef(1);
+
   const {t} = useTranslation('home');
 
   const handleClickOpen = () => {
@@ -73,6 +66,10 @@ const CalculationInputCard = ({store, equipments, campaignsById, equipmentsById,
   };
 
   const handleCalculate = () => {
+    if (store.equipmentsRequirementStore.resultMode === ResultMode.ListStagesOnly) {
+      onSetSolution(ResultMode.ListStagesOnly);
+      return;
+    }
     let requirementByPieces: IRequirementByPiece[] = [];
     if (store.equipmentsRequirementStore.requirementMode === RequirementMode.ByPiece) {
       requirementByPieces = store.equipmentsRequirementStore.requirementByPieces;
@@ -125,37 +122,6 @@ const CalculationInputCard = ({store, equipments, campaignsById, equipmentsById,
   const equipmentsByTier : Map<number, Equipment[]>= useMemo(() =>
     filterEquipsBy( equipments, EquipmentCompositionType.Composite), [equipments]);
 
-  useEffect(() => {
-    // Updates euipstore "hash" on each time requirement gets updated
-    const dispose = onSnapshot(store.equipmentsRequirementStore, (snapShot) => {
-      onSetSolution(null);
-      if (snapShot.requirementMode !== RequirementMode.ByEquipment) return;
-      equipStoreStateRef.current += 1;
-    });
-
-    return () => dispose();
-  }, []);
-  const equipmentsByTierAndCategory: EquipmentsByTierAndCategory = useMemo(() => {
-    const mapBuilder: EquipmentsByTierAndCategory = new Map();
-    if (!equipmentsById) return mapBuilder;
-    equipmentsById.forEach((equipment, id) => {
-      if (equipment.equipmentCompositionType !== EquipmentCompositionType.Composite) {
-        return;
-      }
-      mapBuilder.set(
-          hashTierAndCategoryKey({
-            tier: equipment.tier,
-            category: equipment.category,
-          }), equipment
-      );
-    });
-
-    return mapBuilder;
-  }, [equipmentsById]);
-
-  const piecesState: Map<string, PieceState> = useMemo(()=>{
-    return calculatePiecesState(store, equipmentsById, equipmentsByTierAndCategory);
-  }, [equipmentsByTierAndCategory, equipmentsById, equipStoreStateRef?.current]);
 
   const shouldDisableCalculateButton = () =>{
     switch (store.equipmentsRequirementStore.requirementMode) {
@@ -222,18 +188,16 @@ const CalculationInputCard = ({store, equipments, campaignsById, equipmentsById,
         }
 
         <DropCampaignSelection store={store} onDropRateChanged={() => onSetSolution(null)}/>
+        <ResultModeSelection/>
 
         <Grid container display="flex" justifyContent="center" alignItems="center">
           <BuiButton
-            color={'baButtonSecondary'}
-            onClick={handleCalculate} disabled={shouldDisableCalculateButton()}>
-            <div>{t('calculateButton')}</div>
-          </BuiButton>
-          <Box sx={{mr: 3}}/>
-          <BuiButton
             color={'baButtonPrimary'}
             onClick={handleCalculate} disabled={shouldDisableCalculateButton()}>
-            <div>{t('calculateButton')}</div>
+            <div>{
+              store.equipmentsRequirementStore.resultMode === ResultMode.LinearProgrammingCalculation?
+                  t('calculateButton') : t('listButton')
+            }</div>
           </BuiButton>
         </Grid>
 
