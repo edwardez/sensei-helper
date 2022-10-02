@@ -35,6 +35,9 @@ const InefficientRequirementWarning = ({
       <BuiLinedText showVerticalDividerPrefix={false}>
         <div>
           {t('thinsToNote.inefficientExamples')}
+          &nbsp;<a href="https://bluearchive.wikiru.jp/?%E8%A3%85%E5%82%99%E4%B8%80%E8%A6%A7" rel="noopener noreferrer"
+            target="_blank">
+            {t('thinsToNote.inefficientStagesReferencesLink')}</a>
         </div>
       </BuiLinedText>
       <BuiLinedText showVerticalDividerPrefix={false}>

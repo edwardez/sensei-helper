@@ -55,11 +55,11 @@
     "dialogNumberMayNotAddUpContent": "例えば、欲しい靴設計図を６とします、予測ドロップ数は５になる場合があります。これは、アプリのアルゴリズムは<1>線形計画法</1>からです。誤差をなくすには整数計画法は必要ですが、整数計画法が<3>難しい</3>ので、あえて少し誤差が出る線形計画法を採用しています。",
     "recommendUpdatingRequirement": "非効率的なステージを周回することになります。",
     "inefficientStagesIgnored": "計算から除外してるステージがあります",
-    "avoidInefficientStages": "非効率的なステージについて",
+    "avoidInefficientStages": "非効率周回になります",
     "inefficientExamples": "非効率的なステージとは、17-4，14-4，11-4などのことです。これらのステージからは、バッグ、バッジ、お守りをたくさん集められますが、要求している生徒はて少ないです。しかし、17-4からはT6腕時計のドロップ率が一番高いため、デフォルトではこれらのステージを除外していません。",
     "howToAvoidInefficacy": "要求が多い装備（ヘアピン、腕時計、帽子など）をアプリにたくさん追加して周回すると、自ずとバッグ、バッジ、お守りなどが副産物として集められます。装備と所持設計図数が多く追加してる分、計算の精度もあげられます。",
     "inefficientStagesReferencesLink": "考察（wikiru）",
-    "youCanChangeInefficientSettings": "「装備と設計図をいちいち追加するのはめんどくさい！」と思っていましたら、下↓からは常に非効率的なステージを除外することもできます（装備追加に比べると計算精度が下がります）。",
+    "youCanChangeInefficientSettings": "「装備と設計図をいちいち追加するのはめんどくさい！」と思っていましたら、下↓からは常に非効率的なステージを除外することもできます（多種類装備追加に比べると計算精度が下がります）。",
     "dontShowThisAgainCheckBox": "今後、このメッセージを表示しない",
     "excludeInefficientStagesCheckBox": "非効率的なステージを常に除外する"
   },
