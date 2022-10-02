@@ -20,7 +20,6 @@ export const checkIfRequirementInefficient = (solution: Solution<string>, campai
     }
     // Ignoring 0 weight stages
   }
-  console.log(`totalNegativeWeightStages ${totalNegativeWeightStages} totalPositiveWeightStages ${totalPositiveWeightStages}`);
 
   return totalNegativeWeightStages > totalPositiveWeightStages;
 };
