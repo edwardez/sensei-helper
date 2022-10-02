@@ -84,7 +84,11 @@ const CalculationInputCard = ({store, equipments, campaignsById, equipmentsById,
         );
       });
     }
-    onSetSolution(calculateSolution(requirementByPieces, store.gameInfoStore.normalMissionItemDropRatio, campaignsById));
+    onSetSolution(calculateSolution(requirementByPieces,
+        store.gameInfoStore.normalMissionItemDropRatio,
+        campaignsById,
+        store.stageCalculationStateStore.requirementInefficacy.excludeInefficientStages ?? false,
+    ));
   };
 
   const handleOpenDialogForEditing = (requirementByPiece: IRequirementByPiece, index : number)=>{

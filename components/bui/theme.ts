@@ -25,6 +25,12 @@ declare module '@mui/material/Button' {
   }
 }
 
+declare module '@mui/material/Checkbox' {
+  export interface CheckboxPropsColorOverrides {
+    baTextButtonPrimary: true;
+  }
+}
+
 
 const wizDefaultTheme = createTheme({
   components: {

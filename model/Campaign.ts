@@ -4,6 +4,7 @@ export interface Campaign {
     stage: number
     jpName: string
     rewards: Reward[]
+    recommendationWeight?: number
 }
 
 export interface Reward {

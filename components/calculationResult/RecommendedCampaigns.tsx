@@ -1,6 +1,6 @@
 import styles from './RecommendedCampaigns.module.scss';
 import {isString} from 'common/checkVariableTypeUtil';
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   CampaignsById,
   DropPieceIdsWithCount,
@@ -12,6 +12,10 @@ import {IEquipmentsRequirementStore} from 'stores/EquipmentsRequirementStore';
 import CampaignDropItemsList from 'components/calculationResult/CampaignDropItemsList';
 import {sortTwoUnknownValues} from 'common/sortUtils';
 import {useTranslation} from 'next-i18next';
+import {checkIfRequirementInefficient,} from 'components/calculationInput/common/InefficientRequirementDetector';
+import {observer} from 'mobx-react-lite';
+import {useStore} from 'stores/WizStore';
+import InefficientRequirementWarning from 'components/calculationInput/common/InefficientRequirementWarning';
 
 
 const RecommendedCampaigns = ({
@@ -27,10 +31,29 @@ const RecommendedCampaigns = ({
     equipmentsRequirementStore: IEquipmentsRequirementStore,
     normalMissionItemDropRatio: number,
 }) => {
-  const requiredPieceIds = equipmentsRequirementStore.getAllRequiredPieceIds();
   const {t} = useTranslation('home');
+  const store = useStore();
+  const requiredPieceIds = equipmentsRequirementStore.getAllRequiredPieceIds();
+  const [isInefficientRequirementDialogOpened, setIsInefficientRequirementDialogOpened] = useState(false);
+
+  useEffect(() => {
+    if (!solution || !campaignsById) return;
+
+    if (!store.stageCalculationStateStore.requirementInefficacy.hideInefficientRequirementDialog) {
+      const isInefficient = checkIfRequirementInefficient(solution, campaignsById);
+      setIsInefficientRequirementDialogOpened(isInefficient);
+      store.stageCalculationStateStore.setIsInefficientRequirement(store.equipmentsRequirementStore.requirementMode, isInefficient);
+    }
+  }, [solution, campaignsById]);
+
+
+  const handleCloseInefficientRequirementDialog = () =>{
+    setIsInefficientRequirementDialogOpened(false);
+  };
 
   return <React.Fragment>
+    <InefficientRequirementWarning isOpened={isInefficientRequirementDialogOpened}
+      onCloseDialog={handleCloseInefficientRequirementDialog}/>
     {
       Object.entries(solution)
           .sort(([keyA, valueA], [keyB, valueB]) =>
@@ -73,4 +96,4 @@ const RecommendedCampaigns = ({
 };
 
 
-export default RecommendedCampaigns;
+export default observer(RecommendedCampaigns);

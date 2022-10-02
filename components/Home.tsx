@@ -20,7 +20,6 @@ const Home: NextPage = observer((props) => {
   const store = useStore();
   const {t} = useTranslation('home');
   const [solution, setSolution] = useState<Solution<string> | null>(null);
-
   const onSetSolution = (solution: Solution<string> | null) => {
     setSolution(solution);
   };
@@ -69,7 +68,7 @@ const Home: NextPage = observer((props) => {
     {
             solution && solution.result ?
                 <React.Fragment>
-                  <RecommendationsSummary />
+                  <RecommendationsSummary onCloseInEfficacyDialog={() => onSetSolution(null)}/>
                   <RecommendedCampaigns
                     solution={solution}
                     campaignsById={campaignsById}
