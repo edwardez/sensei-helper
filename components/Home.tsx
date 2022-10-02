@@ -16,12 +16,25 @@ import IgnoredCampaigns from 'components/calculationResult/IgnoredCampaigns';
 import Head from 'next/head';
 import {useTranslation} from 'next-i18next';
 
+enum ResultDisplayMode {
+  ListStageOnly = 'ListStageOnly',
+  LinearProgrammingCalculation = 'LinearProgrammingCalculation'
+}
+
+interface CalculationResult {
+  mode: ResultDisplayMode;
+  linearProgrammingSolution: Solution<string> | null;
+}
+
 const Home: NextPage = observer((props) => {
   const store = useStore();
   const {t} = useTranslation('home');
-  const [solution, setSolution] = useState<Solution<string> | null>(null);
+  const [solution, setSolution] = useState<CalculationResult | null>(null);
   const onSetSolution = (solution: Solution<string> | null) => {
-    setSolution(solution);
+    setSolution({
+      mode: ResultDisplayMode.LinearProgrammingCalculation,
+      linearProgrammingSolution: solution,
+    });
   };
 
 
@@ -37,7 +50,10 @@ const Home: NextPage = observer((props) => {
   const allEquipments = data?.[0] as Equipment[];
   const filteredEquipments = useMemo(() => {
     if (!allEquipments) return allEquipments;
-    setSolution(null);
+    setSolution({
+      mode: ResultDisplayMode.LinearProgrammingCalculation,
+      linearProgrammingSolution: null,
+    });
     const gameServer = store.gameInfoStore.gameServer;
     return allEquipments.filter((equipment) => equipment.releasedIn.includes(gameServer));
   }, [store.gameInfoStore.gameServer, allEquipments]);
@@ -49,6 +65,33 @@ const Home: NextPage = observer((props) => {
       campaign) => map.set(campaign.id, campaign), new Map()), [campaigns]);
 
   if (error) return <div>failed to load</div>;
+
+  const buildLinearProgrammingResult = () => {
+    if (!solution?.linearProgrammingSolution?.result) return null;
+
+    return <React.Fragment>
+      <RecommendationsSummary onCloseInEfficacyDialog={() => onSetSolution(null)}/>
+      <RecommendedCampaigns
+        solution={solution.linearProgrammingSolution}
+        campaignsById={campaignsById}
+        equipmentsById={equipmentsById}
+        equipmentsRequirementStore={store.equipmentsRequirementStore}
+        normalMissionItemDropRatio={store.gameInfoStore.normalMissionItemDropRatio}/>
+      <IgnoredCampaigns
+        solution={solution.linearProgrammingSolution}
+        allCampaigns={campaigns}
+        allRequiredPieceIds={store.equipmentsRequirementStore.getAllRequiredPieceIds()}
+        equipmentsById={equipmentsById}
+      />
+    </React.Fragment>;
+  };
+
+  const onRequestDisplayStageOnly = ()=>{
+    setSolution({
+      mode: ResultDisplayMode.ListStageOnly,
+      linearProgrammingSolution: null,
+    });
+  };
 
   return <React.Fragment>
     <Head>
@@ -63,26 +106,12 @@ const Home: NextPage = observer((props) => {
     <CalculationInputCard store={store} equipments={filteredEquipments}
       campaignsById={campaignsById}
       equipmentsById={equipmentsById}
-      onSetSolution={onSetSolution}/>
+      onSetSolution={onSetSolution}
+      onRequestDisplayStageOnly={onRequestDisplayStageOnly}
+    />
 
     {
-            solution && solution.result ?
-                <React.Fragment>
-                  <RecommendationsSummary onCloseInEfficacyDialog={() => onSetSolution(null)}/>
-                  <RecommendedCampaigns
-                    solution={solution}
-                    campaignsById={campaignsById}
-                    equipmentsById={equipmentsById}
-                    equipmentsRequirementStore={store.equipmentsRequirementStore}
-                    normalMissionItemDropRatio={store.gameInfoStore.normalMissionItemDropRatio}/>
-                  <IgnoredCampaigns
-                    solution={solution}
-                    allCampaigns={campaigns}
-                    allRequiredPieceIds={store.equipmentsRequirementStore.getAllRequiredPieceIds()}
-                    equipmentsById={equipmentsById}
-                  />
-                </React.Fragment> :
-                null
+      buildLinearProgrammingResult()
     }
   </React.Fragment>;
 });

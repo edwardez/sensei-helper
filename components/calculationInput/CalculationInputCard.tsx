@@ -23,6 +23,7 @@ import EquipmentsInput, {
 import {PieceState} from 'components/calculationInput/equipments/inventory/PiecesInventory';
 import {onSnapshot} from 'mobx-state-tree';
 import {calculatePiecesState} from 'components/calculationInput/equipments/inventory/piecesStateCalculator';
+import Box from '@mui/material/Box';
 
 type CalculationInputCardProps = {
   store: IWizStore,
@@ -30,9 +31,12 @@ type CalculationInputCardProps = {
   campaignsById: CampaignsById,
   equipmentsById: EquipmentsById,
   onSetSolution: Function,
+  onRequestDisplayStageOnly: () => void,
 }
 
-const CalculationInputCard = ({store, equipments, campaignsById, equipmentsById, onSetSolution}: CalculationInputCardProps) => {
+
+const CalculationInputCard = ({store, equipments, campaignsById, equipmentsById, onSetSolution, onRequestDisplayStageOnly}
+                                  : CalculationInputCardProps) => {
   const [isOpened, setIsOpened] = useState(false);
   const [pieceInfoToEdit, setPieceInfoToEdit] = useState<PieceInfoToEdit|null>(null);
   // A "hash state" that generates a unique value each time equip store changes.
@@ -220,6 +224,12 @@ const CalculationInputCard = ({store, equipments, campaignsById, equipmentsById,
         <DropCampaignSelection store={store} onDropRateChanged={() => onSetSolution(null)}/>
 
         <Grid container display="flex" justifyContent="center" alignItems="center">
+          <BuiButton
+            color={'baButtonSecondary'}
+            onClick={handleCalculate} disabled={shouldDisableCalculateButton()}>
+            <div>{t('calculateButton')}</div>
+          </BuiButton>
+          <Box sx={{mr: 3}}/>
           <BuiButton
             color={'baButtonPrimary'}
             onClick={handleCalculate} disabled={shouldDisableCalculateButton()}>

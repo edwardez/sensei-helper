@@ -5,7 +5,7 @@
   "cancelButton": "キャンセル",
   "deleteButton": "削除",
   "editButton": "編集",
-  "deleteButton": "閉じる",
+  "closeButton": "閉じる",
   "showAllButton": "すべてを表示",
   "showFewerButton": "一部のみ表示",
   "isInADropCampaign": "Normalドロップ量キャンペーン中？",

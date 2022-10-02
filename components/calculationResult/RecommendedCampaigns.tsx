@@ -12,7 +12,7 @@ import {IEquipmentsRequirementStore} from 'stores/EquipmentsRequirementStore';
 import CampaignDropItemsList from 'components/calculationResult/CampaignDropItemsList';
 import {sortTwoUnknownValues} from 'common/sortUtils';
 import {useTranslation} from 'next-i18next';
-import {checkIfRequirementInefficient,} from 'components/calculationInput/common/InefficientRequirementDetector';
+import {checkIfRequirementInefficient} from 'components/calculationInput/common/InefficientRequirementDetector';
 import {observer} from 'mobx-react-lite';
 import {useStore} from 'stores/WizStore';
 import InefficientRequirementWarning from 'components/calculationInput/common/InefficientRequirementWarning';
