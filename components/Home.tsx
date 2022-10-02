@@ -28,7 +28,7 @@ import {calculatePiecesState} from 'components/calculationInput/equipments/inven
 const Home: NextPage = observer((props) => {
   const store = useStore();
   const {t} = useTranslation('home');
-  const [solution, setSolution] = useState<Solution<string> | ResultMode.ListStagesOnly | null >(null);
+  const [solution, setSolution] = useState<Solution<string> | ResultMode.ListStages | null >(null);
 
   const onSetSolution = (solution: Solution<string> | null) => {
     setSolution(solution);
@@ -98,7 +98,7 @@ const Home: NextPage = observer((props) => {
   }, [equipmentsByTierAndCategory, equipmentsById, equipStoreStateRef?.current]);
 
   const buildListStageOnlyResult = () => {
-    if (solution !== ResultMode.ListStagesOnly) return null;
+    if (solution !== ResultMode.ListStages) return null;
 
     return <AllPotentialStages campaigns={campaigns}
       equipmentsById={equipmentsById}
@@ -106,7 +106,7 @@ const Home: NextPage = observer((props) => {
   };
 
   const buildLinearProgrammingSolution = () =>{
-    if (solution === ResultMode.ListStagesOnly|| !solution?.result) return null;
+    if (solution === ResultMode.ListStages|| !solution?.result) return null;
 
     return <React.Fragment>
       <RecommendationsSummary onCloseInEfficacyDialog={() => onSetSolution(null)}/>
@@ -144,7 +144,7 @@ const Home: NextPage = observer((props) => {
     />
 
     {
-      store.equipmentsRequirementStore.resultMode === ResultMode.LinearProgrammingCalculation ?
+      store.equipmentsRequirementStore.resultMode === ResultMode.LinearProgram ?
           buildLinearProgrammingSolution() : buildListStageOnlyResult()
     }
   </>;

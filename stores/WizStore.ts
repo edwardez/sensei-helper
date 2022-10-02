@@ -16,7 +16,7 @@ const WizStore = types
         requirementByPieces: [],
         requirementByEquipments: [],
         requirementMode: RequirementMode.ByEquipment,
-        resultMode: ResultMode.LinearProgrammingCalculation,
+        resultMode: ResultMode.LinearProgram,
       }),
       gameInfoStore: types.optional(GameInfoStore, {
         gameServer: GameServer.Japan,
@@ -52,7 +52,7 @@ export function initializeWizStore(snapshot = null) {
       requirementByPieces: [],
       requirementByEquipments: [],
       requirementMode: RequirementMode.ByEquipment,
-      resultMode: ResultMode.LinearProgrammingCalculation,
+      resultMode: ResultMode.LinearProgram,
     },
     stageCalculationStateStore: {
       requirementInefficacy: {

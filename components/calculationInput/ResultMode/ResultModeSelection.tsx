@@ -19,8 +19,8 @@ const ResultModeSelection = ({store, onModeChange}: { store: IWizStore, onModeCh
     <BuiLinedText>{t('selectResultMode')}</BuiLinedText>
 
     <RadioGroup row value={`${store.equipmentsRequirementStore.resultMode}`} onChange={handleModeChange}>
-      <FormControlLabel value={ResultMode.LinearProgrammingCalculation} control={<Radio />} label={t('resultLinearProgramming')} />
-      <FormControlLabel value={ResultMode.ListStagesOnly} control={<Radio />} label={t('resultListStagesOnly')} />
+      <FormControlLabel value={ResultMode.LinearProgram} control={<Radio />} label={t('resultLinearProgramming')} />
+      <FormControlLabel value={ResultMode.ListStages} control={<Radio />} label={t('resultListStagesOnly')} />
     </RadioGroup>
   </div>;
 };

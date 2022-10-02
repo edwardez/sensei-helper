@@ -88,8 +88,8 @@ const CalculationInputCard = ({store, equipments, campaignsById, equipmentsById,
         [IN_STOCK_TYPES]: store.equipmentsRequirementStore.piecesInventory.size,
       },
     });
-    if (resultMode === ResultMode.ListStagesOnly) {
-      onSetSolution(ResultMode.ListStagesOnly);
+    if (resultMode === ResultMode.ListStages) {
+      onSetSolution(ResultMode.ListStages);
       return;
     }
     let requirementByPieces: IRequirementByPiece[] = [];
@@ -217,7 +217,7 @@ const CalculationInputCard = ({store, equipments, campaignsById, equipmentsById,
             color={'baButtonPrimary'}
             onClick={handleCalculate} disabled={shouldDisableCalculateButton()}>
             <div>{
-              store.equipmentsRequirementStore.resultMode === ResultMode.LinearProgrammingCalculation?
+              store.equipmentsRequirementStore.resultMode === ResultMode.LinearProgram?
                   t('calculateButton') : t('listButton')
             }</div>
           </BuiButton>
