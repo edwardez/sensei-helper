@@ -125,11 +125,15 @@ export const EquipmentsRequirementStore = types
 
       const updateInventory = (inventoryForm: InventoryForm) => {
         for (const [pieceId, inStockCountStr] of Object.entries(inventoryForm)) {
-          const inventoryToUpdate = self.piecesInventory.get(pieceId);
-          self.piecesInventory.put( {
-            pieceId,
-            inStockCount: parseInt(inStockCountStr) ?? 0,
-          });
+          const inStockCount = parseInt(inStockCountStr) ?? 0;
+          if (inStockCount !== 0) {
+            self.piecesInventory.put( {
+              pieceId,
+              inStockCount: parseInt(inStockCountStr) ?? 0,
+            });
+          } else {
+            self.piecesInventory.delete(pieceId);
+          }
         }
       };
 
