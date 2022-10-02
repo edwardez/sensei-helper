@@ -29,7 +29,7 @@
   "inputByPiece": "装备设计图",
   "resultListStagesOnly": "仅列出关卡掉落",
   "resultLinearProgramming": "计算刷图次数",
-  "resultPiecesCountOnStage": "{{count}}件",
+  "resultPiecesCountOnStage": "{{count}}种",
   "addEquipments": "添加装备",
   "updateInventory": "更新设计图库存（选填）",
   "updateInventoryDialogTitle": "更新设计图库存",
