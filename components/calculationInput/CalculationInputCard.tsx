@@ -124,7 +124,7 @@ const CalculationInputCard = ({store, equipments, campaignsById, equipmentsById,
     setIsOpened(true);
   };
 
-  const handleModeChange = (mode: RequirementMode) => onSetSolution(null);
+  const handleModeChange = (mode: RequirementMode|ResultMode) => onSetSolution(null);
 
   const filterEquipsBy = (equipments: Equipment[], equipmentCompositionType: EquipmentCompositionType)=>{
     return equipments?.reduce((map, equipment) => {
@@ -210,7 +210,7 @@ const CalculationInputCard = ({store, equipments, campaignsById, equipmentsById,
         }
 
         <DropCampaignSelection store={store} onDropRateChanged={() => onSetSolution(null)}/>
-        <ResultModeSelection/>
+        <ResultModeSelection store={store} onModeChange={handleModeChange}/>
 
         <Grid container display="flex" justifyContent="center" alignItems="center">
           <BuiButton

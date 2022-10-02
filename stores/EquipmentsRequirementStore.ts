@@ -119,7 +119,9 @@ export const EquipmentsRequirementStore = types
       };
 
       const updateResultMode = (resultMode: ResultMode) => {
-        if (!resultMode) return;
+        if (!resultMode) {
+          console.error(`Unable to set because resultMode is ${resultMode} this is unexpected`);
+        }
         self.resultMode = resultMode;
       };
 
