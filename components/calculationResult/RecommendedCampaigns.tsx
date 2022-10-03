@@ -15,7 +15,9 @@ import {useTranslation} from 'next-i18next';
 import {checkIfRequirementInefficient} from 'components/calculationInput/common/InefficientRequirementDetector';
 import {observer} from 'mobx-react-lite';
 import {useStore} from 'stores/WizStore';
-import InefficientRequirementWarning from 'components/calculationInput/common/InefficientRequirementWarning';
+import InefficientRequirementWarning, {
+  OnCloseInefficacyDialog,
+} from 'components/calculationInput/common/InefficientRequirementWarning';
 
 
 const RecommendedCampaigns = ({
@@ -24,12 +26,14 @@ const RecommendedCampaigns = ({
   equipmentsById,
   equipmentsRequirementStore,
   normalMissionItemDropRatio,
+  onCloseInEfficacyDialog,
 }: {
     solution: Solution<string>,
     campaignsById: CampaignsById,
     equipmentsById: EquipmentsById,
     equipmentsRequirementStore: IEquipmentsRequirementStore,
     normalMissionItemDropRatio: number,
+    onCloseInEfficacyDialog: OnCloseInefficacyDialog,
 }) => {
   const {t} = useTranslation('home');
   const store = useStore();
@@ -47,8 +51,9 @@ const RecommendedCampaigns = ({
   }, [solution, campaignsById]);
 
 
-  const handleCloseInefficientRequirementDialog = () =>{
+  const handleCloseInefficientRequirementDialog = (isExcludeInefficientStagesDirty: boolean) =>{
     setIsInefficientRequirementDialogOpened(false);
+    onCloseInEfficacyDialog(isExcludeInefficientStagesDirty);
   };
 
   return <React.Fragment>

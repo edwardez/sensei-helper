@@ -97,6 +97,10 @@ const Home: NextPage = observer((props) => {
     return calculatePiecesState(store, equipmentsById, equipmentsByTierAndCategory);
   }, [equipmentsByTierAndCategory, equipmentsById, equipStoreStateRef?.current]);
 
+  const handleCloseInEfficacyDialog = (isExcludeInefficientStagesDirty: boolean)=>{
+    if (!isExcludeInefficientStagesDirty) return;
+    onSetSolution(null);
+  };
   const buildListStageOnlyResult = () => {
     if (solution !== ResultMode.ListStages) return null;
 
@@ -109,13 +113,14 @@ const Home: NextPage = observer((props) => {
     if (solution === ResultMode.ListStages|| !solution?.result) return null;
 
     return <React.Fragment>
-      <RecommendationsSummary onCloseInEfficacyDialog={() => onSetSolution(null)}/>
+      <RecommendationsSummary onCloseInEfficacyDialog={handleCloseInEfficacyDialog}/>
       <RecommendedCampaigns
         solution={solution}
         campaignsById={campaignsById}
         equipmentsById={equipmentsById}
         equipmentsRequirementStore={store.equipmentsRequirementStore}
-        normalMissionItemDropRatio={store.gameInfoStore.normalMissionItemDropRatio}/>
+        normalMissionItemDropRatio={store.gameInfoStore.normalMissionItemDropRatio}
+        onCloseInEfficacyDialog={handleCloseInEfficacyDialog}/>
       <IgnoredCampaigns
         solution={solution}
         allCampaigns={campaigns}

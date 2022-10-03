@@ -7,7 +7,9 @@ import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import ResultIsEstimation from 'components/calculationResult/explanation/ResultIsEstimation';
 import {useTranslation} from 'next-i18next';
 import variables from 'scss/variables.module.scss';
-import InefficientRequirementWarning from 'components/calculationInput/common/InefficientRequirementWarning';
+import InefficientRequirementWarning, {
+  OnCloseInefficacyDialog,
+} from 'components/calculationInput/common/InefficientRequirementWarning';
 import {observer} from 'mobx-react-lite';
 import {useStore} from 'stores/WizStore';
 
@@ -17,7 +19,7 @@ const RecommendationsSummary = (
     {
       onCloseInEfficacyDialog,
     }: {
-      onCloseInEfficacyDialog: () => void,
+      onCloseInEfficacyDialog: OnCloseInefficacyDialog,
     }
 ) => {
   const {t} = useTranslation('home');
@@ -88,9 +90,9 @@ const RecommendationsSummary = (
     <ResultIsEstimation isOpened={isResultIsEstimationOpened} onClose={handleResultIsEstimationClose}/>
     <InefficientRequirementWarning
       isOpened={isInefficientRequirementOpened}
-      onCloseDialog={() => {
+      onCloseDialog={(isExcludeInefficientStagesDirty: boolean) => {
         setIsInefficientRequirementOpened(false);
-        onCloseInEfficacyDialog();
+        onCloseInEfficacyDialog(isExcludeInefficientStagesDirty);
       }
       }/>
   </div>;

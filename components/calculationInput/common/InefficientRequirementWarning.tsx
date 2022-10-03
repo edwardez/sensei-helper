@@ -7,27 +7,38 @@ import {observer} from 'mobx-react-lite';
 import BuiButton from 'components/bui/BuiButton';
 import Box from '@mui/material/Box';
 import variables from 'scss/variables.module.scss';
-import {ChangeEvent} from 'react';
+import {ChangeEvent, useState} from 'react';
 import {useTranslation} from 'next-i18next';
+
+/**
+ * Executes when dialog is closed.
+ * Note `isExcludeInefficientStagesDirty` is true even user has changed the value twice.
+ * (changed value then reverted it back).
+ */
+export type OnCloseInefficacyDialog = (isExcludeInefficientStagesDirty: boolean) => void;
 
 const InefficientRequirementWarning = ({
   isOpened,
   onCloseDialog,
 }: {
   isOpened: boolean,
-  onCloseDialog: () => void,
+  onCloseDialog: OnCloseInefficacyDialog,
 }) => {
   const {t} = useTranslation('home');
   const store = useStore();
+  const [isExcludeInefficientStagesDirty, setIsExcludeInefficientStagesDirty] = useState(false);
   const handleToggleHideDialog = (e: ChangeEvent<HTMLInputElement>) =>{
     store.stageCalculationStateStore.setHideInefficientRequirementDialog(e.target.checked);
   };
   const handleToggleExcludeInefficientStages = (e: ChangeEvent<HTMLInputElement>) =>{
     store.stageCalculationStateStore.setExcludeInefficientStages(e.target.checked);
+    setIsExcludeInefficientStagesDirty(true);
   };
 
-  return <BuiDialog open={isOpened} onClose={() => onCloseDialog()}>
-    <BuiDialogTitle onClose={() => onCloseDialog()}>
+  const handleCloseDialog = () => onCloseDialog(isExcludeInefficientStagesDirty);
+
+  return <BuiDialog open={isOpened} onClose={handleCloseDialog}>
+    <BuiDialogTitle onClose={handleCloseDialog}>
       {t('thinsToNote.avoidInefficientStages')}
     </BuiDialogTitle>
 
@@ -74,7 +85,7 @@ const InefficientRequirementWarning = ({
           label={t('thinsToNote.excludeInefficientStagesCheckBox')} />
       </div>
       <Box sx={{flex: '1 0 0'}} />
-      <BuiButton sx={{flex: '1 0 auto'}} color={'baButtonPrimary'} onClick={onCloseDialog}>{t('closeButton')} </BuiButton>
+      <BuiButton sx={{flex: '1 0 auto'}} color={'baButtonPrimary'} onClick={handleCloseDialog}>{t('closeButton')} </BuiButton>
     </DialogActions>
   </BuiDialog>;
 };
