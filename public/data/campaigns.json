@@ -4,6 +4,7 @@
     "area": 1,
     "stage": 1,
     "jpName": "アオバ中心区35番街",
+    "recommendationWeight": 200,
     "rewards": [
       {
         "id": "2001000",
@@ -24,6 +25,7 @@
     "area": 1,
     "stage": 2,
     "jpName": "D.U.ウェストパーク",
+    "recommendationWeight": 50,
     "rewards": [
       {
         "id": "2002000",
@@ -44,6 +46,7 @@
     "area": 1,
     "stage": 3,
     "jpName": "クロネコ市場",
+    "recommendationWeight": 200,
     "rewards": [
       {
         "id": "2003000",
@@ -64,6 +67,7 @@
     "area": 1,
     "stage": 4,
     "jpName": "中央区1番街",
+    "recommendationWeight": 50,
     "rewards": [
       {
         "id": "2004000",
@@ -84,6 +88,7 @@
     "area": 1,
     "stage": 5,
     "jpName": "D.U.577区域",
+    "recommendationWeight": -100,
     "rewards": [
       {
         "id": "2005000",
@@ -104,6 +109,7 @@
     "area": 2,
     "stage": 1,
     "jpName": "双葉公園",
+    "recommendationWeight": 100,
     "rewards": [
       {
         "id": "2006000",
@@ -124,6 +130,7 @@
     "area": 2,
     "stage": 2,
     "jpName": "北区3丁目",
+    "recommendationWeight": 200,
     "rewards": [
       {
         "id": "2006000",
@@ -144,6 +151,7 @@
     "area": 2,
     "stage": 3,
     "jpName": "白門市場86",
+    "recommendationWeight": 100,
     "rewards": [
       {
         "id": "2007000",
@@ -164,6 +172,7 @@
     "area": 2,
     "stage": 4,
     "jpName": "北区芝タウン",
+    "recommendationWeight": 0,
     "rewards": [
       {
         "id": "2008000",
@@ -184,6 +193,7 @@
     "area": 2,
     "stage": 5,
     "jpName": "第7業務地区第1区域",
+    "recommendationWeight": -200,
     "rewards": [
       {
         "id": "2009000",
@@ -204,6 +214,7 @@
     "area": 4,
     "stage": 1,
     "jpName": "北区多磨川",
+    "recommendationWeight": 200,
     "rewards": [
       {
         "id": "2101001",
@@ -224,6 +235,7 @@
     "area": 4,
     "stage": 2,
     "jpName": "南区西川",
+    "recommendationWeight": 50,
     "rewards": [
       {
         "id": "2102001",
@@ -244,6 +256,7 @@
     "area": 4,
     "stage": 3,
     "jpName": "アビドス本町3番街",
+    "recommendationWeight": 200,
     "rewards": [
       {
         "id": "2103001",
@@ -264,6 +277,7 @@
     "area": 4,
     "stage": 4,
     "jpName": "砂尾町2丁目",
+    "recommendationWeight": 50,
     "rewards": [
       {
         "id": "2104001",
@@ -284,6 +298,7 @@
     "area": 4,
     "stage": 5,
     "jpName": "砂尾町3丁目",
+    "recommendationWeight": -100,
     "rewards": [
       {
         "id": "2105001",
@@ -304,6 +319,7 @@
     "area": 5,
     "stage": 1,
     "jpName": "アビドス本線 城森駅",
+    "recommendationWeight": 100,
     "rewards": [
       {
         "id": "2106001",
@@ -324,6 +340,7 @@
     "area": 5,
     "stage": 2,
     "jpName": "アビドス本線 四ツ葉駅",
+    "recommendationWeight": 200,
     "rewards": [
       {
         "id": "2106001",
@@ -344,6 +361,7 @@
     "area": 5,
     "stage": 3,
     "jpName": "西部遺跡地帯",
+    "recommendationWeight": 100,
     "rewards": [
       {
         "id": "2107001",
@@ -364,6 +382,7 @@
     "area": 5,
     "stage": 4,
     "jpName": "カイザーPMC駐屯地",
+    "recommendationWeight": 0,
     "rewards": [
       {
         "id": "2108001",
@@ -384,6 +403,7 @@
     "area": 5,
     "stage": 5,
     "jpName": "東部遺跡地帯",
+    "recommendationWeight": -200,
     "rewards": [
       {
         "id": "2109001",
@@ -404,6 +424,7 @@
     "area": 7,
     "stage": 1,
     "jpName": "南区第二公立高校",
+    "recommendationWeight": 200,
     "rewards": [
       {
         "id": "2101002",
@@ -436,6 +457,7 @@
     "area": 7,
     "stage": 2,
     "jpName": "アリウス分校東館",
+    "recommendationWeight": 50,
     "rewards": [
       {
         "id": "2102002",
@@ -468,6 +490,7 @@
     "area": 7,
     "stage": 3,
     "jpName": "時計台駅",
+    "recommendationWeight": 200,
     "rewards": [
       {
         "id": "2103002",
@@ -500,6 +523,7 @@
     "area": 7,
     "stage": 4,
     "jpName": "中央区役所駅",
+    "recommendationWeight": 50,
     "rewards": [
       {
         "id": "2104002",
@@ -532,6 +556,7 @@
     "area": 7,
     "stage": 5,
     "jpName": "湖水公園駅",
+    "recommendationWeight": -100,
     "rewards": [
       {
         "id": "2105002",
@@ -564,6 +589,7 @@
     "area": 8,
     "stage": 1,
     "jpName": "鈴木金属工場",
+    "recommendationWeight": 100,
     "rewards": [
       {
         "id": "2106002",
@@ -596,6 +622,7 @@
     "area": 8,
     "stage": 2,
     "jpName": "カイザーPMC軍需工場",
+    "recommendationWeight": 200,
     "rewards": [
       {
         "id": "2106002",
@@ -628,6 +655,7 @@
     "area": 8,
     "stage": 3,
     "jpName": "北区第3管路",
+    "recommendationWeight": 100,
     "rewards": [
       {
         "id": "2107002",
@@ -660,6 +688,7 @@
     "area": 8,
     "stage": 4,
     "jpName": "東区第1管路",
+    "recommendationWeight": 0,
     "rewards": [
       {
         "id": "2108002",
@@ -692,6 +721,7 @@
     "area": 8,
     "stage": 5,
     "jpName": "東区第7管路",
+    "recommendationWeight": -200,
     "rewards": [
       {
         "id": "2109002",
@@ -724,6 +754,7 @@
     "area": 10,
     "stage": 1,
     "jpName": "能楽町1丁目",
+    "recommendationWeight": 200,
     "rewards": [
       {
         "id": "2101003",
@@ -768,6 +799,7 @@
     "area": 10,
     "stage": 2,
     "jpName": "甲種閉鎖区域3番地",
+    "recommendationWeight": 50,
     "rewards": [
       {
         "id": "2102003",
@@ -812,6 +844,7 @@
     "area": 10,
     "stage": 3,
     "jpName": "乙種閉鎖区域1番地",
+    "recommendationWeight": 200,
     "rewards": [
       {
         "id": "2103003",
@@ -856,6 +889,7 @@
     "area": 10,
     "stage": 4,
     "jpName": "丙種閉鎖区域7番地",
+    "recommendationWeight": 50,
     "rewards": [
       {
         "id": "2104003",
@@ -900,6 +934,7 @@
     "area": 10,
     "stage": 5,
     "jpName": "丁種閉鎖区域5番地",
+    "recommendationWeight": -100,
     "rewards": [
       {
         "id": "2105003",
@@ -944,6 +979,7 @@
     "area": 11,
     "stage": 1,
     "jpName": "KVハイウェイ第1区域",
+    "recommendationWeight": 100,
     "rewards": [
       {
         "id": "2106003",
@@ -988,6 +1024,7 @@
     "area": 11,
     "stage": 2,
     "jpName": "第11外郭環状道路",
+    "recommendationWeight": 200,
     "rewards": [
       {
         "id": "2106003",
@@ -1032,6 +1069,7 @@
     "area": 11,
     "stage": 3,
     "jpName": "青葉西区9番地",
+    "recommendationWeight": 100,
     "rewards": [
       {
         "id": "2107003",
@@ -1076,6 +1114,7 @@
     "area": 11,
     "stage": 4,
     "jpName": "第3業務地区第1区域",
+    "recommendationWeight": 0,
     "rewards": [
       {
         "id": "2108003",
@@ -1120,6 +1159,7 @@
     "area": 11,
     "stage": 5,
     "jpName": "中央区3番地",
+    "recommendationWeight": -200,
     "rewards": [
       {
         "id": "2109003",
@@ -1164,6 +1204,7 @@
     "area": 13,
     "stage": 1,
     "jpName": "ドリームゾーン",
+    "recommendationWeight": 200,
     "rewards": [
       {
         "id": "2101004",
@@ -1208,6 +1249,7 @@
     "area": 13,
     "stage": 2,
     "jpName": "ファンタジーゾーン",
+    "recommendationWeight": 50,
     "rewards": [
       {
         "id": "2102004",
@@ -1252,6 +1294,7 @@
     "area": 13,
     "stage": 3,
     "jpName": "アドベンチャーゾーン",
+    "recommendationWeight": 250,
     "rewards": [
       {
         "id": "2103004",
@@ -1296,6 +1339,7 @@
     "area": 13,
     "stage": 4,
     "jpName": "エキサイティングゾーン",
+    "recommendationWeight": 50,
     "rewards": [
       {
         "id": "2106004",
@@ -1340,6 +1384,7 @@
     "area": 13,
     "stage": 5,
     "jpName": "ワイルドゾーン",
+    "recommendationWeight": 50,
     "rewards": [
       {
         "id": "2105004",
@@ -1384,6 +1429,7 @@
     "area": 14,
     "stage": 1,
     "jpName": "アネモネ学院跡地",
+    "recommendationWeight": 0,
     "rewards": [
       {
         "id": "2107004",
@@ -1428,6 +1474,7 @@
     "area": 14,
     "stage": 2,
     "jpName": "旧私立ヒヤシンス学園",
+    "recommendationWeight": 100,
     "rewards": [
       {
         "id": "2106004",
@@ -1472,6 +1519,7 @@
     "area": 14,
     "stage": 3,
     "jpName": "リナリア学園（閉鎖済）",
+    "recommendationWeight": 0,
     "rewards": [
       {
         "id": "2104004",
@@ -1516,6 +1564,7 @@
     "area": 14,
     "stage": 4,
     "jpName": "公立ルピナス学院跡地",
+    "recommendationWeight": -100,
     "rewards": [
       {
         "id": "2108004",
@@ -1560,6 +1609,7 @@
     "area": 14,
     "stage": 5,
     "jpName": "クロユリ学園（閉鎖済）",
+    "recommendationWeight": 0,
     "rewards": [
       {
         "id": "2109004",
@@ -1604,6 +1654,7 @@
     "area": 16,
     "stage": 1,
     "jpName": "遺跡地帯北部",
+    "recommendationWeight": 200,
     "rewards": [
       {
         "id": "2101005",
@@ -1648,6 +1699,7 @@
     "area": 16,
     "stage": 2,
     "jpName": "ワジ西エリア",
+    "recommendationWeight": 50,
     "rewards": [
       {
         "id": "2102005",
@@ -1692,6 +1744,7 @@
     "area": 16,
     "stage": 3,
     "jpName": "遺跡地帯南部",
+    "recommendationWeight": 250,
     "rewards": [
       {
         "id": "2103005",
@@ -1736,6 +1789,7 @@
     "area": 16,
     "stage": 4,
     "jpName": "ワジ中央エリア",
+    "recommendationWeight": 50,
     "rewards": [
       {
         "id": "2106005",
@@ -1780,6 +1834,7 @@
     "area": 16,
     "stage": 5,
     "jpName": "PMC車両基地",
+    "recommendationWeight": 50,
     "rewards": [
       {
         "id": "2105005",
@@ -1824,6 +1879,7 @@
     "area": 17,
     "stage": 1,
     "jpName": "パラダイスロード",
+    "recommendationWeight": 0,
     "rewards": [
       {
         "id": "2107005",
@@ -1868,6 +1924,7 @@
     "area": 17,
     "stage": 2,
     "jpName": "パラダイスカフェ",
+    "recommendationWeight": 100,
     "rewards": [
       {
         "id": "2106005",
@@ -1912,6 +1969,7 @@
     "area": 17,
     "stage": 3,
     "jpName": "パラダイスレストラン",
+    "recommendationWeight": 0,
     "rewards": [
       {
         "id": "2104005",
@@ -1956,6 +2014,7 @@
     "area": 17,
     "stage": 4,
     "jpName": "パラダイスホール中央",
+    "recommendationWeight": -100,
     "rewards": [
       {
         "id": "2108005",
@@ -2000,6 +2059,7 @@
     "area": 17,
     "stage": 5,
     "jpName": "パラダイスホール最上階",
+    "recommendationWeight": 0,
     "rewards": [
       {
         "id": "2109005",
@@ -2044,6 +2104,7 @@
     "area": 19,
     "stage": 1,
     "jpName": "雪原地区第1エリア",
+    "recommendationWeight": 200,
     "rewards": [
       {
         "id": "2101006",
@@ -2088,6 +2149,7 @@
     "area": 19,
     "stage": 2,
     "jpName": "雪原鉄道・上り",
+    "recommendationWeight": 50,
     "rewards": [
       {
         "id": "2102006",
@@ -2132,6 +2194,7 @@
     "area": 19,
     "stage": 3,
     "jpName": "雪原地区第2エリア",
+    "recommendationWeight": 250,
     "rewards": [
       {
         "id": "2103006",
@@ -2176,6 +2239,7 @@
     "area": 19,
     "stage": 4,
     "jpName": "北麓中央線",
+    "recommendationWeight": 50,
     "rewards": [
       {
         "id": "2106006",
@@ -2220,6 +2284,7 @@
     "area": 19,
     "stage": 5,
     "jpName": "雪原地区第3エリア",
+    "recommendationWeight": 50,
     "rewards": [
       {
         "id": "2105006",
@@ -2264,6 +2329,7 @@
     "area": 20,
     "stage": 1,
     "jpName": "シャインタウン3階・廊下",
+    "recommendationWeight": 0,
     "rewards": [
       {
         "id": "2107006",
@@ -2308,6 +2374,7 @@
     "area": 20,
     "stage": 2,
     "jpName": "トリプルブルースポーツセンター",
+    "recommendationWeight": 100,
     "rewards": [
       {
         "id": "2106006",
@@ -2352,6 +2419,7 @@
     "area": 20,
     "stage": 3,
     "jpName": "スクランブルシティ12階・廊下",
+    "recommendationWeight": 0,
     "rewards": [
       {
         "id": "2104006",
@@ -2396,6 +2464,7 @@
     "area": 20,
     "stage": 4,
     "jpName": "微睡みのギムナジウム",
+    "recommendationWeight": -100,
     "rewards": [
       {
         "id": "2108006",
@@ -2440,6 +2509,7 @@
     "area": 20,
     "stage": 5,
     "jpName": "コクーンビル32階・廊下",
+    "recommendationWeight": 0,
     "rewards": [
       {
         "id": "2109006",

@@ -13,6 +13,7 @@ import MoreVertIcon from '@mui/icons-material/MoreVert';
 import Link from 'next/link';
 import SettingsDialog from 'components/settings/SettingsDialog';
 import {useTranslation} from 'next-i18next';
+import {Locale} from 'common/locales';
 
 export default function WizAppBar() {
   const {t} = useTranslation('home');
@@ -81,9 +82,9 @@ export default function WizAppBar() {
                 value={currentLang}
                 onChange={handleChange}
                 autoWidth>
-                <MenuItem value={'en'}>English</MenuItem>
-                <MenuItem value={'zh'}>中文</MenuItem>
-                <MenuItem value={'ja'}>日本語</MenuItem>
+                <MenuItem value={Locale.English}>English</MenuItem>
+                <MenuItem value={Locale.Chinese}>中文</MenuItem>
+                <MenuItem value={Locale.Japanese}>日本語</MenuItem>
               </Select>
             </FormControl>
 

@@ -2,9 +2,11 @@
   "addPiecesTitle": "設計図を追加",
   "addButton": "追加",
   "updateButton": "更新",
+  "listButton": "検索",
   "cancelButton": "キャンセル",
   "deleteButton": "削除",
   "editButton": "編集",
+  "closeButton": "閉じる",
   "showAllButton": "すべてを表示",
   "showFewerButton": "一部のみ表示",
   "isInADropCampaign": "Normalドロップ量キャンペーン中？",
@@ -22,8 +24,12 @@
     "inStockCount": "所持数"
   },
   "selectInputMode": "入力モード",
+  "selectResultMode": "結果表示モード",
   "inputByEquipment": "装備",
   "inputByPiece": "装備設計図",
+  "resultListStagesOnly": "検索のみ",
+  "resultLinearProgramming": "周回数計算",
+  "resultPiecesCountOnStage": "{{count}}種類対象",
   "addEquipments": "装備を追加",
   "updateInventory": "所持設計図を更新（任意）",
   "updateInventoryDialogTitle": "所持設計図を更新",
@@ -46,7 +52,16 @@
     "dialogThisIsEstimationTitle": "推奨掃討回数は予測です",
     "dialogThisIsEstimationContent": "おすすめの掃討回数はあくまでも期待値です。ゲームのドロップは完全ランダムのため、実際の報酬と大きく異なる場合もあります。",
     "dialogNumberMayNotAddUpTitle": "予測ドロップ数と欲しい数にわずかの誤差が出ることはあります",
-    "dialogNumberMayNotAddUpContent": "例えば、欲しい靴設計図を６とします、予測ドロップ数は５になる場合があります。これは、アプリのアルゴリズムは<1>線形計画法</1>からです。誤差をなくすには整数計画法は必要ですが、整数計画法が<3>難しい</3>ので、あえて少し誤差が出る線形計画法を採用しています。"
+    "dialogNumberMayNotAddUpContent": "例えば、欲しい靴設計図を６とします、予測ドロップ数は５になる場合があります。これは、アプリのアルゴリズムは<1>線形計画法</1>からです。誤差をなくすには整数計画法は必要ですが、整数計画法が<3>難しい</3>ので、あえて少し誤差が出る線形計画法を採用しています。",
+    "recommendUpdatingRequirement": "非効率的なステージを周回することになります。",
+    "inefficientStagesIgnored": "計算から除外してるステージがあります",
+    "avoidInefficientStages": "非効率周回になります",
+    "inefficientExamples": "非効率的なステージとは、17-4，14-4，11-4などのことです。これらのステージからは、バッグ、バッジ、お守りをたくさん集められますが、要求している生徒はて少ないです。しかし、17-4からはT6腕時計のドロップ率が一番高いため、デフォルトではこれらのステージを除外していません。",
+    "howToAvoidInefficacy": "多種類の要求が多い装備（ヘアピン、腕時計、帽子など）をアプリにたくさん追加して周回すると、自ずとバッグ、バッジ、お守りなどが副産物として集められます。装備種類と所持設計図数が多く追加してる分、計算の精度もあげられます。",
+    "inefficientStagesReferencesLink": "考察（wikiru）",
+    "youCanChangeInefficientSettings": "「装備と設計図をいちいち追加するのはめんどくさい！」と思っていましたら、下↓からは常に非効率的なステージを除外することもできます（多種類装備追加に比べると計算精度が下がります）。",
+    "dontShowThisAgainCheckBox": "今後、このメッセージを表示しない",
+    "excludeInefficientStagesCheckBox": "非効率的なステージを常に除外する"
   },
   "stageSweepingTimes": "{{sweepingTimes}}回",
   "stageIsSkipped": "スキップ",
@@ -56,7 +71,7 @@
   "privacy": "プライバシー",
   "settings": "設定",
   "about": "本ツールについて",
-  "SenseiHelper": "先生ヘルパー",
+  "SenseiHelper": "先生助手",
   "settingsDialogTitle": "設定",
   "settingsDialogSelectGameServer": "ゲームサーバー",
   "japanServer": "日本",
@@ -71,7 +86,7 @@
   "error404": "お探しのページは見つかりませんでした。",
   "error500": "サーバー内部エラー",
   "meta": {
-    "description": "『ブルーアーカイブ』非公式装備ドロップ場所計算・検索ツールです。必要な装備数と所持設計図数を入力すると、Normalクエストのおすすめ周回数を計算できます",
-    "title": "【ブルアカ】装備ドロップ計算・検索ツール"
+    "description": "『ブルーアーカイブ』非公式装備ドロップ計算・検索ツールです。必要な装備数と所持設計図数を入力すると、Normalクエストのおすすめ周回数を計算できます。装備の周回優先度、最効率化の周回方、副産物・サブドロップ探しのお供にどうぞ。",
+    "title": "【ブルアカ】装備ドロップ周回計算・検索ツール"
   }
 }

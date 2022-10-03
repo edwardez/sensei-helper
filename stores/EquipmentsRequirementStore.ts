@@ -34,12 +34,18 @@ export enum RequirementMode {
   ByEquipment = 'ByEquipment',
 }
 
+export enum ResultMode {
+  ListStages = 'ListStages',
+  LinearProgram = 'LinearProgram'
+}
+
 export const EquipmentsRequirementStore = types
     .model({
       requirementByPieces: types.array(byPiece),
       requirementByEquipments: types.array(byEquipment),
       piecesInventory: types.map(pieceInventory),
       requirementMode: types.optional(types.enumeration<RequirementMode>('RequirementMode', Object.values(RequirementMode)), RequirementMode.ByEquipment),
+      resultMode: types.optional(types.enumeration<ResultMode>('ResultMode', Object.values(ResultMode)), ResultMode.LinearProgram),
     })
     .actions((self) => {
       const addPiecesRequirement = (requirement : IRequirementByPiece) => {
@@ -66,7 +72,10 @@ export const EquipmentsRequirementStore = types
       const sortEquipmentStoreByNickName = () => {
         self.requirementByEquipments.sort(
             (a, b) => {
-              return a.nickname < b.nickname ? 1:-1;
+              const aHasNickName = a.nickname.length !== 0;
+              const bHasNickName = b.nickname.length !== 0;
+              if (aHasNickName !== bHasNickName) return aHasNickName ? -1 : 1;
+              return a.nickname > b.nickname ? 1:-1;
             }
         );
       };
@@ -81,13 +90,14 @@ export const EquipmentsRequirementStore = types
       const updateEquipmentsRequirement = (equipInfoToEdit : EquipmentInfoToEdit) => {
         const requirement = self.requirementByEquipments[equipInfoToEdit.indexInStoreArray];
         if (!requirement) return;
+
         self.requirementByEquipments[equipInfoToEdit.indexInStoreArray] = {
           currentEquipmentId: equipInfoToEdit.currentEquipmentId,
           targetEquipmentId: equipInfoToEdit.targetEquipmentId,
           count: equipInfoToEdit.count,
           nickname: equipInfoToEdit.nickname,
         };
-        if (requirement.nickname) {
+        if (equipInfoToEdit.nickname !== requirement.nickname) {
           sortEquipmentStoreByNickName();
         }
       };
@@ -112,19 +122,32 @@ export const EquipmentsRequirementStore = types
         self.requirementMode = requirementMode;
       };
 
+      const updateResultMode = (resultMode: ResultMode) => {
+        if (!resultMode) {
+          console.error(`Unable to set because resultMode is ${resultMode} this is unexpected`);
+          return;
+        }
+        self.resultMode = resultMode;
+      };
+
       const updateInventory = (inventoryForm: InventoryForm) => {
         for (const [pieceId, inStockCountStr] of Object.entries(inventoryForm)) {
-          const inventoryToUpdate = self.piecesInventory.get(pieceId);
-          self.piecesInventory.put( {
-            pieceId,
-            inStockCount: parseInt(inStockCountStr) ?? 0,
-          });
+          const inStockCount = parseInt(inStockCountStr) ?? 0;
+          if (inStockCount !== 0) {
+            self.piecesInventory.put( {
+              pieceId,
+              inStockCount: parseInt(inStockCountStr) ?? 0,
+            });
+          } else {
+            self.piecesInventory.delete(pieceId);
+          }
         }
       };
 
       return {addPiecesRequirement, updatePiecesRequirement, deletePiecesRequirement,
         addEquipmentsRequirement, updateEquipmentsRequirement, deleteEquipmentsRequirement,
         getAllRequiredPieceIds, updateRequirementMode, updateInventory,
+        updateResultMode,
       };
     });
 

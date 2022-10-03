@@ -1,9 +1,10 @@
 import {createContext, useContext} from 'react';
 import {applySnapshot, Instance, SnapshotIn, SnapshotOut, types} from 'mobx-state-tree';
-import {EquipmentsRequirementStore, RequirementMode} from 'stores/EquipmentsRequirementStore';
+import {EquipmentsRequirementStore, RequirementMode, ResultMode} from 'stores/EquipmentsRequirementStore';
 import {enableStaticRendering} from 'mobx-react-lite';
 import {GameInfoStore} from 'stores/GameInfoStore';
 import {GameServer} from 'model/Equipment';
+import {StageCalculationStateStore} from 'stores/StageCalculationStateStore';
 
 enableStaticRendering(typeof window === 'undefined');
 
@@ -15,11 +16,20 @@ const WizStore = types
         requirementByPieces: [],
         requirementByEquipments: [],
         requirementMode: RequirementMode.ByEquipment,
+        resultMode: ResultMode.LinearProgram,
       }),
       gameInfoStore: types.optional(GameInfoStore, {
         gameServer: GameServer.Japan,
         normalMissionItemDropRatio: 1,
       }),
+      stageCalculationStateStore: types.optional(StageCalculationStateStore, {
+        requirementInefficacy: {
+          isByPiecesInefficient: false,
+          isByEquipmentsInefficient: false,
+          hideInefficientRequirementDialog: false,
+        },
+      },
+      ),
     }).actions((self) => {
       const changeGameServer = (server: GameServer) => {
         self.gameInfoStore.gameServer = server;
@@ -37,11 +47,21 @@ export const wizStorageLocalStorageKey = 'SenseiHelperStore';
 export const wizExceptionStorageLocalStorageKey = 'SenseiHelperStoreException';
 
 export function initializeWizStore(snapshot = null) {
-  const _store = wizStore ?? WizStore.create({equipmentsRequirementStore: {
-    requirementByPieces: [],
-    requirementByEquipments: [],
-    requirementMode: RequirementMode.ByEquipment,
-  }});
+  const _store = wizStore ?? WizStore.create({
+    equipmentsRequirementStore: {
+      requirementByPieces: [],
+      requirementByEquipments: [],
+      requirementMode: RequirementMode.ByEquipment,
+      resultMode: ResultMode.LinearProgram,
+    },
+    stageCalculationStateStore: {
+      requirementInefficacy: {
+        isByPiecesInefficient: false,
+        isByEquipmentsInefficient: false,
+        hideInefficientRequirementDialog: false,
+      },
+    },
+  });
 
   // const _store = wizStore ?? WizStore.create();
 

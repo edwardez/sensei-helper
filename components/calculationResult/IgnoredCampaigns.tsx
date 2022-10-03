@@ -89,6 +89,7 @@ const IgnoredCampaigns = ({
         allRequiredPieceIds]
   );
 
+  if (!skippedValidCampaigns?.length) return null;
   return <Accordion TransitionProps={{unmountOnExit: true, timeout: 0}}
   >
     <AccordionSummary

@@ -15,6 +15,7 @@ type CampaignDropItemsListProps = {
     equipmentsById: EquipmentsById,
     hidePieceDropCount?: boolean,
     containerCardVariation?: 'elevation' | 'outlined',
+    shouldHighLightPiece?: (pieceId: string) => boolean,
 }
 
 const CampaignDropItemsList :
@@ -23,6 +24,7 @@ const CampaignDropItemsList :
       stageExplanationLabel,
       allDrops,
       equipmentsById,
+      shouldHighLightPiece,
       hidePieceDropCount= false,
       containerCardVariation = 'elevation',
     }
@@ -55,6 +57,7 @@ const CampaignDropItemsList :
                 if (!piece) return null;
                 const bottomText = dropCount ? `x${dropCount}` : `${dropProb*100}%`;
                 return <EquipmentCard key={piece.id} hasOuterMargin
+                  isSelected={shouldHighLightPiece ? shouldHighLightPiece(piece.id) : undefined}
                   imageName={piece.icon}
                   bottomRightText={bottomText}/>;
               })}

@@ -8,7 +8,9 @@ export type PieceDropProb = {[key:string]: number};
 export const calculateSolution = (
     requirements: IRequirementByPiece[],
     normalMissionItemDropRatio: number,
-    piecesDropByCampaignId: Map<string, Campaign>) => {
+    piecesDropByCampaignId: Map<string, Campaign>,
+    excludeInefficientStages = false,
+) => {
   const constraints: { [key: string]: IModelVariableConstraint } = requirements.reduce<{[key: string]: IModelVariableConstraint}>(
       (partialConstraints, requirement) => {
         partialConstraints[requirement.pieceId] = {
@@ -22,6 +24,9 @@ export const calculateSolution = (
   const requiredPieceIds = new Set(Object.keys(constraints));
   const variables : { [key:string] : PieceDropProb} = {};
   piecesDropByCampaignId.forEach(( campaign, campaignId) =>{
+    if (excludeInefficientStages && (campaign?.recommendationWeight ?? 0) < 0) {
+      return;
+    }
     const filteredProbs = campaign.rewards
         .filter((reward) => requiredPieceIds.has(reward.id))
         .reduce<PieceDropProb>((prev, reward) => {
