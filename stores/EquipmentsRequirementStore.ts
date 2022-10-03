@@ -87,8 +87,6 @@ export const EquipmentsRequirementStore = types
       const updateEquipmentsRequirement = (equipInfoToEdit : EquipmentInfoToEdit) => {
         const requirement = self.requirementByEquipments[equipInfoToEdit.indexInStoreArray];
         if (!requirement) return;
-        const hasNickNameBefore = requirement.nickname?.length !== 0;
-        const hasNickNameAfterUpdate = equipInfoToEdit.nickname?.length !== 0;
 
         self.requirementByEquipments[equipInfoToEdit.indexInStoreArray] = {
           currentEquipmentId: equipInfoToEdit.currentEquipmentId,
@@ -96,7 +94,7 @@ export const EquipmentsRequirementStore = types
           count: equipInfoToEdit.count,
           nickname: equipInfoToEdit.nickname,
         };
-        if (hasNickNameBefore !== hasNickNameAfterUpdate) {
+        if (equipInfoToEdit.nickname !== requirement.nickname) {
           sortEquipmentStoreByNickName();
         }
       };
