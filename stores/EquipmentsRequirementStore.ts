@@ -72,7 +72,7 @@ export const EquipmentsRequirementStore = types
       const sortEquipmentStoreByNickName = () => {
         self.requirementByEquipments.sort(
             (a, b) => {
-              return a.nickname < b.nickname ? 1:-1;
+              return a.nickname > b.nickname ? 1:-1;
             }
         );
       };
