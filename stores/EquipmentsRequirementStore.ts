@@ -72,6 +72,9 @@ export const EquipmentsRequirementStore = types
       const sortEquipmentStoreByNickName = () => {
         self.requirementByEquipments.sort(
             (a, b) => {
+              const aHasNickName = a.nickname.length !== 0;
+              const bHasNickName = b.nickname.length !== 0;
+              if (aHasNickName !== bHasNickName) return aHasNickName ? -1 : 1;
               return a.nickname > b.nickname ? 1:-1;
             }
         );
