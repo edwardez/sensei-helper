@@ -93,7 +93,7 @@ export const EquipmentsRequirementStore = types
           count: equipInfoToEdit.count,
           nickname: equipInfoToEdit.nickname,
         };
-        if (requirement.nickname) {
+        if (equipInfoToEdit.nickname) {
           sortEquipmentStoreByNickName();
         }
       };
