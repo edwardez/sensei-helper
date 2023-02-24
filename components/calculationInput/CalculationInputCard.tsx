@@ -93,6 +93,7 @@ const CalculationInputCard = ({store, equipments, campaignsById, equipmentsById,
       return;
     }
     let requirementByPieces: IRequirementByPiece[] = [];
+
     if (requirementMode === RequirementMode.ByPiece) {
       requirementByPieces = store.equipmentsRequirementStore.requirementByPieces;
       setPieceInfoToEdit(null);
@@ -111,6 +112,7 @@ const CalculationInputCard = ({store, equipments, campaignsById, equipmentsById,
         store.gameInfoStore.normalMissionItemDropRatio,
         campaignsById,
         store.stageCalculationStateStore.requirementInefficacy.excludeInefficientStages ?? false,
+        store.gameInfoStore.gameServer,
     ));
   };
 

@@ -129,7 +129,8 @@
     "jpName": "バケットハット",
     "equipmentCompositionType": "Composite",
     "releasedIn": [
-      "Japan"
+      "Japan",
+      "Global"
     ],
     "recipe": [
       {
@@ -276,7 +277,8 @@
     "jpName": "アームカバー",
     "equipmentCompositionType": "Composite",
     "releasedIn": [
-      "Japan"
+      "Japan",
+      "Global"
     ],
     "recipe": [
       {
@@ -423,7 +425,8 @@
     "jpName": "カジュアルスニーカー",
     "equipmentCompositionType": "Composite",
     "releasedIn": [
-      "Japan"
+      "Japan",
+      "Global"
     ],
     "recipe": [
       {
@@ -570,7 +573,8 @@
     "jpName": "ストリートバッグ",
     "equipmentCompositionType": "Composite",
     "releasedIn": [
-      "Japan"
+      "Japan",
+      "Global"
     ],
     "recipe": [
       {
@@ -717,7 +721,8 @@
     "jpName": "ストリートバッジ",
     "equipmentCompositionType": "Composite",
     "releasedIn": [
-      "Japan"
+      "Japan",
+      "Global"
     ],
     "recipe": [
       {
@@ -864,7 +869,8 @@
     "jpName": "カリグラフィーヘアピン",
     "equipmentCompositionType": "Composite",
     "releasedIn": [
-      "Japan"
+      "Japan",
+      "Global"
     ],
     "recipe": [
       {
@@ -1390,7 +1396,8 @@
     "jpName": "バケットハットの設計図",
     "equipmentCompositionType": "Piece",
     "releasedIn": [
-      "Japan"
+      "Japan",
+      "Global"
     ]
   },
   {
@@ -1461,7 +1468,8 @@
     "jpName": "アームカバーの設計図",
     "equipmentCompositionType": "Piece",
     "releasedIn": [
-      "Japan"
+      "Japan",
+      "Global"
     ]
   },
   {
@@ -1532,7 +1540,8 @@
     "jpName": "カジュアルスニーカーの設計図",
     "equipmentCompositionType": "Piece",
     "releasedIn": [
-      "Japan"
+      "Japan",
+      "Global"
     ]
   },
   {
@@ -1603,7 +1612,8 @@
     "jpName": "ストリートバッグの設計図",
     "equipmentCompositionType": "Piece",
     "releasedIn": [
-      "Japan"
+      "Japan",
+      "Global"
     ]
   },
   {
@@ -1674,7 +1684,8 @@
     "jpName": "ストリートバッジの設計図",
     "equipmentCompositionType": "Piece",
     "releasedIn": [
-      "Japan"
+      "Japan",
+      "Global"
     ]
   },
   {
@@ -1745,7 +1756,8 @@
     "jpName": "カリグラフィーヘアピンの設計図",
     "equipmentCompositionType": "Piece",
     "releasedIn": [
-      "Japan"
+      "Japan",
+      "Global"
     ]
   },
   {

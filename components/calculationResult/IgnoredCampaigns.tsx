@@ -12,6 +12,9 @@ import React, {useMemo} from 'react';
 import CampaignDropItemsList from 'components/calculationResult/CampaignDropItemsList';
 import Box from '@mui/material/Box';
 import {useTranslation} from 'next-i18next';
+import {useStore} from 'stores/WizStore';
+import {getRewardsByRegion} from 'common/gameDataHandlerUtil';
+import {GameServer} from 'model/Equipment';
 
 type CampaignByRequiredPieceCount = {
     [key: number]: Campaign[],
@@ -21,12 +24,12 @@ type IgnoredCampaignsProps = {
     solution: Solution<string>,
     allCampaigns: Campaign[],
     allRequiredPieceIds: Set<string>,
-
+    gameServer: GameServer,
 };
 
 const sortCampaignsByRequiredPieceCount =
     ({
-      solution, allCampaigns, allRequiredPieceIds,
+      solution, allCampaigns, allRequiredPieceIds, gameServer,
     }: IgnoredCampaignsProps ) => {
       const allNotSkippedStageKeys = new Set(Object.keys(solution));
 
@@ -37,7 +40,7 @@ const sortCampaignsByRequiredPieceCount =
             (partialMap, campaign) => {
               if (allNotSkippedStageKeys.has(campaign.id)) return partialMap;
               let requiredPiecesAppearCount = 0;
-              for (const reward of campaign.rewards) {
+              for (const reward of getRewardsByRegion(campaign, gameServer)) {
                 if (allRequiredPieceIds.has(reward.id)) {
                   requiredPiecesAppearCount++;
                 }
@@ -56,12 +59,12 @@ const sortCampaignsByRequiredPieceCount =
           .flatMap((stages) => stages);
     };
 
-const findValidCampaigns = ({solution, allCampaigns, allRequiredPieceIds}: IgnoredCampaignsProps) => {
+const findValidCampaigns = ({solution, allCampaigns, allRequiredPieceIds, gameServer}: IgnoredCampaignsProps) => {
   const allNotSkippedStageKeys = new Set(Object.keys(solution));
 
   return allCampaigns.filter((campaign) => {
     if (allNotSkippedStageKeys.has(campaign.id)) return false;
-    for (const reward of campaign.rewards) {
+    for (const reward of getRewardsByRegion(campaign, gameServer)) {
       if (allRequiredPieceIds.has(reward.id)) return true;
     }
 
@@ -78,12 +81,14 @@ const IgnoredCampaigns = ({
   equipmentsById,
 }: IgnoredCampaignsProps & {equipmentsById: EquipmentsById}) => {
   const {t} = useTranslation('home');
+  const store = useStore();
 
   const skippedValidCampaigns = useMemo(
       () => findValidCampaigns({
         solution: solution,
         allCampaigns: allCampaigns,
         allRequiredPieceIds: allRequiredPieceIds,
+        gameServer: store.gameInfoStore.gameServer,
       }), [solution,
         allCampaigns,
         allRequiredPieceIds]
@@ -113,7 +118,7 @@ const IgnoredCampaigns = ({
     <AccordionDetails>
       {
         skippedValidCampaigns.map((campaign) => {
-          const allDrops = campaign.rewards.map(({id, probability}) => ({id, dropProb: probability}));
+          const allDrops = getRewardsByRegion(campaign, store.gameInfoStore.gameServer).map(({id, probability}) => ({id, dropProb: probability}));
           return <div className={styles.campaignsWrapper} key={campaign.id}>
             <CampaignDropItemsList
               campaignInfo={campaign} stageExplanationLabel={t('stageIsSkipped')}

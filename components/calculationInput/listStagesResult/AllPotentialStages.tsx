@@ -22,7 +22,8 @@ const AllPotentialStages = ({
   const store = useStore();
   const allPotentialCampaigns = useMemo(
       () => listAndSortPotentialCampaigns(store.equipmentsRequirementStore.requirementMode, campaigns, piecesState,
-          store.equipmentsRequirementStore.getAllRequiredPieceIds()
+          store.equipmentsRequirementStore.getAllRequiredPieceIds(),
+          store.gameInfoStore.gameServer,
       ), [campaigns, piecesState, store.equipmentsRequirementStore.requirementMode]
   );
 
