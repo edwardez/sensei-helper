@@ -49,7 +49,7 @@ export const calculateSolution = (
     'opType': 'min' as const,
     constraints,
     variables};
-  console.log(model);
+
   // eslint-disable-next-line new-cap
   return solver.Solve(model);
 };
