@@ -12,7 +12,6 @@ import React, {useMemo} from 'react';
 import CampaignDropItemsList from 'components/calculationResult/CampaignDropItemsList';
 import Box from '@mui/material/Box';
 import {useTranslation} from 'next-i18next';
-import {useStore} from 'stores/WizStore';
 import {getRewardsByRegion} from 'common/gameDataHandlerUtil';
 import {GameServer} from 'model/Equipment';
 
@@ -79,16 +78,16 @@ const IgnoredCampaigns = ({
   allCampaigns,
   allRequiredPieceIds,
   equipmentsById,
+  gameServer,
 }: IgnoredCampaignsProps & {equipmentsById: EquipmentsById}) => {
   const {t} = useTranslation('home');
-  const store = useStore();
 
   const skippedValidCampaigns = useMemo(
       () => findValidCampaigns({
         solution: solution,
         allCampaigns: allCampaigns,
         allRequiredPieceIds: allRequiredPieceIds,
-        gameServer: store.gameInfoStore.gameServer,
+        gameServer,
       }), [solution,
         allCampaigns,
         allRequiredPieceIds]
@@ -118,7 +117,7 @@ const IgnoredCampaigns = ({
     <AccordionDetails>
       {
         skippedValidCampaigns.map((campaign) => {
-          const allDrops = getRewardsByRegion(campaign, store.gameInfoStore.gameServer).map(({id, probability}) => ({id, dropProb: probability}));
+          const allDrops = getRewardsByRegion(campaign, gameServer).map(({id, probability}) => ({id, dropProb: probability}));
           return <div className={styles.campaignsWrapper} key={campaign.id}>
             <CampaignDropItemsList
               campaignInfo={campaign} stageExplanationLabel={t('stageIsSkipped')}
