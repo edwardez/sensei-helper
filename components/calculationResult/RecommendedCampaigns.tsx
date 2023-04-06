@@ -18,6 +18,7 @@ import {useStore} from 'stores/WizStore';
 import InefficientRequirementWarning, {
   OnCloseInefficacyDialog,
 } from 'components/calculationInput/common/InefficientRequirementWarning';
+import {getRewardsByRegion} from 'common/gameDataHandlerUtil';
 
 
 const RecommendedCampaigns = ({
@@ -73,7 +74,7 @@ const RecommendedCampaigns = ({
             const {
               requiredItemDrops,
               additionalItemDrops,
-            } = campaignInfo.rewards.reduce<DropPieceIdsWithCount>((partiaResult, reward) => {
+            } = (getRewardsByRegion(campaignInfo, store.gameInfoStore.gameServer)).reduce<DropPieceIdsWithCount>((partiaResult, reward) => {
               let expectedDrop = Math.floor(sweepingTimes * reward.probability );
               expectedDrop = expectedDrop === 0 ? 1 : expectedDrop;
               const dropPieceIdWithCount: DropPieceIdWithProbAndCount = {

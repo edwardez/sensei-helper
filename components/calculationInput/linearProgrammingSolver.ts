@@ -2,6 +2,8 @@ import {IRequirementByPiece} from 'stores/EquipmentsRequirementStore';
 import {Campaign} from 'model/Campaign';
 import * as solver from 'javascript-lp-solver';
 import {IModelVariableConstraint} from 'javascript-lp-solver';
+import {GameServer} from 'model/Equipment';
+import {getRewardsByRegion} from 'common/gameDataHandlerUtil';
 
 export type PieceDropProb = {[key:string]: number};
 
@@ -10,6 +12,7 @@ export const calculateSolution = (
     normalMissionItemDropRatio: number,
     piecesDropByCampaignId: Map<string, Campaign>,
     excludeInefficientStages = false,
+    gameServer: GameServer,
 ) => {
   const constraints: { [key: string]: IModelVariableConstraint } = requirements.reduce<{[key: string]: IModelVariableConstraint}>(
       (partialConstraints, requirement) => {
@@ -27,12 +30,13 @@ export const calculateSolution = (
     if (excludeInefficientStages && (campaign?.recommendationWeight ?? 0) < 0) {
       return;
     }
-    const filteredProbs = campaign.rewards
+    const filteredProbs = getRewardsByRegion(campaign, gameServer)
         .filter((reward) => requiredPieceIds.has(reward.id))
         .reduce<PieceDropProb>((prev, reward) => {
           prev[reward.id] = reward.probability * normalMissionItemDropRatio;
           return prev;
         }, {});
+
     if (Object.keys(filteredProbs).length) {
       filteredProbs['ap'] = 10;
       variables[campaignId] = filteredProbs;

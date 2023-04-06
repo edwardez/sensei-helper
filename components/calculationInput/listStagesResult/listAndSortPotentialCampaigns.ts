@@ -1,6 +1,8 @@
 import {Campaign, Reward} from 'model/Campaign';
 import {PieceState} from 'components/calculationInput/equipments/inventory/PiecesInventory';
 import {RequirementMode} from 'stores/EquipmentsRequirementStore';
+import {GameServer} from 'model/Equipment';
+import {getRewardsByRegion} from 'common/gameDataHandlerUtil';
 
 export interface PotentialTargetReward extends Reward{
   isTargetReward: boolean;
@@ -15,7 +17,8 @@ export const listAndSortPotentialCampaigns = (
     requirementMode: RequirementMode,
     campaigns: Campaign[],
     piecesState:Map<string, PieceState>,
-    byPieceModePieceIds: Set<string>
+    byPieceModePieceIds: Set<string>,
+    gameServer: GameServer,
 )=>{
   if (!campaigns|| !piecesState) return [];
   const listedCampaign: ListedCampaign[] = [];
@@ -30,7 +33,7 @@ export const listAndSortPotentialCampaigns = (
   for (const campaign of campaigns) {
     const targetRewardIds: Set<string> = new Set();
     const potentialTargetRewards: PotentialTargetReward[] = [];
-    campaign.rewards.forEach((reward)=>{
+    getRewardsByRegion(campaign, gameServer).forEach((reward)=>{
       const isTargetReward = checkIsTargetReward(reward.id);
       const result = {
         id: reward.id,

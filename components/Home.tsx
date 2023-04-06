@@ -126,6 +126,7 @@ const Home: NextPage = observer((props) => {
         allCampaigns={campaigns}
         allRequiredPieceIds={store.equipmentsRequirementStore.getAllRequiredPieceIds()}
         equipmentsById={equipmentsById}
+        gameServer={store.gameInfoStore.gameServer}
       />
     </React.Fragment>;
   };
