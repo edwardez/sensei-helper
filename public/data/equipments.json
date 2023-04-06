@@ -148,6 +148,31 @@
     ]
   },
   {
+    "id": "2001007",
+    "category": "Hat",
+    "tier": 8,
+    "icon": "Equipment_Icon_Hat_Tier8",
+    "jpName": "リーフリボン付き中折れ帽",
+    "equipmentCompositionType": "Composite",
+    "releasedIn": [
+      "Japan"
+    ],
+    "recipe": [
+      {
+        "id": "2101007",
+        "count": 40
+      },
+      {
+        "id": "2101005",
+        "count": 15
+      },
+      {
+        "id": "2101004",
+        "count": 5
+      }
+    ]
+  },
+  {
     "id": "2002000",
     "category": "Gloves",
     "tier": 1,
@@ -291,6 +316,31 @@
       },
       {
         "id": "2102003",
+        "count": 5
+      }
+    ]
+  },
+  {
+    "id": "2002007",
+    "category": "Gloves",
+    "tier": 8,
+    "icon": "Equipment_Icon_Gloves_Tier8",
+    "jpName": "パールヤーングローブ",
+    "equipmentCompositionType": "Composite",
+    "releasedIn": [
+      "Japan"
+    ],
+    "recipe": [
+      {
+        "id": "2102007",
+        "count": 40
+      },
+      {
+        "id": "2102005",
+        "count": 15
+      },
+      {
+        "id": "2102004",
         "count": 5
       }
     ]
@@ -444,6 +494,31 @@
     ]
   },
   {
+    "id": "2003007",
+    "category": "Shoes",
+    "tier": 8,
+    "icon": "Equipment_Icon_Shoes_Tier8",
+    "jpName": "防水登山ブーツ",
+    "equipmentCompositionType": "Composite",
+    "releasedIn": [
+      "Japan"
+    ],
+    "recipe": [
+      {
+        "id": "2103007",
+        "count": 40
+      },
+      {
+        "id": "2103005",
+        "count": 15
+      },
+      {
+        "id": "2103004",
+        "count": 5
+      }
+    ]
+  },
+  {
     "id": "2004000",
     "category": "Bag",
     "tier": 1,
@@ -587,6 +662,31 @@
       },
       {
         "id": "2104003",
+        "count": 5
+      }
+    ]
+  },
+  {
+    "id": "2004007",
+    "category": "Bag",
+    "tier": 8,
+    "icon": "Equipment_Icon_Bag_Tier8",
+    "jpName": "蝶柄のショルダーバッグ",
+    "equipmentCompositionType": "Composite",
+    "releasedIn": [
+      "Japan"
+    ],
+    "recipe": [
+      {
+        "id": "2104007",
+        "count": 40
+      },
+      {
+        "id": "2104005",
+        "count": 15
+      },
+      {
+        "id": "2104004",
         "count": 5
       }
     ]
@@ -740,6 +840,31 @@
     ]
   },
   {
+    "id": "2005007",
+    "category": "Badge",
+    "tier": 8,
+    "icon": "Equipment_Icon_Badge_Tier8",
+    "jpName": "ローレライバッジ",
+    "equipmentCompositionType": "Composite",
+    "releasedIn": [
+      "Japan"
+    ],
+    "recipe": [
+      {
+        "id": "2105007",
+        "count": 40
+      },
+      {
+        "id": "2105005",
+        "count": 15
+      },
+      {
+        "id": "2105004",
+        "count": 5
+      }
+    ]
+  },
+  {
     "id": "2006000",
     "category": "Hairpin",
     "tier": 1,
@@ -888,6 +1013,31 @@
     ]
   },
   {
+    "id": "2006007",
+    "category": "Hairpin",
+    "tier": 8,
+    "icon": "Equipment_Icon_Hairpin_Tier8",
+    "jpName": "リーフヘアピン",
+    "equipmentCompositionType": "Composite",
+    "releasedIn": [
+      "Japan"
+    ],
+    "recipe": [
+      {
+        "id": "2106007",
+        "count": 40
+      },
+      {
+        "id": "2106005",
+        "count": 15
+      },
+      {
+        "id": "2106004",
+        "count": 5
+      }
+    ]
+  },
+  {
     "id": "2007000",
     "category": "Charm",
     "tier": 1,
@@ -1017,7 +1167,8 @@
     "jpName": "ポケット消臭剤",
     "equipmentCompositionType": "Composite",
     "releasedIn": [
-      "Japan"
+      "Japan",
+      "Global"
     ],
     "recipe": [
       {
@@ -1164,7 +1315,8 @@
     "jpName": "ストリートファッションウォッチ",
     "equipmentCompositionType": "Composite",
     "releasedIn": [
-      "Japan"
+      "Japan",
+      "Global"
     ],
     "recipe": [
       {
@@ -1311,7 +1463,8 @@
     "jpName": "チェーンネックレス",
     "equipmentCompositionType": "Composite",
     "releasedIn": [
-      "Japan"
+      "Japan",
+      "Global"
     ],
     "recipe": [
       {
@@ -1401,6 +1554,17 @@
     ]
   },
   {
+    "id": "2101007",
+    "category": "Hat",
+    "tier": 8,
+    "icon": "Equipment_Icon_Hat_Tier8_Piece",
+    "jpName": "リーフリボン付き中折れ帽の設計図",
+    "equipmentCompositionType": "Piece",
+    "releasedIn": [
+      "Japan"
+    ]
+  },
+  {
     "id": "2102001",
     "category": "Gloves",
     "tier": 2,
@@ -1470,6 +1634,17 @@
     "releasedIn": [
       "Japan",
       "Global"
+    ]
+  },
+  {
+    "id": "2102007",
+    "category": "Gloves",
+    "tier": 8,
+    "icon": "Equipment_Icon_Gloves_Tier8_Piece",
+    "jpName": "パールヤーングローブの設計図",
+    "equipmentCompositionType": "Piece",
+    "releasedIn": [
+      "Japan"
     ]
   },
   {
@@ -1545,6 +1720,17 @@
     ]
   },
   {
+    "id": "2103007",
+    "category": "Shoes",
+    "tier": 8,
+    "icon": "Equipment_Icon_Shoes_Tier8_Piece",
+    "jpName": "防水登山ブーツの設計図",
+    "equipmentCompositionType": "Piece",
+    "releasedIn": [
+      "Japan"
+    ]
+  },
+  {
     "id": "2104001",
     "category": "Bag",
     "tier": 2,
@@ -1614,6 +1800,17 @@
     "releasedIn": [
       "Japan",
       "Global"
+    ]
+  },
+  {
+    "id": "2104007",
+    "category": "Bag",
+    "tier": 8,
+    "icon": "Equipment_Icon_Bag_Tier8_Piece",
+    "jpName": "蝶柄のショルダーバッグの設計図",
+    "equipmentCompositionType": "Piece",
+    "releasedIn": [
+      "Japan"
     ]
   },
   {
@@ -1689,6 +1886,17 @@
     ]
   },
   {
+    "id": "2105007",
+    "category": "Badge",
+    "tier": 8,
+    "icon": "Equipment_Icon_Badge_Tier8_Piece",
+    "jpName": "ローレライバッジの設計図",
+    "equipmentCompositionType": "Piece",
+    "releasedIn": [
+      "Japan"
+    ]
+  },
+  {
     "id": "2106001",
     "category": "Hairpin",
     "tier": 2,
@@ -1761,6 +1969,17 @@
     ]
   },
   {
+    "id": "2106007",
+    "category": "Hairpin",
+    "tier": 8,
+    "icon": "Equipment_Icon_Hairpin_Tier8_Piece",
+    "jpName": "リーフヘアピンの設計図",
+    "equipmentCompositionType": "Piece",
+    "releasedIn": [
+      "Japan"
+    ]
+  },
+  {
     "id": "2107001",
     "category": "Charm",
     "tier": 2,
@@ -1828,7 +2047,8 @@
     "jpName": "ポケット消臭剤の設計図",
     "equipmentCompositionType": "Piece",
     "releasedIn": [
-      "Japan"
+      "Japan",
+      "Global"
     ]
   },
   {
@@ -1899,7 +2119,8 @@
     "jpName": "ストリートファッションウォッチの設計図",
     "equipmentCompositionType": "Piece",
     "releasedIn": [
-      "Japan"
+      "Japan",
+      "Global"
     ]
   },
   {
@@ -1970,7 +2191,8 @@
     "jpName": "チェーンネックレスの設計図",
     "equipmentCompositionType": "Piece",
     "releasedIn": [
-      "Japan"
+      "Japan",
+      "Global"
     ]
   }
 ]

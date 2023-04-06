@@ -6808,5 +6808,620 @@
         }
       ]
     }
+  },
+  {
+    "id": "1221101",
+    "area": 22,
+    "stage": 1,
+    "jpName": "メリエハビーチ",
+    "recommendationWeight": 200,
+    "rewards": [
+      {
+        "id": "2101007",
+        "probability": 0.344
+      },
+      {
+        "id": "2102007",
+        "probability": 0.258
+      },
+      {
+        "id": "2103007",
+        "probability": 0.258
+      },
+      {
+        "id": "2101004",
+        "probability": 0.1
+      },
+      {
+        "id": "2101005",
+        "probability": 0.2
+      },
+      {
+        "id": "2102004",
+        "probability": 0.075
+      },
+      {
+        "id": "2102005",
+        "probability": 0.15
+      },
+      {
+        "id": "2103004",
+        "probability": 0.075
+      },
+      {
+        "id": "2103005",
+        "probability": 0.15
+      }
+    ],
+    "rewardsByRegion": {
+      "Japan": [
+        {
+          "id": "2101007",
+          "probability": 0.344
+        },
+        {
+          "id": "2102007",
+          "probability": 0.258
+        },
+        {
+          "id": "2103007",
+          "probability": 0.258
+        },
+        {
+          "id": "2101004",
+          "probability": 0.1
+        },
+        {
+          "id": "2101005",
+          "probability": 0.2
+        },
+        {
+          "id": "2102004",
+          "probability": 0.075
+        },
+        {
+          "id": "2102005",
+          "probability": 0.15
+        },
+        {
+          "id": "2103004",
+          "probability": 0.075
+        },
+        {
+          "id": "2103005",
+          "probability": 0.15
+        }
+      ],
+      "Global": [
+        {
+          "id": "2101007",
+          "probability": 0.344
+        },
+        {
+          "id": "2102007",
+          "probability": 0.258
+        },
+        {
+          "id": "2103007",
+          "probability": 0.258
+        },
+        {
+          "id": "2101004",
+          "probability": 0.1
+        },
+        {
+          "id": "2101005",
+          "probability": 0.2
+        },
+        {
+          "id": "2102004",
+          "probability": 0.075
+        },
+        {
+          "id": "2102005",
+          "probability": 0.15
+        },
+        {
+          "id": "2103004",
+          "probability": 0.075
+        },
+        {
+          "id": "2103005",
+          "probability": 0.15
+        }
+      ]
+    }
+  },
+  {
+    "id": "1221102",
+    "area": 22,
+    "stage": 2,
+    "jpName": "シーサイドビーチ",
+    "recommendationWeight": 50,
+    "rewards": [
+      {
+        "id": "2102007",
+        "probability": 0.344
+      },
+      {
+        "id": "2105007",
+        "probability": 0.258
+      },
+      {
+        "id": "2101007",
+        "probability": 0.258
+      },
+      {
+        "id": "2102004",
+        "probability": 0.1
+      },
+      {
+        "id": "2102005",
+        "probability": 0.2
+      },
+      {
+        "id": "2105004",
+        "probability": 0.075
+      },
+      {
+        "id": "2105005",
+        "probability": 0.15
+      },
+      {
+        "id": "2101004",
+        "probability": 0.075
+      },
+      {
+        "id": "2101005",
+        "probability": 0.15
+      }
+    ],
+    "rewardsByRegion": {
+      "Japan": [
+        {
+          "id": "2102007",
+          "probability": 0.344
+        },
+        {
+          "id": "2105007",
+          "probability": 0.258
+        },
+        {
+          "id": "2101007",
+          "probability": 0.258
+        },
+        {
+          "id": "2102004",
+          "probability": 0.1
+        },
+        {
+          "id": "2102005",
+          "probability": 0.2
+        },
+        {
+          "id": "2105004",
+          "probability": 0.075
+        },
+        {
+          "id": "2105005",
+          "probability": 0.15
+        },
+        {
+          "id": "2101004",
+          "probability": 0.075
+        },
+        {
+          "id": "2101005",
+          "probability": 0.15
+        }
+      ],
+      "Global": [
+        {
+          "id": "2102007",
+          "probability": 0.344
+        },
+        {
+          "id": "2105007",
+          "probability": 0.258
+        },
+        {
+          "id": "2101007",
+          "probability": 0.258
+        },
+        {
+          "id": "2102004",
+          "probability": 0.1
+        },
+        {
+          "id": "2102005",
+          "probability": 0.2
+        },
+        {
+          "id": "2105004",
+          "probability": 0.075
+        },
+        {
+          "id": "2105005",
+          "probability": 0.15
+        },
+        {
+          "id": "2101004",
+          "probability": 0.075
+        },
+        {
+          "id": "2101005",
+          "probability": 0.15
+        }
+      ]
+    }
+  },
+  {
+    "id": "1221103",
+    "area": 22,
+    "stage": 3,
+    "jpName": "オーシャンパレス",
+    "recommendationWeight": 250,
+    "rewards": [
+      {
+        "id": "2103007",
+        "probability": 0.344
+      },
+      {
+        "id": "2101007",
+        "probability": 0.258
+      },
+      {
+        "id": "2106007",
+        "probability": 0.258
+      },
+      {
+        "id": "2103004",
+        "probability": 0.1
+      },
+      {
+        "id": "2103005",
+        "probability": 0.2
+      },
+      {
+        "id": "2101004",
+        "probability": 0.075
+      },
+      {
+        "id": "2101005",
+        "probability": 0.15
+      },
+      {
+        "id": "2106004",
+        "probability": 0.075
+      },
+      {
+        "id": "2106005",
+        "probability": 0.15
+      }
+    ],
+    "rewardsByRegion": {
+      "Japan": [
+        {
+          "id": "2103007",
+          "probability": 0.344
+        },
+        {
+          "id": "2101007",
+          "probability": 0.258
+        },
+        {
+          "id": "2106007",
+          "probability": 0.258
+        },
+        {
+          "id": "2103004",
+          "probability": 0.1
+        },
+        {
+          "id": "2103005",
+          "probability": 0.2
+        },
+        {
+          "id": "2101004",
+          "probability": 0.075
+        },
+        {
+          "id": "2101005",
+          "probability": 0.15
+        },
+        {
+          "id": "2106004",
+          "probability": 0.075
+        },
+        {
+          "id": "2106005",
+          "probability": 0.15
+        }
+      ],
+      "Global": [
+        {
+          "id": "2103007",
+          "probability": 0.344
+        },
+        {
+          "id": "2101007",
+          "probability": 0.258
+        },
+        {
+          "id": "2106007",
+          "probability": 0.258
+        },
+        {
+          "id": "2103004",
+          "probability": 0.1
+        },
+        {
+          "id": "2103005",
+          "probability": 0.2
+        },
+        {
+          "id": "2101004",
+          "probability": 0.075
+        },
+        {
+          "id": "2101005",
+          "probability": 0.15
+        },
+        {
+          "id": "2106004",
+          "probability": 0.075
+        },
+        {
+          "id": "2106005",
+          "probability": 0.15
+        }
+      ]
+    }
+  },
+  {
+    "id": "1221104",
+    "area": 22,
+    "stage": 4,
+    "jpName": "ザ・ベイ301路",
+    "recommendationWeight": 50,
+    "rewards": [
+      {
+        "id": "2106007",
+        "probability": 0.344
+      },
+      {
+        "id": "2103007",
+        "probability": 0.258
+      },
+      {
+        "id": "2104007",
+        "probability": 0.258
+      },
+      {
+        "id": "2106004",
+        "probability": 0.1
+      },
+      {
+        "id": "2106005",
+        "probability": 0.2
+      },
+      {
+        "id": "2103004",
+        "probability": 0.075
+      },
+      {
+        "id": "2103005",
+        "probability": 0.15
+      },
+      {
+        "id": "2104004",
+        "probability": 0.075
+      },
+      {
+        "id": "2104005",
+        "probability": 0.15
+      }
+    ],
+    "rewardsByRegion": {
+      "Japan": [
+        {
+          "id": "2106007",
+          "probability": 0.344
+        },
+        {
+          "id": "2103007",
+          "probability": 0.258
+        },
+        {
+          "id": "2104007",
+          "probability": 0.258
+        },
+        {
+          "id": "2106004",
+          "probability": 0.1
+        },
+        {
+          "id": "2106005",
+          "probability": 0.2
+        },
+        {
+          "id": "2103004",
+          "probability": 0.075
+        },
+        {
+          "id": "2103005",
+          "probability": 0.15
+        },
+        {
+          "id": "2104004",
+          "probability": 0.075
+        },
+        {
+          "id": "2104005",
+          "probability": 0.15
+        }
+      ],
+      "Global": [
+        {
+          "id": "2106007",
+          "probability": 0.344
+        },
+        {
+          "id": "2103007",
+          "probability": 0.258
+        },
+        {
+          "id": "2104007",
+          "probability": 0.258
+        },
+        {
+          "id": "2106004",
+          "probability": 0.1
+        },
+        {
+          "id": "2106005",
+          "probability": 0.2
+        },
+        {
+          "id": "2103004",
+          "probability": 0.075
+        },
+        {
+          "id": "2103005",
+          "probability": 0.15
+        },
+        {
+          "id": "2104004",
+          "probability": 0.075
+        },
+        {
+          "id": "2104005",
+          "probability": 0.15
+        }
+      ]
+    }
+  },
+  {
+    "id": "1221105",
+    "area": 22,
+    "stage": 5,
+    "jpName": "水辺公園北路",
+    "recommendationWeight": 50,
+    "rewards": [
+      {
+        "id": "2105007",
+        "probability": 0.344
+      },
+      {
+        "id": "2102007",
+        "probability": 0.258
+      },
+      {
+        "id": "2101007",
+        "probability": 0.258
+      },
+      {
+        "id": "2105004",
+        "probability": 0.1
+      },
+      {
+        "id": "2105005",
+        "probability": 0.2
+      },
+      {
+        "id": "2102004",
+        "probability": 0.075
+      },
+      {
+        "id": "2102005",
+        "probability": 0.15
+      },
+      {
+        "id": "2101004",
+        "probability": 0.075
+      },
+      {
+        "id": "2101005",
+        "probability": 0.15
+      }
+    ],
+    "rewardsByRegion": {
+      "Japan": [
+        {
+          "id": "2105007",
+          "probability": 0.344
+        },
+        {
+          "id": "2102007",
+          "probability": 0.258
+        },
+        {
+          "id": "2101007",
+          "probability": 0.258
+        },
+        {
+          "id": "2105004",
+          "probability": 0.1
+        },
+        {
+          "id": "2105005",
+          "probability": 0.2
+        },
+        {
+          "id": "2102004",
+          "probability": 0.075
+        },
+        {
+          "id": "2102005",
+          "probability": 0.15
+        },
+        {
+          "id": "2101004",
+          "probability": 0.075
+        },
+        {
+          "id": "2101005",
+          "probability": 0.15
+        }
+      ],
+      "Global": [
+        {
+          "id": "2105007",
+          "probability": 0.344
+        },
+        {
+          "id": "2102007",
+          "probability": 0.258
+        },
+        {
+          "id": "2101007",
+          "probability": 0.258
+        },
+        {
+          "id": "2105004",
+          "probability": 0.1
+        },
+        {
+          "id": "2105005",
+          "probability": 0.2
+        },
+        {
+          "id": "2102004",
+          "probability": 0.075
+        },
+        {
+          "id": "2102005",
+          "probability": 0.15
+        },
+        {
+          "id": "2101004",
+          "probability": 0.075
+        },
+        {
+          "id": "2101005",
+          "probability": 0.15
+        }
+      ]
+    }
   }
 ]
