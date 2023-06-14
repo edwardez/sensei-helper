@@ -1186,6 +1186,31 @@
     ]
   },
   {
+    "id": "2007007",
+    "category": "Charm",
+    "tier": 8,
+    "icon": "Equipment_Icon_Charm_Tier8",
+    "jpName": "ドリームキャッチャー",
+    "equipmentCompositionType": "Composite",
+    "releasedIn": [
+      "Japan"
+    ],
+    "recipe": [
+      {
+        "id": "2107007",
+        "count": 40
+      },
+      {
+        "id": "2107005",
+        "count": 15
+      },
+      {
+        "id": "2107004",
+        "count": 5
+      }
+    ]
+  },
+  {
     "id": "2008000",
     "category": "Watch",
     "tier": 1,
@@ -1334,6 +1359,31 @@
     ]
   },
   {
+    "id": "2008007",
+    "category": "Watch",
+    "tier": 8,
+    "icon": "Equipment_Icon_Watch_Tier8",
+    "jpName": "ローレライの腕時計",
+    "equipmentCompositionType": "Composite",
+    "releasedIn": [
+      "Japan"
+    ],
+    "recipe": [
+      {
+        "id": "2108007",
+        "count": 40
+      },
+      {
+        "id": "2108005",
+        "count": 15
+      },
+      {
+        "id": "2108004",
+        "count": 5
+      }
+    ]
+  },
+  {
     "id": "2009000",
     "category": "Necklace",
     "tier": 1,
@@ -1477,6 +1527,31 @@
       },
       {
         "id": "2109003",
+        "count": 5
+      }
+    ]
+  },
+  {
+    "id": "2009007",
+    "category": "Necklace",
+    "tier": 8,
+    "icon": "Equipment_Icon_Necklace_Tier8",
+    "jpName": "グリーンリーフネックレス",
+    "equipmentCompositionType": "Composite",
+    "releasedIn": [
+      "Japan"
+    ],
+    "recipe": [
+      {
+        "id": "2109007",
+        "count": 40
+      },
+      {
+        "id": "2109005",
+        "count": 15
+      },
+      {
+        "id": "2109004",
         "count": 5
       }
     ]
@@ -2052,6 +2127,17 @@
     ]
   },
   {
+    "id": "2107007",
+    "category": "Charm",
+    "tier": 8,
+    "icon": "Equipment_Icon_Charm_Tier8_Piece",
+    "jpName": "ドリームキャッチャーの設計図",
+    "equipmentCompositionType": "Piece",
+    "releasedIn": [
+      "Japan"
+    ]
+  },
+  {
     "id": "2108001",
     "category": "Watch",
     "tier": 2,
@@ -2124,6 +2210,17 @@
     ]
   },
   {
+    "id": "2108007",
+    "category": "Watch",
+    "tier": 8,
+    "icon": "Equipment_Icon_Watch_Tier8_Piece",
+    "jpName": "ローレライの腕時計の設計図",
+    "equipmentCompositionType": "Piece",
+    "releasedIn": [
+      "Japan"
+    ]
+  },
+  {
     "id": "2109001",
     "category": "Necklace",
     "tier": 2,
@@ -2193,6 +2290,17 @@
     "releasedIn": [
       "Japan",
       "Global"
+    ]
+  },
+  {
+    "id": "2109007",
+    "category": "Necklace",
+    "tier": 8,
+    "icon": "Equipment_Icon_Necklace_Tier8_Piece",
+    "jpName": "グリーンリーフネックレスの設計図",
+    "equipmentCompositionType": "Piece",
+    "releasedIn": [
+      "Japan"
     ]
   }
 ]
