@@ -76,6 +76,7 @@
   "settingsDialogSelectGameServer": "游戏服务器",
   "japanServer": "日服",
   "globalServer": "国际服",
+  "chinaServer": "国服",
   "notifyDataCorruptionDialog": {
     "title": "意外错误",
     "explanation": "你的数据似乎已经损坏，设置和装备数据需要被清空。",

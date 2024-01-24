@@ -77,6 +77,7 @@
   "settingsDialogSelectGameServer": "Select your game server",
   "japanServer": "Japan",
   "globalServer": "Global",
+  "chinaServer": "China",
   "notifyDataCorruptionDialog": {
     "title": "Something went wrong",
     "explanation": "It seems like your data is corrupted, your settings and equipment data will be reset.",
