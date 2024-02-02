@@ -5,6 +5,8 @@
   "listButton": "検索",
   "cancelButton": "キャンセル",
   "deleteButton": "削除",
+  "upgradeAndDeleteButton": "強化＆削除",
+  "upgradeAndDeleteTooltip": "設計図を消費し、リストから削除します",
   "editButton": "編集",
   "closeButton": "閉じる",
   "showAllButton": "すべてを表示",

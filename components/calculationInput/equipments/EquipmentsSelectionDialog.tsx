@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import styles from 'components/calculationInput/equipments/EquipmentsSelectionDialog.module.scss';
 import {
   Button,
@@ -10,6 +11,7 @@ import {
   StepButton,
   StepContent,
   Stepper,
+  Tooltip,
   Typography,
   useMediaQuery,
   useTheme,
@@ -35,6 +37,10 @@ import {
 import NickNameInput from 'components/calculationInput/equipments/EquipmentDialog/NickNameInput';
 import {observer} from 'mobx-react-lite';
 import {useStore} from 'stores/WizStore';
+import {calculateRequirementAmount} from 'components/calculationInput/equipments/inventory/piecesStateCalculator';
+import { boolean } from 'mobx-state-tree/dist/internal';
+import UpgradeConfirmationDialog from './UpgradeConfirmationDialog';
+import { PieceState } from './inventory/PiecesInventory';
 
 
 export interface IEquipmentFormInputs {
@@ -54,6 +60,7 @@ type EquipmentsSelectionDialogPros = {
   handleAddEquipmentRequirement: (requirementByEquipment: IRequirementByEquipment) => void,
   handleUpdateEquipmentRequirement: (equipmentInfoToEdit: EquipmentInfoToEdit) => void,
   handleDeleteEquipmentRequirement: (equipmentInfoToEdit: EquipmentInfoToEdit) => void,
+  handleUpgradeEquipmentRequirement: (equipmentInfoToEdit: EquipmentInfoToEdit) => void,
   handleCancel: () => void,
   // An entity denotes a pre-selected equipment.
   // Setting this means dialog will be used for editing existing selection.
@@ -66,6 +73,7 @@ const EquipmentsSelectionDialog = (
       handleAddEquipmentRequirement,
       handleUpdateEquipmentRequirement,
       handleDeleteEquipmentRequirement,
+      handleUpgradeEquipmentRequirement,
       handleCancel,
     } : EquipmentsSelectionDialogPros
 ) => {
@@ -78,6 +86,7 @@ const EquipmentsSelectionDialog = (
     getValues,
     setValue,
     reset,
+    watch,
   } = useForm<IEquipmentFormInputs>({
     mode: 'onChange',
     defaultValues: {
@@ -91,6 +100,7 @@ const EquipmentsSelectionDialog = (
   const [baseEquipId, setBaseEquipId] = useState<string|null>(null);
   const previousBaseEquipId = usePrevious(baseEquipId);
   const [targetEquipId, setTargetEquipId] = useState<string|null>(null);
+  const [isUpgradeDialogOpened, setUpgradeDialogOpened] = useState(false);
 
   useEffect(() => {
     if (!isOpened) {
@@ -163,6 +173,30 @@ const EquipmentsSelectionDialog = (
     }
   }, [baseEquipId, previousBaseEquipId, targetEquipId, equipmentsById]);
 
+  const isUpgradable = useMemo(() => {
+    if (!isInputValid) return false;
+
+    const count = parseInt(getValues().neededEquipmentsCount);
+    if (!count || !baseEquipId || !targetEquipId) return false;
+    const amounts = calculateRequirementAmount(
+      equipmentsById,
+      equipmentsByTierAndCategory,
+      baseEquipId,
+      targetEquipId,
+      count,
+    );
+
+    let enough = true;
+    amounts.forEach((amount, pieceId) => {
+      const stock = store.equipmentsRequirementStore.piecesInventory
+        .get(pieceId)?.inStockCount ?? 0;
+      
+      enough &&= amount <= stock;
+    });
+
+    return enough;
+  }, [isInputValid, baseEquipId, targetEquipId, watch('neededEquipmentsCount')])
+
   const maxTierPerCategory = useMemo(() => {
     const maxTierPerCategoryBuilder: {[key : string]: number} = {};
     for (const tier of allTiers) {
@@ -233,6 +267,27 @@ const EquipmentsSelectionDialog = (
   const handleDeletePieceRequirementOnClose = () => {
     if (!baseEquipId || !targetEquipId || !equipmentInfoToEdit) return;
     const formValues =getValues();
+
+    handleDeleteEquipmentRequirement({
+      currentEquipmentId: baseEquipId,
+      targetEquipmentId: targetEquipId,
+      count: parseInt(formValues.neededEquipmentsCount) ?? 1,
+      nickname: formValues.nickname,
+      indexInStoreArray: equipmentInfoToEdit.indexInStoreArray,
+    });
+  };
+
+  const handleUpgrade = (equip: EquipmentInfoToEdit, requirements: PieceState[]) => {
+    setUpgradeDialogOpened(false);
+    
+    if (!baseEquipId || !targetEquipId || !equipmentInfoToEdit) return;
+    const formValues = getValues();
+
+    store.equipmentsRequirementStore.updateInventory(
+      requirements.reduce((acc, piece) => {
+        return Object.assign(acc, { [piece.pieceId]: piece.inStockCount - piece.needCount })
+      }, {})
+    );
 
     handleDeleteEquipmentRequirement({
       currentEquipmentId: baseEquipId,
@@ -333,13 +388,18 @@ const EquipmentsSelectionDialog = (
       <Box display={'flex'}>
         <Box>{t('addEquipmentDialog.selectAEquipment')}</Box>
         <Box flexGrow={'1'}></Box>
-        {equipmentInfoToEdit ? <Box><Button color={'error'} onClick={handleDeletePieceRequirementOnClose}>
-          {t('deleteButton')}</Button></Box> :
-            null}
-
+        {equipmentInfoToEdit && <Box>
+          <Button color={'error'} onClick={handleDeletePieceRequirementOnClose}>
+            {t('deleteButton')}
+          </Button>
+          <Tooltip title={t('upgradeAndDeleteTooltip')}><span>
+            <Button color={'success'} disabled={!isUpgradable} onClick={() => setUpgradeDialogOpened(true)}>
+              {t('upgradeAndDeleteButton')}
+            </Button>
+          </span></Tooltip>
+        </Box>}
       </Box>
     </DialogTitle>
-
 
     <DialogContent>
       <Stepper activeStep={activeStepNum} orientation="vertical">
@@ -367,6 +427,15 @@ const EquipmentsSelectionDialog = (
         {equipmentInfoToEdit ? t('updateButton') : t('addButton')}
       </Button>
     </DialogActions>
+
+    {equipmentInfoToEdit && <UpgradeConfirmationDialog 
+      isOpened={isUpgradeDialogOpened}
+      equipmentsById={equipmentsById}
+      equipmentsByTierAndCategory={equipmentsByTierAndCategory}
+      equipmentInfoToEdit={equipmentInfoToEdit}
+      handleCancel={() => setUpgradeDialogOpened(false)}
+      handleUpgrade={handleUpgrade}
+    />}
   </Dialog>;
 };
 

@@ -1,0 +1,29 @@
+@use 'scss/layout.module';
+@use 'scss/flexbox.module';
+@use 'components/calculationInput/common/common-calculation-input-layout';
+
+.desc, .equip, .pieces {
+  @include layout.bui-option-child-content-margin;
+}
+
+.equip {
+  display: flex;
+
+  justify-items: center;
+  align-content: center;
+  align-items: center;
+
+  user-select: none;
+
+  > :not(:last-child) {
+    margin-right: 1em;
+  }
+
+  > * {
+    margin-top: 1em;
+  }
+}
+
+.card {
+  @include common-calculation-input-layout.items-list;
+}
