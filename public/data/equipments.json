@@ -180,6 +180,31 @@
     ]
   },
   {
+    "id": "2001008",
+    "category": "Hat",
+    "tier": 9,
+    "icon": "equipment_icon_hat_tier9",
+    "jpName": "セーラーハット",
+    "equipmentCompositionType": "Composite",
+    "releasedIn": [
+      "Japan"
+    ],
+    "recipe": [
+      {
+        "id": "2101008",
+        "count": 50
+      },
+      {
+        "id": "2101006",
+        "count": 15
+      },
+      {
+        "id": "2101005",
+        "count": 10
+      }
+    ]
+  },
+  {
     "id": "2002000",
     "category": "Gloves",
     "tier": 1,
@@ -356,6 +381,31 @@
       {
         "id": "2102004",
         "count": 5
+      }
+    ]
+  },
+  {
+    "id": "2002008",
+    "category": "Gloves",
+    "tier": 9,
+    "icon": "equipment_icon_gloves_tier9",
+    "jpName": "セーリンググローブ",
+    "equipmentCompositionType": "Composite",
+    "releasedIn": [
+      "Japan"
+    ],
+    "recipe": [
+      {
+        "id": "2102008",
+        "count": 50
+      },
+      {
+        "id": "2102006",
+        "count": 15
+      },
+      {
+        "id": "2102005",
+        "count": 10
       }
     ]
   },
@@ -540,6 +590,31 @@
     ]
   },
   {
+    "id": "2003008",
+    "category": "Shoes",
+    "tier": 9,
+    "icon": "equipment_icon_shoes_tier9",
+    "jpName": "アクアサンダル",
+    "equipmentCompositionType": "Composite",
+    "releasedIn": [
+      "Japan"
+    ],
+    "recipe": [
+      {
+        "id": "2103008",
+        "count": 50
+      },
+      {
+        "id": "2103006",
+        "count": 15
+      },
+      {
+        "id": "2103005",
+        "count": 10
+      }
+    ]
+  },
+  {
     "id": "2004000",
     "category": "Bag",
     "tier": 1,
@@ -716,6 +791,31 @@
       {
         "id": "2104004",
         "count": 5
+      }
+    ]
+  },
+  {
+    "id": "2004008",
+    "category": "Bag",
+    "tier": 9,
+    "icon": "equipment_icon_bag_tier9",
+    "jpName": "スリングドライバック",
+    "equipmentCompositionType": "Composite",
+    "releasedIn": [
+      "Japan"
+    ],
+    "recipe": [
+      {
+        "id": "2104008",
+        "count": 50
+      },
+      {
+        "id": "2104006",
+        "count": 15
+      },
+      {
+        "id": "2104005",
+        "count": 10
       }
     ]
   },
@@ -900,6 +1000,31 @@
     ]
   },
   {
+    "id": "2005008",
+    "category": "Badge",
+    "tier": 9,
+    "icon": "equipment_icon_badge_tier9",
+    "jpName": "ハルピュイア・フレキシブルバッジ",
+    "equipmentCompositionType": "Composite",
+    "releasedIn": [
+      "Japan"
+    ],
+    "recipe": [
+      {
+        "id": "2105008",
+        "count": 50
+      },
+      {
+        "id": "2105006",
+        "count": 15
+      },
+      {
+        "id": "2105005",
+        "count": 10
+      }
+    ]
+  },
+  {
     "id": "2006000",
     "category": "Hairpin",
     "tier": 1,
@@ -1080,6 +1205,31 @@
     ]
   },
   {
+    "id": "2006008",
+    "category": "Hairpin",
+    "tier": 9,
+    "icon": "equipment_icon_hairpin_tier9",
+    "jpName": "アンカーヘアピン",
+    "equipmentCompositionType": "Composite",
+    "releasedIn": [
+      "Japan"
+    ],
+    "recipe": [
+      {
+        "id": "2106008",
+        "count": 50
+      },
+      {
+        "id": "2106006",
+        "count": 15
+      },
+      {
+        "id": "2106005",
+        "count": 10
+      }
+    ]
+  },
+  {
     "id": "2007000",
     "category": "Charm",
     "tier": 1,
@@ -1189,7 +1339,8 @@
     "equipmentCompositionType": "Composite",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ],
     "recipe": [
       {
@@ -1368,7 +1519,8 @@
     "equipmentCompositionType": "Composite",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ],
     "recipe": [
       {
@@ -1547,7 +1699,8 @@
     "equipmentCompositionType": "Composite",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ],
     "recipe": [
       {
@@ -1706,6 +1859,17 @@
     ]
   },
   {
+    "id": "2101008",
+    "category": "Hat",
+    "tier": 9,
+    "icon": "equipment_icon_hat_tier9_piece",
+    "jpName": "セーラーハットの設計図",
+    "equipmentCompositionType": "Piece",
+    "releasedIn": [
+      "Japan"
+    ]
+  },
+  {
     "id": "2102001",
     "category": "Gloves",
     "tier": 2,
@@ -1792,6 +1956,17 @@
     "releasedIn": [
       "Japan",
       "Global"
+    ]
+  },
+  {
+    "id": "2102008",
+    "category": "Gloves",
+    "tier": 9,
+    "icon": "equipment_icon_gloves_tier9_piece",
+    "jpName": "セーリンググローブの設計図",
+    "equipmentCompositionType": "Piece",
+    "releasedIn": [
+      "Japan"
     ]
   },
   {
@@ -1884,6 +2059,17 @@
     ]
   },
   {
+    "id": "2103008",
+    "category": "Shoes",
+    "tier": 9,
+    "icon": "equipment_icon_shoes_tier9_piece",
+    "jpName": "アクアサンダルの設計図",
+    "equipmentCompositionType": "Piece",
+    "releasedIn": [
+      "Japan"
+    ]
+  },
+  {
     "id": "2104001",
     "category": "Bag",
     "tier": 2,
@@ -1970,6 +2156,17 @@
     "releasedIn": [
       "Japan",
       "Global"
+    ]
+  },
+  {
+    "id": "2104008",
+    "category": "Bag",
+    "tier": 9,
+    "icon": "equipment_icon_bag_tier9_piece",
+    "jpName": "スリングドライバックの設計図",
+    "equipmentCompositionType": "Piece",
+    "releasedIn": [
+      "Japan"
     ]
   },
   {
@@ -2062,6 +2259,17 @@
     ]
   },
   {
+    "id": "2105008",
+    "category": "Badge",
+    "tier": 9,
+    "icon": "equipment_icon_badge_tier9_piece",
+    "jpName": "ハルピュイア・フレキシブルバッジの設計図",
+    "equipmentCompositionType": "Piece",
+    "releasedIn": [
+      "Japan"
+    ]
+  },
+  {
     "id": "2106001",
     "category": "Hairpin",
     "tier": 2,
@@ -2151,6 +2359,17 @@
     ]
   },
   {
+    "id": "2106008",
+    "category": "Hairpin",
+    "tier": 9,
+    "icon": "equipment_icon_hairpin_tier9_piece",
+    "jpName": "アンカーヘアピンの設計図",
+    "equipmentCompositionType": "Piece",
+    "releasedIn": [
+      "Japan"
+    ]
+  },
+  {
     "id": "2107001",
     "category": "Charm",
     "tier": 2,
@@ -2211,7 +2430,8 @@
     "equipmentCompositionType": "Piece",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ]
   },
   {
@@ -2299,7 +2519,8 @@
     "equipmentCompositionType": "Piece",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ]
   },
   {
@@ -2387,7 +2608,8 @@
     "equipmentCompositionType": "Piece",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ]
   },
   {
