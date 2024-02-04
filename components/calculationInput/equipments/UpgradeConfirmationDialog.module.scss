@@ -2,7 +2,9 @@
 @use 'scss/flexbox.module';
 @use 'components/calculationInput/common/common-calculation-input-layout';
 
-.desc, .equip, .pieces {
+.desc,
+.equip,
+.pieces {
   @include layout.bui-option-child-content-margin;
 }
 
@@ -13,14 +15,12 @@
   align-content: center;
   align-items: center;
 
+  margin-top: 1em;
+
   user-select: none;
 
-  > :not(:last-child) {
-    margin-right: 1em;
-  }
-
   > * {
-    margin-top: 1em;
+    margin-inline: 0.5rem;
   }
 }
 

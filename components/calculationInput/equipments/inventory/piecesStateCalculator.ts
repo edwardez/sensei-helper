@@ -45,16 +45,18 @@ export const calculatePiecesState = (store: IWizStore, equipmentsById: Equipment
       requirement.targetEquipmentId,
       requirement.count,
     ).forEach((amount, pieceId) => {
+      const stock =
+        store.equipmentsRequirementStore.piecesInventory.get(pieceId)
+          ?.inStockCount ?? 0;
       const pieceState = piecesStateMap.get(pieceId) ?? {
         pieceId,
         needCount: 0,
-        inStockCount: store.equipmentsRequirementStore
-          .piecesInventory.get(pieceId)?.inStockCount ?? 0,
+        inStockCount: stock,
       };
 
       pieceState.needCount += amount;
       piecesStateMap.set(pieceId, pieceState);
-    })
+    });
   }
 
   return piecesStateMap;

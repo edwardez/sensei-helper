@@ -5,6 +5,8 @@
   "listButton": "列出",
   "cancelButton": "取消",
   "deleteButton": "删除",
+  "upgradeAndDeleteButton": "强化和移除",
+  "upgradeAndDeleteTooltip": "消耗设计图并将其从列表中删除",
   "editButton": "编辑",
   "closeButton": "关闭",
   "showAllButton": "显示全部",
@@ -44,6 +46,13 @@
     "maxLengthIs": "最多输入{{max}}个字",
     "enterNickName":  "添加昵称（选填）",
     "enterNickNameNormalHelperText": "可以输入学生姓名方便记和进行装备管理"
+  },
+  "upgradeDialog": {
+    "title": "确认强化细节",
+    "description_1": "消耗设备设计图以强化以下功能",
+    "description_2": "按要求减少已登记的占有权设计图数量，并将该装备从列表中删除。",
+    "detail": "确认强化细节",
+    "pieces": "消耗设计图"
   },
   "thinsToNote": {
     "title": "注意事项",

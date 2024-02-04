@@ -38,9 +38,8 @@ import NickNameInput from 'components/calculationInput/equipments/EquipmentDialo
 import {observer} from 'mobx-react-lite';
 import {useStore} from 'stores/WizStore';
 import {calculateRequirementAmount} from 'components/calculationInput/equipments/inventory/piecesStateCalculator';
-import { boolean } from 'mobx-state-tree/dist/internal';
 import UpgradeConfirmationDialog from './UpgradeConfirmationDialog';
-import { PieceState } from './inventory/PiecesInventory';
+import {PieceState} from './inventory/PiecesInventory';
 
 
 export interface IEquipmentFormInputs {
@@ -60,7 +59,6 @@ type EquipmentsSelectionDialogPros = {
   handleAddEquipmentRequirement: (requirementByEquipment: IRequirementByEquipment) => void,
   handleUpdateEquipmentRequirement: (equipmentInfoToEdit: EquipmentInfoToEdit) => void,
   handleDeleteEquipmentRequirement: (equipmentInfoToEdit: EquipmentInfoToEdit) => void,
-  handleUpgradeEquipmentRequirement: (equipmentInfoToEdit: EquipmentInfoToEdit) => void,
   handleCancel: () => void,
   // An entity denotes a pre-selected equipment.
   // Setting this means dialog will be used for editing existing selection.
@@ -73,7 +71,6 @@ const EquipmentsSelectionDialog = (
       handleAddEquipmentRequirement,
       handleUpdateEquipmentRequirement,
       handleDeleteEquipmentRequirement,
-      handleUpgradeEquipmentRequirement,
       handleCancel,
     } : EquipmentsSelectionDialogPros
 ) => {
@@ -195,7 +192,7 @@ const EquipmentsSelectionDialog = (
     });
 
     return enough;
-  }, [isInputValid, baseEquipId, targetEquipId, watch('neededEquipmentsCount')])
+  }, [isInputValid, baseEquipId, targetEquipId, watch('neededEquipmentsCount')]);
 
   const maxTierPerCategory = useMemo(() => {
     const maxTierPerCategoryBuilder: {[key : string]: number} = {};
@@ -279,13 +276,13 @@ const EquipmentsSelectionDialog = (
 
   const handleUpgrade = (equip: EquipmentInfoToEdit, requirements: PieceState[]) => {
     setUpgradeDialogOpened(false);
-    
+
     if (!baseEquipId || !targetEquipId || !equipmentInfoToEdit) return;
     const formValues = getValues();
 
     store.equipmentsRequirementStore.updateInventory(
       requirements.reduce((acc, piece) => {
-        return Object.assign(acc, { [piece.pieceId]: piece.inStockCount - piece.needCount })
+        return Object.assign(acc, { [piece.pieceId]: piece.inStockCount - piece.needCount });
       }, {})
     );
 
@@ -428,7 +425,7 @@ const EquipmentsSelectionDialog = (
       </Button>
     </DialogActions>
 
-    {equipmentInfoToEdit && <UpgradeConfirmationDialog 
+    {equipmentInfoToEdit && <UpgradeConfirmationDialog
       isOpened={isUpgradeDialogOpened}
       equipmentsById={equipmentsById}
       equipmentsByTierAndCategory={equipmentsByTierAndCategory}

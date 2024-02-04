@@ -5,6 +5,8 @@
   "listButton": "List",
   "cancelButton": "Cancel",
   "deleteButton": "Delete",
+  "upgradeAndDeleteButton": "Upgrade & Delete",
+  "upgradeAndDeleteTooltip": "Consume pieces and delete this",
   "editButton": "Edit",
   "closeButton": "Close",
   "showAllButton": "Show All",
@@ -45,6 +47,13 @@
     "maxLengthIs": "Maximum characters are {{max}}",
     "enterNickName":  "Enter a nickname(optional)",
     "enterNickNameNormalHelperText": "Enter a student name to help you memorize equipment ownership"
+  },
+  "upgradeDialog": {
+    "title": "Upgrade Equipment",
+    "description_1": "Consume pieces and upgrade the following equipment.",
+    "description_2": "This reduces the quantity of pieces used from the registered inventory and removes this equipment from the list.",
+    "detail": "Upgrade details",
+    "pieces": "Pieces to be consumed"
   },
   "thinsToNote": {
     "title": "Things to note",

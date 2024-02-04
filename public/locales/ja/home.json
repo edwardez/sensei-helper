@@ -47,6 +47,13 @@
     "enterNickName":  "ニックネーム入力（任意）",
     "enterNickNameNormalHelperText": "生徒の名前をメモとして入力すれば、装備の管理ができます"
   },
+  "upgradeDialog": {
+    "title": "強化内容確認",
+    "description_1": "装備設計図を消費し、以下の強化を行います。",
+    "description_2": "※登録されている所持設計図を必要数だけ減らして、この装備をリストから削除します。",
+    "detail": "強化内容",
+    "pieces": "消費される設計図"
+  },
   "thinsToNote": {
     "title": "注記",
     "pointThisIsEstimation": "推奨掃討回数は予測であり、実際の報酬と大きく異なる場合もあります。",
