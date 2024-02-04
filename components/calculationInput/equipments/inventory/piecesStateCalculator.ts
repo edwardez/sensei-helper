@@ -7,11 +7,11 @@ import {EquipmentsById} from 'components/calculationInput/PiecesCalculationCommo
 import {IWizStore} from 'stores/WizStore';
 
 export const calculateRequirementAmount = (
-  equipById: EquipmentsById,
-  equipByCategory: EquipmentsByTierAndCategory,
-  baseId: string,
-  targetId: string,
-  count: number,
+    equipById: EquipmentsById,
+    equipByCategory: EquipmentsByTierAndCategory,
+    baseId: string,
+    targetId: string,
+    count: number,
 ): Map<string, number> => {
   const result: Map<string, number> = new Map();
 
@@ -39,15 +39,15 @@ export const calculatePiecesState = (store: IWizStore, equipmentsById: Equipment
 
   for (const requirement of store.equipmentsRequirementStore.requirementByEquipments) {
     calculateRequirementAmount(
-      equipmentsById,
-      equipmentsByTierAndCategory,
-      requirement.currentEquipmentId,
-      requirement.targetEquipmentId,
-      requirement.count,
+        equipmentsById,
+        equipmentsByTierAndCategory,
+        requirement.currentEquipmentId,
+        requirement.targetEquipmentId,
+        requirement.count,
     ).forEach((amount, pieceId) => {
       const stock =
         store.equipmentsRequirementStore.piecesInventory.get(pieceId)
-          ?.inStockCount ?? 0;
+            ?.inStockCount ?? 0;
       const pieceState = piecesStateMap.get(pieceId) ?? {
         pieceId,
         needCount: 0,

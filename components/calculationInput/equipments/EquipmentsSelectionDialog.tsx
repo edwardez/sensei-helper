@@ -170,24 +170,34 @@ const EquipmentsSelectionDialog = (
     }
   }, [baseEquipId, previousBaseEquipId, targetEquipId, equipmentsById]);
 
-  const isUpgradable = useMemo(() => {
-    if (!isInputValid) return false;
-
-    const count = parseInt(getValues().neededEquipmentsCount);
-    if (!count || !baseEquipId || !targetEquipId) return false;
-    const amounts = calculateRequirementAmount(
-      equipmentsById,
-      equipmentsByTierAndCategory,
-      baseEquipId,
-      targetEquipId,
+  const upgradeInfo: EquipmentInfoToEdit | null = useMemo(() => {
+    if (!isInputValid || !baseEquipId || !targetEquipId || !equipmentInfoToEdit) return null;
+    const count = parseInt(watch('neededEquipmentsCount'));
+    if (!count) return null;
+    return {
+      currentEquipmentId: baseEquipId,
+      targetEquipmentId: targetEquipId,
       count,
+      nickname: watch('nickname'),
+      indexInStoreArray: equipmentInfoToEdit?.indexInStoreArray,
+    };
+  }, [isInputValid, baseEquipId, targetEquipId, watch('neededEquipmentsCount'), watch('nickname')]);
+
+  const isUpgradable = useMemo(() => {
+    if (!upgradeInfo) return false;
+    const amounts = calculateRequirementAmount(
+        equipmentsById,
+        equipmentsByTierAndCategory,
+        upgradeInfo.currentEquipmentId,
+        upgradeInfo.targetEquipmentId,
+        upgradeInfo.count,
     );
 
     let enough = true;
     amounts.forEach((amount, pieceId) => {
       const stock = store.equipmentsRequirementStore.piecesInventory
-        .get(pieceId)?.inStockCount ?? 0;
-      
+          .get(pieceId)?.inStockCount ?? 0;
+
       enough &&= amount <= stock;
     });
 
@@ -281,9 +291,9 @@ const EquipmentsSelectionDialog = (
     const formValues = getValues();
 
     store.equipmentsRequirementStore.updateInventory(
-      requirements.reduce((acc, piece) => {
-        return Object.assign(acc, { [piece.pieceId]: piece.inStockCount - piece.needCount });
-      }, {})
+        requirements.reduce((acc, piece) => {
+          return Object.assign(acc, {[piece.pieceId]: piece.inStockCount - piece.needCount});
+        }, {})
     );
 
     handleDeleteEquipmentRequirement({
@@ -425,14 +435,13 @@ const EquipmentsSelectionDialog = (
       </Button>
     </DialogActions>
 
-    {equipmentInfoToEdit && <UpgradeConfirmationDialog
-      isOpened={isUpgradeDialogOpened}
-      equipmentsById={equipmentsById}
-      equipmentsByTierAndCategory={equipmentsByTierAndCategory}
-      equipmentInfoToEdit={equipmentInfoToEdit}
-      handleCancel={() => setUpgradeDialogOpened(false)}
-      handleUpgrade={handleUpgrade}
-    />}
+    {upgradeInfo && <UpgradeConfirmationDialog
+      open={isUpgradeDialogOpened}
+      equipById={equipmentsById}
+      equipByCategory={equipmentsByTierAndCategory}
+      onCancel={() => setUpgradeDialogOpened(false)}
+      onUpgrade={handleUpgrade}
+      equip={upgradeInfo} />}
   </Dialog>;
 };
 
