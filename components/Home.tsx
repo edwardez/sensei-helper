@@ -120,14 +120,15 @@ const Home: NextPage = observer((props) => {
         equipmentsById={equipmentsById}
         equipmentsRequirementStore={store.equipmentsRequirementStore}
         normalMissionItemDropRatio={store.gameInfoStore.normalMissionItemDropRatio}
-        onCloseInEfficacyDialog={handleCloseInEfficacyDialog}/>
+        onCloseInEfficacyDialog={handleCloseInEfficacyDialog}
+        piecesState={piecesState} />
       <IgnoredCampaigns
         solution={solution}
         allCampaigns={campaigns}
         allRequiredPieceIds={store.equipmentsRequirementStore.getAllRequiredPieceIds()}
         equipmentsById={equipmentsById}
         gameServer={store.gameInfoStore.gameServer}
-      />
+        piecesState={piecesState} />
     </React.Fragment>;
   };
 

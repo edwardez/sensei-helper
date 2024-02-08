@@ -1,0 +1,22 @@
+@use 'components/calculationInput/common/common-calculation-input-layout';
+
+.container {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fill, 350px);
+  grid-gap: 10px;
+}
+
+.xs {
+  grid-template-columns: repeat(auto-fill, 300px);
+}
+
+.equipmentInputContainer {
+  display: flex;
+  margin: 10px;
+  align-items: center;
+}
+
+.equipmentCard {
+  @include common-calculation-input-layout.items-list;
+}
