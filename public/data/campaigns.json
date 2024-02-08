@@ -10478,5 +10478,810 @@
         }
       ]
     }
+  },
+  {
+    "id": "1251101",
+    "area": 25,
+    "stage": 1,
+    "jpName": "燈籠祭会場・西地区",
+    "recommendationWeight": 200,
+    "rewards": [
+      {
+        "id": "2101008",
+        "probability": 0.344
+      },
+      {
+        "id": "2102008",
+        "probability": 0.258
+      },
+      {
+        "id": "2103008",
+        "probability": 0.258
+      },
+      {
+        "id": "2101005",
+        "probability": 0.1
+      },
+      {
+        "id": "2101006",
+        "probability": 0.2
+      },
+      {
+        "id": "2102005",
+        "probability": 0.075
+      },
+      {
+        "id": "2102006",
+        "probability": 0.15
+      },
+      {
+        "id": "2103005",
+        "probability": 0.075
+      },
+      {
+        "id": "2103006",
+        "probability": 0.15
+      }
+    ],
+    "rewardsByRegion": {
+      "Japan": [
+        {
+          "id": "2101008",
+          "probability": 0.344
+        },
+        {
+          "id": "2102008",
+          "probability": 0.258
+        },
+        {
+          "id": "2103008",
+          "probability": 0.258
+        },
+        {
+          "id": "2101005",
+          "probability": 0.1
+        },
+        {
+          "id": "2101006",
+          "probability": 0.2
+        },
+        {
+          "id": "2102005",
+          "probability": 0.075
+        },
+        {
+          "id": "2102006",
+          "probability": 0.15
+        },
+        {
+          "id": "2103005",
+          "probability": 0.075
+        },
+        {
+          "id": "2103006",
+          "probability": 0.15
+        }
+      ],
+      "Global": [
+        {
+          "id": "2101008",
+          "probability": 0.344
+        },
+        {
+          "id": "2102008",
+          "probability": 0.258
+        },
+        {
+          "id": "2103008",
+          "probability": 0.258
+        },
+        {
+          "id": "2101005",
+          "probability": 0.1
+        },
+        {
+          "id": "2101006",
+          "probability": 0.2
+        },
+        {
+          "id": "2102005",
+          "probability": 0.075
+        },
+        {
+          "id": "2102006",
+          "probability": 0.15
+        },
+        {
+          "id": "2103005",
+          "probability": 0.075
+        },
+        {
+          "id": "2103006",
+          "probability": 0.15
+        }
+      ],
+      "China": [
+        {
+          "id": "2101008",
+          "probability": 0.344
+        },
+        {
+          "id": "2102008",
+          "probability": 0.258
+        },
+        {
+          "id": "2103008",
+          "probability": 0.258
+        },
+        {
+          "id": "2101005",
+          "probability": 0.1
+        },
+        {
+          "id": "2101006",
+          "probability": 0.2
+        },
+        {
+          "id": "2102005",
+          "probability": 0.075
+        },
+        {
+          "id": "2102006",
+          "probability": 0.15
+        },
+        {
+          "id": "2103005",
+          "probability": 0.075
+        },
+        {
+          "id": "2103006",
+          "probability": 0.15
+        }
+      ]
+    }
+  },
+  {
+    "id": "1251102",
+    "area": 25,
+    "stage": 2,
+    "jpName": "燈籠祭会場・中央大路",
+    "recommendationWeight": 50,
+    "rewards": [
+      {
+        "id": "2102008",
+        "probability": 0.344
+      },
+      {
+        "id": "2105008",
+        "probability": 0.258
+      },
+      {
+        "id": "2101008",
+        "probability": 0.258
+      },
+      {
+        "id": "2102005",
+        "probability": 0.1
+      },
+      {
+        "id": "2102006",
+        "probability": 0.2
+      },
+      {
+        "id": "2105005",
+        "probability": 0.075
+      },
+      {
+        "id": "2105006",
+        "probability": 0.15
+      },
+      {
+        "id": "2101005",
+        "probability": 0.075
+      },
+      {
+        "id": "2101006",
+        "probability": 0.15
+      }
+    ],
+    "rewardsByRegion": {
+      "Japan": [
+        {
+          "id": "2102008",
+          "probability": 0.344
+        },
+        {
+          "id": "2105008",
+          "probability": 0.258
+        },
+        {
+          "id": "2101008",
+          "probability": 0.258
+        },
+        {
+          "id": "2102005",
+          "probability": 0.1
+        },
+        {
+          "id": "2102006",
+          "probability": 0.2
+        },
+        {
+          "id": "2105005",
+          "probability": 0.075
+        },
+        {
+          "id": "2105006",
+          "probability": 0.15
+        },
+        {
+          "id": "2101005",
+          "probability": 0.075
+        },
+        {
+          "id": "2101006",
+          "probability": 0.15
+        }
+      ],
+      "Global": [
+        {
+          "id": "2102008",
+          "probability": 0.344
+        },
+        {
+          "id": "2105008",
+          "probability": 0.258
+        },
+        {
+          "id": "2101008",
+          "probability": 0.258
+        },
+        {
+          "id": "2102005",
+          "probability": 0.1
+        },
+        {
+          "id": "2102006",
+          "probability": 0.2
+        },
+        {
+          "id": "2105005",
+          "probability": 0.075
+        },
+        {
+          "id": "2105006",
+          "probability": 0.15
+        },
+        {
+          "id": "2101005",
+          "probability": 0.075
+        },
+        {
+          "id": "2101006",
+          "probability": 0.15
+        }
+      ],
+      "China": [
+        {
+          "id": "2102008",
+          "probability": 0.344
+        },
+        {
+          "id": "2105008",
+          "probability": 0.258
+        },
+        {
+          "id": "2101008",
+          "probability": 0.258
+        },
+        {
+          "id": "2102005",
+          "probability": 0.1
+        },
+        {
+          "id": "2102006",
+          "probability": 0.2
+        },
+        {
+          "id": "2105005",
+          "probability": 0.075
+        },
+        {
+          "id": "2105006",
+          "probability": 0.15
+        },
+        {
+          "id": "2101005",
+          "probability": 0.075
+        },
+        {
+          "id": "2101006",
+          "probability": 0.15
+        }
+      ]
+    }
+  },
+  {
+    "id": "1251103",
+    "area": 25,
+    "stage": 3,
+    "jpName": "第七商店街・東地区",
+    "recommendationWeight": 250,
+    "rewards": [
+      {
+        "id": "2103008",
+        "probability": 0.344
+      },
+      {
+        "id": "2101008",
+        "probability": 0.258
+      },
+      {
+        "id": "2106008",
+        "probability": 0.258
+      },
+      {
+        "id": "2103005",
+        "probability": 0.1
+      },
+      {
+        "id": "2103006",
+        "probability": 0.2
+      },
+      {
+        "id": "2101005",
+        "probability": 0.075
+      },
+      {
+        "id": "2101006",
+        "probability": 0.15
+      },
+      {
+        "id": "2106005",
+        "probability": 0.075
+      },
+      {
+        "id": "2106006",
+        "probability": 0.15
+      }
+    ],
+    "rewardsByRegion": {
+      "Japan": [
+        {
+          "id": "2103008",
+          "probability": 0.344
+        },
+        {
+          "id": "2101008",
+          "probability": 0.258
+        },
+        {
+          "id": "2106008",
+          "probability": 0.258
+        },
+        {
+          "id": "2103005",
+          "probability": 0.1
+        },
+        {
+          "id": "2103006",
+          "probability": 0.2
+        },
+        {
+          "id": "2101005",
+          "probability": 0.075
+        },
+        {
+          "id": "2101006",
+          "probability": 0.15
+        },
+        {
+          "id": "2106005",
+          "probability": 0.075
+        },
+        {
+          "id": "2106006",
+          "probability": 0.15
+        }
+      ],
+      "Global": [
+        {
+          "id": "2103008",
+          "probability": 0.344
+        },
+        {
+          "id": "2101008",
+          "probability": 0.258
+        },
+        {
+          "id": "2106008",
+          "probability": 0.258
+        },
+        {
+          "id": "2103005",
+          "probability": 0.1
+        },
+        {
+          "id": "2103006",
+          "probability": 0.2
+        },
+        {
+          "id": "2101005",
+          "probability": 0.075
+        },
+        {
+          "id": "2101006",
+          "probability": 0.15
+        },
+        {
+          "id": "2106005",
+          "probability": 0.075
+        },
+        {
+          "id": "2106006",
+          "probability": 0.15
+        }
+      ],
+      "China": [
+        {
+          "id": "2103008",
+          "probability": 0.344
+        },
+        {
+          "id": "2101008",
+          "probability": 0.258
+        },
+        {
+          "id": "2106008",
+          "probability": 0.258
+        },
+        {
+          "id": "2103005",
+          "probability": 0.1
+        },
+        {
+          "id": "2103006",
+          "probability": 0.2
+        },
+        {
+          "id": "2101005",
+          "probability": 0.075
+        },
+        {
+          "id": "2101006",
+          "probability": 0.15
+        },
+        {
+          "id": "2106005",
+          "probability": 0.075
+        },
+        {
+          "id": "2106006",
+          "probability": 0.15
+        }
+      ]
+    }
+  },
+  {
+    "id": "1251104",
+    "area": 25,
+    "stage": 4,
+    "jpName": "狸町7番地",
+    "recommendationWeight": -100,
+    "rewards": [
+      {
+        "id": "2106008",
+        "probability": 0.344
+      },
+      {
+        "id": "2105008",
+        "probability": 0.258
+      },
+      {
+        "id": "2104008",
+        "probability": 0.258
+      },
+      {
+        "id": "2106005",
+        "probability": 0.1
+      },
+      {
+        "id": "2106006",
+        "probability": 0.2
+      },
+      {
+        "id": "2105005",
+        "probability": 0.075
+      },
+      {
+        "id": "2105006",
+        "probability": 0.15
+      },
+      {
+        "id": "2104005",
+        "probability": 0.075
+      },
+      {
+        "id": "2104006",
+        "probability": 0.15
+      }
+    ],
+    "rewardsByRegion": {
+      "Japan": [
+        {
+          "id": "2106008",
+          "probability": 0.344
+        },
+        {
+          "id": "2105008",
+          "probability": 0.258
+        },
+        {
+          "id": "2104008",
+          "probability": 0.258
+        },
+        {
+          "id": "2106005",
+          "probability": 0.1
+        },
+        {
+          "id": "2106006",
+          "probability": 0.2
+        },
+        {
+          "id": "2105005",
+          "probability": 0.075
+        },
+        {
+          "id": "2105006",
+          "probability": 0.15
+        },
+        {
+          "id": "2104005",
+          "probability": 0.075
+        },
+        {
+          "id": "2104006",
+          "probability": 0.15
+        }
+      ],
+      "Global": [
+        {
+          "id": "2106008",
+          "probability": 0.344
+        },
+        {
+          "id": "2105008",
+          "probability": 0.258
+        },
+        {
+          "id": "2104008",
+          "probability": 0.258
+        },
+        {
+          "id": "2106005",
+          "probability": 0.1
+        },
+        {
+          "id": "2106006",
+          "probability": 0.2
+        },
+        {
+          "id": "2105005",
+          "probability": 0.075
+        },
+        {
+          "id": "2105006",
+          "probability": 0.15
+        },
+        {
+          "id": "2104005",
+          "probability": 0.075
+        },
+        {
+          "id": "2104006",
+          "probability": 0.15
+        }
+      ],
+      "China": [
+        {
+          "id": "2106008",
+          "probability": 0.344
+        },
+        {
+          "id": "2105008",
+          "probability": 0.258
+        },
+        {
+          "id": "2104008",
+          "probability": 0.258
+        },
+        {
+          "id": "2106005",
+          "probability": 0.1
+        },
+        {
+          "id": "2106006",
+          "probability": 0.2
+        },
+        {
+          "id": "2105005",
+          "probability": 0.075
+        },
+        {
+          "id": "2105006",
+          "probability": 0.15
+        },
+        {
+          "id": "2104005",
+          "probability": 0.075
+        },
+        {
+          "id": "2104006",
+          "probability": 0.15
+        }
+      ]
+    }
+  },
+  {
+    "id": "1251105",
+    "area": 25,
+    "stage": 5,
+    "jpName": "桜亭4番地",
+    "recommendationWeight": 50,
+    "rewards": [
+      {
+        "id": "2105008",
+        "probability": 0.344
+      },
+      {
+        "id": "2102008",
+        "probability": 0.258
+      },
+      {
+        "id": "2101008",
+        "probability": 0.258
+      },
+      {
+        "id": "2105005",
+        "probability": 0.1
+      },
+      {
+        "id": "2105006",
+        "probability": 0.2
+      },
+      {
+        "id": "2102005",
+        "probability": 0.075
+      },
+      {
+        "id": "2102006",
+        "probability": 0.15
+      },
+      {
+        "id": "2101005",
+        "probability": 0.075
+      },
+      {
+        "id": "2101006",
+        "probability": 0.15
+      }
+    ],
+    "rewardsByRegion": {
+      "Japan": [
+        {
+          "id": "2105008",
+          "probability": 0.344
+        },
+        {
+          "id": "2102008",
+          "probability": 0.258
+        },
+        {
+          "id": "2101008",
+          "probability": 0.258
+        },
+        {
+          "id": "2105005",
+          "probability": 0.1
+        },
+        {
+          "id": "2105006",
+          "probability": 0.2
+        },
+        {
+          "id": "2102005",
+          "probability": 0.075
+        },
+        {
+          "id": "2102006",
+          "probability": 0.15
+        },
+        {
+          "id": "2101005",
+          "probability": 0.075
+        },
+        {
+          "id": "2101006",
+          "probability": 0.15
+        }
+      ],
+      "Global": [
+        {
+          "id": "2105008",
+          "probability": 0.344
+        },
+        {
+          "id": "2102008",
+          "probability": 0.258
+        },
+        {
+          "id": "2101008",
+          "probability": 0.258
+        },
+        {
+          "id": "2105005",
+          "probability": 0.1
+        },
+        {
+          "id": "2105006",
+          "probability": 0.2
+        },
+        {
+          "id": "2102005",
+          "probability": 0.075
+        },
+        {
+          "id": "2102006",
+          "probability": 0.15
+        },
+        {
+          "id": "2101005",
+          "probability": 0.075
+        },
+        {
+          "id": "2101006",
+          "probability": 0.15
+        }
+      ],
+      "China": [
+        {
+          "id": "2105008",
+          "probability": 0.344
+        },
+        {
+          "id": "2102008",
+          "probability": 0.258
+        },
+        {
+          "id": "2101008",
+          "probability": 0.258
+        },
+        {
+          "id": "2105005",
+          "probability": 0.1
+        },
+        {
+          "id": "2105006",
+          "probability": 0.2
+        },
+        {
+          "id": "2102005",
+          "probability": 0.075
+        },
+        {
+          "id": "2102006",
+          "probability": 0.15
+        },
+        {
+          "id": "2101005",
+          "probability": 0.075
+        },
+        {
+          "id": "2101006",
+          "probability": 0.15
+        }
+      ]
+    }
   }
 ]
