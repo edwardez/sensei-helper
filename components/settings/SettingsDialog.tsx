@@ -29,6 +29,7 @@ const SettingsDialog = ({open, onCloseDialog} : {open: boolean,
       <RadioGroup row value={`${store.gameInfoStore.gameServer}`} onChange={handleGameServerChange}>
         <FormControlLabel value={GameServer.Japan} control={<Radio />} label={t('japanServer')} />
         <FormControlLabel value={GameServer.Global} control={<Radio />} label={t('globalServer')} />
+        <FormControlLabel value={GameServer.China} control={<Radio />} label={t('chinaServer')} />
       </RadioGroup>
 
     </DialogContent>

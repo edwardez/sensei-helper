@@ -6,6 +6,7 @@ export enum EquipmentCompositionType {
 export enum GameServer {
     Japan = 'Japan',
     Global = 'Global',
+    China = 'China',
 }
 
 export interface Equipment {

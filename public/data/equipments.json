@@ -3,24 +3,26 @@
     "id": "2001000",
     "category": "Hat",
     "tier": 1,
-    "icon": "Equipment_Icon_Hat_Tier1",
+    "icon": "equipment_icon_hat_tier1",
     "jpName": "無地のキャップ",
     "equipmentCompositionType": "Composite",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ]
   },
   {
     "id": "2001001",
     "category": "Hat",
     "tier": 2,
-    "icon": "Equipment_Icon_Hat_Tier2",
+    "icon": "equipment_icon_hat_tier2",
     "jpName": "ニット帽",
     "equipmentCompositionType": "Composite",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ],
     "recipe": [
       {
@@ -33,12 +35,13 @@
     "id": "2001002",
     "category": "Hat",
     "tier": 3,
-    "icon": "Equipment_Icon_Hat_Tier3",
+    "icon": "equipment_icon_hat_tier3",
     "jpName": "ビッグブラザーの中折れ帽",
     "equipmentCompositionType": "Composite",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ],
     "recipe": [
       {
@@ -51,12 +54,13 @@
     "id": "2001003",
     "category": "Hat",
     "tier": 4,
-    "icon": "Equipment_Icon_Hat_Tier4",
+    "icon": "equipment_icon_hat_tier4",
     "jpName": "リボン付きベレー帽",
     "equipmentCompositionType": "Composite",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ],
     "recipe": [
       {
@@ -73,12 +77,13 @@
     "id": "2001004",
     "category": "Hat",
     "tier": 5,
-    "icon": "Equipment_Icon_Hat_Tier5",
+    "icon": "equipment_icon_hat_tier5",
     "jpName": "防弾ヘルメット",
     "equipmentCompositionType": "Composite",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ],
     "recipe": [
       {
@@ -99,12 +104,13 @@
     "id": "2001005",
     "category": "Hat",
     "tier": 6,
-    "icon": "Equipment_Icon_Hat_Tier6",
+    "icon": "equipment_icon_hat_tier6",
     "jpName": "フリルのミニハット",
     "equipmentCompositionType": "Composite",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ],
     "recipe": [
       {
@@ -125,7 +131,7 @@
     "id": "2001006",
     "category": "Hat",
     "tier": 7,
-    "icon": "Equipment_Icon_Hat_Tier7",
+    "icon": "equipment_icon_hat_tier7",
     "jpName": "バケットハット",
     "equipmentCompositionType": "Composite",
     "releasedIn": [
@@ -151,11 +157,12 @@
     "id": "2001007",
     "category": "Hat",
     "tier": 8,
-    "icon": "Equipment_Icon_Hat_Tier8",
+    "icon": "equipment_icon_hat_tier8",
     "jpName": "リーフリボン付き中折れ帽",
     "equipmentCompositionType": "Composite",
     "releasedIn": [
-      "Japan"
+      "Japan",
+      "Global"
     ],
     "recipe": [
       {
@@ -173,27 +180,54 @@
     ]
   },
   {
+    "id": "2001008",
+    "category": "Hat",
+    "tier": 9,
+    "icon": "equipment_icon_hat_tier9",
+    "jpName": "セーラーハット",
+    "equipmentCompositionType": "Composite",
+    "releasedIn": [
+      "Japan"
+    ],
+    "recipe": [
+      {
+        "id": "2101008",
+        "count": 50
+      },
+      {
+        "id": "2101006",
+        "count": 15
+      },
+      {
+        "id": "2101005",
+        "count": 10
+      }
+    ]
+  },
+  {
     "id": "2002000",
     "category": "Gloves",
     "tier": 1,
-    "icon": "Equipment_Icon_Gloves_Tier1",
+    "icon": "equipment_icon_gloves_tier1",
     "jpName": "スポーツグローブ",
     "equipmentCompositionType": "Composite",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ]
   },
   {
     "id": "2002001",
     "category": "Gloves",
     "tier": 2,
-    "icon": "Equipment_Icon_Gloves_Tier2",
+    "icon": "equipment_icon_gloves_tier2",
     "jpName": "ニットのミトン",
     "equipmentCompositionType": "Composite",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ],
     "recipe": [
       {
@@ -206,12 +240,13 @@
     "id": "2002002",
     "category": "Gloves",
     "tier": 3,
-    "icon": "Equipment_Icon_Gloves_Tier3",
+    "icon": "equipment_icon_gloves_tier3",
     "jpName": "ペロロの鍋掴み",
     "equipmentCompositionType": "Composite",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ],
     "recipe": [
       {
@@ -224,12 +259,13 @@
     "id": "2002003",
     "category": "Gloves",
     "tier": 4,
-    "icon": "Equipment_Icon_Gloves_Tier4",
+    "icon": "equipment_icon_gloves_tier4",
     "jpName": "レザーグローブ",
     "equipmentCompositionType": "Composite",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ],
     "recipe": [
       {
@@ -246,12 +282,13 @@
     "id": "2002004",
     "category": "Gloves",
     "tier": 5,
-    "icon": "Equipment_Icon_Gloves_Tier5",
+    "icon": "equipment_icon_gloves_tier5",
     "jpName": "タクティカルグローブ",
     "equipmentCompositionType": "Composite",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ],
     "recipe": [
       {
@@ -272,12 +309,13 @@
     "id": "2002005",
     "category": "Gloves",
     "tier": 6,
-    "icon": "Equipment_Icon_Gloves_Tier6",
+    "icon": "equipment_icon_gloves_tier6",
     "jpName": "レースのグローブ",
     "equipmentCompositionType": "Composite",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ],
     "recipe": [
       {
@@ -298,7 +336,7 @@
     "id": "2002006",
     "category": "Gloves",
     "tier": 7,
-    "icon": "Equipment_Icon_Gloves_Tier7",
+    "icon": "equipment_icon_gloves_tier7",
     "jpName": "アームカバー",
     "equipmentCompositionType": "Composite",
     "releasedIn": [
@@ -324,11 +362,12 @@
     "id": "2002007",
     "category": "Gloves",
     "tier": 8,
-    "icon": "Equipment_Icon_Gloves_Tier8",
+    "icon": "equipment_icon_gloves_tier8",
     "jpName": "パールヤーングローブ",
     "equipmentCompositionType": "Composite",
     "releasedIn": [
-      "Japan"
+      "Japan",
+      "Global"
     ],
     "recipe": [
       {
@@ -346,27 +385,54 @@
     ]
   },
   {
+    "id": "2002008",
+    "category": "Gloves",
+    "tier": 9,
+    "icon": "equipment_icon_gloves_tier9",
+    "jpName": "セーリンググローブ",
+    "equipmentCompositionType": "Composite",
+    "releasedIn": [
+      "Japan"
+    ],
+    "recipe": [
+      {
+        "id": "2102008",
+        "count": 50
+      },
+      {
+        "id": "2102006",
+        "count": 15
+      },
+      {
+        "id": "2102005",
+        "count": 10
+      }
+    ]
+  },
+  {
     "id": "2003000",
     "category": "Shoes",
     "tier": 1,
-    "icon": "Equipment_Icon_Shoes_Tier1",
+    "icon": "equipment_icon_shoes_tier1",
     "jpName": "ピンクスニーカー",
     "equipmentCompositionType": "Composite",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ]
   },
   {
     "id": "2003001",
     "category": "Shoes",
     "tier": 2,
-    "icon": "Equipment_Icon_Shoes_Tier2",
+    "icon": "equipment_icon_shoes_tier2",
     "jpName": "ムートンブーツ",
     "equipmentCompositionType": "Composite",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ],
     "recipe": [
       {
@@ -379,12 +445,13 @@
     "id": "2003002",
     "category": "Shoes",
     "tier": 3,
-    "icon": "Equipment_Icon_Shoes_Tier3",
+    "icon": "equipment_icon_shoes_tier3",
     "jpName": "ピンキーパカのスリッパ",
     "equipmentCompositionType": "Composite",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ],
     "recipe": [
       {
@@ -397,12 +464,13 @@
     "id": "2003003",
     "category": "Shoes",
     "tier": 4,
-    "icon": "Equipment_Icon_Shoes_Tier4",
+    "icon": "equipment_icon_shoes_tier4",
     "jpName": "アンティークなエナメルローファー",
     "equipmentCompositionType": "Composite",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ],
     "recipe": [
       {
@@ -419,12 +487,13 @@
     "id": "2003004",
     "category": "Shoes",
     "tier": 5,
-    "icon": "Equipment_Icon_Shoes_Tier5",
+    "icon": "equipment_icon_shoes_tier5",
     "jpName": "戦闘用ブーツ",
     "equipmentCompositionType": "Composite",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ],
     "recipe": [
       {
@@ -445,12 +514,13 @@
     "id": "2003005",
     "category": "Shoes",
     "tier": 6,
-    "icon": "Equipment_Icon_Shoes_Tier6",
+    "icon": "equipment_icon_shoes_tier6",
     "jpName": "ヒールパンプス",
     "equipmentCompositionType": "Composite",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ],
     "recipe": [
       {
@@ -471,7 +541,7 @@
     "id": "2003006",
     "category": "Shoes",
     "tier": 7,
-    "icon": "Equipment_Icon_Shoes_Tier7",
+    "icon": "equipment_icon_shoes_tier7",
     "jpName": "カジュアルスニーカー",
     "equipmentCompositionType": "Composite",
     "releasedIn": [
@@ -497,11 +567,12 @@
     "id": "2003007",
     "category": "Shoes",
     "tier": 8,
-    "icon": "Equipment_Icon_Shoes_Tier8",
+    "icon": "equipment_icon_shoes_tier8",
     "jpName": "防水登山ブーツ",
     "equipmentCompositionType": "Composite",
     "releasedIn": [
-      "Japan"
+      "Japan",
+      "Global"
     ],
     "recipe": [
       {
@@ -519,27 +590,54 @@
     ]
   },
   {
+    "id": "2003008",
+    "category": "Shoes",
+    "tier": 9,
+    "icon": "equipment_icon_shoes_tier9",
+    "jpName": "アクアサンダル",
+    "equipmentCompositionType": "Composite",
+    "releasedIn": [
+      "Japan"
+    ],
+    "recipe": [
+      {
+        "id": "2103008",
+        "count": 50
+      },
+      {
+        "id": "2103006",
+        "count": 15
+      },
+      {
+        "id": "2103005",
+        "count": 10
+      }
+    ]
+  },
+  {
     "id": "2004000",
     "category": "Bag",
     "tier": 1,
-    "icon": "Equipment_Icon_Bag_Tier1",
+    "icon": "equipment_icon_bag_tier1",
     "jpName": "防水スポーツバッグ",
     "equipmentCompositionType": "Composite",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ]
   },
   {
     "id": "2004001",
     "category": "Bag",
     "tier": 2,
-    "icon": "Equipment_Icon_Bag_Tier2",
+    "icon": "equipment_icon_bag_tier2",
     "jpName": "寒冷地用バッグ",
     "equipmentCompositionType": "Composite",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ],
     "recipe": [
       {
@@ -552,12 +650,13 @@
     "id": "2004002",
     "category": "Bag",
     "tier": 3,
-    "icon": "Equipment_Icon_Bag_Tier3",
+    "icon": "equipment_icon_bag_tier3",
     "jpName": "ペロロのバッグ",
     "equipmentCompositionType": "Composite",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ],
     "recipe": [
       {
@@ -570,12 +669,13 @@
     "id": "2004003",
     "category": "Bag",
     "tier": 4,
-    "icon": "Equipment_Icon_Bag_Tier4",
+    "icon": "equipment_icon_bag_tier4",
     "jpName": "紺色のスクールバッグ",
     "equipmentCompositionType": "Composite",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ],
     "recipe": [
       {
@@ -592,12 +692,13 @@
     "id": "2004004",
     "category": "Bag",
     "tier": 5,
-    "icon": "Equipment_Icon_Bag_Tier5",
+    "icon": "equipment_icon_bag_tier5",
     "jpName": "戦闘用ランドセル",
     "equipmentCompositionType": "Composite",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ],
     "recipe": [
       {
@@ -618,12 +719,13 @@
     "id": "2004005",
     "category": "Bag",
     "tier": 6,
-    "icon": "Equipment_Icon_Bag_Tier6",
+    "icon": "equipment_icon_bag_tier6",
     "jpName": "デビルウイングのトートバッグ",
     "equipmentCompositionType": "Composite",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ],
     "recipe": [
       {
@@ -644,7 +746,7 @@
     "id": "2004006",
     "category": "Bag",
     "tier": 7,
-    "icon": "Equipment_Icon_Bag_Tier7",
+    "icon": "equipment_icon_bag_tier7",
     "jpName": "ストリートバッグ",
     "equipmentCompositionType": "Composite",
     "releasedIn": [
@@ -670,11 +772,12 @@
     "id": "2004007",
     "category": "Bag",
     "tier": 8,
-    "icon": "Equipment_Icon_Bag_Tier8",
+    "icon": "equipment_icon_bag_tier8",
     "jpName": "蝶柄のショルダーバッグ",
     "equipmentCompositionType": "Composite",
     "releasedIn": [
-      "Japan"
+      "Japan",
+      "Global"
     ],
     "recipe": [
       {
@@ -692,27 +795,54 @@
     ]
   },
   {
+    "id": "2004008",
+    "category": "Bag",
+    "tier": 9,
+    "icon": "equipment_icon_bag_tier9",
+    "jpName": "スリングドライバック",
+    "equipmentCompositionType": "Composite",
+    "releasedIn": [
+      "Japan"
+    ],
+    "recipe": [
+      {
+        "id": "2104008",
+        "count": 50
+      },
+      {
+        "id": "2104006",
+        "count": 15
+      },
+      {
+        "id": "2104005",
+        "count": 10
+      }
+    ]
+  },
+  {
     "id": "2005000",
     "category": "Badge",
     "tier": 1,
-    "icon": "Equipment_Icon_Badge_Tier1",
+    "icon": "equipment_icon_badge_tier1",
     "jpName": "サーバルのメタルバッジ",
     "equipmentCompositionType": "Composite",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ]
   },
   {
     "id": "2005001",
     "category": "Badge",
     "tier": 2,
-    "icon": "Equipment_Icon_Badge_Tier2",
+    "icon": "equipment_icon_badge_tier2",
     "jpName": "マナスルのフェルトバッジ",
     "equipmentCompositionType": "Composite",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ],
     "recipe": [
       {
@@ -725,12 +855,13 @@
     "id": "2005002",
     "category": "Badge",
     "tier": 3,
-    "icon": "Equipment_Icon_Badge_Tier3",
+    "icon": "equipment_icon_badge_tier3",
     "jpName": "アングリーアデリーのバッジ",
     "equipmentCompositionType": "Composite",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ],
     "recipe": [
       {
@@ -743,12 +874,13 @@
     "id": "2005003",
     "category": "Badge",
     "tier": 4,
-    "icon": "Equipment_Icon_Badge_Tier4",
+    "icon": "equipment_icon_badge_tier4",
     "jpName": "ベロニカの刺繍バッジ",
     "equipmentCompositionType": "Composite",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ],
     "recipe": [
       {
@@ -765,12 +897,13 @@
     "id": "2005004",
     "category": "Badge",
     "tier": 5,
-    "icon": "Equipment_Icon_Badge_Tier5",
+    "icon": "equipment_icon_badge_tier5",
     "jpName": "カゼヤマのワッペン",
     "equipmentCompositionType": "Composite",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ],
     "recipe": [
       {
@@ -791,12 +924,13 @@
     "id": "2005005",
     "category": "Badge",
     "tier": 6,
-    "icon": "Equipment_Icon_Badge_Tier6",
+    "icon": "equipment_icon_badge_tier6",
     "jpName": "ココデビルのバッジ",
     "equipmentCompositionType": "Composite",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ],
     "recipe": [
       {
@@ -817,7 +951,7 @@
     "id": "2005006",
     "category": "Badge",
     "tier": 7,
-    "icon": "Equipment_Icon_Badge_Tier7",
+    "icon": "equipment_icon_badge_tier7",
     "jpName": "ストリートバッジ",
     "equipmentCompositionType": "Composite",
     "releasedIn": [
@@ -843,11 +977,12 @@
     "id": "2005007",
     "category": "Badge",
     "tier": 8,
-    "icon": "Equipment_Icon_Badge_Tier8",
+    "icon": "equipment_icon_badge_tier8",
     "jpName": "ローレライバッジ",
     "equipmentCompositionType": "Composite",
     "releasedIn": [
-      "Japan"
+      "Japan",
+      "Global"
     ],
     "recipe": [
       {
@@ -865,27 +1000,54 @@
     ]
   },
   {
+    "id": "2005008",
+    "category": "Badge",
+    "tier": 9,
+    "icon": "equipment_icon_badge_tier9",
+    "jpName": "ハルピュイア・フレキシブルバッジ",
+    "equipmentCompositionType": "Composite",
+    "releasedIn": [
+      "Japan"
+    ],
+    "recipe": [
+      {
+        "id": "2105008",
+        "count": 50
+      },
+      {
+        "id": "2105006",
+        "count": 15
+      },
+      {
+        "id": "2105005",
+        "count": 10
+      }
+    ]
+  },
+  {
     "id": "2006000",
     "category": "Hairpin",
     "tier": 1,
-    "icon": "Equipment_Icon_Hairpin_Tier1",
+    "icon": "equipment_icon_hairpin_tier1",
     "jpName": "テニス用ヘアバンド",
     "equipmentCompositionType": "Composite",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ]
   },
   {
     "id": "2006001",
     "category": "Hairpin",
     "tier": 2,
-    "icon": "Equipment_Icon_Hairpin_Tier2",
+    "icon": "equipment_icon_hairpin_tier2",
     "jpName": "シュシュ",
     "equipmentCompositionType": "Composite",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ],
     "recipe": [
       {
@@ -898,12 +1060,13 @@
     "id": "2006002",
     "category": "Hairpin",
     "tier": 3,
-    "icon": "Equipment_Icon_Hairpin_Tier3",
+    "icon": "equipment_icon_hairpin_tier3",
     "jpName": "モモのヘアピン",
     "equipmentCompositionType": "Composite",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ],
     "recipe": [
       {
@@ -916,12 +1079,13 @@
     "id": "2006003",
     "category": "Hairpin",
     "tier": 4,
-    "icon": "Equipment_Icon_Hairpin_Tier4",
+    "icon": "equipment_icon_hairpin_tier4",
     "jpName": "翼のヘアピン",
     "equipmentCompositionType": "Composite",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ],
     "recipe": [
       {
@@ -938,12 +1102,13 @@
     "id": "2006004",
     "category": "Hairpin",
     "tier": 5,
-    "icon": "Equipment_Icon_Hairpin_Tier5",
+    "icon": "equipment_icon_hairpin_tier5",
     "jpName": "多目的ヘアピン",
     "equipmentCompositionType": "Composite",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ],
     "recipe": [
       {
@@ -964,12 +1129,13 @@
     "id": "2006005",
     "category": "Hairpin",
     "tier": 6,
-    "icon": "Equipment_Icon_Hairpin_Tier6",
+    "icon": "equipment_icon_hairpin_tier6",
     "jpName": "コウモリのヘアピン",
     "equipmentCompositionType": "Composite",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ],
     "recipe": [
       {
@@ -990,7 +1156,7 @@
     "id": "2006006",
     "category": "Hairpin",
     "tier": 7,
-    "icon": "Equipment_Icon_Hairpin_Tier7",
+    "icon": "equipment_icon_hairpin_tier7",
     "jpName": "カリグラフィーヘアピン",
     "equipmentCompositionType": "Composite",
     "releasedIn": [
@@ -1016,11 +1182,12 @@
     "id": "2006007",
     "category": "Hairpin",
     "tier": 8,
-    "icon": "Equipment_Icon_Hairpin_Tier8",
+    "icon": "equipment_icon_hairpin_tier8",
     "jpName": "リーフヘアピン",
     "equipmentCompositionType": "Composite",
     "releasedIn": [
-      "Japan"
+      "Japan",
+      "Global"
     ],
     "recipe": [
       {
@@ -1038,27 +1205,54 @@
     ]
   },
   {
+    "id": "2006008",
+    "category": "Hairpin",
+    "tier": 9,
+    "icon": "equipment_icon_hairpin_tier9",
+    "jpName": "アンカーヘアピン",
+    "equipmentCompositionType": "Composite",
+    "releasedIn": [
+      "Japan"
+    ],
+    "recipe": [
+      {
+        "id": "2106008",
+        "count": 50
+      },
+      {
+        "id": "2106006",
+        "count": 15
+      },
+      {
+        "id": "2106005",
+        "count": 10
+      }
+    ]
+  },
+  {
     "id": "2007000",
     "category": "Charm",
     "tier": 1,
-    "icon": "Equipment_Icon_Charm_Tier1",
+    "icon": "equipment_icon_charm_tier1",
     "jpName": "交通安全のお守り",
     "equipmentCompositionType": "Composite",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ]
   },
   {
     "id": "2007001",
     "category": "Charm",
     "tier": 2,
-    "icon": "Equipment_Icon_Charm_Tier2",
+    "icon": "equipment_icon_charm_tier2",
     "jpName": "発熱カイロ",
     "equipmentCompositionType": "Composite",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ],
     "recipe": [
       {
@@ -1071,12 +1265,13 @@
     "id": "2007002",
     "category": "Charm",
     "tier": 3,
-    "icon": "Equipment_Icon_Charm_Tier3",
+    "icon": "equipment_icon_charm_tier3",
     "jpName": "ペロロのお守り",
     "equipmentCompositionType": "Composite",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ],
     "recipe": [
       {
@@ -1089,12 +1284,13 @@
     "id": "2007003",
     "category": "Charm",
     "tier": 4,
-    "icon": "Equipment_Icon_Charm_Tier4",
+    "icon": "equipment_icon_charm_tier4",
     "jpName": "クルス",
     "equipmentCompositionType": "Composite",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ],
     "recipe": [
       {
@@ -1111,12 +1307,13 @@
     "id": "2007004",
     "category": "Charm",
     "tier": 5,
-    "icon": "Equipment_Icon_Charm_Tier5",
+    "icon": "equipment_icon_charm_tier5",
     "jpName": "カモフラダルマ",
     "equipmentCompositionType": "Composite",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ],
     "recipe": [
       {
@@ -1137,12 +1334,13 @@
     "id": "2007005",
     "category": "Charm",
     "tier": 6,
-    "icon": "Equipment_Icon_Charm_Tier6",
+    "icon": "equipment_icon_charm_tier6",
     "jpName": "呪いの人形",
     "equipmentCompositionType": "Composite",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ],
     "recipe": [
       {
@@ -1163,7 +1361,7 @@
     "id": "2007006",
     "category": "Charm",
     "tier": 7,
-    "icon": "Equipment_Icon_Charm_Tier7",
+    "icon": "equipment_icon_charm_tier7",
     "jpName": "ポケット消臭剤",
     "equipmentCompositionType": "Composite",
     "releasedIn": [
@@ -1186,27 +1384,55 @@
     ]
   },
   {
-    "id": "2008000",
-    "category": "Watch",
-    "tier": 1,
-    "icon": "Equipment_Icon_Watch_Tier1",
-    "jpName": "デジタルウォッチ",
+    "id": "2007007",
+    "category": "Charm",
+    "tier": 8,
+    "icon": "equipment_icon_charm_tier8",
+    "jpName": "ドリームキャッチャー",
     "equipmentCompositionType": "Composite",
     "releasedIn": [
       "Japan",
       "Global"
+    ],
+    "recipe": [
+      {
+        "id": "2107007",
+        "count": 40
+      },
+      {
+        "id": "2107005",
+        "count": 15
+      },
+      {
+        "id": "2107004",
+        "count": 5
+      }
+    ]
+  },
+  {
+    "id": "2008000",
+    "category": "Watch",
+    "tier": 1,
+    "icon": "equipment_icon_watch_tier1",
+    "jpName": "デジタルウォッチ",
+    "equipmentCompositionType": "Composite",
+    "releasedIn": [
+      "Japan",
+      "Global",
+      "China"
     ]
   },
   {
     "id": "2008001",
     "category": "Watch",
     "tier": 2,
-    "icon": "Equipment_Icon_Watch_Tier2",
+    "icon": "equipment_icon_watch_tier2",
     "jpName": "レザーの腕時計",
     "equipmentCompositionType": "Composite",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ],
     "recipe": [
       {
@@ -1219,12 +1445,13 @@
     "id": "2008002",
     "category": "Watch",
     "tier": 3,
-    "icon": "Equipment_Icon_Watch_Tier3",
+    "icon": "equipment_icon_watch_tier3",
     "jpName": "ウェーブキャットの時計",
     "equipmentCompositionType": "Composite",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ],
     "recipe": [
       {
@@ -1237,12 +1464,13 @@
     "id": "2008003",
     "category": "Watch",
     "tier": 4,
-    "icon": "Equipment_Icon_Watch_Tier4",
+    "icon": "equipment_icon_watch_tier4",
     "jpName": "アンティークな懐中時計",
     "equipmentCompositionType": "Composite",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ],
     "recipe": [
       {
@@ -1259,12 +1487,13 @@
     "id": "2008004",
     "category": "Watch",
     "tier": 5,
-    "icon": "Equipment_Icon_Watch_Tier5",
+    "icon": "equipment_icon_watch_tier5",
     "jpName": "防塵型の腕時計",
     "equipmentCompositionType": "Composite",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ],
     "recipe": [
       {
@@ -1285,12 +1514,13 @@
     "id": "2008005",
     "category": "Watch",
     "tier": 6,
-    "icon": "Equipment_Icon_Watch_Tier6",
+    "icon": "equipment_icon_watch_tier6",
     "jpName": "ゴシック風の腕時計",
     "equipmentCompositionType": "Composite",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ],
     "recipe": [
       {
@@ -1311,7 +1541,7 @@
     "id": "2008006",
     "category": "Watch",
     "tier": 7,
-    "icon": "Equipment_Icon_Watch_Tier7",
+    "icon": "equipment_icon_watch_tier7",
     "jpName": "ストリートファッションウォッチ",
     "equipmentCompositionType": "Composite",
     "releasedIn": [
@@ -1334,27 +1564,55 @@
     ]
   },
   {
-    "id": "2009000",
-    "category": "Necklace",
-    "tier": 1,
-    "icon": "Equipment_Icon_Necklace_Tier1",
-    "jpName": "ブルートゥースのネックレス",
+    "id": "2008007",
+    "category": "Watch",
+    "tier": 8,
+    "icon": "equipment_icon_watch_tier8",
+    "jpName": "ローレライの腕時計",
     "equipmentCompositionType": "Composite",
     "releasedIn": [
       "Japan",
       "Global"
+    ],
+    "recipe": [
+      {
+        "id": "2108007",
+        "count": 40
+      },
+      {
+        "id": "2108005",
+        "count": 15
+      },
+      {
+        "id": "2108004",
+        "count": 5
+      }
+    ]
+  },
+  {
+    "id": "2009000",
+    "category": "Necklace",
+    "tier": 1,
+    "icon": "equipment_icon_necklace_tier1",
+    "jpName": "ブルートゥースのネックレス",
+    "equipmentCompositionType": "Composite",
+    "releasedIn": [
+      "Japan",
+      "Global",
+      "China"
     ]
   },
   {
     "id": "2009001",
     "category": "Necklace",
     "tier": 2,
-    "icon": "Equipment_Icon_Necklace_Tier2",
+    "icon": "equipment_icon_necklace_tier2",
     "jpName": "雪花のペンダント",
     "equipmentCompositionType": "Composite",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ],
     "recipe": [
       {
@@ -1367,12 +1625,13 @@
     "id": "2009002",
     "category": "Necklace",
     "tier": 3,
-    "icon": "Equipment_Icon_Necklace_Tier3",
+    "icon": "equipment_icon_necklace_tier3",
     "jpName": "ニコライのロケットペンダント",
     "equipmentCompositionType": "Composite",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ],
     "recipe": [
       {
@@ -1385,12 +1644,13 @@
     "id": "2009003",
     "category": "Necklace",
     "tier": 4,
-    "icon": "Equipment_Icon_Necklace_Tier4",
+    "icon": "equipment_icon_necklace_tier4",
     "jpName": "十字架のチョーカー",
     "equipmentCompositionType": "Composite",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ],
     "recipe": [
       {
@@ -1407,12 +1667,13 @@
     "id": "2009004",
     "category": "Necklace",
     "tier": 5,
-    "icon": "Equipment_Icon_Necklace_Tier5",
+    "icon": "equipment_icon_necklace_tier5",
     "jpName": "ドッグタグ",
     "equipmentCompositionType": "Composite",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ],
     "recipe": [
       {
@@ -1433,12 +1694,13 @@
     "id": "2009005",
     "category": "Necklace",
     "tier": 6,
-    "icon": "Equipment_Icon_Necklace_Tier6",
+    "icon": "equipment_icon_necklace_tier6",
     "jpName": "パンクチョーカー",
     "equipmentCompositionType": "Composite",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ],
     "recipe": [
       {
@@ -1459,7 +1721,7 @@
     "id": "2009006",
     "category": "Necklace",
     "tier": 7,
-    "icon": "Equipment_Icon_Necklace_Tier7",
+    "icon": "equipment_icon_necklace_tier7",
     "jpName": "チェーンネックレス",
     "equipmentCompositionType": "Composite",
     "releasedIn": [
@@ -1482,70 +1744,101 @@
     ]
   },
   {
+    "id": "2009007",
+    "category": "Necklace",
+    "tier": 8,
+    "icon": "equipment_icon_necklace_tier8",
+    "jpName": "グリーンリーフネックレス",
+    "equipmentCompositionType": "Composite",
+    "releasedIn": [
+      "Japan",
+      "Global"
+    ],
+    "recipe": [
+      {
+        "id": "2109007",
+        "count": 40
+      },
+      {
+        "id": "2109005",
+        "count": 15
+      },
+      {
+        "id": "2109004",
+        "count": 5
+      }
+    ]
+  },
+  {
     "id": "2101001",
     "category": "Hat",
     "tier": 2,
-    "icon": "Equipment_Icon_Hat_Tier2_Piece",
+    "icon": "equipment_icon_hat_tier2_piece",
     "jpName": "ニット帽の設計図",
     "equipmentCompositionType": "Piece",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ]
   },
   {
     "id": "2101002",
     "category": "Hat",
     "tier": 3,
-    "icon": "Equipment_Icon_Hat_Tier3_Piece",
+    "icon": "equipment_icon_hat_tier3_piece",
     "jpName": "ビッグブラザーの中折れ帽の設計図",
     "equipmentCompositionType": "Piece",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ]
   },
   {
     "id": "2101003",
     "category": "Hat",
     "tier": 4,
-    "icon": "Equipment_Icon_Hat_Tier4_Piece",
+    "icon": "equipment_icon_hat_tier4_piece",
     "jpName": "リボン付きベレー帽の設計図",
     "equipmentCompositionType": "Piece",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ]
   },
   {
     "id": "2101004",
     "category": "Hat",
     "tier": 5,
-    "icon": "Equipment_Icon_Hat_Tier5_Piece",
+    "icon": "equipment_icon_hat_tier5_piece",
     "jpName": "防弾ヘルメットの設計図",
     "equipmentCompositionType": "Piece",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ]
   },
   {
     "id": "2101005",
     "category": "Hat",
     "tier": 6,
-    "icon": "Equipment_Icon_Hat_Tier6_Piece",
+    "icon": "equipment_icon_hat_tier6_piece",
     "jpName": "フリルのミニハットの設計図",
     "equipmentCompositionType": "Piece",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ]
   },
   {
     "id": "2101006",
     "category": "Hat",
     "tier": 7,
-    "icon": "Equipment_Icon_Hat_Tier7_Piece",
+    "icon": "equipment_icon_hat_tier7_piece",
     "jpName": "バケットハットの設計図",
     "equipmentCompositionType": "Piece",
     "releasedIn": [
@@ -1557,8 +1850,20 @@
     "id": "2101007",
     "category": "Hat",
     "tier": 8,
-    "icon": "Equipment_Icon_Hat_Tier8_Piece",
+    "icon": "equipment_icon_hat_tier8_piece",
     "jpName": "リーフリボン付き中折れ帽の設計図",
+    "equipmentCompositionType": "Piece",
+    "releasedIn": [
+      "Japan",
+      "Global"
+    ]
+  },
+  {
+    "id": "2101008",
+    "category": "Hat",
+    "tier": 9,
+    "icon": "equipment_icon_hat_tier9_piece",
+    "jpName": "セーラーハットの設計図",
     "equipmentCompositionType": "Piece",
     "releasedIn": [
       "Japan"
@@ -1568,67 +1873,72 @@
     "id": "2102001",
     "category": "Gloves",
     "tier": 2,
-    "icon": "Equipment_Icon_Gloves_Tier2_Piece",
+    "icon": "equipment_icon_gloves_tier2_piece",
     "jpName": "ニットのミトンの設計図",
     "equipmentCompositionType": "Piece",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ]
   },
   {
     "id": "2102002",
     "category": "Gloves",
     "tier": 3,
-    "icon": "Equipment_Icon_Gloves_Tier3_Piece",
+    "icon": "equipment_icon_gloves_tier3_piece",
     "jpName": "ペロロの鍋掴みの設計図",
     "equipmentCompositionType": "Piece",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ]
   },
   {
     "id": "2102003",
     "category": "Gloves",
     "tier": 4,
-    "icon": "Equipment_Icon_Gloves_Tier4_Piece",
+    "icon": "equipment_icon_gloves_tier4_piece",
     "jpName": "レザーグローブの設計図",
     "equipmentCompositionType": "Piece",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ]
   },
   {
     "id": "2102004",
     "category": "Gloves",
     "tier": 5,
-    "icon": "Equipment_Icon_Gloves_Tier5_Piece",
+    "icon": "equipment_icon_gloves_tier5_piece",
     "jpName": "タクティカルグローブの設計図",
     "equipmentCompositionType": "Piece",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ]
   },
   {
     "id": "2102005",
     "category": "Gloves",
     "tier": 6,
-    "icon": "Equipment_Icon_Gloves_Tier6_Piece",
+    "icon": "equipment_icon_gloves_tier6_piece",
     "jpName": "レースのグローブの設計図",
     "equipmentCompositionType": "Piece",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ]
   },
   {
     "id": "2102006",
     "category": "Gloves",
     "tier": 7,
-    "icon": "Equipment_Icon_Gloves_Tier7_Piece",
+    "icon": "equipment_icon_gloves_tier7_piece",
     "jpName": "アームカバーの設計図",
     "equipmentCompositionType": "Piece",
     "releasedIn": [
@@ -1640,8 +1950,20 @@
     "id": "2102007",
     "category": "Gloves",
     "tier": 8,
-    "icon": "Equipment_Icon_Gloves_Tier8_Piece",
+    "icon": "equipment_icon_gloves_tier8_piece",
     "jpName": "パールヤーングローブの設計図",
+    "equipmentCompositionType": "Piece",
+    "releasedIn": [
+      "Japan",
+      "Global"
+    ]
+  },
+  {
+    "id": "2102008",
+    "category": "Gloves",
+    "tier": 9,
+    "icon": "equipment_icon_gloves_tier9_piece",
+    "jpName": "セーリンググローブの設計図",
     "equipmentCompositionType": "Piece",
     "releasedIn": [
       "Japan"
@@ -1651,67 +1973,72 @@
     "id": "2103001",
     "category": "Shoes",
     "tier": 2,
-    "icon": "Equipment_Icon_Shoes_Tier2_Piece",
+    "icon": "equipment_icon_shoes_tier2_piece",
     "jpName": "ムートンブーツの設計図",
     "equipmentCompositionType": "Piece",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ]
   },
   {
     "id": "2103002",
     "category": "Shoes",
     "tier": 3,
-    "icon": "Equipment_Icon_Shoes_Tier3_Piece",
+    "icon": "equipment_icon_shoes_tier3_piece",
     "jpName": "ピンキーパカのスリッパの設計図",
     "equipmentCompositionType": "Piece",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ]
   },
   {
     "id": "2103003",
     "category": "Shoes",
     "tier": 4,
-    "icon": "Equipment_Icon_Shoes_Tier4_Piece",
+    "icon": "equipment_icon_shoes_tier4_piece",
     "jpName": "アンティークなエナメルローファーの設計図",
     "equipmentCompositionType": "Piece",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ]
   },
   {
     "id": "2103004",
     "category": "Shoes",
     "tier": 5,
-    "icon": "Equipment_Icon_Shoes_Tier5_Piece",
+    "icon": "equipment_icon_shoes_tier5_piece",
     "jpName": "戦闘用ブーツの設計図",
     "equipmentCompositionType": "Piece",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ]
   },
   {
     "id": "2103005",
     "category": "Shoes",
     "tier": 6,
-    "icon": "Equipment_Icon_Shoes_Tier6_Piece",
+    "icon": "equipment_icon_shoes_tier6_piece",
     "jpName": "ヒールパンプスの設計図",
     "equipmentCompositionType": "Piece",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ]
   },
   {
     "id": "2103006",
     "category": "Shoes",
     "tier": 7,
-    "icon": "Equipment_Icon_Shoes_Tier7_Piece",
+    "icon": "equipment_icon_shoes_tier7_piece",
     "jpName": "カジュアルスニーカーの設計図",
     "equipmentCompositionType": "Piece",
     "releasedIn": [
@@ -1723,8 +2050,20 @@
     "id": "2103007",
     "category": "Shoes",
     "tier": 8,
-    "icon": "Equipment_Icon_Shoes_Tier8_Piece",
+    "icon": "equipment_icon_shoes_tier8_piece",
     "jpName": "防水登山ブーツの設計図",
+    "equipmentCompositionType": "Piece",
+    "releasedIn": [
+      "Japan",
+      "Global"
+    ]
+  },
+  {
+    "id": "2103008",
+    "category": "Shoes",
+    "tier": 9,
+    "icon": "equipment_icon_shoes_tier9_piece",
+    "jpName": "アクアサンダルの設計図",
     "equipmentCompositionType": "Piece",
     "releasedIn": [
       "Japan"
@@ -1734,67 +2073,72 @@
     "id": "2104001",
     "category": "Bag",
     "tier": 2,
-    "icon": "Equipment_Icon_Bag_Tier2_Piece",
+    "icon": "equipment_icon_bag_tier2_piece",
     "jpName": "寒冷地用バッグの設計図",
     "equipmentCompositionType": "Piece",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ]
   },
   {
     "id": "2104002",
     "category": "Bag",
     "tier": 3,
-    "icon": "Equipment_Icon_Bag_Tier3_Piece",
+    "icon": "equipment_icon_bag_tier3_piece",
     "jpName": "ペロロのバッグの設計図",
     "equipmentCompositionType": "Piece",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ]
   },
   {
     "id": "2104003",
     "category": "Bag",
     "tier": 4,
-    "icon": "Equipment_Icon_Bag_Tier4_Piece",
+    "icon": "equipment_icon_bag_tier4_piece",
     "jpName": "紺色のスクールバッグの設計図",
     "equipmentCompositionType": "Piece",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ]
   },
   {
     "id": "2104004",
     "category": "Bag",
     "tier": 5,
-    "icon": "Equipment_Icon_Bag_Tier5_Piece",
+    "icon": "equipment_icon_bag_tier5_piece",
     "jpName": "戦闘用ランドセルの設計図",
     "equipmentCompositionType": "Piece",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ]
   },
   {
     "id": "2104005",
     "category": "Bag",
     "tier": 6,
-    "icon": "Equipment_Icon_Bag_Tier6_Piece",
+    "icon": "equipment_icon_bag_tier6_piece",
     "jpName": "デビルウイングのトートバッグの設計図",
     "equipmentCompositionType": "Piece",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ]
   },
   {
     "id": "2104006",
     "category": "Bag",
     "tier": 7,
-    "icon": "Equipment_Icon_Bag_Tier7_Piece",
+    "icon": "equipment_icon_bag_tier7_piece",
     "jpName": "ストリートバッグの設計図",
     "equipmentCompositionType": "Piece",
     "releasedIn": [
@@ -1806,8 +2150,20 @@
     "id": "2104007",
     "category": "Bag",
     "tier": 8,
-    "icon": "Equipment_Icon_Bag_Tier8_Piece",
+    "icon": "equipment_icon_bag_tier8_piece",
     "jpName": "蝶柄のショルダーバッグの設計図",
+    "equipmentCompositionType": "Piece",
+    "releasedIn": [
+      "Japan",
+      "Global"
+    ]
+  },
+  {
+    "id": "2104008",
+    "category": "Bag",
+    "tier": 9,
+    "icon": "equipment_icon_bag_tier9_piece",
+    "jpName": "スリングドライバックの設計図",
     "equipmentCompositionType": "Piece",
     "releasedIn": [
       "Japan"
@@ -1817,67 +2173,72 @@
     "id": "2105001",
     "category": "Badge",
     "tier": 2,
-    "icon": "Equipment_Icon_Badge_Tier2_Piece",
+    "icon": "equipment_icon_badge_tier2_piece",
     "jpName": "マナスルのフェルトバッジの設計図",
     "equipmentCompositionType": "Piece",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ]
   },
   {
     "id": "2105002",
     "category": "Badge",
     "tier": 3,
-    "icon": "Equipment_Icon_Badge_Tier3_Piece",
+    "icon": "equipment_icon_badge_tier3_piece",
     "jpName": "アングリーアデリーのバッジの設計図",
     "equipmentCompositionType": "Piece",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ]
   },
   {
     "id": "2105003",
     "category": "Badge",
     "tier": 4,
-    "icon": "Equipment_Icon_Badge_Tier4_Piece",
+    "icon": "equipment_icon_badge_tier4_piece",
     "jpName": "ベロニカの刺繍バッジの設計図",
     "equipmentCompositionType": "Piece",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ]
   },
   {
     "id": "2105004",
     "category": "Badge",
     "tier": 5,
-    "icon": "Equipment_Icon_Badge_Tier5_Piece",
+    "icon": "equipment_icon_badge_tier5_piece",
     "jpName": "カゼヤマのワッペンの設計図",
     "equipmentCompositionType": "Piece",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ]
   },
   {
     "id": "2105005",
     "category": "Badge",
     "tier": 6,
-    "icon": "Equipment_Icon_Badge_Tier6_Piece",
+    "icon": "equipment_icon_badge_tier6_piece",
     "jpName": "ココデビルのバッジの設計図",
     "equipmentCompositionType": "Piece",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ]
   },
   {
     "id": "2105006",
     "category": "Badge",
     "tier": 7,
-    "icon": "Equipment_Icon_Badge_Tier7_Piece",
+    "icon": "equipment_icon_badge_tier7_piece",
     "jpName": "ストリートバッジの設計図",
     "equipmentCompositionType": "Piece",
     "releasedIn": [
@@ -1889,8 +2250,20 @@
     "id": "2105007",
     "category": "Badge",
     "tier": 8,
-    "icon": "Equipment_Icon_Badge_Tier8_Piece",
+    "icon": "equipment_icon_badge_tier8_piece",
     "jpName": "ローレライバッジの設計図",
+    "equipmentCompositionType": "Piece",
+    "releasedIn": [
+      "Japan",
+      "Global"
+    ]
+  },
+  {
+    "id": "2105008",
+    "category": "Badge",
+    "tier": 9,
+    "icon": "equipment_icon_badge_tier9_piece",
+    "jpName": "ハルピュイア・フレキシブルバッジの設計図",
     "equipmentCompositionType": "Piece",
     "releasedIn": [
       "Japan"
@@ -1900,67 +2273,72 @@
     "id": "2106001",
     "category": "Hairpin",
     "tier": 2,
-    "icon": "Equipment_Icon_Hairpin_Tier2_Piece",
+    "icon": "equipment_icon_hairpin_tier2_piece",
     "jpName": "シュシュの設計図",
     "equipmentCompositionType": "Piece",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ]
   },
   {
     "id": "2106002",
     "category": "Hairpin",
     "tier": 3,
-    "icon": "Equipment_Icon_Hairpin_Tier3_Piece",
+    "icon": "equipment_icon_hairpin_tier3_piece",
     "jpName": "モモのヘアピンの設計図",
     "equipmentCompositionType": "Piece",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ]
   },
   {
     "id": "2106003",
     "category": "Hairpin",
     "tier": 4,
-    "icon": "Equipment_Icon_Hairpin_Tier4_Piece",
+    "icon": "equipment_icon_hairpin_tier4_piece",
     "jpName": "翼のヘアピンの設計図",
     "equipmentCompositionType": "Piece",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ]
   },
   {
     "id": "2106004",
     "category": "Hairpin",
     "tier": 5,
-    "icon": "Equipment_Icon_Hairpin_Tier5_Piece",
+    "icon": "equipment_icon_hairpin_tier5_piece",
     "jpName": "多目的ヘアピンの設計図",
     "equipmentCompositionType": "Piece",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ]
   },
   {
     "id": "2106005",
     "category": "Hairpin",
     "tier": 6,
-    "icon": "Equipment_Icon_Hairpin_Tier6_Piece",
+    "icon": "equipment_icon_hairpin_tier6_piece",
     "jpName": "コウモリのヘアピンの設計図",
     "equipmentCompositionType": "Piece",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ]
   },
   {
     "id": "2106006",
     "category": "Hairpin",
     "tier": 7,
-    "icon": "Equipment_Icon_Hairpin_Tier7_Piece",
+    "icon": "equipment_icon_hairpin_tier7_piece",
     "jpName": "カリグラフィーヘアピンの設計図",
     "equipmentCompositionType": "Piece",
     "releasedIn": [
@@ -1972,8 +2350,20 @@
     "id": "2106007",
     "category": "Hairpin",
     "tier": 8,
-    "icon": "Equipment_Icon_Hairpin_Tier8_Piece",
+    "icon": "equipment_icon_hairpin_tier8_piece",
     "jpName": "リーフヘアピンの設計図",
+    "equipmentCompositionType": "Piece",
+    "releasedIn": [
+      "Japan",
+      "Global"
+    ]
+  },
+  {
+    "id": "2106008",
+    "category": "Hairpin",
+    "tier": 9,
+    "icon": "equipment_icon_hairpin_tier9_piece",
+    "jpName": "アンカーヘアピンの設計図",
     "equipmentCompositionType": "Piece",
     "releasedIn": [
       "Japan"
@@ -1983,56 +2373,73 @@
     "id": "2107001",
     "category": "Charm",
     "tier": 2,
-    "icon": "Equipment_Icon_Charm_Tier2_Piece",
+    "icon": "equipment_icon_charm_tier2_piece",
     "jpName": "発熱カイロの設計図",
     "equipmentCompositionType": "Piece",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ]
   },
   {
     "id": "2107002",
     "category": "Charm",
     "tier": 3,
-    "icon": "Equipment_Icon_Charm_Tier3_Piece",
+    "icon": "equipment_icon_charm_tier3_piece",
     "jpName": "ペロロのお守りの設計図",
     "equipmentCompositionType": "Piece",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ]
   },
   {
     "id": "2107003",
     "category": "Charm",
     "tier": 4,
-    "icon": "Equipment_Icon_Charm_Tier4_Piece",
+    "icon": "equipment_icon_charm_tier4_piece",
     "jpName": "クルスの設計図",
     "equipmentCompositionType": "Piece",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ]
   },
   {
     "id": "2107004",
     "category": "Charm",
     "tier": 5,
-    "icon": "Equipment_Icon_Charm_Tier5_Piece",
+    "icon": "equipment_icon_charm_tier5_piece",
     "jpName": "カモフラダルマの設計図",
     "equipmentCompositionType": "Piece",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ]
   },
   {
     "id": "2107005",
     "category": "Charm",
     "tier": 6,
-    "icon": "Equipment_Icon_Charm_Tier6_Piece",
+    "icon": "equipment_icon_charm_tier6_piece",
     "jpName": "呪いの人形の設計図",
+    "equipmentCompositionType": "Piece",
+    "releasedIn": [
+      "Japan",
+      "Global",
+      "China"
+    ]
+  },
+  {
+    "id": "2107006",
+    "category": "Charm",
+    "tier": 7,
+    "icon": "equipment_icon_charm_tier7_piece",
+    "jpName": "ポケット消臭剤の設計図",
     "equipmentCompositionType": "Piece",
     "releasedIn": [
       "Japan",
@@ -2040,11 +2447,11 @@
     ]
   },
   {
-    "id": "2107006",
+    "id": "2107007",
     "category": "Charm",
-    "tier": 7,
-    "icon": "Equipment_Icon_Charm_Tier7_Piece",
-    "jpName": "ポケット消臭剤の設計図",
+    "tier": 8,
+    "icon": "equipment_icon_charm_tier8_piece",
+    "jpName": "ドリームキャッチャーの設計図",
     "equipmentCompositionType": "Piece",
     "releasedIn": [
       "Japan",
@@ -2055,56 +2462,73 @@
     "id": "2108001",
     "category": "Watch",
     "tier": 2,
-    "icon": "Equipment_Icon_Watch_Tier2_Piece",
+    "icon": "equipment_icon_watch_tier2_piece",
     "jpName": "レザーの腕時計の設計図",
     "equipmentCompositionType": "Piece",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ]
   },
   {
     "id": "2108002",
     "category": "Watch",
     "tier": 3,
-    "icon": "Equipment_Icon_Watch_Tier3_Piece",
+    "icon": "equipment_icon_watch_tier3_piece",
     "jpName": "ウェーブキャットの時計の設計図",
     "equipmentCompositionType": "Piece",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ]
   },
   {
     "id": "2108003",
     "category": "Watch",
     "tier": 4,
-    "icon": "Equipment_Icon_Watch_Tier4_Piece",
+    "icon": "equipment_icon_watch_tier4_piece",
     "jpName": "アンティークな懐中時計の設計図",
     "equipmentCompositionType": "Piece",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ]
   },
   {
     "id": "2108004",
     "category": "Watch",
     "tier": 5,
-    "icon": "Equipment_Icon_Watch_Tier5_Piece",
+    "icon": "equipment_icon_watch_tier5_piece",
     "jpName": "防塵型の腕時計の設計図",
     "equipmentCompositionType": "Piece",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ]
   },
   {
     "id": "2108005",
     "category": "Watch",
     "tier": 6,
-    "icon": "Equipment_Icon_Watch_Tier6_Piece",
+    "icon": "equipment_icon_watch_tier6_piece",
     "jpName": "ゴシック風の腕時計の設計図",
+    "equipmentCompositionType": "Piece",
+    "releasedIn": [
+      "Japan",
+      "Global",
+      "China"
+    ]
+  },
+  {
+    "id": "2108006",
+    "category": "Watch",
+    "tier": 7,
+    "icon": "equipment_icon_watch_tier7_piece",
+    "jpName": "ストリートファッションウォッチの設計図",
     "equipmentCompositionType": "Piece",
     "releasedIn": [
       "Japan",
@@ -2112,11 +2536,11 @@
     ]
   },
   {
-    "id": "2108006",
+    "id": "2108007",
     "category": "Watch",
-    "tier": 7,
-    "icon": "Equipment_Icon_Watch_Tier7_Piece",
-    "jpName": "ストリートファッションウォッチの設計図",
+    "tier": 8,
+    "icon": "equipment_icon_watch_tier8_piece",
+    "jpName": "ローレライの腕時計の設計図",
     "equipmentCompositionType": "Piece",
     "releasedIn": [
       "Japan",
@@ -2127,56 +2551,73 @@
     "id": "2109001",
     "category": "Necklace",
     "tier": 2,
-    "icon": "Equipment_Icon_Necklace_Tier2_Piece",
+    "icon": "equipment_icon_necklace_tier2_piece",
     "jpName": "雪花のペンダントの設計図",
     "equipmentCompositionType": "Piece",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ]
   },
   {
     "id": "2109002",
     "category": "Necklace",
     "tier": 3,
-    "icon": "Equipment_Icon_Necklace_Tier3_Piece",
+    "icon": "equipment_icon_necklace_tier3_piece",
     "jpName": "ニコライのロケットペンダントの設計図",
     "equipmentCompositionType": "Piece",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ]
   },
   {
     "id": "2109003",
     "category": "Necklace",
     "tier": 4,
-    "icon": "Equipment_Icon_Necklace_Tier4_Piece",
+    "icon": "equipment_icon_necklace_tier4_piece",
     "jpName": "十字架のチョーカーの設計図",
     "equipmentCompositionType": "Piece",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ]
   },
   {
     "id": "2109004",
     "category": "Necklace",
     "tier": 5,
-    "icon": "Equipment_Icon_Necklace_Tier5_Piece",
+    "icon": "equipment_icon_necklace_tier5_piece",
     "jpName": "ドッグタグの設計図",
     "equipmentCompositionType": "Piece",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ]
   },
   {
     "id": "2109005",
     "category": "Necklace",
     "tier": 6,
-    "icon": "Equipment_Icon_Necklace_Tier6_Piece",
+    "icon": "equipment_icon_necklace_tier6_piece",
     "jpName": "パンクチョーカーの設計図",
+    "equipmentCompositionType": "Piece",
+    "releasedIn": [
+      "Japan",
+      "Global",
+      "China"
+    ]
+  },
+  {
+    "id": "2109006",
+    "category": "Necklace",
+    "tier": 7,
+    "icon": "equipment_icon_necklace_tier7_piece",
+    "jpName": "チェーンネックレスの設計図",
     "equipmentCompositionType": "Piece",
     "releasedIn": [
       "Japan",
@@ -2184,11 +2625,11 @@
     ]
   },
   {
-    "id": "2109006",
+    "id": "2109007",
     "category": "Necklace",
-    "tier": 7,
-    "icon": "Equipment_Icon_Necklace_Tier7_Piece",
-    "jpName": "チェーンネックレスの設計図",
+    "tier": 8,
+    "icon": "equipment_icon_necklace_tier8_piece",
+    "jpName": "グリーンリーフネックレスの設計図",
     "equipmentCompositionType": "Piece",
     "releasedIn": [
       "Japan",

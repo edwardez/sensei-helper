@@ -76,6 +76,7 @@
   "settingsDialogSelectGameServer": "ゲームサーバー",
   "japanServer": "日本",
   "globalServer": "グローバル",
+  "chinaServer": "中国",
   "notifyDataCorruptionDialog": {
     "title": "エラー",
     "explanation": "データが破損してるため、装備データと設定のリセットは必要です。",
