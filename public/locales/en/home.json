@@ -46,6 +46,17 @@
     "enterNickName":  "Enter a nickname(optional)",
     "enterNickNameNormalHelperText": "Enter a student name to help you memorize equipment ownership"
   },
+  "equipmentCategory": {
+    "Hat": "Hat",
+    "Gloves": "Gloves",
+    "Shoes": "Shoes",
+    "Bag": "Bag",
+    "Badge": "Badge",
+    "Hairpin": "Hairpin",
+    "Charm": "Charm",
+    "Watch": "Watch",
+    "Necklace": "Necklace"
+  },
   "thinsToNote": {
     "title": "Things to note",
     "pointThisIsEstimation": "Recommended sweeping times is an estimation and your mileage may vary.",

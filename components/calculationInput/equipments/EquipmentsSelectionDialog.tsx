@@ -35,6 +35,7 @@ import {
 import NickNameInput from 'components/calculationInput/equipments/EquipmentDialog/NickNameInput';
 import {observer} from 'mobx-react-lite';
 import {useStore} from 'stores/WizStore';
+import {EquipmentFilterChips, useEquipmentFilterChips} from './EquipmentFilterChips';
 
 
 export interface IEquipmentFormInputs {
@@ -260,6 +261,29 @@ const EquipmentsSelectionDialog = (
     }
   };
 
+  const [selected, setSelected, filter] = useEquipmentFilterChips();
+
+  const tierList = useMemo(() => {
+    return equipmentsByTier && Array.from(equipmentsByTier.keys()).map((tier) => {
+      const equipmentsOnTier = equipmentsByTier.get(tier);
+      if (!equipmentsOnTier) return null;
+
+      // Filters out equipments that cannot be upgraded further
+      const filterEquipmentsOnTier = equipmentsOnTier.filter(
+          (equipment) => equipment.tier < maxTierPerCategory[equipment.category]
+      );
+      return tier === overallMaxTier ?
+          <div key={tier}>
+            <BuiLinedText>T{tier}</BuiLinedText>
+            <Typography sx={{color: 'text.disabled'}} variant={'subtitle1'}>
+              {t('addEquipmentDialog.cannotUpgradeFurther')}
+            </Typography>
+          </div> :
+          <ItemsOnCurrentTier key={tier} tier={tier}
+            items={filterEquipmentsOnTier} selectedItemId={baseEquipId}
+            handleSelectItem={onCurrentEquipmentChanged}/>;
+    });
+  }, [equipmentsByTier, overallMaxTier, t, baseEquipId, maxTierPerCategory]);
 
   const generateStepContent = (stepNumber: number) => {
     const baseEquipment = equipmentsById.get(baseEquipId ?? '');
@@ -267,27 +291,13 @@ const EquipmentsSelectionDialog = (
 
     switch (stepNumber) {
       case 0:
-        return equipmentsByTier ?
-            Array.from(equipmentsByTier.keys()).map(
-                (tier) => {
-                  const equipmentsOnTier = equipmentsByTier.get(tier);
-                  if (!equipmentsOnTier) return null;
-
-                  // Filters out equipments that cannot be upgraded further
-                  const filterEquipmentsOnTier = equipmentsOnTier.filter(
-                      (equipment) => equipment.tier < maxTierPerCategory[equipment.category]
-                  );
-                  return tier === overallMaxTier ?
-                      <div key={tier}>
-                        <BuiLinedText>T{tier}</BuiLinedText>
-                        <Typography sx={{color: 'text.disabled'}} variant={'subtitle1'}>
-                          {t('addEquipmentDialog.cannotUpgradeFurther')}
-                        </Typography>
-                      </div> :
-                      <ItemsOnCurrentTier key={tier} tier={tier} items={filterEquipmentsOnTier} selectedItemId={baseEquipId}
-                        handleSelectItem={onCurrentEquipmentChanged}/>;
-                }
-            ) : <CircularProgress />;
+        return !tierList ? <CircularProgress /> : <>
+          <EquipmentFilterChips
+            selected={selected}
+            setSelected={setSelected}
+            overallMaxTier={overallMaxTier} />
+          {!selected.tier ? tierList : tierList[selected.tier - 1]}
+        </>;
       case 1:
       default:
         if (!baseEquipment) return <div></div>;
