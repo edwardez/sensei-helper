@@ -57,6 +57,7 @@
     "Watch": "Watch",
     "Necklace": "Necklace"
   },
+  "filterResultEmpty": "Could not find any equipment matching the filter.",
   "thinsToNote": {
     "title": "Things to note",
     "pointThisIsEstimation": "Recommended sweeping times is an estimation and your mileage may vary.",

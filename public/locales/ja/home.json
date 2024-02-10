@@ -56,6 +56,7 @@
     "Watch": "腕時計",
     "Necklace": "ネックレス"
   },
+  "filterResultEmpty": "条件に合う装備が見つかりません。",
   "thinsToNote": {
     "title": "注記",
     "pointThisIsEstimation": "推奨掃討回数は予測であり、実際の報酬と大きく異なる場合もあります。",

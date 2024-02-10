@@ -56,6 +56,7 @@
     "Watch": "手表",
     "Necklace": "项链"
   },
+  "filterResultEmpty": "我找不到符合要求的设备。",
   "thinsToNote": {
     "title": "注意事项",
     "pointThisIsEstimation": "推荐扫图次数为估计，与实际可能有出入。",

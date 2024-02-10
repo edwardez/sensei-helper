@@ -3,6 +3,7 @@ import {Equipment} from 'model/Equipment';
 import BuiLinedText from 'components/bui/text/BuiLinedText';
 import EquipmentCard from 'components/bui/card/EquipmentCard';
 import {memo} from 'react';
+import {useTranslation} from 'next-i18next';
 
 const EquipmentCardMemo = memo(EquipmentCard);
 
@@ -17,25 +18,31 @@ export const EquipmentsList = ({
     equipments: (Equipment | EquipmentGroup)[],
     onClick: (id: string) => void,
 }) => {
+  const {t} = useTranslation();
+
   let anythingRendered = false;
+
+  const createLabel = (group: EquipmentGroup) => {
+    return <div key={group.label} className={styles.divider}>
+      <BuiLinedText>{group.label}</BuiLinedText>
+    </div>;
+  };
+
   const createCard = (equip: Equipment) => {
     anythingRendered ||= true;
-    return <div className={styles.card}>
-      <EquipmentCardMemo key={equip.id}
+    return <div key={equip.id} className={styles.card}>
+      <EquipmentCardMemo
         imageName={equip.icon} onClick={() => onClick(equip.id)}
         isSelected={selectedEquipId === equip.id}/>
     </div>;
   };
+
   return <div className={styles.container}>
-    {equipments.map((equip) => {
-      return 'id' in equip ? createCard(equip) :
-        <>
-          <div className={styles.divider}><BuiLinedText>
-            {equip.label}
-          </BuiLinedText></div>
-          {equip.equipments.map(createCard)}
-        </>;
+    {equipments.flatMap((equipOrGroup) => {
+      return 'id' in equipOrGroup ?
+        [createCard(equipOrGroup)] :
+        [createLabel(equipOrGroup), ...equipOrGroup.equipments.map(createCard)];
     })}
-    {anythingRendered || <>フィルタ結果が空です</>}
+    {anythingRendered || <div key='empty'>{t('filterResultEmpty')}</div>}
   </div>;
 };
