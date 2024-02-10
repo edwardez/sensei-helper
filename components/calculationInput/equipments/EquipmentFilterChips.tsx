@@ -40,23 +40,25 @@ export const useEquipmentFilterChips = () => {
 export const EquipmentFilterChips = ({
   defaultTier,
   defaultCategory,
-  overallMaxTier,
+  minTier = 1,
+  maxTier,
   selected,
   setSelected,
 }: {
   defaultTier?: number,
   defaultCategory?: EquipmentCategory,
-  overallMaxTier: number,
+  minTier?: number,
+  maxTier: number,
   selected: SelectionState,
   setSelected: (action: SelectAction) => void,
 }) => {
   const {t} = useTranslation();
   const tiers = useMemo(() => {
-    return Array.from({length: overallMaxTier - 1}, (_, i) => ({
-      key: i + 1,
-      label: `T${i + 1}`,
+    return Array.from({length: maxTier - 1}, (_, i) => ({
+      key: i + minTier,
+      label: `T${i + minTier}`,
     }));
-  }, [overallMaxTier]);
+  }, [minTier, maxTier]);
   const categories = useMemo(() => {
     return equipmentCategories.map((key) => ({
       key,

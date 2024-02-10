@@ -233,6 +233,7 @@ const CalculationInputCard = ({store, equipments, campaignsById, equipmentsById,
     <PiecesSelectionDialog
       isOpened={isOpened}
       piecesByTier={piecesByTier}
+      piecesById={equipmentsById}
       handleAddPieceRequirement={handleAddPieceRequirement}
       handleUpdatePieceRequirement={handleUpdatePieceRequirement}
       handleDeletePieceRequirement={handleDeletePieceRequirement}
