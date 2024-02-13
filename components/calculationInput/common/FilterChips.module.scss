@@ -1,0 +1,24 @@
+@use 'scss/variables.module';
+
+.container {
+    display: flex;
+    flex-flow: row wrap;
+    align-content: center;
+    margin-bottom: 1rem;
+    & > .chip {
+        margin-inline-end: 0.2rem;
+        margin-bottom: 0.5rem;
+    }
+}
+
+.divider {
+    margin-inline: 0.3rem 0.5rem;
+    height: 1lh;
+    border-left: lightgray 1px solid;
+}
+
+.divider:last-child {
+    display: none;
+}
+
+
