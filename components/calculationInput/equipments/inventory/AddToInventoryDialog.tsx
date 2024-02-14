@@ -1,13 +1,23 @@
 import styles from './AddToInventoryDialog.module.scss';
-import {Button, Dialog, DialogActions, DialogContent, DialogTitle, useMediaQuery, useTheme} from '@mui/material';
+import {
+  Button, Dialog, DialogActions, DialogContent, DialogTitle,
+  useMediaQuery, useTheme,
+} from '@mui/material';
 import React, {useEffect, useMemo, useReducer} from 'react';
 import {useTranslation} from 'next-i18next';
 import {useForm} from 'react-hook-form';
-import {DropPieceIdWithProbAndCount, EquipmentsById} from 'components/calculationInput/PiecesCalculationCommonTypes';
+import {
+  DropPieceIdWithProbAndCount, EquipmentsById,
+} from 'components/calculationInput/PiecesCalculationCommonTypes';
 import {InventoryForm} from './InventoryUpdateDialog';
 import ObtainedPieceBox from './ObtainedPieceBox';
 import {useStore} from 'stores/WizStore';
 import {PieceState} from './PiecesInventory';
+import {
+  Comparators, SortingOrder,
+  buildArrayIndexComparator, buildComparator,
+} from 'common/sortUtils';
+import {EquipmentCategories} from 'model/Equipment';
 
 const AddToInventoryDialog = ({
   open,
@@ -36,9 +46,21 @@ const AddToInventoryDialog = ({
 
   const pieceIds = useMemo(() => drops.map((drop) => drop.id), [drops]);
   const pieces = useMemo(() => {
+    // 20-3: Necklace, Watch, Bag
+    // 20-4: Watch, Charm, Badge
+    // 13-1: Shoes, Gloves, Hat
+    // descending tier -> descending category order?
     return Array.from(piecesState.values())
-        .filter((state) => pieceIds.includes(state.pieceId) && state.needCount > 0);
-  }, [piecesState, pieceIds]);
+        .filter((state) => pieceIds.includes(state.pieceId) && state.needCount > 0)
+        .sort(buildComparator(
+            (piece) => equipById.get(piece.pieceId),
+            buildComparator((e) => e.tier, Comparators.numberDescending),
+            buildComparator((e) => e.category, buildArrayIndexComparator(
+                EquipmentCategories,
+                SortingOrder.Descending
+            )),
+        ));
+  }, [piecesState, pieceIds, equipById]);
   const defaultValues = useMemo(() => {
     return pieces.reduce<InventoryForm>((acc, piece) => {
       acc[piece.pieceId] = '';
