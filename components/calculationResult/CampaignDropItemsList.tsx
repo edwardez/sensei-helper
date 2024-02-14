@@ -1,12 +1,15 @@
 import styles from './CampaignDropItemsList.module.scss';
 import {Card, CardContent, Typography} from '@mui/material';
-import React, {FunctionComponent} from 'react';
+import React, {FunctionComponent, useState} from 'react';
 import {Campaign} from 'model/Campaign';
 import {DropPieceIdWithProbAndCount, EquipmentsById} from 'components/calculationInput/PiecesCalculationCommonTypes';
 import Grid from '@mui/material/Unstable_Grid2';
 import BuiBanner from '../bui/BuiBanner';
 import {useTranslation} from 'next-i18next';
 import EquipmentCard from 'components/bui/card/EquipmentCard';
+import BuiButton from 'components/bui/BuiButton';
+import AddToInventoryDialog from '../calculationInput/equipments/inventory/AddToInventoryDialog';
+import {PieceState} from 'components/calculationInput/equipments/inventory/PiecesInventory';
 
 type CampaignDropItemsListProps = {
     campaignInfo: Campaign,
@@ -16,6 +19,7 @@ type CampaignDropItemsListProps = {
     hidePieceDropCount?: boolean,
     containerCardVariation?: 'elevation' | 'outlined',
     shouldHighLightPiece?: (pieceId: string) => boolean,
+    piecesState: Map<string, PieceState>,
 }
 
 const CampaignDropItemsList :
@@ -27,14 +31,22 @@ const CampaignDropItemsList :
       shouldHighLightPiece,
       hidePieceDropCount= false,
       containerCardVariation = 'elevation',
+      piecesState,
     }
     ) => {
       const {t} = useTranslation('home');
+      const [open, setOpen] = useState(false);
       return <Card variant={containerCardVariation} className={styles.cardWrapper}
         elevation={containerCardVariation == 'elevation' ? 2 : undefined}>
+        <AddToInventoryDialog open={open}
+          onUpdate={() => setOpen(false)}
+          onCancel={() => setOpen(false)}
+          equipById={equipmentsById}
+          piecesState={piecesState}
+          drops={allDrops} />
         <CardContent>
           <Grid container>
-            <Grid xs={12} container className={styles.campaignNameAndTimes}>
+            <Grid xs={12} container className={styles.campaignHeader}>
               <Typography variant={'h4'}>
                 {`${campaignInfo.area}-${campaignInfo.stage}`}
               </Typography>
@@ -43,6 +55,12 @@ const CampaignDropItemsList :
                 sx={{marginLeft: '0.8em'}}
                 backgroundColor={'secondary'}
                 width={'unset'}/>
+
+              <div style={{flexGrow: 1}}/>
+
+              <BuiButton color={'baButtonSecondary'} onClick={() => setOpen(true)}>
+                {'結果を記入'}
+              </BuiButton>
             </Grid>
 
             <Grid xs={12} className={styles.noSelection}>

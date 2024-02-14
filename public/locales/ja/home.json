@@ -21,7 +21,8 @@
     "minimumIs": "最小値は{{min}}です",
     "maximumIs": "最大値は{{max}}です",
     "quantity": "欲しい数",
-    "inStockCount": "所持数"
+    "inStockCount": "所持数",
+    "obtainedCount": "獲得数"
   },
   "selectInputMode": "入力モード",
   "selectResultMode": "結果表示モード",

@@ -36,7 +36,8 @@ const AllPotentialStages = ({
             campaignInfo={campaign} stageExplanationLabel={t('resultPiecesCountOnStage', {count: campaign?.targetRewardIds?.size})}
             allDrops={allDrops} equipmentsById={equipmentsById}
             shouldHighLightPiece={(id) => campaign.targetRewardIds.has(id)}
-            hidePieceDropCount/>
+            hidePieceDropCount
+            piecesState={piecesState} />
         </Box>;
       })
     }
