@@ -5,20 +5,20 @@ import {
 } from 'components/calculationInput/equipments/EquipmentsInput';
 import {EquipmentsById} from 'components/calculationInput/PiecesCalculationCommonTypes';
 import {IWizStore} from 'stores/WizStore';
+import {IRequirementByEquipment} from 'stores/EquipmentsRequirementStore';
 
-export const calculateRequirementAmount = (
+export const calculateRequiredPieces = (
     equipById: EquipmentsById,
     equipByCategory: EquipmentsByTierAndCategory,
-    baseId: string,
-    targetId: string,
-    count: number,
+    requirement: IRequirementByEquipment,
 ): Map<string, number> => {
   const result: Map<string, number> = new Map();
 
-  const base = equipById.get(baseId);
-  const target = equipById.get(targetId);
+  const base = equipById.get(requirement.currentEquipmentId);
+  const target = equipById.get(requirement.targetEquipmentId);
   if (!base || !target) return result;
   const category = base.category;
+  const count = requirement.count;
 
   for (let tier = base.tier + 1; tier <= target.tier; tier++) {
     const equip = equipByCategory.get(hashTierAndCategoryKey({tier, category}));
@@ -32,18 +32,19 @@ export const calculateRequirementAmount = (
   return result;
 };
 
-export const calculatePiecesState = (store: IWizStore, equipmentsById: EquipmentsById,
-    equipmentsByTierAndCategory: EquipmentsByTierAndCategory) => {
+export const calculatePiecesState = (
+    store: IWizStore,
+    equipmentsById: EquipmentsById,
+    equipmentsByTierAndCategory: EquipmentsByTierAndCategory
+): Map<string, PieceState> => {
   const piecesStateMap: Map<string, PieceState> = new Map();
   if (!equipmentsById) return piecesStateMap;
 
   for (const requirement of store.equipmentsRequirementStore.requirementByEquipments) {
-    calculateRequirementAmount(
+    calculateRequiredPieces(
         equipmentsById,
         equipmentsByTierAndCategory,
-        requirement.currentEquipmentId,
-        requirement.targetEquipmentId,
-        requirement.count,
+        requirement,
     ).forEach((amount, pieceId) => {
       const stock =
         store.equipmentsRequirementStore.piecesInventory.get(pieceId)
@@ -60,4 +61,15 @@ export const calculatePiecesState = (store: IWizStore, equipmentsById: Equipment
   }
 
   return piecesStateMap;
+};
+
+export const checkRequirementsSatisfied = (
+    piecesState: Map<string, PieceState>,
+    requirements: Map<string, number>,
+): boolean => {
+  return Array.from(requirements.entries())
+      .every(([pieceId, need]) => {
+        const stock = piecesState.get(pieceId)?.inStockCount ?? 0;
+        return need < stock;
+      });
 };

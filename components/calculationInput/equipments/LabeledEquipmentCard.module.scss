@@ -1,0 +1,17 @@
+@use 'components/calculationInput/common/common-calculation-input-layout';
+
+.card {
+  position: relative;
+}
+
+.container {
+  @include common-calculation-input-layout.items-list;
+}
+
+.badges {
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  display: flex;
+  flex-flow: column nowrap;
+}

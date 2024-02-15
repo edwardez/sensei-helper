@@ -1,8 +1,6 @@
 import styles from 'components/calculationInput/equipments/UpgradeConfirmationDialog.module.scss';
 import {
   Button,
-  Card,
-  CardActionArea,
   Dialog,
   DialogActions,
   DialogContent,
@@ -11,19 +9,19 @@ import {
   useTheme,
 } from '@mui/material';
 import Box from '@mui/material/Box';
-import React, {useCallback, useMemo} from 'react';
+import React, {memo, useCallback, useMemo} from 'react';
 import {EquipmentInfoToEdit} from 'stores/EquipmentsRequirementStore';
 import EquipmentCard from 'components/bui/card/EquipmentCard';
 import {EquipmentsById} from 'components/calculationInput/PiecesCalculationCommonTypes';
 import BuiLinedText from 'components/bui/text/BuiLinedText';
 import {useTranslation} from 'next-i18next';
-import {EquipmentsByTierAndCategory} from 'components/calculationInput/equipments/EquipmentsInput';
+import {EquipmentsByTierAndCategory} from './EquipmentsInput';
 import {observer} from 'mobx-react-lite';
-import {useStore} from 'stores/WizStore';
-import {calculateRequirementAmount} from 'components/calculationInput/equipments/inventory/piecesStateCalculator';
+import {calculateRequiredPieces} from './inventory/piecesStateCalculator';
 import {ArrowForwardRounded} from '@mui/icons-material';
 import BuiBanner from 'components/bui/BuiBanner';
 import {PieceState} from './inventory/PiecesInventory';
+import {LabeledEquipmentCard} from './LabeledEquipmentCard';
 
 type UpgradeConfirmationDialogProps = {
   open: boolean;
@@ -31,7 +29,8 @@ type UpgradeConfirmationDialogProps = {
   equipByCategory: EquipmentsByTierAndCategory;
   onUpgrade: (equip: EquipmentInfoToEdit, requirements: PieceState[]) => void;
   onCancel: () => void;
-  equip: EquipmentInfoToEdit;
+  equip: EquipmentInfoToEdit | null;
+  piecesState: Map<string, PieceState>;
 };
 
 const UpgradeConfirmationDialog = ({
@@ -41,59 +40,35 @@ const UpgradeConfirmationDialog = ({
   onUpgrade,
   onCancel,
   equip: equipInfo,
+  piecesState,
 }: UpgradeConfirmationDialogProps) => {
-  const store = useStore();
   const {t} = useTranslation('home');
   const theme = useTheme();
 
   const isFullScreen = useMediaQuery(theme.breakpoints.down('md'));
 
-  const currentEquip = useMemo(() => {
-    return equipById.get(equipInfo.currentEquipmentId);
-  }, [equipById, equipInfo.currentEquipmentId]);
-
-  const targetEquip = useMemo(() => {
-    return equipById.get(equipInfo.targetEquipmentId);
-  }, [equipById, equipInfo.targetEquipmentId]);
-
-  const {count, nickname} = equipInfo;
+  const currentEquip = equipInfo && equipById.get(equipInfo.currentEquipmentId);
+  const targetEquip = equipInfo && equipById.get(equipInfo.targetEquipmentId);
 
   const requirements = useMemo(() => {
-    if (!currentEquip || !targetEquip) return [];
+    if (!equipInfo) return null;
     const requirements = Array.from(
-        calculateRequirementAmount(
+        calculateRequiredPieces(
             equipById,
             equipByCategory,
-            currentEquip.id,
-            targetEquip.id,
-            count
+            equipInfo,
         ).entries(),
-        ([pieceId, needCount]): { pieceId: string; state: PieceState } => {
-          const inStockCount =
-          store.equipmentsRequirementStore.piecesInventory.get(pieceId)
-              ?.inStockCount ?? 0;
-          return {pieceId, state: {pieceId, needCount, inStockCount}};
+        ([pieceId, needCount]): PieceState => {
+          const inStockCount = piecesState.get(pieceId)?.inStockCount ?? 0;
+          return {pieceId, needCount, inStockCount};
         }
     );
-    return requirements
-        .sort((a, b) => (a.pieceId > b.pieceId ? -1 : 1))
-        .map(({pieceId, state}) => ({
-          pieceId,
-          piece: equipById.get(pieceId),
-          use: state.needCount,
-          stock: state.inStockCount,
-        }));
-  }, [equipById, equipByCategory, currentEquip, targetEquip, count]);
+    return requirements.sort((a, b) => (a.pieceId > b.pieceId ? -1 : 1));
+  }, [equipById, equipByCategory, equipInfo, piecesState]);
 
   const handleUpgrade = useCallback(() => {
-    onUpgrade(
-        equipInfo,
-        requirements.map(({pieceId, use, stock}) => ({
-          pieceId,
-          needCount: use,
-          inStockCount: stock,
-        }))
-    );
+    if (!equipInfo || !requirements) return;
+    onUpgrade(equipInfo, requirements);
   }, [equipInfo, requirements, onUpgrade]);
 
   return (
@@ -119,24 +94,15 @@ const UpgradeConfirmationDialog = ({
             bottomLeftText={`T${targetEquip.tier}`}
             imageName={targetEquip.icon}
           />}
-          <span><BuiBanner label={`x${count}`} /></span>
-          <span>{nickname && <BuiBanner label={`${nickname}`} />}</span>
+          <span><BuiBanner label={`x${equipInfo?.count}`} /></span>
+          <span>{equipInfo?.nickname && <BuiBanner label={`${equipInfo.nickname}`} />}</span>
         </Box>
         <BuiLinedText>{t('upgradeDialog.pieces')}</BuiLinedText>
         <Box className={styles.pieces}>
-          {requirements.map(({piece, use, stock}, i) => (
-            <Card key={i} elevation={1}>
-              <CardActionArea>
-                <div className={styles.card}>
-                  {piece && (
-                    <EquipmentCard
-                      imageName={piece.icon}
-                      bottomRightText={`x${stock}`} />
-                  )}
-                  <BuiBanner label={`${use}`} width={'120%'} />
-                </div>
-              </CardActionArea>
-            </Card>
+          {requirements && requirements.map((state) => (
+            <LabeledEquipmentCard key={state.pieceId}
+              showStockCount showNeedCount
+              equipById={equipById} pieceState={state}/>
           ))}
         </Box>
       </DialogContent>
@@ -149,4 +115,4 @@ const UpgradeConfirmationDialog = ({
   );
 };
 
-export default observer(UpgradeConfirmationDialog);
+export default memo(observer(UpgradeConfirmationDialog));

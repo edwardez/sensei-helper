@@ -3,6 +3,7 @@ import styles from 'components/calculationInput/equipments/EquipmentsSelectionDi
 import {
   Button,
   CircularProgress,
+  Collapse,
   Dialog,
   DialogActions,
   DialogContent,
@@ -17,7 +18,7 @@ import {
   useTheme,
 } from '@mui/material';
 import Box from '@mui/material/Box';
-import React, {useEffect, useMemo, useState} from 'react';
+import React, {useCallback, useEffect, useMemo, useState} from 'react';
 import {EquipmentInfoToEdit, IRequirementByEquipment} from 'stores/EquipmentsRequirementStore';
 import BuiButton from 'components/bui/BuiButton';
 import {Equipment, EquipmentCompositionType} from 'model/Equipment';
@@ -37,9 +38,10 @@ import {
 import NickNameInput from 'components/calculationInput/equipments/EquipmentDialog/NickNameInput';
 import {observer} from 'mobx-react-lite';
 import {useStore} from 'stores/WizStore';
-import {calculateRequirementAmount} from 'components/calculationInput/equipments/inventory/piecesStateCalculator';
+import {calculateRequiredPieces, checkRequirementsSatisfied} from 'components/calculationInput/equipments/inventory/piecesStateCalculator';
 import UpgradeConfirmationDialog from './UpgradeConfirmationDialog';
 import {PieceState} from './inventory/PiecesInventory';
+import {LabeledEquipmentCard} from './LabeledEquipmentCard';
 
 
 export interface IEquipmentFormInputs {
@@ -53,6 +55,7 @@ const nicknameField = 'nickname';
 
 type EquipmentsSelectionDialogPros = {
   isOpened: boolean,
+  piecesState: Map<string, PieceState>,
   equipmentsById: EquipmentsById,
   equipmentsByTier: Map<number, Equipment[]>,
   equipmentsByTierAndCategory: EquipmentsByTierAndCategory,
@@ -65,15 +68,15 @@ type EquipmentsSelectionDialogPros = {
   equipmentInfoToEdit: EquipmentInfoToEdit|null,
 }
 
-const EquipmentsSelectionDialog = (
-    {isOpened, equipmentInfoToEdit, equipmentsByTier, equipmentsById,
-      equipmentsByTierAndCategory,
-      handleAddEquipmentRequirement,
-      handleUpdateEquipmentRequirement,
-      handleDeleteEquipmentRequirement,
-      handleCancel,
-    } : EquipmentsSelectionDialogPros
-) => {
+const EquipmentsSelectionDialog = ({
+  isOpened,
+  piecesState, equipmentInfoToEdit,
+  equipmentsByTier, equipmentsById, equipmentsByTierAndCategory,
+  handleAddEquipmentRequirement,
+  handleUpdateEquipmentRequirement,
+  handleDeleteEquipmentRequirement,
+  handleCancel,
+} : EquipmentsSelectionDialogPros) => {
   const store = useStore();
   const {t} = useTranslation('home');
   const theme = useTheme();
@@ -97,7 +100,8 @@ const EquipmentsSelectionDialog = (
   const [baseEquipId, setBaseEquipId] = useState<string|null>(null);
   const previousBaseEquipId = usePrevious(baseEquipId);
   const [targetEquipId, setTargetEquipId] = useState<string|null>(null);
-  const [isUpgradeDialogOpened, setUpgradeDialogOpened] = useState(false);
+  const [upgradeDialogParam, setUpgradeDialogParam] = useState<EquipmentInfoToEdit | null>(null);
+  const [requiredPiecesExpanded, setRequiredPiecesExpanded] = useState(false);
 
   useEffect(() => {
     if (!isOpened) {
@@ -170,39 +174,43 @@ const EquipmentsSelectionDialog = (
     }
   }, [baseEquipId, previousBaseEquipId, targetEquipId, equipmentsById]);
 
+  const {neededEquipmentsCount, nickname} = watch();
   const upgradeInfo: EquipmentInfoToEdit | null = useMemo(() => {
     if (!isInputValid || !baseEquipId || !targetEquipId || !equipmentInfoToEdit) return null;
-    const count = parseInt(watch('neededEquipmentsCount'));
-    if (!count) return null;
     return {
       currentEquipmentId: baseEquipId,
       targetEquipmentId: targetEquipId,
-      count,
-      nickname: watch('nickname'),
-      indexInStoreArray: equipmentInfoToEdit?.indexInStoreArray,
+      count: parseInt(neededEquipmentsCount) ?? 1,
+      nickname,
+      indexInStoreArray: equipmentInfoToEdit.indexInStoreArray,
     };
-  }, [isInputValid, baseEquipId, targetEquipId, watch('neededEquipmentsCount'), watch('nickname')]);
+  }, [isInputValid, baseEquipId, targetEquipId, equipmentInfoToEdit, neededEquipmentsCount, nickname]);
 
   const isUpgradable = useMemo(() => {
     if (!upgradeInfo) return false;
-    const amounts = calculateRequirementAmount(
+
+    return checkRequirementsSatisfied(
+        piecesState,
+        calculateRequiredPieces(
+            equipmentsById,
+            equipmentsByTierAndCategory,
+            upgradeInfo,
+        )
+    );
+  }, [upgradeInfo, piecesState, equipmentsById, equipmentsByTierAndCategory]);
+
+  const requirements = useMemo(() => {
+    if (!upgradeInfo) return null;
+    return Array.from(calculateRequiredPieces(
         equipmentsById,
         equipmentsByTierAndCategory,
-        upgradeInfo.currentEquipmentId,
-        upgradeInfo.targetEquipmentId,
-        upgradeInfo.count,
-    );
-
-    let enough = true;
-    amounts.forEach((amount, pieceId) => {
-      const stock = store.equipmentsRequirementStore.piecesInventory
-          .get(pieceId)?.inStockCount ?? 0;
-
-      enough &&= amount <= stock;
-    });
-
-    return enough;
-  }, [isInputValid, baseEquipId, targetEquipId, watch('neededEquipmentsCount')]);
+        upgradeInfo,
+    ).entries()).map(([pieceId, needCount]) => ({
+      pieceId,
+      needCount,
+      inStockCount: piecesState.get(pieceId)?.inStockCount ?? 0,
+    })).sort((a, b) => b.pieceId.localeCompare(a.pieceId));
+  }, [equipmentsById, equipmentsByTierAndCategory, piecesState, upgradeInfo]);
 
   const maxTierPerCategory = useMemo(() => {
     const maxTierPerCategoryBuilder: {[key : string]: number} = {};
@@ -285,7 +293,7 @@ const EquipmentsSelectionDialog = (
   };
 
   const handleUpgrade = (equip: EquipmentInfoToEdit, requirements: PieceState[]) => {
-    setUpgradeDialogOpened(false);
+    setUpgradeDialogParam(null);
 
     if (!baseEquipId || !targetEquipId || !equipmentInfoToEdit) return;
     const formValues = getValues();
@@ -370,6 +378,17 @@ const EquipmentsSelectionDialog = (
           <NickNameInput control={control}
             helperText={allErrors[nicknameField]?.message ?? t('addEquipmentDialog.enterNickNameNormalHelperText')}
             name={nicknameField} showError={!!allErrors[nicknameField]}/>
+
+          {/* <BuiButton title='AAA' onClick={() => setRequiredPiecesExpanded(!requiredPiecesExpanded)}>A</BuiButton>
+          <Collapse in={requiredPiecesExpanded} timeout="auto" unmountOnExit>
+            <div className={styles.equip}>
+              {requirements && requirements.map((state) => {
+                return <LabeledEquipmentCard key={state.pieceId}
+                  showStockCount showNeedCount
+                  equipById={equipmentsById} pieceState={state} />;
+              })}
+            </div>
+          </Collapse> */}
         </>;
     }
   };
@@ -389,6 +408,20 @@ const EquipmentsSelectionDialog = (
     </Box>;
   };
 
+  const handleUpgradeDialogOpen = useCallback(() => {
+    if (!baseEquipId || !targetEquipId || !equipmentInfoToEdit) return;
+    setUpgradeDialogParam({
+      currentEquipmentId: baseEquipId,
+      targetEquipmentId: targetEquipId,
+      nickname: getValues().nickname,
+      count: parseInt(getValues().neededEquipmentsCount) ?? 1,
+      indexInStoreArray: equipmentInfoToEdit.indexInStoreArray,
+    });
+  }, [baseEquipId, equipmentInfoToEdit, getValues, targetEquipId]);
+  const handleUpgradeDialogClose = useCallback(() => {
+    setUpgradeDialogParam(null);
+  }, []);
+
   return <Dialog fullWidth open={isOpened} fullScreen={isFullScreen}
     keepMounted onClose={handleDialogCancel}>
     <DialogTitle>
@@ -400,7 +433,7 @@ const EquipmentsSelectionDialog = (
             {t('deleteButton')}
           </Button>
           <Tooltip title={t('upgradeAndDeleteTooltip')}><span>
-            <Button color={'success'} disabled={!isUpgradable} onClick={() => setUpgradeDialogOpened(true)}>
+            <Button color={'success'} disabled={!isUpgradable} onClick={handleUpgradeDialogOpen}>
               {t('upgradeAndDeleteButton')}
             </Button>
           </span></Tooltip>
@@ -435,13 +468,14 @@ const EquipmentsSelectionDialog = (
       </Button>
     </DialogActions>
 
-    {upgradeInfo && <UpgradeConfirmationDialog
-      open={isUpgradeDialogOpened}
+    {upgradeDialogParam && <UpgradeConfirmationDialog
+      open={!!upgradeDialogParam}
       equipById={equipmentsById}
       equipByCategory={equipmentsByTierAndCategory}
-      onCancel={() => setUpgradeDialogOpened(false)}
+      piecesState={piecesState}
+      onCancel={handleUpgradeDialogClose}
       onUpgrade={handleUpgrade}
-      equip={upgradeInfo} />}
+      equip={upgradeDialogParam} />}
   </Dialog>;
 };
 
