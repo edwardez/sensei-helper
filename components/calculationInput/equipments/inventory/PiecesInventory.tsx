@@ -31,16 +31,14 @@ const PiecesInventory = (
   const store = useStore();
 
   const pieces = useMemo(() => {
-    const pieces = Array.from(piecesState.values())
-        .sort((a, b) => a.pieceId>b.pieceId ? -1 : 1);
-    return [
-      ...pieces.filter((it) => it.needCount > it.inStockCount),
-      ...pieces.filter((it) => it.needCount <= it.inStockCount),
-    ];
+    return Array.from(piecesState.values())
+        .sort((a, b) => a.pieceId > b.pieceId ? -1 : 1);
   }, [piecesState]);
   // Only pieces that have non 0 stock count are visible.
   const homePageVisiblePieces = useMemo(() => {
-    return pieces.filter((piece) => piece.inStockCount > 0);
+    const ordering = (piece: PieceState) => piece.needCount <= piece.inStockCount ? 1 : 0;
+    return pieces.filter((piece) => piece.inStockCount > 0)
+        .sort((a, b) => ordering(a) - ordering(b));
   }, [pieces]);
   const [piecesToUpdate, setPiecesToUpdate] = useState(pieces);
   const [showAllPieces, setShowAllPieces] = useState(homePageVisiblePieces.length <= defaultMaxVisiblePiecesCount);

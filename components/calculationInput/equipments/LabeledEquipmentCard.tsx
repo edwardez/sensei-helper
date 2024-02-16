@@ -3,82 +3,53 @@ import {Card, CardActionArea} from '@mui/material';
 import BuiBanner from 'components/bui/BuiBanner';
 import EquipmentCard from 'components/bui/card/EquipmentCard';
 import {Equipment} from 'model/Equipment';
-import {ReactNode, memo, MouseEvent} from 'react';
+import {ReactNode, memo, MouseEvent, MouseEventHandler} from 'react';
 import {EquipmentsById} from '../PiecesCalculationCommonTypes';
 import {PieceState} from './inventory/PiecesInventory';
 import {IRequirementByEquipment} from 'stores/EquipmentsRequirementStore';
 
 // #region
+type Switches = Partial<{
+  showTier: boolean,
+  showStockCount: boolean,
+  showTierChange: boolean,
+  showNickname: boolean,
+  showNeedCount: boolean,
+}>;
 type EquipIdSource = {
-  equip: Equipment,
-} | {
-  equipId: string,
-} | {
-  requirement: IRequirementByEquipment,
-} | {
-  pieceState: PieceState,
+  equip?: Equipment,
+  equipId?: string,
+  requirement?: IRequirementByEquipment,
+  pieceState?: PieceState,
 };
-type EquipmentOrId = {
-  equip: Equipment,
-} | (EquipIdSource & {
-  equipById: EquipmentsById,
-});
-type PieceStateOrId = {
-  pieceState: PieceState,
-} | (EquipIdSource & {
-  piecesState: Map<string, PieceState>,
-});
-
-type ImageName = {imageName: string} | EquipmentOrId;
-type BottomLeftText = ({showTier: true} & EquipmentOrId) | {
+type EquipmentSource = EquipIdSource & {equipById?: EquipmentsById};
+type PieceStateSource = EquipIdSource & {piecesState?: Map<string, PieceState>};
+type Props<T> = Switches & EquipIdSource & EquipmentSource & PieceStateSource & {
+  imageName?: string,
   bottomLeftText?: string,
-  showTier?: false
-};
-type BottomRightText = ({showStockCount: true} & PieceStateOrId) | {
   bottomRightText?: string,
-  showStockCount?: false
-};
-type NicknameText = {
-  showNickname: true,
-  requirement: IRequirementByEquipment,
-} | {
-  showNickname?: false,
-};
-type TierChangeText = {
-  showTierChange: true,
-  requirement: IRequirementByEquipment,
-  equipById: EquipmentsById,
-} | {
-  showTierChange?: false,
-};
-type NeedCountText = ({showNeedCount: true} & PieceStateOrId) | {
-  showNeedCount?: false,
-};
 
-type Props<T> = ImageName & BottomLeftText & BottomRightText &
-  TierChangeText & NicknameText & NeedCountText & {
-    isSelected?: boolean,
-    badge?: ReactNode,
-  } & ({} | {
-    index: T,
-    onClick?: (e: MouseEvent, index: T) => void,
-  });
+  isSelected?: boolean,
+  badge?: ReactNode,
+} & ({
+  onClick?: MouseEventHandler,
+} | {
+  index: T,
+  onClick?: (e: MouseEvent, index: T) => void,
+});
 
 const resolveEquipmentId = (props: EquipIdSource) => {
-  return 'equipId' in props ? props.equipId :
-    'equip' in props ? props.equip.id :
-    'requirement' in props ? props.requirement.targetEquipmentId :
-    props.pieceState.pieceId;
+  return props.equipId || props.equip?.id ||
+    props.requirement?.targetEquipmentId ||
+    props.pieceState?.pieceId;
 };
-const resolveEquipment = (props: EquipmentOrId) => {
-  return 'equip' in props ?
-    props.equip :
-    props.equipById.get(resolveEquipmentId(props));
+const resolveEquipment = (props: EquipmentSource) => {
+  return props.equip ||
+    props.equipById?.get(resolveEquipmentId(props) ?? '');
 };
-const resolvePieceState = (props: PieceStateOrId) => {
-  return 'pieceState' in props ?
-    props.pieceState :
-    props.piecesState.get(resolveEquipmentId(props));
+const resolvePieceState = (props: PieceStateSource) => {
+  return props.pieceState ||
+    props.piecesState?.get(resolveEquipmentId(props) ?? '');
 };
 const buildTierChange = (equipById: EquipmentsById, requirement: IRequirementByEquipment) => {
   const baseTier = equipById.get(requirement.currentEquipmentId)?.tier;
@@ -116,27 +87,28 @@ const buildNickname = ({nickname, count}: IRequirementByEquipment) => {
  * `piecesState` and `equipById` may be required.
  * You have to specify `callbackArgs` to make the callback can identify items.
  */
-const LabeledEquipmentCard = <T extends unknown>(props: Props<T>) => {
-  const imageName = 'imageName' in props ?
-    props.imageName :
-    resolveEquipment(props)?.icon;
-  const bottomLeftText = props.showTier ?
+const LabeledEquipmentCard = <T extends unknown = never>({
+  showTier, showStockCount, showNeedCount,
+  showTierChange, showNickname,
+  ...props
+}: Props<T>) => {
+  const {equipById, requirement} = props;
+  const imageName = resolveEquipment(props)?.icon || props.imageName;
+  const bottomLeftText = showTier ?
     `T${resolveEquipment(props)?.tier ?? '?'}` :
     props.bottomLeftText;
-  const bottomRightText = props.showStockCount ?
+  const bottomRightText = showStockCount ?
     `x${resolvePieceState(props)?.inStockCount ?? 0}` :
     props.bottomRightText;
-  const tierChangeText = props.showTierChange &&
-    buildTierChange(props.equipById, props.requirement);
-  const nicknameText = props.showNickname &&
-    buildNickname(props.requirement);
-  const needCountText = props.showNeedCount &&
+  const tierChangeText = showTierChange &&
+    equipById && requirement && buildTierChange(equipById, requirement);
+  const nicknameText = showNickname &&
+    requirement && buildNickname(requirement);
+  const needCountText = showNeedCount &&
     `${resolvePieceState(props)?.needCount ?? 0}`;
-  const onClick = 'index' in props && props.onClick ?
-    ((e: MouseEvent) => {
-      props.onClick?.(e, props.index);
-    }) :
-    undefined;
+  const onClick = 'index' in props ?
+    ((e: MouseEvent) => props.onClick?.(e, props.index) as void) :
+    props.onClick;
 
   return <Card elevation={1} className={styles.card} onClick={onClick}>
     <CardActionArea disabled={!onClick}>
