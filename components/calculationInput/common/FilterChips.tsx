@@ -1,5 +1,5 @@
 import styles from './FilterChips.module.scss';
-import {Box, Chip} from '@mui/material';
+import {Box, Chip, styled} from '@mui/material';
 import {Fragment, Key, useEffect, useMemo, useReducer} from 'react';
 
 type ChipSpec = {key: Key, label: string};
@@ -41,6 +41,18 @@ export const useFilterChips = <T extends FilterSpec>(spec: T) => {
   return [selected, setSelected, chips] as const;
 };
 
+const ToggleChip = styled(Chip)(({theme, color, variant}) => Object.assign({}, {
+  transition: theme.transitions.create([
+    'background-color', 'box-shadow', 'color', 'border-color',
+  ]),
+}, variant === 'filled' && {
+  border: `1px solid ${
+    !color || color == 'default' ?
+      theme.palette.action.selected :
+      theme.palette[color].main
+  }`,
+}));
+
 export const FilterChips = <T extends FilterSpec>({
   spec,
   selected,
@@ -54,8 +66,8 @@ export const FilterChips = <T extends FilterSpec>({
     return <Fragment key={group}>
       {children.map(({key, label}) => {
         const checked = key === selected?.[group];
-        return <Chip key={key} label={label}
-          className={styles.chip} size='small' color={'primary'}
+        return <ToggleChip key={key} label={label}
+          size='small' color='primary'
           variant={checked ? 'filled' : 'outlined'}
           onClick={() => setSelected({group, key})} />;
       })}
