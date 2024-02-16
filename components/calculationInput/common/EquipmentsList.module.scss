@@ -1,0 +1,17 @@
+.container {
+  display: flex;
+  flex-flow: row wrap;
+  margin-bottom: 1em;
+
+  & > .card {
+    padding: 5px;
+  }
+
+  & > .divider {
+    flex-basis: 100%;
+  }
+  
+  & > :has(+ .divider) {
+    margin-bottom: 1rem;
+  }
+}

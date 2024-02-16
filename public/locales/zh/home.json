@@ -45,6 +45,18 @@
     "enterNickName":  "添加昵称（选填）",
     "enterNickNameNormalHelperText": "可以输入学生姓名方便记和进行装备管理"
   },
+  "equipmentCategory": {
+    "Hat": "帽子",
+    "Gloves": "手套",
+    "Shoes": "鞋子",
+    "Bag": "书包",
+    "Badge": "徽章",
+    "Hairpin": "发夹",
+    "Charm": "护符",
+    "Watch": "手表",
+    "Necklace": "项链"
+  },
+  "filterResultEmpty": "我找不到符合要求的设备。",
   "thinsToNote": {
     "title": "注意事项",
     "pointThisIsEstimation": "推荐扫图次数为估计，与实际可能有出入。",

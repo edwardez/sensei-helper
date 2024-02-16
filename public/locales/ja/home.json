@@ -45,6 +45,18 @@
     "enterNickName":  "ニックネーム入力（任意）",
     "enterNickNameNormalHelperText": "生徒の名前をメモとして入力すれば、装備の管理ができます"
   },
+  "equipmentCategory": {
+    "Hat": "帽子",
+    "Gloves": "グローブ",
+    "Shoes": "シューズ",
+    "Bag": "バッグ",
+    "Badge": "バッジ",
+    "Hairpin": "ヘアピン",
+    "Charm": "お守り",
+    "Watch": "腕時計",
+    "Necklace": "ネックレス"
+  },
+  "filterResultEmpty": "条件に合う装備が見つかりません。",
   "thinsToNote": {
     "title": "注記",
     "pointThisIsEstimation": "推奨掃討回数は予測であり、実際の報酬と大きく異なる場合もあります。",
