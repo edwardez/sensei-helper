@@ -7,19 +7,18 @@ $leftBottomBadgeColor: rgb(62, 134, 184);
 .bottomRightText{
   position: absolute;
   text-shadow: #fff 1px 0 0, #fff 0 1px 0, #fff -1px 0 0, #fff 0 -1px 0;
-  font-style: italic;
   color: black;
   bottom: 3px;
-  right: 10px;
+  right: 3px;
 }
 
 .bottomLeftText{
   position: absolute;
   bottom: 3px;
-  left: 5px;
-  padding: 1.5px;
-  border-radius: 35%;
-  line-height: 1.1;
+  left: 3px;
+  padding: 1.5px 2px;
+  border-radius: 6px;
+  line-height: 1;
   border: 1px solid $leftBottomBadgeColor;
   background-color: white;
   color: $leftBottomBadgeColor;
