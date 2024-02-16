@@ -81,8 +81,7 @@ const EquipmentsInput = (
     handleCloseEquipmentRequirementDialog();
   };
 
-  const handleOpenDialogForEditing = useCallback((index: unknown) => {
-    if (typeof index !== 'number') return;
+  const handleOpenDialogForEditing = useCallback((_: unknown, index: number) => {
     const requirementByEquipment = store.equipmentsRequirementStore.requirementByEquipments[index];
     setEquipInfoToEdit({
       ...requirementByEquipment,
@@ -92,11 +91,8 @@ const EquipmentsInput = (
   }, [store.equipmentsRequirementStore.requirementByEquipments]);
 
   const upgradableBadge = useMemo(() => {
-    return <>
-      <Tooltip title='Upgradable'><KeyboardDoubleArrowUp /></Tooltip>
-      {/* <Tooltip title='Starred'><StarBorder /></Tooltip> */}
-    </>;
-  }, []);
+    return <Tooltip title={t('canUpgradeBadge')}><KeyboardDoubleArrowUp /></Tooltip>;
+  }, [t]);
 
   return <div>
     <EquipmentsSelectionDialog

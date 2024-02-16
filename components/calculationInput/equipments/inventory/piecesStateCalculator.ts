@@ -70,6 +70,6 @@ export const checkRequirementsSatisfied = (
   return Array.from(requirements.entries())
       .every(([pieceId, need]) => {
         const stock = piecesState.get(pieceId)?.inStockCount ?? 0;
-        return need < stock;
+        return need <= stock;
       });
 };

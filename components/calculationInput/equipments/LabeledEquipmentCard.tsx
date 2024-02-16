@@ -3,7 +3,7 @@ import {Card, CardActionArea} from '@mui/material';
 import BuiBanner from 'components/bui/BuiBanner';
 import EquipmentCard from 'components/bui/card/EquipmentCard';
 import {Equipment} from 'model/Equipment';
-import {ReactNode, memo} from 'react';
+import {ReactNode, memo, MouseEvent} from 'react';
 import {EquipmentsById} from '../PiecesCalculationCommonTypes';
 import {PieceState} from './inventory/PiecesInventory';
 import {IRequirementByEquipment} from 'stores/EquipmentsRequirementStore';
@@ -55,13 +55,14 @@ type NeedCountText = ({showNeedCount: true} & PieceStateOrId) | {
   showNeedCount?: false,
 };
 
-type Props = ImageName & BottomLeftText & BottomRightText &
+type Props<T> = ImageName & BottomLeftText & BottomRightText &
   TierChangeText & NicknameText & NeedCountText & {
     isSelected?: boolean,
-    index?: unknown,
-    onClick?: (index: unknown) => void,
     badge?: ReactNode,
-  };
+  } & ({} | {
+    index: T,
+    onClick?: (e: MouseEvent, index: T) => void,
+  });
 
 const resolveEquipmentId = (props: EquipIdSource) => {
   return 'equipId' in props ? props.equipId :
@@ -94,6 +95,7 @@ const buildNickname = ({nickname, count}: IRequirementByEquipment) => {
 };
 // #endregion
 
+// eslint-disable-next-line valid-jsdoc
 /**
  * An example of the god component. It seems to slow down VSCode's type checking.
  * Use with `showTier`, `showNickname`, `showTierChange`, `showNeedCount`
@@ -114,7 +116,7 @@ const buildNickname = ({nickname, count}: IRequirementByEquipment) => {
  * `piecesState` and `equipById` may be required.
  * You have to specify `callbackArgs` to make the callback can identify items.
  */
-export const LabeledEquipmentCard = memo(function LabeledEquipmentCard(props: Props) {
+const LabeledEquipmentCard = <T extends unknown>(props: Props<T>) => {
   const imageName = 'imageName' in props ?
     props.imageName :
     resolveEquipment(props)?.icon;
@@ -130,7 +132,11 @@ export const LabeledEquipmentCard = memo(function LabeledEquipmentCard(props: Pr
     buildNickname(props.requirement);
   const needCountText = props.showNeedCount &&
     `${resolvePieceState(props)?.needCount ?? 0}`;
-  const onClick = props.onClick && (() => props.onClick?.(props.index));
+  const onClick = 'index' in props && props.onClick ?
+    ((e: MouseEvent) => {
+      props.onClick?.(e, props.index);
+    }) :
+    undefined;
 
   return <Card elevation={1} className={styles.card} onClick={onClick}>
     <CardActionArea disabled={!onClick}>
@@ -146,4 +152,7 @@ export const LabeledEquipmentCard = memo(function LabeledEquipmentCard(props: Pr
       <div className={styles.badges}>{props.badge}</div>
     </CardActionArea>
   </Card>;
-});
+};
+
+const Memo = memo(LabeledEquipmentCard) as unknown as typeof LabeledEquipmentCard;
+export {Memo as LabeledEquipmentCard};
