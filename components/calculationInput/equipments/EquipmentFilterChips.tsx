@@ -1,8 +1,13 @@
-import styles from './EquipmentFilterChips.module.scss';
-import {Box, Chip} from '@mui/material';
 import {Equipment} from 'model/Equipment';
 import {useTranslation} from 'next-i18next';
-import {useEffect, useMemo, useReducer} from 'react';
+import {useMemo} from 'react';
+import {useFilterChips} from '../common/FilterChips';
+
+const range = (start: number, endInclusive: number) => {
+  return Array.from({length: endInclusive - start + 1}, (_, i) => i + start);
+};
+
+const isNully = (x: unknown): x is null | undefined => x === null || x === undefined;
 
 export const equipmentCategories = [
   'Hat', 'Gloves', 'Shoes',
@@ -11,83 +16,26 @@ export const equipmentCategories = [
 ] as const;
 type EquipmentCategory = typeof equipmentCategories[number];
 
-type SelectAction = {tier: number} | {category: EquipmentCategory};
-type SelectionState = {tier?: number, category?: EquipmentCategory};
-export const useEquipmentFilterChips = () => {
-  const [selected, setSelected] = useReducer((
-      selected: SelectionState,
-      action: SelectAction,
-  ): SelectionState => {
-    return 'tier' in action ? {
-      ...selected,
-      tier: selected.tier == action.tier ? undefined : action.tier,
-    } : {
-      ...selected,
-      category: selected.category == action.category ? undefined : action.category,
-    };
-  }, {});
+export const useEquipmentFilterChips = ({
+  minTier = 1, maxTier,
+  categories = equipmentCategories,
+}: {
+  minTier?: number, maxTier: number,
+  categories?: readonly EquipmentCategory[],
+}) => {
+  const {t} = useTranslation();
+  const spec = useMemo(() => ({
+    tier: range(minTier, maxTier).map((key) => ({key, label: `T${key}`})),
+    category: categories.map((key) => ({key, label: t(`equipmentCategory.${key}`)})),
+  }), [categories, maxTier, minTier, t]);
+  const [selected, setSelected, chips] = useFilterChips(spec);
   const equipmentFilter = useMemo(() => {
-    if (!selected.tier && !selected.category) return null;
+    if (!selected) return null;
     return (equipment: Equipment) => {
-      return (!selected.tier || equipment.tier === selected.tier) &&
-        (!selected.category || equipment.category === selected.category);
+      return (isNully(selected.tier) || equipment.tier === selected.tier) &&
+        (isNully(selected.category) || equipment.category === selected.category);
     };
   }, [selected]);
 
-  return [selected, setSelected, equipmentFilter] as const;
-};
-
-export const EquipmentFilterChips = ({
-  defaultTier,
-  defaultCategory,
-  minTier = 1,
-  maxTier,
-  selected,
-  setSelected,
-}: {
-  defaultTier?: number,
-  defaultCategory?: EquipmentCategory,
-  minTier?: number,
-  maxTier: number,
-  selected: SelectionState,
-  setSelected: (action: SelectAction) => void,
-}) => {
-  const {t} = useTranslation();
-  const tiers = useMemo(() => {
-    return Array.from({length: maxTier - 1}, (_, i) => ({
-      key: i + minTier,
-      label: `T${i + minTier}`,
-    }));
-  }, [minTier, maxTier]);
-  const categories = useMemo(() => {
-    return equipmentCategories.map((key) => ({
-      key,
-      label: t(`equipmentCategory.${key}`),
-    }));
-  }, [t]);
-
-  useEffect(() => {
-    defaultTier && setSelected({tier: defaultTier});
-    defaultCategory && setSelected({category: defaultCategory});
-  }, [setSelected, defaultTier, defaultCategory]);
-
-  return <Box className={styles.container}>
-    {categories.map(({key, label}) => {
-      const checked = key === selected.category;
-      return <Chip className={styles.chip}
-        key={key} label={label} size='small'
-        variant={checked ? 'filled' : 'outlined'}
-        color={'primary'}
-        onClick={() => setSelected({category: key})} />;
-    })}
-    <Box className={styles.divider} />
-    {tiers.map(({key, label}) => {
-      const checked = key === selected.tier;
-      return <Chip className={styles.chip}
-        key={key} label={label} size='small'
-        variant={checked ? 'filled' : 'outlined'}
-        color={'primary'}
-        onClick={() => setSelected({tier: key})} />;
-    })}
-  </Box>;
+  return [selected, setSelected, equipmentFilter, chips] as const;
 };

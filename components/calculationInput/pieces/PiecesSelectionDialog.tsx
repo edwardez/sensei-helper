@@ -17,7 +17,7 @@ import Box from '@mui/material/Box';
 import {useTranslation} from 'next-i18next';
 import PositiveIntegerOnlyInput from 'components/calculationInput/common/PositiveIntegerOnlyInput';
 import {EquipmentsList} from '../common/EquipmentsList';
-import {EquipmentFilterChips, useEquipmentFilterChips} from '../equipments/EquipmentFilterChips';
+import {useEquipmentFilterChips} from '../equipments/EquipmentFilterChips';
 
 interface IFormInputs {
     neededPieceCount: string
@@ -115,14 +115,20 @@ const PiecesSelectionDialog = ({
     reset();
   };
 
-  const [selected, setSelected, filter] = useEquipmentFilterChips();
+  const maxTier = useMemo(() => {
+    return piecesByTier && Math.max(...Array.from(piecesByTier.keys()));
+  }, [piecesByTier]);
+  const [,, filterFunc, filterChips] = useEquipmentFilterChips({
+    minTier: 2,
+    maxTier: maxTier ?? 2,
+  });
   const piecesList = useMemo(() => {
     if (!piecesById) return null;
     const equipments = Array.from(piecesById.values())
         .filter((equip) => equip.equipmentCompositionType == EquipmentCompositionType.Piece);
 
-    if (filter) {
-      const filtered = equipments.filter((equip) => !filter || filter(equip));
+    if (filterFunc) {
+      const filtered = equipments.filter((equip) => !filterFunc || filterFunc(equip));
       return <EquipmentsList
         equipments={filtered}
         selectedEquipId={selectedPieceId}
@@ -139,10 +145,7 @@ const PiecesSelectionDialog = ({
         selectedEquipId={selectedPieceId}
         onClick={handleSelectPiece}/>;
     }
-  }, [filter, piecesById, selectedPieceId]);
-  const maxTier = useMemo(() => {
-    return piecesByTier && Math.max(...Array.from(piecesByTier.keys()));
-  }, [piecesByTier]);
+  }, [filterFunc, piecesById, selectedPieceId]);
 
   return (<Dialog open={isOpened} fullScreen={isFullScreen}
     PaperProps={{sx: {height: '100%'}}}
@@ -158,9 +161,7 @@ const PiecesSelectionDialog = ({
       </Box>
     </DialogTitle>
     <DialogContent>
-      <EquipmentFilterChips
-        minTier={2} maxTier={maxTier}
-        selected={selected} setSelected={setSelected} />
+      {filterChips}
       {piecesById ? piecesList : <CircularProgress />}
     </DialogContent>
     <DialogActions>

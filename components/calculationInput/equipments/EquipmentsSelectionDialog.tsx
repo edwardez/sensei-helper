@@ -34,7 +34,7 @@ import {
 import NickNameInput from 'components/calculationInput/equipments/EquipmentDialog/NickNameInput';
 import {observer} from 'mobx-react-lite';
 import {useStore} from 'stores/WizStore';
-import {EquipmentFilterChips, useEquipmentFilterChips} from './EquipmentFilterChips';
+import {useEquipmentFilterChips} from './EquipmentFilterChips';
 import {EquipmentsList} from '../common/EquipmentsList';
 
 
@@ -261,15 +261,18 @@ const EquipmentsSelectionDialog = (
     }
   };
 
-  const [selected, setSelected, filter] = useEquipmentFilterChips();
+  const [,, filterFunc, filterChips] = useEquipmentFilterChips({
+    minTier: 1,
+    maxTier: overallMaxTier,
+  });
   const equipmentsList = useMemo(() => {
-    const groupByTier = !filter;
+    const groupByTier = !filterFunc;
     const equipments = Array.from(equipmentsById.values())
         .filter((equip) => equip.equipmentCompositionType == EquipmentCompositionType.Composite)
         .filter((equip) => equip.tier < maxTierPerCategory[equip.category]);
 
-    if (filter) {
-      const filtered = equipments.filter((equip) => !filter || filter(equip));
+    if (filterFunc) {
+      const filtered = equipments.filter((equip) => !filterFunc || filterFunc(equip));
       return <EquipmentsList
         equipments={filtered}
         selectedEquipId={baseEquipId}
@@ -293,7 +296,7 @@ const EquipmentsSelectionDialog = (
         </div>}
       </>;
     }
-  }, [baseEquipId, equipmentsById, filter, maxTierPerCategory, overallMaxTier, t]);
+  }, [baseEquipId, equipmentsById, filterFunc, maxTierPerCategory, overallMaxTier, t]);
 
   const generateStepContent = (stepNumber: number) => {
     const baseEquipment = equipmentsById.get(baseEquipId ?? '');
@@ -302,10 +305,7 @@ const EquipmentsSelectionDialog = (
     switch (stepNumber) {
       case 0:
         return !equipmentsById ? <CircularProgress /> : <>
-          <EquipmentFilterChips
-            selected={selected}
-            setSelected={setSelected}
-            maxTier={overallMaxTier} />
+          {filterChips}
           {equipmentsList}
         </>;
       case 1:
