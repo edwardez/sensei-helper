@@ -1,21 +1,24 @@
 import styles from './EquipmentsInput.module.scss';
 import BuiLinedText from 'components/bui/text/BuiLinedText';
 import BuiButton from 'components/bui/BuiButton';
-import React, {useState} from 'react';
+import React, {useCallback, useMemo, useState} from 'react';
 import EquipmentsSelectionDialog from 'components/calculationInput/equipments/EquipmentsSelectionDialog';
 import {Equipment} from 'model/Equipment';
 import {EquipmentsById} from 'components/calculationInput/PiecesCalculationCommonTypes';
 import {observer} from 'mobx-react-lite';
 import {IWizStore} from 'stores/WizStore';
 import {EquipmentInfoToEdit, IRequirementByEquipment} from 'stores/EquipmentsRequirementStore';
-import {Card, CardActionArea, Tooltip} from '@mui/material';
-import EquipmentCard from 'components/bui/card/EquipmentCard';
-import BuiBanner from 'components/bui/BuiBanner';
+import {Tooltip} from '@mui/material';
 import PiecesInventory, {PieceState} from 'components/calculationInput/equipments/inventory/PiecesInventory';
 import IconButton from '@mui/material/IconButton';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import variables from 'scss/variables.module.scss';
 import {useTranslation} from 'next-i18next';
+import {
+  checkRequirementsSatisfied, calculateRequiredPieces,
+} from './inventory/piecesStateCalculator';
+import {LabeledEquipmentCard} from './LabeledEquipmentCard';
+import {KeyboardDoubleArrowUp} from '@mui/icons-material';
 
 export interface TierCategoryKey{
   tier: number;
@@ -78,19 +81,24 @@ const EquipmentsInput = (
     handleCloseEquipmentRequirementDialog();
   };
 
-  const handleOpenDialogForEditing = (requirementByEquipment: IRequirementByEquipment, index: number) => {
-    setEquipInfoToEdit(
-        {
-          ...requirementByEquipment,
-          indexInStoreArray: index,
-        }
-    );
+  const handleOpenDialogForEditing = useCallback((_: unknown, index: number) => {
+    const requirementByEquipment = store.equipmentsRequirementStore.requirementByEquipments[index];
+    setEquipInfoToEdit({
+      ...requirementByEquipment,
+      indexInStoreArray: index,
+    });
     setIsAddEquipDialogOpened(true);
-  };
+  }, [store.equipmentsRequirementStore.requirementByEquipments]);
+
+  const upgradableBadge = useMemo(() => {
+    return <Tooltip title={t('canUpgradeBadge')}><KeyboardDoubleArrowUp /></Tooltip>;
+  }, [t]);
+
   return <div>
     <EquipmentsSelectionDialog
       key={equipInfoToEdit?.targetEquipmentId ?? '1'}
       isOpened={isAddEquipDialogOpened} equipmentsByTier={equipmentsByTier}
+      piecesState={piecesState}
       handleAddEquipmentRequirement={handleAddEquipmentRequirement}
       handleDeleteEquipmentRequirement={handleDeleteEquipmentRequirement}
       handleUpdateEquipmentRequirement={handleUpdateEquipmentRequirement}
@@ -100,27 +108,21 @@ const EquipmentsInput = (
     <BuiLinedText>{t('addEquipments')}</BuiLinedText>
     <div className={styles.selectionWrapper}>
       {store.equipmentsRequirementStore.requirementByEquipments.map((requirementByEquip, index) => {
-        const currentEquip = equipmentsById.get(requirementByEquip.currentEquipmentId);
-        const targetEquip = equipmentsById.get(requirementByEquip.targetEquipmentId);
+        const isUpgradable = checkRequirementsSatisfied(
+            piecesState,
+            calculateRequiredPieces(
+                equipmentsById,
+                equipmentsByTierAndCategory,
+                requirementByEquip
+            )
+        );
 
-        if (!currentEquip || !targetEquip) return null;
-        const tierUpgradeText = `T${currentEquip.tier}→T${targetEquip.tier}`;
-        let nicknameAndCount = '';
-        if (requirementByEquip.nickname?.length) {
-          nicknameAndCount += `[${requirementByEquip.nickname}]`;
-        }
-        nicknameAndCount += requirementByEquip.count.toString();
-
-        return <Card key={index} elevation={1}
-          onClick={() => handleOpenDialogForEditing(requirementByEquip, index)}>
-          <CardActionArea>
-            <div className={styles.selectedPiecePaper}>
-              <EquipmentCard imageName={targetEquip.icon} />
-              <BuiBanner label={tierUpgradeText} width={'120%'} />
-              <BuiBanner label={nicknameAndCount} width={'120%'}/>
-            </div>
-          </CardActionArea>
-        </Card>;
+        return <LabeledEquipmentCard key={index} index={index}
+          showNickname showTierChange
+          onClick={handleOpenDialogForEditing}
+          equipById={equipmentsById}
+          requirement={requirementByEquip}
+          badge={isUpgradable ? upgradableBadge : undefined} />;
       })}
       <BuiButton color={'baButtonSecondary'} onClick={handleClickOpen} className={styles.addButton}>
         <div>{t('addButton')}</div>

@@ -1,3 +1,19 @@
 .filler{
   flex: 1 0 0;
 }
+
+.equip {
+  display: flex;
+
+  justify-items: center;
+  align-content: center;
+  align-items: center;
+
+  margin-top: 1em;
+
+  user-select: none;
+
+  > * {
+    margin-inline: 0.5rem;
+  }
+}
