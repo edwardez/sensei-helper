@@ -3,7 +3,7 @@ import {RequirementMode} from 'stores/EquipmentsRequirementStore';
 
 
 export const StageCalculationStateStore = types
-    .model({
+    .model('StageCalculationStateStore', {
       requirementInefficacy: types.model({
         isByPiecesInefficient: false,
         isByEquipmentsInefficient: false,
