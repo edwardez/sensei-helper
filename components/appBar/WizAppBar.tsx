@@ -46,7 +46,7 @@ export default function WizAppBar() {
     setIsSettingsOpened(false);
   };
   const handleOpenDataManagementDialog = () => {
-    setDataManagementOpened(crypto.randomUUID());
+    setDataManagementOpened(`${Math.random()}`);
     handleCloseMenu();
   };
 
@@ -109,7 +109,7 @@ export default function WizAppBar() {
               onClose={handleCloseMenu}>
               <MenuItem onClick={() => navigateToThenCloseMenu('privacy')}>{t('privacy')}</MenuItem>
               <MenuItem onClick={handleOpenSettingsDialog}>{t('settings')}</MenuItem>
-              <MenuItem onClick={handleOpenDataManagementDialog}>データ管理</MenuItem>
+              <MenuItem onClick={handleOpenDataManagementDialog}>{t('dataManagement')}</MenuItem>
               <MenuItem onClick={() => navigateToThenCloseMenu('about')}>{t('about')}</MenuItem>
             </Menu>
           </Box>

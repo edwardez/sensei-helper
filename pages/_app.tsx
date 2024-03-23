@@ -41,15 +41,13 @@ function MyApp({Component, pageProps}: AppProps) {
         json = JSON.parse(persistedSnapshot);
         applySnapshot(store, json);
       } catch (e) {
+        setCorruptedData(persistedSnapshot);
         setIsExceptionDialogOpened(true);
-        setDataManagementDialogOpened(true);
 
         setToLocalStorage(wizExceptionStorageLocalStorageKey, JSON.stringify({
           exception: String(e),
           [wizStorageLocalStorageKey]: json ?? persistedSnapshot,
         }));
-
-        setCorruptedData(persistedSnapshot);
       }
     }
     setIsStoreInitialized(true);
@@ -67,6 +65,10 @@ function MyApp({Component, pageProps}: AppProps) {
     setIsExceptionDialogOpened(false);
     removeFromLocalStorage(wizStorageLocalStorageKey);
   };
+  const handleManageData = () => {
+    setIsExceptionDialogOpened(false);
+    setDataManagementDialogOpened(true);
+  };
 
   return (
     <StoreContext.Provider value={store}>
@@ -74,7 +76,8 @@ function MyApp({Component, pageProps}: AppProps) {
         <>
           {isExceptionDialogOpened && <RestoreDataExceptionDialog isOpened={isExceptionDialogOpened}
             corruptedData={corruptedData}
-            handleDataReset={handleDataReset} />}
+            handleDataReset={handleDataReset}
+            handleManageData={handleManageData} />}
           {isDataMangementDialogOpened && <DataManagementDialog key={corruptedData}
             open={isDataMangementDialogOpened} mode='recovery'
             value={corruptedData}
