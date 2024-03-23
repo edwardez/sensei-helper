@@ -71,6 +71,7 @@
   "otherStagesSkippedReason": "Skipped because of inefficiency",
   "privacy": "Privacy",
   "settings": "Settings",
+  "dataManagement": "Manage Data",
   "about": "About",
   "SenseiHelper": "Sensei Helper",
   "settingsDialogTitle": "Settings",
@@ -83,7 +84,24 @@
     "explanation": "It seems like your data is corrupted, your settings and equipment data will be reset.",
     "backupAndContactUs": "Below is your corrupted data, if the error persists, you can take a backup and contact the developer.",
     "clearDataButton": "Clear Data",
+    "openDataManagement": "Manage Data",
     "noData": "No Data"
+  },
+  "dataManagementDialog": {
+    "title": "Manage Data",
+    "tips": "You can backup app data or manually repair corrupted data.",
+    "importFile": "Import",
+    "exportFile": "Export",
+    "formLabel": "JSON",
+    "enableEditing": "Enable Editing",
+    "resetForm": "Reset", 
+    "helpText": {
+      "default": "Changes are not applied until the dialog is closed",
+      "required": "Input JSON"
+    },
+    "cancel": "Cancel",
+    "resetData": "Clear Data",
+    "applyData": "Apply"
   },
   "error404": "This page could not be found.",
   "error500": "Internal Server Error.",

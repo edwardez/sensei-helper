@@ -3,7 +3,7 @@ import {GameServer} from 'model/Equipment';
 
 
 export const GameInfoStore = types
-    .model({
+    .model('GameInfoStore', {
       // A number that decides whether game is under drop campaign
       // if so, what is the campaign ratio
       normalMissionItemDropRatio: 1,

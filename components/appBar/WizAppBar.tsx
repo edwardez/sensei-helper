@@ -14,9 +14,14 @@ import Link from 'next/link';
 import SettingsDialog from 'components/settings/SettingsDialog';
 import {useTranslation} from 'next-i18next';
 import {Locale} from 'common/locales';
+import {DataManagementDialog} from 'components/settings/dataManagement/DataManagementDialog';
+import {useStore} from 'stores/WizStore';
+import {applySnapshot} from 'mobx-state-tree';
 
+// eslint-disable-next-line require-jsdoc
 export default function WizAppBar() {
   const {t} = useTranslation('home');
+  const store = useStore();
   const trigger = useScrollTrigger({
     disableHysteresis: true,
     threshold: 0,
@@ -24,6 +29,7 @@ export default function WizAppBar() {
 
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const [isSettingsOpened, setIsSettingsOpened] = React.useState<boolean>(false);
+  const [isDataManagementOpened, setDataManagementOpened] = React.useState<string | false>(false);
 
   const open = Boolean(anchorEl);
   const handleOpenMenu = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -38,6 +44,10 @@ export default function WizAppBar() {
   };
   const handleCloseSettingsDialog = () => {
     setIsSettingsOpened(false);
+  };
+  const handleOpenDataManagementDialog = () => {
+    setDataManagementOpened(`${Math.random()}`);
+    handleCloseMenu();
   };
 
   const navigateToThenCloseMenu = (url:string) => {
@@ -99,6 +109,7 @@ export default function WizAppBar() {
               onClose={handleCloseMenu}>
               <MenuItem onClick={() => navigateToThenCloseMenu('privacy')}>{t('privacy')}</MenuItem>
               <MenuItem onClick={handleOpenSettingsDialog}>{t('settings')}</MenuItem>
+              <MenuItem onClick={handleOpenDataManagementDialog}>{t('dataManagement')}</MenuItem>
               <MenuItem onClick={() => navigateToThenCloseMenu('about')}>{t('about')}</MenuItem>
             </Menu>
           </Box>
@@ -106,6 +117,13 @@ export default function WizAppBar() {
       </AppBar>
       <Toolbar />
       <SettingsDialog open={isSettingsOpened} onCloseDialog={handleCloseSettingsDialog}/>
+      <DataManagementDialog key={isDataManagementOpened || undefined}
+        open={!!isDataManagementOpened}
+        onCancel={() => setDataManagementOpened(false)}
+        onSubmit={(snapshot) => {
+          applySnapshot(store, snapshot);
+          setDataManagementOpened(false);
+        }} />
     </React.Fragment>
   );
 }
