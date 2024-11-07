@@ -1,6 +1,11 @@
 
 
 .selectionWrapper.selectionWrapper.selectionWrapper{
+   display: flex;
+   align-content: center;
+   align-items: center;
+
+   user-select: none;
 
    >:not(:last-child){
       margin-right: 1em;
@@ -9,11 +14,4 @@
    > *{
       margin-top: 1em;
    }
-
-   display: flex;
-   align-content: center;
-   align-items: center;
-
-   user-select: none;
-
 }

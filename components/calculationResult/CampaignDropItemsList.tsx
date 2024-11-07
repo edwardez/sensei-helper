@@ -3,7 +3,7 @@ import {Card, CardContent, Typography} from '@mui/material';
 import React, {FunctionComponent} from 'react';
 import {Campaign} from 'model/Campaign';
 import {DropPieceIdWithProbAndCount, EquipmentsById} from 'components/calculationInput/PiecesCalculationCommonTypes';
-import Grid from '@mui/material/Unstable_Grid2';
+import Grid from '@mui/material/Grid2';
 import BuiBanner from '../bui/BuiBanner';
 import {useTranslation} from 'next-i18next';
 import EquipmentCard from 'components/bui/card/EquipmentCard';
@@ -34,7 +34,7 @@ const CampaignDropItemsList :
         elevation={containerCardVariation == 'elevation' ? 2 : undefined}>
         <CardContent>
           <Grid container>
-            <Grid xs={12} container className={styles.campaignNameAndTimes}>
+            <Grid size={12} container className={styles.campaignNameAndTimes}>
               <Typography variant={'h4'}>
                 {`${campaignInfo.area}-${campaignInfo.stage}`}
               </Typography>
@@ -45,11 +45,11 @@ const CampaignDropItemsList :
                 width={'unset'}/>
             </Grid>
 
-            <Grid xs={12} className={styles.noSelection}>
+            <Grid size={12} className={styles.noSelection}>
               <BuiBanner label={t('possibleRewards')}/>
             </Grid>
 
-            <Grid xs={12} className={`${styles.allDropsWrapper} ${styles.noSelection}`} sx={{flexWrap: 'wrap'}}>
+            <Grid size={12} className={`${styles.allDropsWrapper} ${styles.noSelection}`} sx={{flexWrap: 'wrap'}}>
 
               {allDrops.map(({id, dropCount, dropProb}) => {
                 const piece = equipmentsById.get(id);

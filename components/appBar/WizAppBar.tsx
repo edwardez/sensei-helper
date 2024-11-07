@@ -66,12 +66,12 @@ export default function WizAppBar() {
           borderStyle: trigger ? `none none solid none` : 'none none none none'}}
         variant={'outlined'}>
         <Toolbar>
-          <Link href="/">
-            <a className={styles.title}>
-              <Typography variant="h6" >
-                {t('SenseiHelper', 'Sensei Helper')}
-              </Typography>
-            </a>
+          <Link href="/" className={styles.title}>
+
+            <Typography variant="h6" >
+              {t('SenseiHelper', 'Sensei Helper')}
+            </Typography>
+
           </Link>
 
           <Box sx={{flexGrow: 1}}>

@@ -113,10 +113,9 @@ export default function Privacy() {
     <p><strong>Contact Us</strong></p>
     <p>
           If you have any questions or suggestions about our
-          Privacy Policy, do not hesitate to contact us at <Link href={'/about'}><a>about page</a></Link>
+          Privacy Policy, do not hesitate to contact us at <Link href={'/about'}>about page</Link>
     </p>
-  </>
-  );
+  </>);
 }
 
 

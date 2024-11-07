@@ -8,8 +8,11 @@ const withPWA = require('next-pwa')({
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  swcMinify: true,
   i18n,
+  sassOptions: {
+    silenceDeprecations: ['legacy-js-api'],
+    api: 'modern-compiler',
+  },
 };
 
 module.exports = withPWA(nextConfig);
