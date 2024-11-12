@@ -11283,5 +11283,810 @@
         }
       ]
     }
+  },
+  {
+    "id": "1261101",
+    "area": 26,
+    "stage": 1,
+    "jpName": "礼拝堂への道",
+    "recommendationWeight": 200,
+    "rewards": [
+      {
+        "id": "2107008",
+        "probability": 0.344
+      },
+      {
+        "id": "2109008",
+        "probability": 0.258
+      },
+      {
+        "id": "2108008",
+        "probability": 0.258
+      },
+      {
+        "id": "2107005",
+        "probability": 0.1
+      },
+      {
+        "id": "2107006",
+        "probability": 0.2
+      },
+      {
+        "id": "2109005",
+        "probability": 0.075
+      },
+      {
+        "id": "2109006",
+        "probability": 0.15
+      },
+      {
+        "id": "2108005",
+        "probability": 0.075
+      },
+      {
+        "id": "2108006",
+        "probability": 0.15
+      }
+    ],
+    "rewardsByRegion": {
+      "Japan": [
+        {
+          "id": "2107008",
+          "probability": 0.344
+        },
+        {
+          "id": "2109008",
+          "probability": 0.258
+        },
+        {
+          "id": "2108008",
+          "probability": 0.258
+        },
+        {
+          "id": "2107005",
+          "probability": 0.1
+        },
+        {
+          "id": "2107006",
+          "probability": 0.2
+        },
+        {
+          "id": "2109005",
+          "probability": 0.075
+        },
+        {
+          "id": "2109006",
+          "probability": 0.15
+        },
+        {
+          "id": "2108005",
+          "probability": 0.075
+        },
+        {
+          "id": "2108006",
+          "probability": 0.15
+        }
+      ],
+      "Global": [
+        {
+          "id": "2107008",
+          "probability": 0.344
+        },
+        {
+          "id": "2109008",
+          "probability": 0.258
+        },
+        {
+          "id": "2108008",
+          "probability": 0.258
+        },
+        {
+          "id": "2107005",
+          "probability": 0.1
+        },
+        {
+          "id": "2107006",
+          "probability": 0.2
+        },
+        {
+          "id": "2109005",
+          "probability": 0.075
+        },
+        {
+          "id": "2109006",
+          "probability": 0.15
+        },
+        {
+          "id": "2108005",
+          "probability": 0.075
+        },
+        {
+          "id": "2108006",
+          "probability": 0.15
+        }
+      ],
+      "China": [
+        {
+          "id": "2107008",
+          "probability": 0.344
+        },
+        {
+          "id": "2109008",
+          "probability": 0.258
+        },
+        {
+          "id": "2108008",
+          "probability": 0.258
+        },
+        {
+          "id": "2107005",
+          "probability": 0.1
+        },
+        {
+          "id": "2107006",
+          "probability": 0.2
+        },
+        {
+          "id": "2109005",
+          "probability": 0.075
+        },
+        {
+          "id": "2109006",
+          "probability": 0.15
+        },
+        {
+          "id": "2108005",
+          "probability": 0.075
+        },
+        {
+          "id": "2108006",
+          "probability": 0.15
+        }
+      ]
+    }
+  },
+  {
+    "id": "1261102",
+    "area": 26,
+    "stage": 2,
+    "jpName": "地下墓所の入口",
+    "recommendationWeight": 50,
+    "rewards": [
+      {
+        "id": "2106008",
+        "probability": 0.344
+      },
+      {
+        "id": "2108008",
+        "probability": 0.258
+      },
+      {
+        "id": "2107008",
+        "probability": 0.258
+      },
+      {
+        "id": "2106005",
+        "probability": 0.1
+      },
+      {
+        "id": "2106006",
+        "probability": 0.2
+      },
+      {
+        "id": "2108005",
+        "probability": 0.075
+      },
+      {
+        "id": "2108006",
+        "probability": 0.15
+      },
+      {
+        "id": "2107005",
+        "probability": 0.075
+      },
+      {
+        "id": "2107006",
+        "probability": 0.15
+      }
+    ],
+    "rewardsByRegion": {
+      "Japan": [
+        {
+          "id": "2106008",
+          "probability": 0.344
+        },
+        {
+          "id": "2108008",
+          "probability": 0.258
+        },
+        {
+          "id": "2107008",
+          "probability": 0.258
+        },
+        {
+          "id": "2106005",
+          "probability": 0.1
+        },
+        {
+          "id": "2106006",
+          "probability": 0.2
+        },
+        {
+          "id": "2108005",
+          "probability": 0.075
+        },
+        {
+          "id": "2108006",
+          "probability": 0.15
+        },
+        {
+          "id": "2107005",
+          "probability": 0.075
+        },
+        {
+          "id": "2107006",
+          "probability": 0.15
+        }
+      ],
+      "Global": [
+        {
+          "id": "2106008",
+          "probability": 0.344
+        },
+        {
+          "id": "2108008",
+          "probability": 0.258
+        },
+        {
+          "id": "2107008",
+          "probability": 0.258
+        },
+        {
+          "id": "2106005",
+          "probability": 0.1
+        },
+        {
+          "id": "2106006",
+          "probability": 0.2
+        },
+        {
+          "id": "2108005",
+          "probability": 0.075
+        },
+        {
+          "id": "2108006",
+          "probability": 0.15
+        },
+        {
+          "id": "2107005",
+          "probability": 0.075
+        },
+        {
+          "id": "2107006",
+          "probability": 0.15
+        }
+      ],
+      "China": [
+        {
+          "id": "2106008",
+          "probability": 0.344
+        },
+        {
+          "id": "2108008",
+          "probability": 0.258
+        },
+        {
+          "id": "2107008",
+          "probability": 0.258
+        },
+        {
+          "id": "2106005",
+          "probability": 0.1
+        },
+        {
+          "id": "2106006",
+          "probability": 0.2
+        },
+        {
+          "id": "2108005",
+          "probability": 0.075
+        },
+        {
+          "id": "2108006",
+          "probability": 0.15
+        },
+        {
+          "id": "2107005",
+          "probability": 0.075
+        },
+        {
+          "id": "2107006",
+          "probability": 0.15
+        }
+      ]
+    }
+  },
+  {
+    "id": "1261103",
+    "area": 26,
+    "stage": 3,
+    "jpName": "中央回廊",
+    "recommendationWeight": 250,
+    "rewards": [
+      {
+        "id": "2104008",
+        "probability": 0.344
+      },
+      {
+        "id": "2109008",
+        "probability": 0.258
+      },
+      {
+        "id": "2108008",
+        "probability": 0.258
+      },
+      {
+        "id": "2104005",
+        "probability": 0.1
+      },
+      {
+        "id": "2104006",
+        "probability": 0.2
+      },
+      {
+        "id": "2109005",
+        "probability": 0.075
+      },
+      {
+        "id": "2109006",
+        "probability": 0.15
+      },
+      {
+        "id": "2108005",
+        "probability": 0.075
+      },
+      {
+        "id": "2108006",
+        "probability": 0.15
+      }
+    ],
+    "rewardsByRegion": {
+      "Japan": [
+        {
+          "id": "2104008",
+          "probability": 0.344
+        },
+        {
+          "id": "2109008",
+          "probability": 0.258
+        },
+        {
+          "id": "2108008",
+          "probability": 0.258
+        },
+        {
+          "id": "2104005",
+          "probability": 0.1
+        },
+        {
+          "id": "2104006",
+          "probability": 0.2
+        },
+        {
+          "id": "2109005",
+          "probability": 0.075
+        },
+        {
+          "id": "2109006",
+          "probability": 0.15
+        },
+        {
+          "id": "2108005",
+          "probability": 0.075
+        },
+        {
+          "id": "2108006",
+          "probability": 0.15
+        }
+      ],
+      "Global": [
+        {
+          "id": "2104008",
+          "probability": 0.344
+        },
+        {
+          "id": "2109008",
+          "probability": 0.258
+        },
+        {
+          "id": "2108008",
+          "probability": 0.258
+        },
+        {
+          "id": "2104005",
+          "probability": 0.1
+        },
+        {
+          "id": "2104006",
+          "probability": 0.2
+        },
+        {
+          "id": "2109005",
+          "probability": 0.075
+        },
+        {
+          "id": "2109006",
+          "probability": 0.15
+        },
+        {
+          "id": "2108005",
+          "probability": 0.075
+        },
+        {
+          "id": "2108006",
+          "probability": 0.15
+        }
+      ],
+      "China": [
+        {
+          "id": "2104008",
+          "probability": 0.344
+        },
+        {
+          "id": "2109008",
+          "probability": 0.258
+        },
+        {
+          "id": "2108008",
+          "probability": 0.258
+        },
+        {
+          "id": "2104005",
+          "probability": 0.1
+        },
+        {
+          "id": "2104006",
+          "probability": 0.2
+        },
+        {
+          "id": "2109005",
+          "probability": 0.075
+        },
+        {
+          "id": "2109006",
+          "probability": 0.15
+        },
+        {
+          "id": "2108005",
+          "probability": 0.075
+        },
+        {
+          "id": "2108006",
+          "probability": 0.15
+        }
+      ]
+    }
+  },
+  {
+    "id": "1261104",
+    "area": 26,
+    "stage": 4,
+    "jpName": "聖歌隊の休憩室",
+    "recommendationWeight": -100,
+    "rewards": [
+      {
+        "id": "2108008",
+        "probability": 0.344
+      },
+      {
+        "id": "2107008",
+        "probability": 0.258
+      },
+      {
+        "id": "2105008",
+        "probability": 0.258
+      },
+      {
+        "id": "2108005",
+        "probability": 0.1
+      },
+      {
+        "id": "2108006",
+        "probability": 0.2
+      },
+      {
+        "id": "2107005",
+        "probability": 0.075
+      },
+      {
+        "id": "2107006",
+        "probability": 0.15
+      },
+      {
+        "id": "2105005",
+        "probability": 0.075
+      },
+      {
+        "id": "2105006",
+        "probability": 0.15
+      }
+    ],
+    "rewardsByRegion": {
+      "Japan": [
+        {
+          "id": "2108008",
+          "probability": 0.344
+        },
+        {
+          "id": "2107008",
+          "probability": 0.258
+        },
+        {
+          "id": "2105008",
+          "probability": 0.258
+        },
+        {
+          "id": "2108005",
+          "probability": 0.1
+        },
+        {
+          "id": "2108006",
+          "probability": 0.2
+        },
+        {
+          "id": "2107005",
+          "probability": 0.075
+        },
+        {
+          "id": "2107006",
+          "probability": 0.15
+        },
+        {
+          "id": "2105005",
+          "probability": 0.075
+        },
+        {
+          "id": "2105006",
+          "probability": 0.15
+        }
+      ],
+      "Global": [
+        {
+          "id": "2108008",
+          "probability": 0.344
+        },
+        {
+          "id": "2107008",
+          "probability": 0.258
+        },
+        {
+          "id": "2105008",
+          "probability": 0.258
+        },
+        {
+          "id": "2108005",
+          "probability": 0.1
+        },
+        {
+          "id": "2108006",
+          "probability": 0.2
+        },
+        {
+          "id": "2107005",
+          "probability": 0.075
+        },
+        {
+          "id": "2107006",
+          "probability": 0.15
+        },
+        {
+          "id": "2105005",
+          "probability": 0.075
+        },
+        {
+          "id": "2105006",
+          "probability": 0.15
+        }
+      ],
+      "China": [
+        {
+          "id": "2108008",
+          "probability": 0.344
+        },
+        {
+          "id": "2107008",
+          "probability": 0.258
+        },
+        {
+          "id": "2105008",
+          "probability": 0.258
+        },
+        {
+          "id": "2108005",
+          "probability": 0.1
+        },
+        {
+          "id": "2108006",
+          "probability": 0.2
+        },
+        {
+          "id": "2107005",
+          "probability": 0.075
+        },
+        {
+          "id": "2107006",
+          "probability": 0.15
+        },
+        {
+          "id": "2105005",
+          "probability": 0.075
+        },
+        {
+          "id": "2105006",
+          "probability": 0.15
+        }
+      ]
+    }
+  },
+  {
+    "id": "1261105",
+    "area": 26,
+    "stage": 5,
+    "jpName": "修道院長の祭壇",
+    "recommendationWeight": 50,
+    "rewards": [
+      {
+        "id": "2109008",
+        "probability": 0.344
+      },
+      {
+        "id": "2106008",
+        "probability": 0.258
+      },
+      {
+        "id": "2104008",
+        "probability": 0.258
+      },
+      {
+        "id": "2109005",
+        "probability": 0.1
+      },
+      {
+        "id": "2109006",
+        "probability": 0.2
+      },
+      {
+        "id": "2106005",
+        "probability": 0.075
+      },
+      {
+        "id": "2106006",
+        "probability": 0.15
+      },
+      {
+        "id": "2104005",
+        "probability": 0.075
+      },
+      {
+        "id": "2104006",
+        "probability": 0.15
+      }
+    ],
+    "rewardsByRegion": {
+      "Japan": [
+        {
+          "id": "2109008",
+          "probability": 0.344
+        },
+        {
+          "id": "2106008",
+          "probability": 0.258
+        },
+        {
+          "id": "2104008",
+          "probability": 0.258
+        },
+        {
+          "id": "2109005",
+          "probability": 0.1
+        },
+        {
+          "id": "2109006",
+          "probability": 0.2
+        },
+        {
+          "id": "2106005",
+          "probability": 0.075
+        },
+        {
+          "id": "2106006",
+          "probability": 0.15
+        },
+        {
+          "id": "2104005",
+          "probability": 0.075
+        },
+        {
+          "id": "2104006",
+          "probability": 0.15
+        }
+      ],
+      "Global": [
+        {
+          "id": "2109008",
+          "probability": 0.344
+        },
+        {
+          "id": "2106008",
+          "probability": 0.258
+        },
+        {
+          "id": "2104008",
+          "probability": 0.258
+        },
+        {
+          "id": "2109005",
+          "probability": 0.1
+        },
+        {
+          "id": "2109006",
+          "probability": 0.2
+        },
+        {
+          "id": "2106005",
+          "probability": 0.075
+        },
+        {
+          "id": "2106006",
+          "probability": 0.15
+        },
+        {
+          "id": "2104005",
+          "probability": 0.075
+        },
+        {
+          "id": "2104006",
+          "probability": 0.15
+        }
+      ],
+      "China": [
+        {
+          "id": "2109008",
+          "probability": 0.344
+        },
+        {
+          "id": "2106008",
+          "probability": 0.258
+        },
+        {
+          "id": "2104008",
+          "probability": 0.258
+        },
+        {
+          "id": "2109005",
+          "probability": 0.1
+        },
+        {
+          "id": "2109006",
+          "probability": 0.2
+        },
+        {
+          "id": "2106005",
+          "probability": 0.075
+        },
+        {
+          "id": "2106006",
+          "probability": 0.15
+        },
+        {
+          "id": "2104005",
+          "probability": 0.075
+        },
+        {
+          "id": "2104006",
+          "probability": 0.15
+        }
+      ]
+    }
   }
 ]
