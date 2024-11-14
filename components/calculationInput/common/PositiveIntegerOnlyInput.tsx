@@ -13,7 +13,7 @@ interface PositiveIntegerOnlyInputProps<T extends FieldValues> {
   inputLabel?: string;
 }
 
-const PositiveIntegerOnlyInput = function<T extends FieldValues>({
+const PositiveIntegerOnlyInput = function<T>({
   name, control, showError, helperText,
   min = 1, inputLabel,
 }: PositiveIntegerOnlyInputProps<T>) {
