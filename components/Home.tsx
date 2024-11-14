@@ -10,7 +10,7 @@ import {Campaign} from 'model/Campaign';
 import RecommendedCampaigns from 'components/calculationResult/RecommendedCampaigns';
 import CalculationInputCard from 'components/calculationInput/CalculationInputCard';
 import {CampaignsById, EquipmentsById} from 'components/calculationInput/PiecesCalculationCommonTypes';
-import useSWR from 'swr';
+import useSWRImmutable from 'swr/immutable';
 import RecommendationsSummary from 'components/calculationResult/RecommendationsSummary';
 import IgnoredCampaigns from 'components/calculationResult/IgnoredCampaigns';
 import Head from 'next/head';
@@ -48,7 +48,7 @@ const Home: NextPage = observer((props) => {
     return Promise.all(urls.map(fetchOne));
   };
 
-  const {data, error} = useSWR(['data/equipments.json', 'data/campaigns.json'], fetcher);
+  const {data, error} = useSWRImmutable(['data/equipments.json', 'data/campaigns.json'], fetcher);
   const allEquipments = data?.[0] as Equipment[];
   const filteredEquipments = useMemo(() => {
     if (!allEquipments) return allEquipments;
@@ -157,4 +157,3 @@ const Home: NextPage = observer((props) => {
 });
 
 export default Home;
-
