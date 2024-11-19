@@ -136,7 +136,8 @@
     "equipmentCompositionType": "Composite",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ],
     "recipe": [
       {
@@ -187,7 +188,8 @@
     "jpName": "セーラーハット",
     "equipmentCompositionType": "Composite",
     "releasedIn": [
-      "Japan"
+      "Japan",
+      "Global"
     ],
     "recipe": [
       {
@@ -341,7 +343,8 @@
     "equipmentCompositionType": "Composite",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ],
     "recipe": [
       {
@@ -392,7 +395,8 @@
     "jpName": "セーリンググローブ",
     "equipmentCompositionType": "Composite",
     "releasedIn": [
-      "Japan"
+      "Japan",
+      "Global"
     ],
     "recipe": [
       {
@@ -546,7 +550,8 @@
     "equipmentCompositionType": "Composite",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ],
     "recipe": [
       {
@@ -597,7 +602,8 @@
     "jpName": "アクアサンダル",
     "equipmentCompositionType": "Composite",
     "releasedIn": [
-      "Japan"
+      "Japan",
+      "Global"
     ],
     "recipe": [
       {
@@ -751,7 +757,8 @@
     "equipmentCompositionType": "Composite",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ],
     "recipe": [
       {
@@ -802,7 +809,8 @@
     "jpName": "スリングドライバック",
     "equipmentCompositionType": "Composite",
     "releasedIn": [
-      "Japan"
+      "Japan",
+      "Global"
     ],
     "recipe": [
       {
@@ -956,7 +964,8 @@
     "equipmentCompositionType": "Composite",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ],
     "recipe": [
       {
@@ -1007,7 +1016,8 @@
     "jpName": "ハルピュイア・フレキシブルバッジ",
     "equipmentCompositionType": "Composite",
     "releasedIn": [
-      "Japan"
+      "Japan",
+      "Global"
     ],
     "recipe": [
       {
@@ -1161,7 +1171,8 @@
     "equipmentCompositionType": "Composite",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ],
     "recipe": [
       {
@@ -1212,7 +1223,8 @@
     "jpName": "アンカーヘアピン",
     "equipmentCompositionType": "Composite",
     "releasedIn": [
-      "Japan"
+      "Japan",
+      "Global"
     ],
     "recipe": [
       {
@@ -1366,7 +1378,8 @@
     "equipmentCompositionType": "Composite",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ],
     "recipe": [
       {
@@ -1571,7 +1584,8 @@
     "equipmentCompositionType": "Composite",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ],
     "recipe": [
       {
@@ -1776,7 +1790,8 @@
     "equipmentCompositionType": "Composite",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ],
     "recipe": [
       {
@@ -1918,7 +1933,8 @@
     "equipmentCompositionType": "Piece",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ]
   },
   {
@@ -1941,7 +1957,8 @@
     "jpName": "セーラーハットの設計図",
     "equipmentCompositionType": "Piece",
     "releasedIn": [
-      "Japan"
+      "Japan",
+      "Global"
     ]
   },
   {
@@ -2018,7 +2035,8 @@
     "equipmentCompositionType": "Piece",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ]
   },
   {
@@ -2041,7 +2059,8 @@
     "jpName": "セーリンググローブの設計図",
     "equipmentCompositionType": "Piece",
     "releasedIn": [
-      "Japan"
+      "Japan",
+      "Global"
     ]
   },
   {
@@ -2118,7 +2137,8 @@
     "equipmentCompositionType": "Piece",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ]
   },
   {
@@ -2141,7 +2161,8 @@
     "jpName": "アクアサンダルの設計図",
     "equipmentCompositionType": "Piece",
     "releasedIn": [
-      "Japan"
+      "Japan",
+      "Global"
     ]
   },
   {
@@ -2218,7 +2239,8 @@
     "equipmentCompositionType": "Piece",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ]
   },
   {
@@ -2241,7 +2263,8 @@
     "jpName": "スリングドライバックの設計図",
     "equipmentCompositionType": "Piece",
     "releasedIn": [
-      "Japan"
+      "Japan",
+      "Global"
     ]
   },
   {
@@ -2318,7 +2341,8 @@
     "equipmentCompositionType": "Piece",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ]
   },
   {
@@ -2341,7 +2365,8 @@
     "jpName": "ハルピュイア・フレキシブルバッジの設計図",
     "equipmentCompositionType": "Piece",
     "releasedIn": [
-      "Japan"
+      "Japan",
+      "Global"
     ]
   },
   {
@@ -2418,7 +2443,8 @@
     "equipmentCompositionType": "Piece",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ]
   },
   {
@@ -2441,7 +2467,8 @@
     "jpName": "アンカーヘアピンの設計図",
     "equipmentCompositionType": "Piece",
     "releasedIn": [
-      "Japan"
+      "Japan",
+      "Global"
     ]
   },
   {
@@ -2518,7 +2545,8 @@
     "equipmentCompositionType": "Piece",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ]
   },
   {
@@ -2618,7 +2646,8 @@
     "equipmentCompositionType": "Piece",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ]
   },
   {
@@ -2718,7 +2747,8 @@
     "equipmentCompositionType": "Piece",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ]
   },
   {
