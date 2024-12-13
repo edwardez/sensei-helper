@@ -1308,15 +1308,15 @@
     "rewards": [
       {
         "id": "2101002",
-        "probability": 0.9
+        "probability": 1
       },
       {
         "id": "2102002",
-        "probability": 0.675
+        "probability": 0.75
       },
       {
         "id": "2103002",
-        "probability": 0.675
+        "probability": 0.75
       },
       {
         "id": "2001000",
@@ -1335,15 +1335,15 @@
       "Japan": [
         {
           "id": "2101002",
-          "probability": 0.9
+          "probability": 1
         },
         {
           "id": "2102002",
-          "probability": 0.675
+          "probability": 0.75
         },
         {
           "id": "2103002",
-          "probability": 0.675
+          "probability": 0.75
         },
         {
           "id": "2001000",
@@ -1421,15 +1421,15 @@
     "rewards": [
       {
         "id": "2102002",
-        "probability": 0.9
+        "probability": 1
       },
       {
         "id": "2104002",
-        "probability": 0.675
+        "probability": 0.75
       },
       {
         "id": "2101002",
-        "probability": 0.675
+        "probability": 0.75
       },
       {
         "id": "2002000",
@@ -1448,15 +1448,15 @@
       "Japan": [
         {
           "id": "2102002",
-          "probability": 0.9
+          "probability": 1
         },
         {
           "id": "2104002",
-          "probability": 0.675
+          "probability": 0.75
         },
         {
           "id": "2101002",
-          "probability": 0.675
+          "probability": 0.75
         },
         {
           "id": "2002000",
@@ -1534,15 +1534,15 @@
     "rewards": [
       {
         "id": "2103002",
-        "probability": 0.9
+        "probability": 1
       },
       {
         "id": "2101002",
-        "probability": 0.675
+        "probability": 0.75
       },
       {
         "id": "2102002",
-        "probability": 0.675
+        "probability": 0.75
       },
       {
         "id": "2003000",
@@ -1561,15 +1561,15 @@
       "Japan": [
         {
           "id": "2103002",
-          "probability": 0.9
+          "probability": 1
         },
         {
           "id": "2101002",
-          "probability": 0.675
+          "probability": 0.75
         },
         {
           "id": "2102002",
-          "probability": 0.675
+          "probability": 0.75
         },
         {
           "id": "2003000",
@@ -1647,15 +1647,15 @@
     "rewards": [
       {
         "id": "2104002",
-        "probability": 0.9
+        "probability": 1
       },
       {
         "id": "2103002",
-        "probability": 0.675
+        "probability": 0.75
       },
       {
         "id": "2106002",
-        "probability": 0.675
+        "probability": 0.75
       },
       {
         "id": "2004000",
@@ -1674,15 +1674,15 @@
       "Japan": [
         {
           "id": "2104002",
-          "probability": 0.9
+          "probability": 1
         },
         {
           "id": "2103002",
-          "probability": 0.675
+          "probability": 0.75
         },
         {
           "id": "2106002",
-          "probability": 0.675
+          "probability": 0.75
         },
         {
           "id": "2004000",
@@ -1760,15 +1760,15 @@
     "rewards": [
       {
         "id": "2105002",
-        "probability": 0.9
+        "probability": 1
       },
       {
         "id": "2104002",
-        "probability": 0.675
+        "probability": 0.75
       },
       {
         "id": "2101002",
-        "probability": 0.675
+        "probability": 0.75
       },
       {
         "id": "2005000",
@@ -1787,15 +1787,15 @@
       "Japan": [
         {
           "id": "2105002",
-          "probability": 0.9
+          "probability": 1
         },
         {
           "id": "2104002",
-          "probability": 0.675
+          "probability": 0.75
         },
         {
           "id": "2101002",
-          "probability": 0.675
+          "probability": 0.75
         },
         {
           "id": "2005000",
@@ -1873,15 +1873,15 @@
     "rewards": [
       {
         "id": "2106002",
-        "probability": 0.9
+        "probability": 1
       },
       {
         "id": "2105002",
-        "probability": 0.675
+        "probability": 0.75
       },
       {
         "id": "2108002",
-        "probability": 0.675
+        "probability": 0.75
       },
       {
         "id": "2006000",
@@ -1900,15 +1900,15 @@
       "Japan": [
         {
           "id": "2106002",
-          "probability": 0.9
+          "probability": 1
         },
         {
           "id": "2105002",
-          "probability": 0.675
+          "probability": 0.75
         },
         {
           "id": "2108002",
-          "probability": 0.675
+          "probability": 0.75
         },
         {
           "id": "2006000",
@@ -1986,15 +1986,15 @@
     "rewards": [
       {
         "id": "2106002",
-        "probability": 0.9
+        "probability": 1
       },
       {
         "id": "2108002",
-        "probability": 0.675
+        "probability": 0.75
       },
       {
         "id": "2109002",
-        "probability": 0.675
+        "probability": 0.75
       },
       {
         "id": "2006000",
@@ -2013,15 +2013,15 @@
       "Japan": [
         {
           "id": "2106002",
-          "probability": 0.9
+          "probability": 1
         },
         {
           "id": "2108002",
-          "probability": 0.675
+          "probability": 0.75
         },
         {
           "id": "2109002",
-          "probability": 0.675
+          "probability": 0.75
         },
         {
           "id": "2006000",
@@ -2099,15 +2099,15 @@
     "rewards": [
       {
         "id": "2107002",
-        "probability": 0.9
+        "probability": 1
       },
       {
         "id": "2108002",
-        "probability": 0.675
+        "probability": 0.75
       },
       {
         "id": "2106002",
-        "probability": 0.675
+        "probability": 0.75
       },
       {
         "id": "2007000",
@@ -2126,15 +2126,15 @@
       "Japan": [
         {
           "id": "2107002",
-          "probability": 0.9
+          "probability": 1
         },
         {
           "id": "2108002",
-          "probability": 0.675
+          "probability": 0.75
         },
         {
           "id": "2106002",
-          "probability": 0.675
+          "probability": 0.75
         },
         {
           "id": "2007000",
@@ -2212,15 +2212,15 @@
     "rewards": [
       {
         "id": "2108002",
-        "probability": 0.9
+        "probability": 1
       },
       {
         "id": "2107002",
-        "probability": 0.675
+        "probability": 0.75
       },
       {
         "id": "2109002",
-        "probability": 0.675
+        "probability": 0.75
       },
       {
         "id": "2008000",
@@ -2239,15 +2239,15 @@
       "Japan": [
         {
           "id": "2108002",
-          "probability": 0.9
+          "probability": 1
         },
         {
           "id": "2107002",
-          "probability": 0.675
+          "probability": 0.75
         },
         {
           "id": "2109002",
-          "probability": 0.675
+          "probability": 0.75
         },
         {
           "id": "2008000",
@@ -2325,15 +2325,15 @@
     "rewards": [
       {
         "id": "2109002",
-        "probability": 0.9
+        "probability": 1
       },
       {
         "id": "2105002",
-        "probability": 0.675
+        "probability": 0.75
       },
       {
         "id": "2107002",
-        "probability": 0.675
+        "probability": 0.75
       },
       {
         "id": "2009000",
@@ -2352,15 +2352,15 @@
       "Japan": [
         {
           "id": "2109002",
-          "probability": 0.9
+          "probability": 1
         },
         {
           "id": "2105002",
-          "probability": 0.675
+          "probability": 0.75
         },
         {
           "id": "2107002",
-          "probability": 0.675
+          "probability": 0.75
         },
         {
           "id": "2009000",
@@ -2438,15 +2438,15 @@
     "rewards": [
       {
         "id": "2101003",
-        "probability": 0.6
+        "probability": 0.8
       },
       {
         "id": "2102003",
-        "probability": 0.45
+        "probability": 0.6
       },
       {
         "id": "2103003",
-        "probability": 0.45
+        "probability": 0.6
       },
       {
         "id": "2001000",
@@ -2477,15 +2477,15 @@
       "Japan": [
         {
           "id": "2101003",
-          "probability": 0.6
+          "probability": 0.8
         },
         {
           "id": "2102003",
-          "probability": 0.45
+          "probability": 0.6
         },
         {
           "id": "2103003",
-          "probability": 0.45
+          "probability": 0.6
         },
         {
           "id": "2001000",
@@ -2599,15 +2599,15 @@
     "rewards": [
       {
         "id": "2102003",
-        "probability": 0.6
+        "probability": 0.8
       },
       {
         "id": "2104003",
-        "probability": 0.45
+        "probability": 0.6
       },
       {
         "id": "2101003",
-        "probability": 0.45
+        "probability": 0.6
       },
       {
         "id": "2002000",
@@ -2638,15 +2638,15 @@
       "Japan": [
         {
           "id": "2102003",
-          "probability": 0.6
+          "probability": 0.8
         },
         {
           "id": "2104003",
-          "probability": 0.45
+          "probability": 0.6
         },
         {
           "id": "2101003",
-          "probability": 0.45
+          "probability": 0.6
         },
         {
           "id": "2002000",
@@ -2760,15 +2760,15 @@
     "rewards": [
       {
         "id": "2103003",
-        "probability": 0.6
+        "probability": 0.8
       },
       {
         "id": "2101003",
-        "probability": 0.45
+        "probability": 0.6
       },
       {
         "id": "2102003",
-        "probability": 0.45
+        "probability": 0.6
       },
       {
         "id": "2003000",
@@ -2799,15 +2799,15 @@
       "Japan": [
         {
           "id": "2103003",
-          "probability": 0.6
+          "probability": 0.8
         },
         {
           "id": "2101003",
-          "probability": 0.45
+          "probability": 0.6
         },
         {
           "id": "2102003",
-          "probability": 0.45
+          "probability": 0.6
         },
         {
           "id": "2003000",
@@ -2921,15 +2921,15 @@
     "rewards": [
       {
         "id": "2104003",
-        "probability": 0.6
+        "probability": 0.8
       },
       {
         "id": "2103003",
-        "probability": 0.45
+        "probability": 0.6
       },
       {
         "id": "2106003",
-        "probability": 0.45
+        "probability": 0.6
       },
       {
         "id": "2004000",
@@ -2960,15 +2960,15 @@
       "Japan": [
         {
           "id": "2104003",
-          "probability": 0.6
+          "probability": 0.8
         },
         {
           "id": "2103003",
-          "probability": 0.45
+          "probability": 0.6
         },
         {
           "id": "2106003",
-          "probability": 0.45
+          "probability": 0.6
         },
         {
           "id": "2004000",
@@ -3082,15 +3082,15 @@
     "rewards": [
       {
         "id": "2105003",
-        "probability": 0.6
+        "probability": 0.8
       },
       {
         "id": "2104003",
-        "probability": 0.45
+        "probability": 0.6
       },
       {
         "id": "2101003",
-        "probability": 0.45
+        "probability": 0.6
       },
       {
         "id": "2005000",
@@ -3121,15 +3121,15 @@
       "Japan": [
         {
           "id": "2105003",
-          "probability": 0.6
+          "probability": 0.8
         },
         {
           "id": "2104003",
-          "probability": 0.45
+          "probability": 0.6
         },
         {
           "id": "2101003",
-          "probability": 0.45
+          "probability": 0.6
         },
         {
           "id": "2005000",
@@ -3243,15 +3243,15 @@
     "rewards": [
       {
         "id": "2106003",
-        "probability": 0.6
+        "probability": 0.8
       },
       {
         "id": "2105003",
-        "probability": 0.45
+        "probability": 0.6
       },
       {
         "id": "2108003",
-        "probability": 0.45
+        "probability": 0.6
       },
       {
         "id": "2006000",
@@ -3282,15 +3282,15 @@
       "Japan": [
         {
           "id": "2106003",
-          "probability": 0.6
+          "probability": 0.8
         },
         {
           "id": "2105003",
-          "probability": 0.45
+          "probability": 0.6
         },
         {
           "id": "2108003",
-          "probability": 0.45
+          "probability": 0.6
         },
         {
           "id": "2006000",
@@ -3404,15 +3404,15 @@
     "rewards": [
       {
         "id": "2106003",
-        "probability": 0.6
+        "probability": 0.8
       },
       {
         "id": "2108003",
-        "probability": 0.45
+        "probability": 0.6
       },
       {
         "id": "2109003",
-        "probability": 0.45
+        "probability": 0.6
       },
       {
         "id": "2006000",
@@ -3443,15 +3443,15 @@
       "Japan": [
         {
           "id": "2106003",
-          "probability": 0.6
+          "probability": 0.8
         },
         {
           "id": "2108003",
-          "probability": 0.45
+          "probability": 0.6
         },
         {
           "id": "2109003",
-          "probability": 0.45
+          "probability": 0.6
         },
         {
           "id": "2006000",
@@ -3565,15 +3565,15 @@
     "rewards": [
       {
         "id": "2107003",
-        "probability": 0.6
+        "probability": 0.8
       },
       {
         "id": "2108003",
-        "probability": 0.45
+        "probability": 0.6
       },
       {
         "id": "2106003",
-        "probability": 0.45
+        "probability": 0.6
       },
       {
         "id": "2007000",
@@ -3604,15 +3604,15 @@
       "Japan": [
         {
           "id": "2107003",
-          "probability": 0.6
+          "probability": 0.8
         },
         {
           "id": "2108003",
-          "probability": 0.45
+          "probability": 0.6
         },
         {
           "id": "2106003",
-          "probability": 0.45
+          "probability": 0.6
         },
         {
           "id": "2007000",
@@ -3726,15 +3726,15 @@
     "rewards": [
       {
         "id": "2108003",
-        "probability": 0.6
+        "probability": 0.8
       },
       {
         "id": "2107003",
-        "probability": 0.45
+        "probability": 0.6
       },
       {
         "id": "2109003",
-        "probability": 0.45
+        "probability": 0.6
       },
       {
         "id": "2008000",
@@ -3765,15 +3765,15 @@
       "Japan": [
         {
           "id": "2108003",
-          "probability": 0.6
+          "probability": 0.8
         },
         {
           "id": "2107003",
-          "probability": 0.45
+          "probability": 0.6
         },
         {
           "id": "2109003",
-          "probability": 0.45
+          "probability": 0.6
         },
         {
           "id": "2008000",
@@ -3887,15 +3887,15 @@
     "rewards": [
       {
         "id": "2109003",
-        "probability": 0.6
+        "probability": 0.8
       },
       {
         "id": "2105003",
-        "probability": 0.45
+        "probability": 0.6
       },
       {
         "id": "2107003",
-        "probability": 0.45
+        "probability": 0.6
       },
       {
         "id": "2009000",
@@ -3926,15 +3926,15 @@
       "Japan": [
         {
           "id": "2109003",
-          "probability": 0.6
+          "probability": 0.8
         },
         {
           "id": "2105003",
-          "probability": 0.45
+          "probability": 0.6
         },
         {
           "id": "2107003",
-          "probability": 0.45
+          "probability": 0.6
         },
         {
           "id": "2009000",
@@ -4048,15 +4048,15 @@
     "rewards": [
       {
         "id": "2101004",
-        "probability": 0.344
+        "probability": 0.6
       },
       {
         "id": "2102004",
-        "probability": 0.258
+        "probability": 0.45
       },
       {
         "id": "2103004",
-        "probability": 0.258
+        "probability": 0.45
       },
       {
         "id": "2101001",
@@ -4087,15 +4087,15 @@
       "Japan": [
         {
           "id": "2101004",
-          "probability": 0.344
+          "probability": 0.6
         },
         {
           "id": "2102004",
-          "probability": 0.258
+          "probability": 0.45
         },
         {
           "id": "2103004",
-          "probability": 0.258
+          "probability": 0.45
         },
         {
           "id": "2101001",
@@ -4209,15 +4209,15 @@
     "rewards": [
       {
         "id": "2102004",
-        "probability": 0.344
+        "probability": 0.6
       },
       {
         "id": "2105004",
-        "probability": 0.258
+        "probability": 0.45
       },
       {
         "id": "2101004",
-        "probability": 0.258
+        "probability": 0.45
       },
       {
         "id": "2102001",
@@ -4248,15 +4248,15 @@
       "Japan": [
         {
           "id": "2102004",
-          "probability": 0.344
+          "probability": 0.6
         },
         {
           "id": "2105004",
-          "probability": 0.258
+          "probability": 0.45
         },
         {
           "id": "2101004",
-          "probability": 0.258
+          "probability": 0.45
         },
         {
           "id": "2102001",
@@ -4370,15 +4370,15 @@
     "rewards": [
       {
         "id": "2103004",
-        "probability": 0.344
+        "probability": 0.6
       },
       {
         "id": "2101004",
-        "probability": 0.258
+        "probability": 0.45
       },
       {
         "id": "2106004",
-        "probability": 0.258
+        "probability": 0.45
       },
       {
         "id": "2103001",
@@ -4409,15 +4409,15 @@
       "Japan": [
         {
           "id": "2103004",
-          "probability": 0.344
+          "probability": 0.6
         },
         {
           "id": "2101004",
-          "probability": 0.258
+          "probability": 0.45
         },
         {
           "id": "2106004",
-          "probability": 0.258
+          "probability": 0.45
         },
         {
           "id": "2103001",
@@ -4531,15 +4531,15 @@
     "rewards": [
       {
         "id": "2106004",
-        "probability": 0.344
+        "probability": 0.6
       },
       {
         "id": "2103004",
-        "probability": 0.258
+        "probability": 0.45
       },
       {
         "id": "2104004",
-        "probability": 0.258
+        "probability": 0.45
       },
       {
         "id": "2106001",
@@ -4570,15 +4570,15 @@
       "Japan": [
         {
           "id": "2106004",
-          "probability": 0.344
+          "probability": 0.6
         },
         {
           "id": "2103004",
-          "probability": 0.258
+          "probability": 0.45
         },
         {
           "id": "2104004",
-          "probability": 0.258
+          "probability": 0.45
         },
         {
           "id": "2106001",
@@ -4692,15 +4692,15 @@
     "rewards": [
       {
         "id": "2105004",
-        "probability": 0.344
+        "probability": 0.6
       },
       {
         "id": "2102004",
-        "probability": 0.258
+        "probability": 0.45
       },
       {
         "id": "2101004",
-        "probability": 0.258
+        "probability": 0.45
       },
       {
         "id": "2105001",
@@ -4731,15 +4731,15 @@
       "Japan": [
         {
           "id": "2105004",
-          "probability": 0.344
+          "probability": 0.6
         },
         {
           "id": "2102004",
-          "probability": 0.258
+          "probability": 0.45
         },
         {
           "id": "2101004",
-          "probability": 0.258
+          "probability": 0.45
         },
         {
           "id": "2105001",
@@ -4853,15 +4853,15 @@
     "rewards": [
       {
         "id": "2107004",
-        "probability": 0.344
+        "probability": 0.6
       },
       {
         "id": "2109004",
-        "probability": 0.258
+        "probability": 0.45
       },
       {
         "id": "2108004",
-        "probability": 0.258
+        "probability": 0.45
       },
       {
         "id": "2107001",
@@ -4892,15 +4892,15 @@
       "Japan": [
         {
           "id": "2107004",
-          "probability": 0.344
+          "probability": 0.6
         },
         {
           "id": "2109004",
-          "probability": 0.258
+          "probability": 0.45
         },
         {
           "id": "2108004",
-          "probability": 0.258
+          "probability": 0.45
         },
         {
           "id": "2107001",
@@ -5014,15 +5014,15 @@
     "rewards": [
       {
         "id": "2106004",
-        "probability": 0.344
+        "probability": 0.6
       },
       {
         "id": "2108004",
-        "probability": 0.258
+        "probability": 0.45
       },
       {
         "id": "2107004",
-        "probability": 0.258
+        "probability": 0.45
       },
       {
         "id": "2106001",
@@ -5053,15 +5053,15 @@
       "Japan": [
         {
           "id": "2106004",
-          "probability": 0.344
+          "probability": 0.6
         },
         {
           "id": "2108004",
-          "probability": 0.258
+          "probability": 0.45
         },
         {
           "id": "2107004",
-          "probability": 0.258
+          "probability": 0.45
         },
         {
           "id": "2106001",
@@ -5175,15 +5175,15 @@
     "rewards": [
       {
         "id": "2104004",
-        "probability": 0.344
+        "probability": 0.6
       },
       {
         "id": "2109004",
-        "probability": 0.258
+        "probability": 0.45
       },
       {
         "id": "2108004",
-        "probability": 0.258
+        "probability": 0.45
       },
       {
         "id": "2104001",
@@ -5214,15 +5214,15 @@
       "Japan": [
         {
           "id": "2104004",
-          "probability": 0.344
+          "probability": 0.6
         },
         {
           "id": "2109004",
-          "probability": 0.258
+          "probability": 0.45
         },
         {
           "id": "2108004",
-          "probability": 0.258
+          "probability": 0.45
         },
         {
           "id": "2104001",
@@ -5336,15 +5336,15 @@
     "rewards": [
       {
         "id": "2108004",
-        "probability": 0.344
+        "probability": 0.6
       },
       {
         "id": "2107004",
-        "probability": 0.258
+        "probability": 0.45
       },
       {
         "id": "2105004",
-        "probability": 0.258
+        "probability": 0.45
       },
       {
         "id": "2108001",
@@ -5375,15 +5375,15 @@
       "Japan": [
         {
           "id": "2108004",
-          "probability": 0.344
+          "probability": 0.6
         },
         {
           "id": "2107004",
-          "probability": 0.258
+          "probability": 0.45
         },
         {
           "id": "2105004",
-          "probability": 0.258
+          "probability": 0.45
         },
         {
           "id": "2108001",
@@ -5497,15 +5497,15 @@
     "rewards": [
       {
         "id": "2109004",
-        "probability": 0.344
+        "probability": 0.6
       },
       {
         "id": "2106004",
-        "probability": 0.258
+        "probability": 0.45
       },
       {
         "id": "2104004",
-        "probability": 0.258
+        "probability": 0.45
       },
       {
         "id": "2109001",
@@ -5536,15 +5536,15 @@
       "Japan": [
         {
           "id": "2109004",
-          "probability": 0.344
+          "probability": 0.6
         },
         {
           "id": "2106004",
-          "probability": 0.258
+          "probability": 0.45
         },
         {
           "id": "2104004",
-          "probability": 0.258
+          "probability": 0.45
         },
         {
           "id": "2109001",
@@ -11279,6 +11279,811 @@
         },
         {
           "id": "2101006",
+          "probability": 0.15
+        }
+      ]
+    }
+  },
+  {
+    "id": "1261101",
+    "area": 26,
+    "stage": 1,
+    "jpName": "礼拝堂への道",
+    "recommendationWeight": 0,
+    "rewards": [
+      {
+        "id": "2107008",
+        "probability": 0.344
+      },
+      {
+        "id": "2109008",
+        "probability": 0.258
+      },
+      {
+        "id": "2108008",
+        "probability": 0.258
+      },
+      {
+        "id": "2107005",
+        "probability": 0.1
+      },
+      {
+        "id": "2107006",
+        "probability": 0.2
+      },
+      {
+        "id": "2109005",
+        "probability": 0.075
+      },
+      {
+        "id": "2109006",
+        "probability": 0.15
+      },
+      {
+        "id": "2108005",
+        "probability": 0.075
+      },
+      {
+        "id": "2108006",
+        "probability": 0.15
+      }
+    ],
+    "rewardsByRegion": {
+      "Japan": [
+        {
+          "id": "2107008",
+          "probability": 0.344
+        },
+        {
+          "id": "2109008",
+          "probability": 0.258
+        },
+        {
+          "id": "2108008",
+          "probability": 0.258
+        },
+        {
+          "id": "2107005",
+          "probability": 0.1
+        },
+        {
+          "id": "2107006",
+          "probability": 0.2
+        },
+        {
+          "id": "2109005",
+          "probability": 0.075
+        },
+        {
+          "id": "2109006",
+          "probability": 0.15
+        },
+        {
+          "id": "2108005",
+          "probability": 0.075
+        },
+        {
+          "id": "2108006",
+          "probability": 0.15
+        }
+      ],
+      "Global": [
+        {
+          "id": "2107008",
+          "probability": 0.344
+        },
+        {
+          "id": "2109008",
+          "probability": 0.258
+        },
+        {
+          "id": "2108008",
+          "probability": 0.258
+        },
+        {
+          "id": "2107005",
+          "probability": 0.1
+        },
+        {
+          "id": "2107006",
+          "probability": 0.2
+        },
+        {
+          "id": "2109005",
+          "probability": 0.075
+        },
+        {
+          "id": "2109006",
+          "probability": 0.15
+        },
+        {
+          "id": "2108005",
+          "probability": 0.075
+        },
+        {
+          "id": "2108006",
+          "probability": 0.15
+        }
+      ],
+      "China": [
+        {
+          "id": "2107008",
+          "probability": 0.344
+        },
+        {
+          "id": "2109008",
+          "probability": 0.258
+        },
+        {
+          "id": "2108008",
+          "probability": 0.258
+        },
+        {
+          "id": "2107005",
+          "probability": 0.1
+        },
+        {
+          "id": "2107006",
+          "probability": 0.2
+        },
+        {
+          "id": "2109005",
+          "probability": 0.075
+        },
+        {
+          "id": "2109006",
+          "probability": 0.15
+        },
+        {
+          "id": "2108005",
+          "probability": 0.075
+        },
+        {
+          "id": "2108006",
+          "probability": 0.15
+        }
+      ]
+    }
+  },
+  {
+    "id": "1261102",
+    "area": 26,
+    "stage": 2,
+    "jpName": "地下墓所の入口",
+    "recommendationWeight": 250,
+    "rewards": [
+      {
+        "id": "2106008",
+        "probability": 0.344
+      },
+      {
+        "id": "2108008",
+        "probability": 0.258
+      },
+      {
+        "id": "2103008",
+        "probability": 0.258
+      },
+      {
+        "id": "2106005",
+        "probability": 0.1
+      },
+      {
+        "id": "2106006",
+        "probability": 0.2
+      },
+      {
+        "id": "2108005",
+        "probability": 0.075
+      },
+      {
+        "id": "2108006",
+        "probability": 0.15
+      },
+      {
+        "id": "2103005",
+        "probability": 0.075
+      },
+      {
+        "id": "2103006",
+        "probability": 0.15
+      }
+    ],
+    "rewardsByRegion": {
+      "Japan": [
+        {
+          "id": "2106008",
+          "probability": 0.344
+        },
+        {
+          "id": "2108008",
+          "probability": 0.258
+        },
+        {
+          "id": "2103008",
+          "probability": 0.258
+        },
+        {
+          "id": "2106005",
+          "probability": 0.1
+        },
+        {
+          "id": "2106006",
+          "probability": 0.2
+        },
+        {
+          "id": "2108005",
+          "probability": 0.075
+        },
+        {
+          "id": "2108006",
+          "probability": 0.15
+        },
+        {
+          "id": "2103005",
+          "probability": 0.075
+        },
+        {
+          "id": "2103006",
+          "probability": 0.15
+        }
+      ],
+      "Global": [
+        {
+          "id": "2106008",
+          "probability": 0.344
+        },
+        {
+          "id": "2108008",
+          "probability": 0.258
+        },
+        {
+          "id": "2103008",
+          "probability": 0.258
+        },
+        {
+          "id": "2106005",
+          "probability": 0.1
+        },
+        {
+          "id": "2106006",
+          "probability": 0.2
+        },
+        {
+          "id": "2108005",
+          "probability": 0.075
+        },
+        {
+          "id": "2108006",
+          "probability": 0.15
+        },
+        {
+          "id": "2103005",
+          "probability": 0.075
+        },
+        {
+          "id": "2103006",
+          "probability": 0.15
+        }
+      ],
+      "China": [
+        {
+          "id": "2106008",
+          "probability": 0.344
+        },
+        {
+          "id": "2108008",
+          "probability": 0.258
+        },
+        {
+          "id": "2103008",
+          "probability": 0.258
+        },
+        {
+          "id": "2106005",
+          "probability": 0.1
+        },
+        {
+          "id": "2106006",
+          "probability": 0.2
+        },
+        {
+          "id": "2108005",
+          "probability": 0.075
+        },
+        {
+          "id": "2108006",
+          "probability": 0.15
+        },
+        {
+          "id": "2103005",
+          "probability": 0.075
+        },
+        {
+          "id": "2103006",
+          "probability": 0.15
+        }
+      ]
+    }
+  },
+  {
+    "id": "1261103",
+    "area": 26,
+    "stage": 3,
+    "jpName": "中央回廊",
+    "recommendationWeight": -100,
+    "rewards": [
+      {
+        "id": "2104008",
+        "probability": 0.344
+      },
+      {
+        "id": "2107008",
+        "probability": 0.258
+      },
+      {
+        "id": "2108008",
+        "probability": 0.258
+      },
+      {
+        "id": "2104005",
+        "probability": 0.1
+      },
+      {
+        "id": "2104006",
+        "probability": 0.2
+      },
+      {
+        "id": "2107005",
+        "probability": 0.075
+      },
+      {
+        "id": "2107006",
+        "probability": 0.15
+      },
+      {
+        "id": "2108005",
+        "probability": 0.075
+      },
+      {
+        "id": "2108006",
+        "probability": 0.15
+      }
+    ],
+    "rewardsByRegion": {
+      "Japan": [
+        {
+          "id": "2104008",
+          "probability": 0.344
+        },
+        {
+          "id": "2107008",
+          "probability": 0.258
+        },
+        {
+          "id": "2108008",
+          "probability": 0.258
+        },
+        {
+          "id": "2104005",
+          "probability": 0.1
+        },
+        {
+          "id": "2104006",
+          "probability": 0.2
+        },
+        {
+          "id": "2107005",
+          "probability": 0.075
+        },
+        {
+          "id": "2107006",
+          "probability": 0.15
+        },
+        {
+          "id": "2108005",
+          "probability": 0.075
+        },
+        {
+          "id": "2108006",
+          "probability": 0.15
+        }
+      ],
+      "Global": [
+        {
+          "id": "2104008",
+          "probability": 0.344
+        },
+        {
+          "id": "2107008",
+          "probability": 0.258
+        },
+        {
+          "id": "2108008",
+          "probability": 0.258
+        },
+        {
+          "id": "2104005",
+          "probability": 0.1
+        },
+        {
+          "id": "2104006",
+          "probability": 0.2
+        },
+        {
+          "id": "2107005",
+          "probability": 0.075
+        },
+        {
+          "id": "2107006",
+          "probability": 0.15
+        },
+        {
+          "id": "2108005",
+          "probability": 0.075
+        },
+        {
+          "id": "2108006",
+          "probability": 0.15
+        }
+      ],
+      "China": [
+        {
+          "id": "2104008",
+          "probability": 0.344
+        },
+        {
+          "id": "2107008",
+          "probability": 0.258
+        },
+        {
+          "id": "2108008",
+          "probability": 0.258
+        },
+        {
+          "id": "2104005",
+          "probability": 0.1
+        },
+        {
+          "id": "2104006",
+          "probability": 0.2
+        },
+        {
+          "id": "2107005",
+          "probability": 0.075
+        },
+        {
+          "id": "2107006",
+          "probability": 0.15
+        },
+        {
+          "id": "2108005",
+          "probability": 0.075
+        },
+        {
+          "id": "2108006",
+          "probability": 0.15
+        }
+      ]
+    }
+  },
+  {
+    "id": "1261104",
+    "area": 26,
+    "stage": 4,
+    "jpName": "聖歌隊の休憩室",
+    "recommendationWeight": 50,
+    "rewards": [
+      {
+        "id": "2108008",
+        "probability": 0.344
+      },
+      {
+        "id": "2102008",
+        "probability": 0.258
+      },
+      {
+        "id": "2105008",
+        "probability": 0.258
+      },
+      {
+        "id": "2108005",
+        "probability": 0.1
+      },
+      {
+        "id": "2108006",
+        "probability": 0.2
+      },
+      {
+        "id": "2102005",
+        "probability": 0.075
+      },
+      {
+        "id": "2102006",
+        "probability": 0.15
+      },
+      {
+        "id": "2105005",
+        "probability": 0.075
+      },
+      {
+        "id": "2105006",
+        "probability": 0.15
+      }
+    ],
+    "rewardsByRegion": {
+      "Japan": [
+        {
+          "id": "2108008",
+          "probability": 0.344
+        },
+        {
+          "id": "2102008",
+          "probability": 0.258
+        },
+        {
+          "id": "2105008",
+          "probability": 0.258
+        },
+        {
+          "id": "2108005",
+          "probability": 0.1
+        },
+        {
+          "id": "2108006",
+          "probability": 0.2
+        },
+        {
+          "id": "2102005",
+          "probability": 0.075
+        },
+        {
+          "id": "2102006",
+          "probability": 0.15
+        },
+        {
+          "id": "2105005",
+          "probability": 0.075
+        },
+        {
+          "id": "2105006",
+          "probability": 0.15
+        }
+      ],
+      "Global": [
+        {
+          "id": "2108008",
+          "probability": 0.344
+        },
+        {
+          "id": "2102008",
+          "probability": 0.258
+        },
+        {
+          "id": "2105008",
+          "probability": 0.258
+        },
+        {
+          "id": "2108005",
+          "probability": 0.1
+        },
+        {
+          "id": "2108006",
+          "probability": 0.2
+        },
+        {
+          "id": "2102005",
+          "probability": 0.075
+        },
+        {
+          "id": "2102006",
+          "probability": 0.15
+        },
+        {
+          "id": "2105005",
+          "probability": 0.075
+        },
+        {
+          "id": "2105006",
+          "probability": 0.15
+        }
+      ],
+      "China": [
+        {
+          "id": "2108008",
+          "probability": 0.344
+        },
+        {
+          "id": "2102008",
+          "probability": 0.258
+        },
+        {
+          "id": "2105008",
+          "probability": 0.258
+        },
+        {
+          "id": "2108005",
+          "probability": 0.1
+        },
+        {
+          "id": "2108006",
+          "probability": 0.2
+        },
+        {
+          "id": "2102005",
+          "probability": 0.075
+        },
+        {
+          "id": "2102006",
+          "probability": 0.15
+        },
+        {
+          "id": "2105005",
+          "probability": 0.075
+        },
+        {
+          "id": "2105006",
+          "probability": 0.15
+        }
+      ]
+    }
+  },
+  {
+    "id": "1261105",
+    "area": 26,
+    "stage": 5,
+    "jpName": "修道院長の祭壇",
+    "recommendationWeight": 0,
+    "rewards": [
+      {
+        "id": "2109008",
+        "probability": 0.344
+      },
+      {
+        "id": "2106008",
+        "probability": 0.258
+      },
+      {
+        "id": "2104008",
+        "probability": 0.258
+      },
+      {
+        "id": "2109005",
+        "probability": 0.1
+      },
+      {
+        "id": "2109006",
+        "probability": 0.2
+      },
+      {
+        "id": "2106005",
+        "probability": 0.075
+      },
+      {
+        "id": "2106006",
+        "probability": 0.15
+      },
+      {
+        "id": "2104005",
+        "probability": 0.075
+      },
+      {
+        "id": "2104006",
+        "probability": 0.15
+      }
+    ],
+    "rewardsByRegion": {
+      "Japan": [
+        {
+          "id": "2109008",
+          "probability": 0.344
+        },
+        {
+          "id": "2106008",
+          "probability": 0.258
+        },
+        {
+          "id": "2104008",
+          "probability": 0.258
+        },
+        {
+          "id": "2109005",
+          "probability": 0.1
+        },
+        {
+          "id": "2109006",
+          "probability": 0.2
+        },
+        {
+          "id": "2106005",
+          "probability": 0.075
+        },
+        {
+          "id": "2106006",
+          "probability": 0.15
+        },
+        {
+          "id": "2104005",
+          "probability": 0.075
+        },
+        {
+          "id": "2104006",
+          "probability": 0.15
+        }
+      ],
+      "Global": [
+        {
+          "id": "2109008",
+          "probability": 0.344
+        },
+        {
+          "id": "2106008",
+          "probability": 0.258
+        },
+        {
+          "id": "2104008",
+          "probability": 0.258
+        },
+        {
+          "id": "2109005",
+          "probability": 0.1
+        },
+        {
+          "id": "2109006",
+          "probability": 0.2
+        },
+        {
+          "id": "2106005",
+          "probability": 0.075
+        },
+        {
+          "id": "2106006",
+          "probability": 0.15
+        },
+        {
+          "id": "2104005",
+          "probability": 0.075
+        },
+        {
+          "id": "2104006",
+          "probability": 0.15
+        }
+      ],
+      "China": [
+        {
+          "id": "2109008",
+          "probability": 0.344
+        },
+        {
+          "id": "2106008",
+          "probability": 0.258
+        },
+        {
+          "id": "2104008",
+          "probability": 0.258
+        },
+        {
+          "id": "2109005",
+          "probability": 0.1
+        },
+        {
+          "id": "2109006",
+          "probability": 0.2
+        },
+        {
+          "id": "2106005",
+          "probability": 0.075
+        },
+        {
+          "id": "2106006",
+          "probability": 0.15
+        },
+        {
+          "id": "2104005",
+          "probability": 0.075
+        },
+        {
+          "id": "2104006",
           "probability": 0.15
         }
       ]

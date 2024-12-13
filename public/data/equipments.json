@@ -136,7 +136,8 @@
     "equipmentCompositionType": "Composite",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ],
     "recipe": [
       {
@@ -187,7 +188,8 @@
     "jpName": "セーラーハット",
     "equipmentCompositionType": "Composite",
     "releasedIn": [
-      "Japan"
+      "Japan",
+      "Global"
     ],
     "recipe": [
       {
@@ -341,7 +343,8 @@
     "equipmentCompositionType": "Composite",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ],
     "recipe": [
       {
@@ -392,7 +395,8 @@
     "jpName": "セーリンググローブ",
     "equipmentCompositionType": "Composite",
     "releasedIn": [
-      "Japan"
+      "Japan",
+      "Global"
     ],
     "recipe": [
       {
@@ -546,7 +550,8 @@
     "equipmentCompositionType": "Composite",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ],
     "recipe": [
       {
@@ -597,7 +602,8 @@
     "jpName": "アクアサンダル",
     "equipmentCompositionType": "Composite",
     "releasedIn": [
-      "Japan"
+      "Japan",
+      "Global"
     ],
     "recipe": [
       {
@@ -751,7 +757,8 @@
     "equipmentCompositionType": "Composite",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ],
     "recipe": [
       {
@@ -802,7 +809,8 @@
     "jpName": "スリングドライバック",
     "equipmentCompositionType": "Composite",
     "releasedIn": [
-      "Japan"
+      "Japan",
+      "Global"
     ],
     "recipe": [
       {
@@ -956,7 +964,8 @@
     "equipmentCompositionType": "Composite",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ],
     "recipe": [
       {
@@ -1007,7 +1016,8 @@
     "jpName": "ハルピュイア・フレキシブルバッジ",
     "equipmentCompositionType": "Composite",
     "releasedIn": [
-      "Japan"
+      "Japan",
+      "Global"
     ],
     "recipe": [
       {
@@ -1161,7 +1171,8 @@
     "equipmentCompositionType": "Composite",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ],
     "recipe": [
       {
@@ -1212,7 +1223,8 @@
     "jpName": "アンカーヘアピン",
     "equipmentCompositionType": "Composite",
     "releasedIn": [
-      "Japan"
+      "Japan",
+      "Global"
     ],
     "recipe": [
       {
@@ -1366,7 +1378,8 @@
     "equipmentCompositionType": "Composite",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ],
     "recipe": [
       {
@@ -1406,6 +1419,31 @@
       {
         "id": "2107004",
         "count": 5
+      }
+    ]
+  },
+  {
+    "id": "2007008",
+    "category": "Charm",
+    "tier": 9,
+    "icon": "equipment_icon_charm_tier9",
+    "jpName": "サメの歯のお守り",
+    "equipmentCompositionType": "Composite",
+    "releasedIn": [
+      "Japan"
+    ],
+    "recipe": [
+      {
+        "id": "2107008",
+        "count": 50
+      },
+      {
+        "id": "2107006",
+        "count": 15
+      },
+      {
+        "id": "2107005",
+        "count": 10
       }
     ]
   },
@@ -1546,7 +1584,8 @@
     "equipmentCompositionType": "Composite",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ],
     "recipe": [
       {
@@ -1586,6 +1625,31 @@
       {
         "id": "2108004",
         "count": 5
+      }
+    ]
+  },
+  {
+    "id": "2008008",
+    "category": "Watch",
+    "tier": 9,
+    "icon": "equipment_icon_watch_tier9",
+    "jpName": "ダイバーウォッチ",
+    "equipmentCompositionType": "Composite",
+    "releasedIn": [
+      "Japan"
+    ],
+    "recipe": [
+      {
+        "id": "2108008",
+        "count": 50
+      },
+      {
+        "id": "2108006",
+        "count": 15
+      },
+      {
+        "id": "2108005",
+        "count": 10
       }
     ]
   },
@@ -1726,7 +1790,8 @@
     "equipmentCompositionType": "Composite",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ],
     "recipe": [
       {
@@ -1766,6 +1831,31 @@
       {
         "id": "2109004",
         "count": 5
+      }
+    ]
+  },
+  {
+    "id": "2009008",
+    "category": "Necklace",
+    "tier": 9,
+    "icon": "equipment_icon_necklace_tier9",
+    "jpName": "オクトパスホルダー",
+    "equipmentCompositionType": "Composite",
+    "releasedIn": [
+      "Japan"
+    ],
+    "recipe": [
+      {
+        "id": "2109008",
+        "count": 50
+      },
+      {
+        "id": "2109006",
+        "count": 15
+      },
+      {
+        "id": "2109005",
+        "count": 10
       }
     ]
   },
@@ -1843,7 +1933,8 @@
     "equipmentCompositionType": "Piece",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ]
   },
   {
@@ -1866,7 +1957,8 @@
     "jpName": "セーラーハットの設計図",
     "equipmentCompositionType": "Piece",
     "releasedIn": [
-      "Japan"
+      "Japan",
+      "Global"
     ]
   },
   {
@@ -1943,7 +2035,8 @@
     "equipmentCompositionType": "Piece",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ]
   },
   {
@@ -1966,7 +2059,8 @@
     "jpName": "セーリンググローブの設計図",
     "equipmentCompositionType": "Piece",
     "releasedIn": [
-      "Japan"
+      "Japan",
+      "Global"
     ]
   },
   {
@@ -2043,7 +2137,8 @@
     "equipmentCompositionType": "Piece",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ]
   },
   {
@@ -2066,7 +2161,8 @@
     "jpName": "アクアサンダルの設計図",
     "equipmentCompositionType": "Piece",
     "releasedIn": [
-      "Japan"
+      "Japan",
+      "Global"
     ]
   },
   {
@@ -2143,7 +2239,8 @@
     "equipmentCompositionType": "Piece",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ]
   },
   {
@@ -2166,7 +2263,8 @@
     "jpName": "スリングドライバックの設計図",
     "equipmentCompositionType": "Piece",
     "releasedIn": [
-      "Japan"
+      "Japan",
+      "Global"
     ]
   },
   {
@@ -2243,7 +2341,8 @@
     "equipmentCompositionType": "Piece",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ]
   },
   {
@@ -2266,7 +2365,8 @@
     "jpName": "ハルピュイア・フレキシブルバッジの設計図",
     "equipmentCompositionType": "Piece",
     "releasedIn": [
-      "Japan"
+      "Japan",
+      "Global"
     ]
   },
   {
@@ -2343,7 +2443,8 @@
     "equipmentCompositionType": "Piece",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ]
   },
   {
@@ -2366,7 +2467,8 @@
     "jpName": "アンカーヘアピンの設計図",
     "equipmentCompositionType": "Piece",
     "releasedIn": [
-      "Japan"
+      "Japan",
+      "Global"
     ]
   },
   {
@@ -2443,7 +2545,8 @@
     "equipmentCompositionType": "Piece",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ]
   },
   {
@@ -2456,6 +2559,17 @@
     "releasedIn": [
       "Japan",
       "Global"
+    ]
+  },
+  {
+    "id": "2107008",
+    "category": "Charm",
+    "tier": 9,
+    "icon": "equipment_icon_charm_tier9_piece",
+    "jpName": "サメの歯のお守りの設計図",
+    "equipmentCompositionType": "Piece",
+    "releasedIn": [
+      "Japan"
     ]
   },
   {
@@ -2532,7 +2646,8 @@
     "equipmentCompositionType": "Piece",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ]
   },
   {
@@ -2545,6 +2660,17 @@
     "releasedIn": [
       "Japan",
       "Global"
+    ]
+  },
+  {
+    "id": "2108008",
+    "category": "Watch",
+    "tier": 9,
+    "icon": "equipment_icon_watch_tier9_piece",
+    "jpName": "ダイバーウォッチの設計図",
+    "equipmentCompositionType": "Piece",
+    "releasedIn": [
+      "Japan"
     ]
   },
   {
@@ -2621,7 +2747,8 @@
     "equipmentCompositionType": "Piece",
     "releasedIn": [
       "Japan",
-      "Global"
+      "Global",
+      "China"
     ]
   },
   {
@@ -2634,6 +2761,17 @@
     "releasedIn": [
       "Japan",
       "Global"
+    ]
+  },
+  {
+    "id": "2109008",
+    "category": "Necklace",
+    "tier": 9,
+    "icon": "equipment_icon_necklace_tier9_piece",
+    "jpName": "オクトパスホルダーの設計図",
+    "equipmentCompositionType": "Piece",
+    "releasedIn": [
+      "Japan"
     ]
   }
 ]
