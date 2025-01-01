@@ -6,12 +6,13 @@ import BuiLinedText from 'components/bui/text/BuiLinedText';
 import Box from '@mui/material/Box';
 import {useTranslation} from 'next-i18next';
 
-const RestoreDataExceptionDialog = (
-    {isOpened = false, corruptedData,
-      handleDataReset}: {isOpened: boolean,
-      corruptedData: string
-      handleDataReset : () => void}
-) => {
+const RestoreDataExceptionDialog = ({
+  isOpened = false, corruptedData,
+  handleDataReset, handleManageData,
+}: {
+  isOpened?: boolean, corruptedData: string
+  handleDataReset: () => void, handleManageData: () => void,
+}) => {
   const {t} = useTranslation('home');
 
   return <BuiDialog open={isOpened} >
@@ -43,6 +44,9 @@ const RestoreDataExceptionDialog = (
       <Box sx={{flex: '1 0 0 '}}/>
       <Button variant="contained" color={'error'} onClick={handleDataReset}>
         {t('notifyDataCorruptionDialog.clearDataButton')}
+      </Button>
+      <Button variant="contained" color={'info'} onClick={handleManageData}>
+        {t('notifyDataCorruptionDialog.openDataManagement')}
       </Button>
       <Box sx={{flex: '1 0 0 '}}/>
     </DialogActions>

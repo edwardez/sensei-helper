@@ -70,6 +70,7 @@
   "otherStagesSkippedReason": "因刷图效率不高而跳过",
   "privacy": "隐私",
   "settings": "设置",
+  "dataManagement": "数据管理",
   "about": "关于",
   "SenseiHelper": "Sensei Helper",
   "settingsDialogTitle": "设置",
@@ -82,7 +83,24 @@
     "explanation": "你的数据似乎已经损坏，设置和装备数据需要被清空。",
     "backupAndContactUs": "下面是导出的当前应用数据，如果问题持续出现，可以自行备份并联系开发者。",
     "clearDataButton": "清空数据",
+    "openDataManagement": "数据管理",
     "noData": "无数据"
+  },
+  "dataManagementDialog": {
+    "title": "数据管理",
+    "tips": "您可以备份应用程序数据，也可以手动修复损坏的数据。",
+    "importFile": "导入",
+    "exportFile": "导出",
+    "formLabel": "JSON",
+    "enableEditing": "启用编辑",
+    "resetForm": "重置",
+    "helpText": {
+      "default": "更改将在关闭对话框后生效",
+      "required": "请输入JSON"
+    },
+    "cancel": "取消",
+    "resetData": "重置数据",
+    "applyData": "应用"
   },
   "error404": "此页面无法找到",
   "error500": "服务器内部错误",

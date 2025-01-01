@@ -70,6 +70,7 @@
   "otherStagesSkippedReason": "非効率のためスキップしました",
   "privacy": "プライバシー",
   "settings": "設定",
+  "dataManagement": "データ管理",
   "about": "本ツールについて",
   "SenseiHelper": "先生ヘルパー",
   "settingsDialogTitle": "設定",
@@ -82,7 +83,24 @@
     "explanation": "データが破損してるため、装備データと設定のリセットは必要です。",
     "backupAndContactUs": "引き続き問題が発生する場合は、エクスポートしたデータをバックアップして、開発者に連絡してください。",
     "clearDataButton": "データリセット",
+    "openDataManagement": "データ管理を開く",
     "noData": "データがありません"
+  },
+  "dataManagementDialog": {
+    "title": "データ管理",
+    "tips": "アプリのデータをバックアップしたり、破損したデータを手動で修復できます。",
+    "importFile": "インポート",
+    "exportFile": "エクスポート",
+    "formLabel": "JSON",
+    "enableEditing": "編集を有効にする",
+    "resetForm": "リセット", 
+    "helpText": {
+      "default": "変更はダイアログを閉じるまで適用されません",
+      "required": "JSONを入力してください"
+    },
+    "cancel": "キャンセル",
+    "resetData": "データをリセット",
+    "applyData": "適用"
   },
   "error404": "お探しのページは見つかりませんでした。",
   "error500": "サーバー内部エラー",

@@ -1,6 +1,8 @@
 import {createContext, useContext} from 'react';
 import {applySnapshot, Instance, SnapshotIn, SnapshotOut, types} from 'mobx-state-tree';
-import {EquipmentsRequirementStore, RequirementMode, ResultMode} from 'stores/EquipmentsRequirementStore';
+import {
+  EquipmentsRequirementStore, RequirementMode, ResultMode,
+} from 'stores/EquipmentsRequirementStore';
 import {enableStaticRendering} from 'mobx-react-lite';
 import {GameInfoStore} from 'stores/GameInfoStore';
 import {GameServer} from 'model/Equipment';
@@ -11,7 +13,7 @@ enableStaticRendering(typeof window === 'undefined');
 let wizStore: IWizStore | undefined;
 
 const WizStore = types
-    .model({
+    .model('WizStore', {
       equipmentsRequirementStore: types.optional(EquipmentsRequirementStore, {
         requirementByPieces: [],
         requirementByEquipments: [],
@@ -46,6 +48,7 @@ export const isWizStore = (input: any) => WizStore.is(input);
 export const wizStorageLocalStorageKey = 'SenseiHelperStore';
 export const wizExceptionStorageLocalStorageKey = 'SenseiHelperStoreException';
 
+// eslint-disable-next-line require-jsdoc
 export function initializeWizStore(snapshot = null) {
   const _store = wizStore ?? WizStore.create({
     equipmentsRequirementStore: {
@@ -80,6 +83,7 @@ export function initializeWizStore(snapshot = null) {
 
 export const StoreContext = createContext(initializeWizStore());
 
+// eslint-disable-next-line require-jsdoc
 export function useStore() {
   const context = useContext(StoreContext);
   if (context === undefined) {

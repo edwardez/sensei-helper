@@ -1,7 +1,7 @@
 import {Instance, types} from 'mobx-state-tree';
 
 export const WizSettingsStore = types
-    .model({
+    .model('WizSettingsStore', {
       appLanguage: types.enumeration('WizLanguage', ['en', 'cn', 'jp']),
     });
 

@@ -1,33 +1,26 @@
 import {Instance, SnapshotIn, SnapshotOut, types} from 'mobx-state-tree';
-import {InventoryForm} from 'components/calculationInput/equipments/inventory/InventoryUpdateDialog';
-
-let equipmentsRequirementStore: IEquipmentsRequirementStore | undefined;
+import {InventoryForm}
+  from 'components/calculationInput/equipments/inventory/InventoryUpdateDialog';
 
 const byPiece = types
-    .model(
-        {
-          pieceId: types.string,
-          count: types.number,
-        }
-    );
+    .model('RequirementByPiece', {
+      pieceId: types.string,
+      count: types.number,
+    });
 
 const byEquipment = types
-    .model(
-        {
-          currentEquipmentId: types.string,
-          targetEquipmentId: types.string,
-          count: types.number,
-          nickname: types.optional(types.string, ''),
-        }
-    );
+    .model('RequirementByEquipment', {
+      currentEquipmentId: types.string,
+      targetEquipmentId: types.string,
+      count: types.number,
+      nickname: types.optional(types.string, ''),
+    });
 
 const pieceInventory = types
-    .model(
-        {
-          pieceId: types.identifier,
-          inStockCount: types.number,
-        }
-    );
+    .model('PieceInventory', {
+      pieceId: types.identifier,
+      inStockCount: types.number,
+    });
 
 export enum RequirementMode {
   ByPiece = 'ByPiece',
@@ -40,12 +33,18 @@ export enum ResultMode {
 }
 
 export const EquipmentsRequirementStore = types
-    .model({
+    .model('EquipmentsRequirementStore', {
       requirementByPieces: types.array(byPiece),
       requirementByEquipments: types.array(byEquipment),
       piecesInventory: types.map(pieceInventory),
-      requirementMode: types.optional(types.enumeration<RequirementMode>('RequirementMode', Object.values(RequirementMode)), RequirementMode.ByEquipment),
-      resultMode: types.optional(types.enumeration<ResultMode>('ResultMode', Object.values(ResultMode)), ResultMode.LinearProgram),
+      requirementMode: types.optional(
+          types.enumeration<RequirementMode>('RequirementMode', Object.values(RequirementMode)),
+          RequirementMode.ByEquipment
+      ),
+      resultMode: types.optional(
+          types.enumeration<ResultMode>('ResultMode', Object.values(ResultMode)),
+          ResultMode.LinearProgram
+      ),
     })
     .actions((self) => {
       const addPiecesRequirement = (requirement : IRequirementByPiece) => {
