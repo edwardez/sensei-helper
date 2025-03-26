@@ -10,12 +10,13 @@ interface PositiveIntegerOnlyInputProps<T extends FieldValues> {
   showError: boolean;
   helperText: string;
   min?: number;
+  max?: number;
   inputLabel?: string;
 }
 
-const PositiveIntegerOnlyInput = function<T>({
+const PositiveIntegerOnlyInput = function<T extends FieldValues>({
   name, control, showError, helperText,
-  min = 1, inputLabel,
+  min = 1, max = 999, inputLabel,
 }: PositiveIntegerOnlyInputProps<T>) {
   const {t} = useTranslation('home');
   return <Controller
@@ -32,11 +33,11 @@ const PositiveIntegerOnlyInput = function<T>({
       },
       min: {
         value: min,
-        message: t('addPieceDialog.minimumIs', {min: 1}),
+        message: t('addPieceDialog.minimumIs', {min}),
       },
       max: {
-        value: 999,
-        message: t('addPieceDialog.maximumIs', {max: 999}),
+        value: max,
+        message: t('addPieceDialog.maximumIs', {max}),
       },
     }}
     render={({field}) => (
@@ -46,6 +47,8 @@ const PositiveIntegerOnlyInput = function<T>({
         variant="outlined"
         error={showError}
         helperText={helperText}
+        type='number'
+        autoComplete='off'
         label={inputLabel ?? t('addPieceDialog.quantity')}
       />
     )}
