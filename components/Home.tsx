@@ -1,7 +1,7 @@
 import type {NextPage} from 'next';
 import {Solution} from 'javascript-lp-solver';
 
-import React, {useEffect, useMemo, useRef, useState} from 'react';
+import React, {useEffect, useMemo, useReducer, useRef, useState} from 'react';
 import {observer} from 'mobx-react-lite';
 import {useStore} from 'stores/WizStore';
 import {Equipment, EquipmentCompositionType} from 'model/Equipment';
@@ -37,7 +37,7 @@ const Home: NextPage = observer((props) => {
   // This is a hack for that useMemo cannot track changes in store objects
   // Instead of deep-comparing all store objects we listen to store change using onSnapshot
   // then tracks its state hash here.
-  const equipStoreStateRef = useRef(1);
+  const [equipStoreState, notifyEquipStoreChanged] = useReducer((i) => i + 1, 1);
 
 
   const fetcher = (...urls: string[]) => {
@@ -70,7 +70,7 @@ const Home: NextPage = observer((props) => {
     const dispose = onSnapshot(store.equipmentsRequirementStore, (snapShot) => {
       onSetSolution(null);
       if (snapShot.requirementMode !== RequirementMode.ByEquipment) return;
-      equipStoreStateRef.current += 1;
+      notifyEquipStoreChanged();
     });
 
     return () => dispose();
@@ -95,7 +95,7 @@ const Home: NextPage = observer((props) => {
 
   const piecesState: Map<string, PieceState> = useMemo(()=>{
     return calculatePiecesState(store, equipmentsById, equipmentsByTierAndCategory);
-  }, [equipmentsByTierAndCategory, equipmentsById, equipStoreStateRef?.current]);
+  }, [equipmentsByTierAndCategory, equipmentsById, equipStoreState]);
 
   const handleCloseInEfficacyDialog = (isExcludeInefficientStagesDirty: boolean)=>{
     if (!isExcludeInefficientStagesDirty) return;
