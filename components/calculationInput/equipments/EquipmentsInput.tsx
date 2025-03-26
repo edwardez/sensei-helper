@@ -105,11 +105,14 @@ const EquipmentsInput = (
 
         if (!currentEquip || !targetEquip) return null;
         const tierUpgradeText = `T${currentEquip.tier}→T${targetEquip.tier}`;
-        let nicknameAndCount = '';
-        if (requirementByEquip.nickname?.length) {
-          nicknameAndCount += `[${requirementByEquip.nickname}]`;
-        }
-        nicknameAndCount += requirementByEquip.count.toString();
+
+        const hasNickname = !!requirementByEquip.nickname; // null and empty-string is falsy
+        const singleReq = requirementByEquip.count == 1;
+        const nicknameAndCount = hasNickname ?
+          singleReq ?
+          `${requirementByEquip.nickname}` :
+          `[${requirementByEquip.nickname}]${requirementByEquip.count}` :
+          `${requirementByEquip.count}`;
 
         return <Card key={index} elevation={1}
           onClick={() => handleOpenDialogForEditing(requirementByEquip, index)}>
