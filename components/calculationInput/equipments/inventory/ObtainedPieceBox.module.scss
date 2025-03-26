@@ -1,0 +1,11 @@
+@use 'components/calculationInput/common/common-calculation-input-layout';
+
+.equipmentInputContainer{
+  display: flex;
+  margin: 10px;
+  align-items: center;
+}
+
+.equipmentCard{
+  @include common-calculation-input-layout.items-list;
+}

@@ -1,21 +1,27 @@
-import {TextField} from '@mui/material';
+import {TextField, TextFieldProps} from '@mui/material';
 import {Controller, FieldValues, Path} from 'react-hook-form';
 import React from 'react';
 import {useTranslation} from 'next-i18next';
 import {Control} from 'react-hook-form/dist/types/form';
 
-interface PositiveIntegerOnlyInputProps<T extends FieldValues> {
+interface PositiveIntegerOnlyInputProps<T extends FieldValues>
+  extends Omit<TextFieldProps,
+    | 'inputProps' | 'variant' | 'error' | 'helperText' | 'label'
+    | 'onChange' | 'onBlur' | 'value' | 'name' | 'ref'>
+{
   name: Path<T>;
   control: Control<T>;
   showError: boolean;
   helperText: string;
   min?: number;
   inputLabel?: string;
+  required?: boolean;
 }
 
-const PositiveIntegerOnlyInput = function<T>({
+const PositiveIntegerOnlyInput = function<T extends FieldValues>({
   name, control, showError, helperText,
-  min = 1, inputLabel,
+  min = 1, inputLabel, required = true,
+  ...others
 }: PositiveIntegerOnlyInputProps<T>) {
   const {t} = useTranslation('home');
   return <Controller
@@ -23,7 +29,7 @@ const PositiveIntegerOnlyInput = function<T>({
     control={control}
     rules={{
       required: {
-        value: true,
+        value: required,
         message: t('addPieceDialog.required'),
       },
       pattern: {
@@ -39,9 +45,11 @@ const PositiveIntegerOnlyInput = function<T>({
         message: t('addPieceDialog.maximumIs', {max: 999}),
       },
     }}
-    render={({field}) => (
+    render={({field: {ref: fieldRef, ...field}}) => (
       <TextField
+        {...others}
         {...field}
+        inputRef={fieldRef}
         inputProps={{pattern: '\\d*'}}
         variant="outlined"
         error={showError}

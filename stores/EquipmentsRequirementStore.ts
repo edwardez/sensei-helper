@@ -134,20 +134,25 @@ export const EquipmentsRequirementStore = types
         for (const [pieceId, inStockCountStr] of Object.entries(inventoryForm)) {
           const inStockCount = parseInt(inStockCountStr) ?? 0;
           if (inStockCount !== 0) {
-            self.piecesInventory.put( {
-              pieceId,
-              inStockCount: parseInt(inStockCountStr) ?? 0,
-            });
+            self.piecesInventory.put({pieceId, inStockCount});
           } else {
             self.piecesInventory.delete(pieceId);
           }
         }
       };
 
+      const addPiecesToInventory = (pieces: InventoryForm) => {
+        updateInventory(Object.fromEntries(Object.entries(pieces).map(([id, value]) => {
+          const count = parseInt(value) || 0;
+          const stock = self.piecesInventory.get(id)?.inStockCount || 0;
+          return [id, `${count + stock}`];
+        })));
+      };
+
       return {addPiecesRequirement, updatePiecesRequirement, deletePiecesRequirement,
         addEquipmentsRequirement, updateEquipmentsRequirement, deleteEquipmentsRequirement,
         getAllRequiredPieceIds, updateRequirementMode, updateInventory,
-        updateResultMode,
+        updateResultMode, addPiecesToInventory,
       };
     });
 

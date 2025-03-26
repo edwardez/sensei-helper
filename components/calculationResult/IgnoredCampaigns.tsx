@@ -14,6 +14,7 @@ import Box from '@mui/material/Box';
 import {useTranslation} from 'next-i18next';
 import {getRewardsByRegion} from 'common/gameDataHandlerUtil';
 import {GameServer} from 'model/Equipment';
+import {PieceState} from 'components/calculationInput/equipments/inventory/PiecesInventory';
 
 type CampaignByRequiredPieceCount = {
     [key: number]: Campaign[],
@@ -79,7 +80,11 @@ const IgnoredCampaigns = ({
   allRequiredPieceIds,
   equipmentsById,
   gameServer,
-}: IgnoredCampaignsProps & {equipmentsById: EquipmentsById}) => {
+  piecesState,
+}: IgnoredCampaignsProps & {
+  equipmentsById: EquipmentsById,
+  piecesState: Map<string, PieceState>,
+}) => {
   const {t} = useTranslation('home');
 
   const skippedValidCampaigns = useMemo(
@@ -123,7 +128,8 @@ const IgnoredCampaigns = ({
               campaignInfo={campaign} stageExplanationLabel={t('stageIsSkipped')}
               allDrops={allDrops} equipmentsById={equipmentsById}
               containerCardVariation={'outlined'}
-              hidePieceDropCount/>
+              hidePieceDropCount
+              piecesState={piecesState}/>
           </div>;
         })
       }

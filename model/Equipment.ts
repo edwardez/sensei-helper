@@ -9,9 +9,16 @@ export enum GameServer {
     China = 'China',
 }
 
+export const EquipmentCategories = [
+  'Hat', 'Gloves', 'Shoes',
+  'Bag', 'Badge', 'Hairpin',
+  'Charm', 'Watch', 'Necklace',
+] as const;
+export type EquipmentCategory = typeof EquipmentCategories[number];
+
 export interface Equipment {
     id: string
-    category: string
+    category: EquipmentCategory
     tier: number
     icon: string
     jpName: string
