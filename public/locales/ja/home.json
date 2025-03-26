@@ -5,10 +5,13 @@
   "listButton": "検索",
   "cancelButton": "キャンセル",
   "deleteButton": "削除",
+  "upgradeAndDeleteButton": "強化＆削除",
+  "upgradeAndDeleteTooltip": "設計図を消費し、リストから削除します",
   "editButton": "編集",
   "closeButton": "閉じる",
   "showAllButton": "すべてを表示",
   "showFewerButton": "一部のみ表示",
+  "canUpgradeBadge": "強化可能",
   "isInADropCampaign": "Normalドロップ量キャンペーン中？",
   "normal1x": "キャンペーン無し（1倍）",
   "normal2x": "2倍",
@@ -44,6 +47,13 @@
     "maxLengthIs": "{{max}}文字以内",
     "enterNickName":  "ニックネーム入力（任意）",
     "enterNickNameNormalHelperText": "生徒の名前をメモとして入力すれば、装備の管理ができます"
+  },
+  "upgradeDialog": {
+    "title": "強化内容確認",
+    "description_1": "装備設計図を消費し、以下の強化を行います。",
+    "description_2": "※登録されている所持設計図を必要数だけ減らして、この装備をリストから削除します。",
+    "detail": "強化内容",
+    "pieces": "消費される設計図"
   },
   "thinsToNote": {
     "title": "注記",
